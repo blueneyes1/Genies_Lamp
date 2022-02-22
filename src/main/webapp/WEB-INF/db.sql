@@ -15,7 +15,6 @@ create table genies_member(
     member_pw_answer   varchar2(100),
     member_phone		varchar2(13),
     member_address		varchar2(200),
-    member_birth_date      date,
     member_grade       char(1) default 'C',		-- A : 관리자, B : 직원, C : 일반고객
     member_join_date      date default sysdate
 );
@@ -107,8 +106,10 @@ create table genies_pay(
     pay_phone  		varchar2(13),
     pay_address 	 varchar2(200),
     pay_message     varchar2(100),
+    pay_cost		number(4) default '3000',		-- 배송비
     pay_total		number(8),
-    pay_delivery	number(1) default 1		-- 0:결제취소 1:배송준비 2:배송중 3:배송완료
+    pay_delivery	number(1) default '1',		-- 0:결제취소 1:배송준비 2:배송중 3:배송완료
+    pay_date		date default sysdate
 );
 
 drop sequence genies_pay_seq;
@@ -124,6 +125,9 @@ create table genies_product(
     product_color  		varchar2(50),
     product_price 	 number(8),		-- 가격
     product_count     number(8),	-- 수량
+    product_img1		varchar2(100),
+    product_img2		varchar2(100),
+    product_img3		varchar2(100),
     product_date		date default sysdate
 );
 	
@@ -138,11 +142,23 @@ create table genies_product_review(
     review_member_id  		varchar2(20),
     review_title			varchar2(50),
     review_content		varchar2(1000),
+    review_grade			char(1),
     review_date		date default sysdate
 );
 
 drop sequence genies_product_review_seq;
 create sequence genies_product_review_seq;
+
+drop table genies_review_reply;
+create table genies_review_reply(
+    review_reply_idx       number(4) primary key,
+    review_reply_content   varchar2(1000),
+    review_reply_date      date default sysdate,
+    review_reply_review_idx 		number(4)
+);
+
+drop sequence genies_review_reply_seq;
+create sequence genies_review_reply_seq;
 
 commit;
 
