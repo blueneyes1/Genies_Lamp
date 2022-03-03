@@ -8,6 +8,10 @@
 
 <mapper namespace="com.study.springboot.dao.IPayDao">
 
+	<select id="delivery" resultType="com.study.springboot.dto.PayDto">
+	    select * from genies_pay where pay_delivery=#{param1}
+	</select>
+
      
 		
 </mapper>    
