@@ -10,11 +10,13 @@ create table genies_member(
     member_pw     varchar2(20),
     member_name   varchar2(20),
     member_email   varchar2(100),
-    member_email_receive   number(1),	--0: 비수신 1: 수신
+    member_email_receive   number(1),	-- 0: 비수신 1: 수신
     member_pw_question   number(4),
     member_pw_answer   varchar2(100),
     member_phone		varchar2(13),
-    member_address		varchar2(200),
+    member_address1		varchar2(100),		-- 우편번호
+    member_address2		varchar2(100),		-- 회원주소
+    member_address3		varchar2(100),		-- 회원상세주소
     member_grade       char(1) default 'C',		-- A : 관리자, B : 직원, C : 일반고객
     member_join_date      date default sysdate
 );
@@ -104,7 +106,9 @@ create table genies_pay(
     pay_member_id     varchar2(20),
     pay_receiver       varchar2(20),		-- 받는사람
     pay_phone  		varchar2(13),
-    pay_address 	 varchar2(200),
+    pay_address1		varchar2(100),		-- 우편번호
+    pay_address2		varchar2(100),		-- 회원주소
+    pay_address3		varchar2(100),		-- 회원상세주소
     pay_message     varchar2(100),
     pay_cost		number(4) default '3000',		-- 배송비
     pay_total		number(8),

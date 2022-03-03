@@ -8,7 +8,16 @@
 
 <mapper namespace="com.study.springboot.dao.IMemberDao">
 
-     
+	<select id="login" resultType="_int">
+		SELECT COUNT(*) FROM genies_member WHERE member_id = #{param1} AND member_pw = #{param2}
+	</select>     
+	
+	<insert id="join">
+		INSERT INTO genies_member( member_idx, member_id, member_pw, member_name, member_email,
+		member_email_receive, member_pw_question, member_pw_answer, member_phone, member_address, member_join_date )
+		VALUES ( genies_member_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5},
+		#{param6}, #{param7}, #{param8}, #{param9}, sysdate )
+	</insert>
 		
 </mapper>    
 

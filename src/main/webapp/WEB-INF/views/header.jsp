@@ -29,17 +29,17 @@
 	  <div class="topMenu d-none d-md-block container">
 	    <span class="home"><a href="/main">HOME</a></span>
 	    <c:if test="${ not empty member_id }">
-	    	<c:if test="${ member_grade eq 'A' }">
-	    		<span><a href="/admin/admin">관리자페이지</span>
+	    	<c:if test="${ genies_member.member_grade eq A }">
+	    		<span><a href="/admin">관리자페이지</a></span>
 	    	</c:if>
-	    	<c:if test="${ member_grade ne 'A' }">
-	    		<span><a href="/member/mypage">마이페이지</span>
+	    	<c:if test="${ genies_member.member_grade ne A }">
+	    		<span><a href="/mypage">마이페이지</a></span>
 	    	</c:if>
-	    	<span><a href="/member/logoutAction">로그아웃</a></span>
+	  		<span><a href="/logoutAction">로그아웃</a></span>
 	    </c:if>
 	    <c:if test="${ empty member_id }">
-	    	<span><a href="/member/login">로그인</a></span>
-	    	<span><a href="/member/join">회원가입</a></span>
+	    	<span><a href="/login">로그인</a></span>
+	    	<span><a href="/join">회원가입</a></span>
 	    </c:if>
 	  </div>
 	</div>
