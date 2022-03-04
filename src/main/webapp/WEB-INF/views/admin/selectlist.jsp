@@ -103,7 +103,7 @@
       <div class="box" id="section">
         <div class="order_img">
 	
-          <img src="order_lamp.PNG">
+          <img src="/img/admin/order_lamp.PNG">
         
         </div>
         

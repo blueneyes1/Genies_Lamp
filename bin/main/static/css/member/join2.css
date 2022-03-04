@@ -1,0 +1,18 @@
+.userInfo {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+#information {
+	text-align : center;
+}
+.joinSection1 {
+  text-align: center;
+}
+.information1 {
+  padding-top: 30px;
+}
+.imageBtn2 {
+  text-align: center;
+  border-top: 1px solid rgb(224, 224, 224);
+  padding-top: 30px;
+}

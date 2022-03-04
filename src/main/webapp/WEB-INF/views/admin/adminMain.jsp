@@ -77,7 +77,7 @@
       </div>
       <div class="box" id="section">
         <div class="img">
-          <img src="admin_lamp.PNG">
+          <img src="/img/admin/admin_lamp.PNG">
         </div>
         
       </div>
