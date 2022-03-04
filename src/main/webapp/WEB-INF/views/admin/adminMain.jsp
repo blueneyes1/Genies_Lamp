@@ -20,15 +20,16 @@
     #main {
       display: flex;
       flex-flow: row nowrap;
+      width: 1200px;
     }
     #aside {
       flex: 1 1 auto;
       flex-direction: column;
-      width: 500px;
+      width: 300px;
     }
     #section {
       flex: 2 1 auto;
-      width: 1000px;
+      width: 900px;
     }
     
     .menu_btn {

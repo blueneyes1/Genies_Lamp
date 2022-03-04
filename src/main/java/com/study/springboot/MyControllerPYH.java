@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.springboot.dto.PayDto;
 import com.study.springboot.service.payService;
@@ -43,6 +44,31 @@ public class MyControllerPYH {
 		
 		
 		return "/admin/orderlist";
+	}
+	
+	@RequestMapping("/product/productDetail")
+	public String productDetail(Model model) {
+		
+	
+		
+		return "/product/productDetail";
+	}
+	
+	@RequestMapping("/product/reviewActionForm")
+	public String reviewActionForm(Model model) {
+		
+	
+		return "/product/reviewActionForm";
+	}
+	
+	@RequestMapping("/reviewAction")
+	@ResponseBody
+	public String reviewAction() {
+		
+
+		
+		return "/product/productDetail";
+			
 	}
 
 }
