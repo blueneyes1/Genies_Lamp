@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -23,59 +23,106 @@
   </script>
   
   <style>
-  
-  
-  
-  body {
-      display : flex;
-      flex-direction : column;
-      align-items: center;
-      font-size: 12px;
-   
-    }
-  
-    .wrap {
-      margin-top: 50px;
+  * { margin: 0; padding: 0; }
+
+	body {
+      padding: 20px;
     }
 
-  .orderBtn {
+	.box {
+  	display: flex;
+  	flex-flow: row nowrap;
+  	justify-content: center;
+  	align-items: center;
+	}
+
+	#main {
+  	display: flex;
+  	flex-flow: row nowrap;
+	}
+	
+	#aside {
+  	flex: 1 1 auto;
+  	flex-direction: column;
+  	width: 500px;
+	}
+	
+	#section {
+  	flex: 2 1 auto;
+  	flex-direction: column;
+  	width: 1000px;
+	}
+
+	button {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 70px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	}
+
+	button:hover {
+	background-color: rgb(130, 130, 215);
+	}
+  
+  	.menuBtn {
+    margin: 10px;
+    font-size: 12px;
+  	text-align: center;
+ 	 }  
+
+  	.orderBtn {
   	 font-size: 12px;
   	 text-align: center;
-  }
-  
-  button {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 70px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px;
-  }
-
-  button:hover {
-    background-color: rgb(130, 130, 215);
-  }
+ 	 }
   
   </style>
 </head>
 <body>
 	
-	<div class="wrap">
-	
-	<div class="orderImg">
-	
-		<img src="/img/order_lamp.PNG">
-	
-	</div>
-	
-	<div class="orderBtn">
-	
-    <button onclick="showDelivery_1();">배송전</button>
-    <button onclick="showDelivery_2();">배송중</button>
-    <button onclick="showDelivery_3();">배송완료</button>
+	<div id="wrap">
 
-	</div>
-	</div>
+    <div class="box" id="main">
+      <div class="box" id="aside">
+        <div class="menuBtn">
+          <button onclick="location.href='/admin/member.jsp' ">회원관리</button>
+        </div>
+        
+        <div class="menuBtn">
+          <button onclick="location.href='/admin/selectlist.jsp' ">주문관리</button>
+        </div>
+
+        <div class="menuBtn">
+          <button onclick="location.href='/admin/product.jsp' ">상품관리</button>
+        </div>
+
+        <div class="menuBtn">
+          <button onclick="location.href='/admin/board.jsp' ">게시판관리</button>
+        </div>
+        
+      </div>
+      <div class="box" id="section">
+        <div class="orderImg">
+	
+          <img src="order_lamp.PNG">
+        
+        </div>
+        
+        <div class="orderBtn">
+        
+          <button onclick="showDelivery_1();">배송전</button>
+          <button onclick="showDelivery_2();">배송중</button>
+          <button onclick="showDelivery_3();">배송완료</button>
+      
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
 
 </body>
 

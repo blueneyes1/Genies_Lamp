@@ -30,7 +30,7 @@
 	    <span class="home"><a href="/main">HOME</a></span>
 	    <c:if test="${ not empty member_id }">
 	    	<c:if test="${ genies_member.member_grade eq A }">
-	    		<span><a href="/admin">관리자페이지</a></span>
+	    		<span><a href="/admin/adminMain">관리자페이지</a></span>
 	    	</c:if>
 	    	<c:if test="${ genies_member.member_grade ne A }">
 	    		<span><a href="/mypage">마이페이지</a></span>
