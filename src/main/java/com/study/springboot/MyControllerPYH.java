@@ -18,6 +18,11 @@ public class MyControllerPYH {
 	@Autowired
 	payService payservice;
 	
+	@RequestMapping("/admin/adminMain")
+	public String adminMain(Model model) {
+		
+		return "/admin/adminMain";
+	}
 	
 	@RequestMapping("/admin/selectlist")
 	public String selectlist(Model model) {
