@@ -56,7 +56,7 @@
 	button {
 	background-color: rgb(178, 178, 238);
 	border: none;
-	width: 70px;
+	width: 90px;
 	height: 25px;
 	color: rgb(17, 17, 17);
 	border-radius: 3px;
@@ -66,13 +66,13 @@
 	background-color: rgb(130, 130, 215);
 	}
   
-  	.menuBtn {
+  	.menu_btn {
     margin: 10px;
     font-size: 12px;
   	text-align: center;
  	 }  
 
-  	.orderBtn {
+  	.order_btn {
   	 font-size: 12px;
   	 text-align: center;
  	 }
@@ -80,36 +80,34 @@
   </style>
 </head>
 <body>
-	
-	<div id="wrap">
 
     <div class="box" id="main">
       <div class="box" id="aside">
-        <div class="menuBtn">
+        <div class="menu_btn">
           <button onclick="location.href='/admin/member.jsp' ">회원관리</button>
         </div>
         
-        <div class="menuBtn">
+        <div class="menu_btn">
           <button onclick="location.href='/admin/selectlist.jsp' ">주문관리</button>
         </div>
 
-        <div class="menuBtn">
+        <div class="menu_btn">
           <button onclick="location.href='/admin/product.jsp' ">상품관리</button>
         </div>
 
-        <div class="menuBtn">
+        <div class="menu_btn">
           <button onclick="location.href='/admin/board.jsp' ">게시판관리</button>
         </div>
         
       </div>
       <div class="box" id="section">
-        <div class="orderImg">
+        <div class="order_img">
 	
           <img src="order_lamp.PNG">
         
         </div>
         
-        <div class="orderBtn">
+        <div class="order_btn">
         
           <button onclick="showDelivery_1();">배송전</button>
           <button onclick="showDelivery_2();">배송중</button>
@@ -120,7 +118,7 @@
       </div>
     </div>
 
-  </div>
+
 </body>
 </html>
 

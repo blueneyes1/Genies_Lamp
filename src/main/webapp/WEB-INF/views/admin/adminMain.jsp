@@ -31,7 +31,7 @@
       width: 1000px;
     }
     
-    .menuBtn {
+    .menu_btn {
     margin: 10px;
     font-size: 12px;
   	text-align: center;
@@ -40,7 +40,7 @@
     button {
     background-color: rgb(178, 178, 238);
     border: none;
-    width: 70px;
+    width: 90px;
     height: 25px;
     color: rgb(17, 17, 17);
     border-radius: 3px;
@@ -55,23 +55,22 @@
   </style>
 </head>
 <body>
-  <div id="wrap">
 
     <div class="box" id="main">
       <div class="box" id="aside">
-        <div class="menuBtn">
+        <div class="menu_btn">
           <button onclick="location.href='/admin/member' ">회원관리</button>
         </div>
         
-        <div class="menuBtn">
+        <div class="menu_btn">
           <button onclick="location.href='/admin/selectlist' ">주문관리</button>
         </div>
 
-        <div class="menuBtn">
+        <div class="menu_btn">
           <button onclick="location.href='/admin/product' ">상품관리</button>
         </div>
 
-        <div class="menuBtn">
+        <div class="menu_btn">
           <button onclick="location.href='/admin/board' ">게시판관리</button>
         </div>
         
@@ -84,6 +83,5 @@
       </div>
     </div>
 
-  </div>
 </body>
 </html>
