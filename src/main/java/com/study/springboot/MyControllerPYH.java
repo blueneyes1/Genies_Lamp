@@ -19,12 +19,14 @@ public class MyControllerPYH {
 	@Autowired
 	payService payservice;
 	
+	// 관리자페이지 메인
 	@RequestMapping("/admin/adminMain")
 	public String adminMain(Model model) {
 		
 		return "/admin/adminMain";
 	}
 	
+	// 관리자페이지 - 주문관리 페이지
 	@RequestMapping("/admin/selectlist")
 	public String selectlist(Model model) {
 		
@@ -33,6 +35,7 @@ public class MyControllerPYH {
 			return "/admin/selectlist";
 	}
 	
+	// 관리자페이지 - 주문관리 페이지
 	@RequestMapping("/admin/orderlist")
 	public String delivery(@RequestParam(value= "pay_delivery") String pay_delivery,
 			Model model) {
@@ -46,6 +49,7 @@ public class MyControllerPYH {
 		return "/admin/orderlist";
 	}
 	
+	// 상품 상세 페이지
 	@RequestMapping("/product/productDetail")
 	public String productDetail(Model model) {
 		
@@ -54,6 +58,7 @@ public class MyControllerPYH {
 		return "/product/productDetail";
 	}
 	
+	// 상품 리뷰 페이지
 	@RequestMapping("/product/reviewActionForm")
 	public String reviewActionForm(Model model) {
 		
@@ -61,6 +66,7 @@ public class MyControllerPYH {
 		return "/product/reviewActionForm";
 	}
 	
+	// 리뷰
 	@RequestMapping("/reviewAction")
 	@ResponseBody
 	public String reviewAction() {
@@ -69,6 +75,22 @@ public class MyControllerPYH {
 		
 		return "/product/productDetail";
 			
+	}
+	
+	// 마이페이지 메인
+	@RequestMapping("/mypage/mypageMain")
+	public String mypageMain(Model model) {
+		
+	
+		return "/mypage/mypageMain";
+	}
+	
+	// 마이페이지 - 회원정보수정
+	@RequestMapping("/mypage/memberInfo")
+	public String memberInfo(Model model) {
+		
+		
+		return "/mypage/memberInfo";
 	}
 
 }
