@@ -133,22 +133,22 @@
         
         <div class="mypage_contents">
         
-        <form action="" method="post">
+        <form action="memberUpdateAction" method="post">
         
           <table class="table table-hover">
-        
+      	  <input type="hidden" name="member_id" value="${ list.member_id }" />
         
         
             <tr>
               <th>아이디</th>
-              <td>${dto.member_id}</td>
+              <td>${list.member_id}</td>
             </tr>
         
         
         
             <tr>
               <th>이름</th>
-              <td>${dto.member_name}</td>
+              <td>${list.member_name}</td>
             </tr>
         
         
@@ -156,7 +156,7 @@
             <tr>
               <th>연락처</th>
               <td>
-                <input type="text" value="${dto.member_phone}">
+                <input type="text" value="${list.member_phone}">
               </td>
             </tr>
 
@@ -186,7 +186,7 @@
             <tr>
               <th>이메일</th>
               <td>
-                <input type="text" value="${dto.member_email}">
+                <input type="text" value="${list.member_email}">
               </td>
             </tr>
         

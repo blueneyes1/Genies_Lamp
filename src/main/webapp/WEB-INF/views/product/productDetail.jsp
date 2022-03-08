@@ -110,18 +110,18 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col" colspan="2">${dto.product_name}</th>
+              <th scope="col" colspan="2">${list.product_name}</th>
             </tr>
           </thead>
           <tbody>
            <tr>
               <th scope="row">판매 가격</th>
-              <td>${dto.product_price}</td>
+              <td>${list.product_price}</td>
             </tr>
         
             <tr>
               <th scope="row">배송비</th>
-              <td>2500원</td>
+              <td>3000원</td>
             </tr>
         
             <tr>
@@ -135,7 +135,7 @@
         
             <tr>
               <th scope="row">총 결제 금액</th>
-              <td>${dto.product_price}</td>
+              <td>${list.product_price}</td>
             </tr>
         
             <tr>
@@ -220,12 +220,12 @@
             <th>아이디</th>
             <th>날짜</th>
           </tr>
-          <c:forEach var="review_dto" items="${ list }">
+          <c:forEach var="review_list" items="${ review_list }">
             <tr>
-              <td>${ review_dto.review_content }</td>
-              <td>${ review_dto.review_member_id }</td>
+              <td>${ review_list.review_content }</td>
+              <td>${ review_list.review_member_id }</td>
               <td>
-                <c:set var="dateVar" value="${ review_dto.review_date }" />
+                <c:set var="dateVar" value="${ review_list.review_date }" />
                 <fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
               </td>
             </tr>

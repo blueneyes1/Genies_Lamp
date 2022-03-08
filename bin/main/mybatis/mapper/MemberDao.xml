@@ -18,6 +18,19 @@
 		VALUES ( genies_member_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5},
 		#{param6}, #{param7}, #{param8}, #{param9}, sysdate )
 	</insert>
+	
+	<select id="viewMember" resultType="com.study.springboot.dto.MemberDto">
+    	select * from GENIES_MEMBER where MEMBER_ID=#{ param1 }
+    </select>
+	
+	<update id="memberUpdate">
+		UPDATE GENIES_MEMBER SET 
+		MEMBER_ID=#{param1}, 
+		MEMBER_NAME=#{param2},
+		MEMBER_PHONE=#{param3},
+		MEMBER_EMAIL=#{param4}
+		WHERE MEMBER_ID = #{param5}
+	</update>
 		
 </mapper>    
 
