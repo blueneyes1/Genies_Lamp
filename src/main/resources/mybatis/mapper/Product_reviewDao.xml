@@ -8,7 +8,14 @@
 
 <mapper namespace="com.study.springboot.dao.IProduct_reviewDao">
 
-     
+    <select id="viewReview" resultType="com.study.springboot.dto.Product_reviewDto">
+    	select * from GENIES_PRODUCT_REVIEW where review_product_idx=#{ param1 }
+    </select>
+    
+    <insert id="writeReview">
+    	insert into GENIES_PRODUCT_REVIEW (review_idx, review_member_id, review_title, review_content,review_date, review_product_idx) 
+			values (GENIES_PRODUCT_REVIEW_seq.nextval, #{ param1 }, #{ param2 }, #{ param3 }, sysdate, #{ param4 } )
+    </insert>
 		
 </mapper>    
 

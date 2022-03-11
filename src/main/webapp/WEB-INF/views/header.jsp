@@ -32,8 +32,13 @@
 	    	<c:if test="${ member.member_grade eq 'A' }">
 	    		<span><a href="/admin/adminMain">관리자페이지</a></span>
 	    	</c:if>
+<<<<<<< HEAD
 	    	<c:if test="${ member.member_grade ne 'A' }">
 	    		<span><a href="/mypage">마이페이지</a></span>
+=======
+	    	<c:if test="${ genies_member.member_grade ne A }">
+	    		<span><a href="/mypage/mypageMain">마이페이지</a></span>
+>>>>>>> origin/main
 	    	</c:if>
 	  		<span><a href="/logoutAction">로그아웃</a></span>
 	    </c:if>
@@ -70,10 +75,10 @@
 	        <li class="nav-item dropdown">
 	          <a class="nav-link" href="#">제품안내</a>
 	          <div class="dropdown-content">
-	            <a href="/product/product01">스탠드등</a>
-	            <a href="/product/product02">레일등</a>
-	            <a href="/product/product03">천장등</a>
-	            <a href="/product/product04">벽등</a>
+	            <a href="/product/productDetail">스탠드등</a>
+	            <a href="/product/productDetail">레일등</a>
+	            <a href="/product/productDetail">천장등</a>
+	            <a href="/product/productDetail">벽등</a>
 	          </div>
 	        </li>
 	        <li class="nav-item dropdown">

@@ -72,5 +72,20 @@ public class MemberService {
 				);
 		return result;		
 	}
+	
+	public List<MemberDto> viewMember(String member_id) {
+		
+		List<MemberDto> list = memberDao.viewMember(member_id);
+		
+		return list;
+	}
+	
+	public int memberUpdate(String member_id, String member_name, String member_phone, String member_email) {
+		
+		int result = memberDao.memberUpdate(member_id, member_name, member_phone, member_email);
+		
+		return result;
+	}
+	
 
 }
