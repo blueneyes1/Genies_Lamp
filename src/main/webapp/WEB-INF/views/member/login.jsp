@@ -32,7 +32,7 @@
 	            <td>-아이디를 잊으셨나요?</td>
 	            <td>
 	              <input type="image"
-	              onclick="window.open('idFind','아이디찾기', 'width=470,height=320,location=no,status=no,scrollbars=no')",
+	              onclick="window.open('/idFind','아이디찾기', 'width=470,height=320,location=no,status=no,scrollbars=no')",
 	              src="img/member/btn_id_find.gif" />
 	            </td>
 	          </tr>
@@ -40,7 +40,7 @@
 	            <td>-비밀번호를 잊으셨나요?</td>
 	            <td>
 	            	<input type="image" 
-	            	onclick="window.open('passwordFind','비밀번호찾기', 'width=470,height=320,location=no,status=no,scrollbars=no')",
+	            	onclick="window.open('/passwordFind','비밀번호찾기', 'width=470,height=320,location=no,status=no,scrollbars=no')",
 			      	src="img/member/btn_pw_find.gif" />
 	            </td>
 	          </tr>

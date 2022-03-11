@@ -7,11 +7,105 @@
 
 <link rel="stylesheet" href="/css/member/join2.css">
 
+<script>
+	function checkValue() {
+		if(!document.userInfo.member_id.value) { // empty: null, 길이 0
+			alert( "아이디를 입력해주세요" );
+			document.getElementById( 'member_id' ).focus();
+			return false; // submit전송이안됨
+		}
+		if(!document.userInfo.member_id.value == 'no') { // empty: null, 길이 0
+			alert( "아이디 중복확인을 해주세요" );
+			document.getElementById( 'member_id' ).focus();
+			return false; // submit전송이안됨
+		}
+		if(!document.userInfo.member_pw.value) {
+			alert( "비밀번호를 입력해주세요" );
+			document.getElementById( 'member_pw' ).focus();
+			return false; // submit전송이안됨
+		}
+		if( ! (document.userInfo.member_pw.value == document.userInfo.member_pw_check.value) ) {
+			alert( "비밀번호가 일치하지 않습니다. 다시 입력해주세요" );
+			document.getElementById('member_pw').focus();
+			return false; //submit전송이 안됨
+		}
+    	if(!document.userInfo.member_name.value) { 
+			alert("이름을 입력해주세요");
+			document.getElementById('member_name').focus();
+			return false; //submit전송이 안됨
+		}
+    	if(!document.userInfo.member_email.value) {
+			alert("이메일을 입력해주세요");
+			document.getElementById('member_email').focus();
+			return false; 
+		}
+    	if(!document.userInfo.member_phone.value) {
+			alert("전화번호를 입력해주세요");
+			document.getElementById('member_phone').focus();
+			return false; 
+		}
+    	if(!document.userInfo.member_adrress1.value) {
+			alert("우편번호를 입력해주세요");
+			document.getElementById('member_adrress1').focus();
+			return false; 
+		}
+    	if(!document.userInfo.member_adrress2.value) {
+			alert("주소를 입력해주세요");
+			document.getElementById('member_adrress2').focus();
+			return false; 
+		}
+    	if(!document.userInfo.member_adrress3.value) {
+			alert("상세주소를 입력해주세요");
+			document.getElementById('member_adrress3').focus();
+			return false; 
+		}
+    	
+    	return true; //submit전송됨.
+	}
+	
+	// ajax으로 서버와 통신한다.
+	// ajax : page 리로딩없이 서버와 통신한다.
+	// ajax 용도 : 화면 갱신(reload,redirect)가 없이
+	//            부분화면 갱신(통신)을 js에서 한다.
+	//           예)네이버 - 실시간검색어, 실시간날씨
+	function idCheck() {
+		var member_id = $( '#member_id' ).val();
+		if(!member_id){
+			alert("아이디를 입력하세요.");
+			return false;
+		}
+		// 아이디와 유효성 검사(1보다 같거나 크면 중복 / 0 이면 중복안됨)
+		$.ajax( {
+			url: 'http://localhost:8090/member/idCheckAjax?member_id=' + member_id,
+			type: 'get',
+			success: function(data) {
+				console.log('통신 성공, data:' + data);
+				
+				var data_num = Number( data );
+				if( data_num >= 1 ) {
+					// 아이디가 중복됨.
+					alert("아이디가 중복됩니다.");
+					$('#member_id_check').val("no");
+				}else{
+					// 아이디가 중복 안됨. 사용가능.
+					alert("아이디가 사용가능합니다.");
+					$('#member_id_check').val("yes");
+				}
+			},
+			error: function(){
+    			console.log('통신 실패');
+    		}
+		}
+		);
+	}
+	
+</script>
+
 <!-- 회원가입 -->
 
 <!-- 입력폼 -->
 
-<form action="/join2Actoin" method="post" name="userInfo" onsubmit="return checkValue();">
+<form action="/join2Action" method="post" name="userInfo" onsubmit="return checkValue();">
 	<div class="information">
 		<table>
 			<tr>
@@ -76,10 +170,10 @@
 			<tr>
 				<td>주소</td>
 	            <td>
-	            	<input type="text" style="margin-bottom:10px;" id="sample6_postcode" placeholder="우편번호">
+	            	<input type="text" style="margin-bottom:10px;" name="member_address1" id="member_address1" placeholder="우편번호">
 	            	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-	            	<input type="text" style="margin-bottom:10px;" class="inputStyle1" name="sample6_address" id="sample6_address" placeholder="주소"><br>
-	            	<input type="text" class="inputStyle1" name="sample6_detailAddress" id="sample6_detailAddress" placeholder="상세주소">
+	            	<input type="text" style="margin-bottom:10px;" class="inputStyle1" name="member_address2" id="member_address2" placeholder="주소"><br>
+	            	<input type="text" class="inputStyle1" name="member_address3" id="member_address3" placeholder="상세주소">
 	            	<input type="hidden" class="inputStyle1" id="sample6_extraAddress" placeholder="참고항목">
 	            </td>
 	        </tr>
@@ -142,10 +236,10 @@
                 }
 
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample6_postcode').value = data.zonecode;
-                document.getElementById("sample6_address").value = addr;
+                document.getElementById('member_address1').value = data.zonecode;
+                document.getElementById("member_address2").value = addr;
                 // 커서를 상세주소 필드로 이동한다.
-                document.getElementById("sample6_detailAddress").focus();
+                document.getElementById("member_address3").focus();
             }
         }).open();
     }

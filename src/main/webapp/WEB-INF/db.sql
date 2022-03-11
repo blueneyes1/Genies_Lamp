@@ -27,9 +27,9 @@ create sequence genies_member_seq;
 -- 관리자계정
 insert into genies_member(member_idx, member_id, member_pw, member_name, 
 member_email, member_email_receive, member_pw_question, member_pw_answer, 
-member_phone, member_address, member_birth_date, member_grade, member_join_date) 
+member_phone, member_address1, member_address2, member_address3, member_grade, member_join_date) 
 values (genies_member_seq.nextval, 'Genie', '1234', 'Genie', 'test@gmail.com', 0,0,0,'010-1234-5678', 
-'서울', '2022/01/01', 'A', sysdate);
+'00000', '서울시', '지니의램프', 'A', sysdate);
 
 select * from genies_member;
 
@@ -165,21 +165,6 @@ drop sequence genies_review_reply_seq;
 create sequence genies_review_reply_seq;
 
 commit;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
