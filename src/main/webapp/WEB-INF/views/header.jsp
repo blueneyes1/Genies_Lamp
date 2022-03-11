@@ -32,13 +32,9 @@
 	    	<c:if test="${ member.member_grade eq 'A' }">
 	    		<span><a href="/admin/adminMain">관리자페이지</a></span>
 	    	</c:if>
-<<<<<<< HEAD
+
 	    	<c:if test="${ member.member_grade ne 'A' }">
-	    		<span><a href="/mypage">마이페이지</a></span>
-=======
-	    	<c:if test="${ genies_member.member_grade ne A }">
 	    		<span><a href="/mypage/mypageMain">마이페이지</a></span>
->>>>>>> origin/main
 	    	</c:if>
 	  		<span><a href="/logoutAction">로그아웃</a></span>
 	    </c:if>
