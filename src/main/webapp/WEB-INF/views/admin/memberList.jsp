@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
@@ -15,12 +15,6 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 <title></title>
-
- <script language="javascript">
-  function showDelivery_1() { window.open("/admin/orderlist?pay_delivery=1", "a", "width=700, height=700, left=100, top=50"); }
-  function showDelivery_2() { window.open("/admin/orderlist?pay_delivery=2", "a", "width=700, height=700, left=100, top=50"); }
-  function showDelivery_3() { window.open("/admin/orderlist?pay_delivery=3", "a", "width=700, height=700, left=100, top=50"); }
-  </script>
   
   <style>
   * { margin: 0; padding: 0; }
@@ -102,17 +96,32 @@
         
       </div>
       <div class="box" id="section">
-        <div class="order_img">
+        <div class="member_list">
 	
-          <img src="/img/admin/order_lamp.PNG">
-        
-        </div>
-        
-        <div class="order_btn">
-        
-          <button onclick="showDelivery_1();">배송전</button>
-          <button onclick="showDelivery_2();">배송중</button>
-          <button onclick="showDelivery_3();">배송완료</button>
+          <table>
+            <tr>
+              <td>멤버 아이디</td>
+              <td>멤버 성명</td>
+              <td>멤버 이메일</td>
+              <td>멤버 전화번호</td>
+              <td>멤버 주소</td>
+              <td>멤버 등급</td>
+              <td>멤버 가입날짜</td>
+            </tr>
+		
+		<c:forEach var="list" items="${list }" >
+            <tr>
+              <td>${list.member_id }</td>
+              <td>${list.member_name }</td>
+              <td>${list.member_email }</td>
+              <td>${list.member_phone }</td>
+              <td>${list.member_address1 }</td>
+              <td>${list.member_grade }</td>
+              <td>${list.member_join_date }</td>
+            </tr>
+           </c:forEach>
+          </table>
+          
       
         </div>
         

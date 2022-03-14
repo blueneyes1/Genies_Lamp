@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.springboot.dto.BasketDto;
+import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.PayDto;
 import com.study.springboot.dto.ProductDto;
 import com.study.springboot.dto.Product_reviewDto;
@@ -65,6 +66,16 @@ public class MyControllerPYH {
 		
 		
 		return "/admin/orderlist";
+	}
+//------------------------------------------------------------------------------------------------------------------------
+	// 관리자 페이지 - 멤버 리스트 페이지
+	@RequestMapping("admin/memberList")
+	public String memberList(Model model) {
+		
+		List<MemberDto> list = memberservice.list();
+		model.addAttribute("list", list);
+		
+		return "/admin/memberList";
 	}
 //------------------------------------------------------------------------------------------------------------------------
 	// 상품 리스트 페이지 - 스탠드등

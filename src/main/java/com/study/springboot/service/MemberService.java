@@ -108,5 +108,12 @@ public class MemberService {
 		return result;
 	}
 	
+	public List<MemberDto> list() {
+		
+		List<MemberDto> list = memberDao.list();
+		
+		return list;
+	}
+	
 
 }

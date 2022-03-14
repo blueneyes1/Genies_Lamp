@@ -55,6 +55,10 @@
 		MEMBER_PW=#{param2}
 		WHERE MEMBER_ID = #{param1}
 	</update>
+	
+	<select id="list" resultType="com.study.springboot.dto.MemberDto">
+    	select * from GENIES_MEMBER
+    </select>
 		
 </mapper>    
 

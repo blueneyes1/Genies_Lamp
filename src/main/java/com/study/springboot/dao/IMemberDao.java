@@ -23,5 +23,7 @@ public interface IMemberDao {
 	
 	public MemberDto viewPassword(String member_id);
 	public int passwordChange(String member_id, String member_pw);
+	
+	public List<MemberDto> list();
 
 }
