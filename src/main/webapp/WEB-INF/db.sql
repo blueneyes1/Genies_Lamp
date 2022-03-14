@@ -109,11 +109,13 @@ create sequence genies_one2one_reply_seq;
 -- 1:1문의
 drop table genies_one2one;
 create table genies_one2one(
-    one2one_idx      number(20) primary key,
-    one2one_member_id     varchar2(20),
-    one2one_member_name    varchar2(20),
-    one2one_title     varchar2(100),
-    one2one_content  	varchar2(2000),
+    one2one_idx      number(4) primary key,
+    one2one_name     varchar2(20),
+    one2one_phone    varchar2(20),
+    one2one_email     varchar2(100),
+    one2one_address   varchar2(200),
+    one2one_title    varchar2(100),
+    one2one_content  varchar2(2000),
     one2one_date     date default sysdate
 );
 

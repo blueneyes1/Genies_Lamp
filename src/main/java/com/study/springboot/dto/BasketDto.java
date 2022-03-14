@@ -11,6 +11,10 @@ public class BasketDto {
 	private int basket_count;
 	private int basket_price;
 	
+	public BasketDto() {
+		
+	}
+	
 	public BasketDto(int basket_idx, String basket_member_id, String basket_product_idx, int basket_count,
 			int basket_price) {
 		super();

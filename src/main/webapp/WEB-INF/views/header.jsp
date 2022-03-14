@@ -81,8 +81,8 @@
 	          <a class="nav-link" href="#">커뮤니티</a>
 	          <div class="dropdown-content">
 	            <a href="/community/community01">공지사항</a>
-	            <a href="/community/community02">1:1 문의</a>
-	            <a href="/community/community03">FAQ</a>
+	            <a href="/customer/customer01">1:1 문의</a>
+	            <a href="/customer/customer03">FAQ</a>
 	          </div>
 	        </li>	       
 	      </ul>
