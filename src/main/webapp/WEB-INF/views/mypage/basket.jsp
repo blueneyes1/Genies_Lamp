@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +12,7 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 
-<title>상품평 작성하기</title>
+<title>장바구니</title>
 <style>
   
   .wrap {
@@ -25,50 +23,59 @@
     font-size: 12px;
   }
 
-  .review {
+  .basket {
     display: flex;
     flex-direction: row;
     margin-top: 50px;
   }
 
-  #review_btn {
-    text-align: center;
-  }
+  
 
   </style>
 </head>
 <body>
 
 	<div class="wrap">
-	<form method="post" action="/reviewAction">
-		<div class="review">
+	<form method="post" action="basketOrder">
+		<div class="basket">
 
       <table class="table table-sm">
-      <input type="hidden" name="review_product_idx" value="${review_product_idx}" />
-      
+      <input type="hidden" name="member_id" value="${dto.basket_member_id}" />
+        
       <tr>
-          <th>작성자</th>
-          <td><input type="text" name="review_member_id" /></td>
-        </tr>
-      
-        <tr>
-          <th>제목</th>
-          <td>
-            <input type="text" name="review_title" />
-          </td>
-        </tr>
+        <td>이미지</td>
+        <td>상품정보</td>
+        <td>판매가</td>
+        <td>수량</td>
+        <td>배송비</td>
+        <td>합계</td>
+      </tr>
 
-        <tr>
-          <th>내용</th>
-          <td>
-            <textarea name="review_content" cols="70" rows="20"></textarea>
-          </td>
-        </tr>
+      <tr>
+        <td>${dto.product_img1 }</td>
+        <td>${dto.product_name }</td>
+        <td>${dto.product_price}</td>
+        <td>${dto.basket_count }</td>
+        <td>3000원</td>
+        <td>${dto.product_price }</td>
+      </tr>
 
-        <tr id="review_btn">
-          <td colspan="2">
-            <input type="submit" value="상품평 작성" />
-            <input type="button" value="닫기"  onclick="self.close();"/>
+      <tr>
+        <td colspan="2">총 상품금액</td>
+        <td colspan="2">총 배송비</td>
+        <td colspan="2">결제 예정금액</td>
+      </tr>
+
+      <tr>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+        <td colspan="2"></td>
+      </tr>
+        
+        <tr id="basket_btn">
+          <td colspan="5">
+            <input type="submit" value="주문하기" />
+            <input type="button" value="장바구니 비우기" />
           </td>
         </tr>
 

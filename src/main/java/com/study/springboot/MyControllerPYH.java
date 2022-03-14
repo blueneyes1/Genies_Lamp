@@ -2,6 +2,8 @@ package com.study.springboot;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.study.springboot.dto.MemberDto;
+import com.study.springboot.dto.BasketDto;
 import com.study.springboot.dto.PayDto;
 import com.study.springboot.dto.ProductDto;
 import com.study.springboot.dto.Product_reviewDto;
+import com.study.springboot.service.BasketService;
 import com.study.springboot.service.MemberService;
 import com.study.springboot.service.ProductService;
 import com.study.springboot.service.payService;
@@ -29,6 +32,9 @@ public class MyControllerPYH {
 	
 	@Autowired
 	ProductService productservice;
+	
+	@Autowired
+	BasketService basketservice;
 
 //---------------------------------------------------------------------------------------------------------------------
     // 관리자페이지 메인
@@ -98,6 +104,10 @@ public class MyControllerPYH {
 		List<ProductDto> list = productservice.viewProduct(product_idx);
 		model.addAttribute("list", list);
 		
+		System.out.println(product_idx);
+		
+		model.addAttribute("product_idx" , product_idx);
+		
 		// 리뷰 보기
 		List<Product_reviewDto> review_list = productservice.viewReview(product_idx);
 		model.addAttribute("review_list", review_list);
@@ -105,10 +115,12 @@ public class MyControllerPYH {
 		return "/product/productDetail";
 	}
 //-------------------------------------------------------------------------------------------------------------------------	
-	// 상품 리뷰 페이지
+	// 리뷰 작성 페이지
 	@RequestMapping("/product/reviewActionForm")
-	public String reviewActionForm(Model model) {
+	public String reviewActionForm(@RequestParam("review_product_idx") String review_product_idx,
+									Model model) {
 		
+		model.addAttribute("review_product_idx", review_product_idx);
 	
 		return "/product/reviewActionForm";
 	}
@@ -116,13 +128,14 @@ public class MyControllerPYH {
 	// 리뷰 작성
 	@RequestMapping("/reviewAction")
 	@ResponseBody
-	public String reviewAction(@RequestParam("review_member_id") String review_member_id,
+	public String reviewAction(@RequestParam("review_product_idx") String review_product_idx,
+								@RequestParam("review_member_id") String review_member_id,
 								@RequestParam("review_title") String review_title,
-								@RequestParam("review_content") String review_content,
-								@RequestParam("review_product_idx") String review_product_idx) {
+								@RequestParam("review_content") String review_content
+								) {
 		
 
-		int result = productservice.writeReview(review_member_id, review_title, review_content, review_product_idx);
+		int result = productservice.writeReview(review_product_idx, review_member_id, review_title, review_content);
 		
 		if( result == 1 ) {
 			return "<script>alert('리뷰작성을 완료하였습니다.'); location.href='/product/productDetail';</script>";
@@ -130,31 +143,46 @@ public class MyControllerPYH {
 		else {		
 			return "<script>alert('리뷰작성에 실패하였습니다.'); history.back(-1);</script>";
 		}
-	}
-//--------------------------------------------------------------------------------------------------------------------------			
+	}	
+//--------------------------------------------------------------------------------------------------------------------------
 	// 마이페이지 메인
 	@RequestMapping("/mypage/mypageMain")
-	public String mypageMain(Model model) {
+	public String mypageMain(HttpServletRequest request,Model model) {
 		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		model.addAttribute("member_id", member_id);
 	
 		return "/mypage/mypageMain";
 	}
 //---------------------------------------------------------------------------------------------------------------------------	
 	// 마이페이지 - 회원정보수정페이지
 	@RequestMapping("/mypage/memberInfo")
-	public String memberInfo(@RequestParam(value="member_id") String member_id,
-							  Model model) {
+	public String memberInfo(HttpServletRequest request, Model model) {
 		
-		List<MemberDto> list = memberservice.viewMember(member_id);
-		model.addAttribute("list", list);
 		
-		return "/mypage/memberInfo";
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		System.out.println(member_id);
+		
+		if(member_id==null) {	
+			model.addAttribute("main", "/mypage/memberInfo.jsp");			
+			return "/mypage/memberInfo";
+		}else {
+			model.addAttribute("dto", memberservice.viewMember(member_id));
+			System.out.println(member_id);
+	
+			model.addAttribute("main", "/mypage/memberInfo.jsp");			
+			return "/mypage/memberInfo";
+		}
+		
+		
 	}
 //---------------------------------------------------------------------------------------------------------------------------
 	// 마이페이지 - 회원정보 수정
-	@RequestMapping("/memberUpdateAction")
+	@RequestMapping("/memberUpdate")
 	@ResponseBody
-	public String memberUpdateAction(@RequestParam("member_id") String member_id, 
+	public String memberUpdate(@RequestParam("member_id") String member_id, 
 							  @RequestParam("member_name") String member_name,
 							  @RequestParam("member_phone") String member_phone, 
 							  @RequestParam("member_email") String member_email) {
@@ -167,7 +195,62 @@ public class MyControllerPYH {
 			return "<script>alert('회원정보수정에 실패했습니다.'); history.back(-1);</script>";
 		}
 	}
+//-----------------------------------------------------------------------------------------------------------------------------
+	// 마이페이지 - 비밀번호 변경 페이지
+	@RequestMapping("/mypage/passwordChange")
+	public String passwordChangeForm(HttpServletRequest request, Model model) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		if(member_id==null) {	
+			model.addAttribute("main", "/mypage/passwordChange.jsp");			
+			return "/mypage/passwordChange";
+		}else {
+			model.addAttribute("dto", memberservice.viewPassword(member_id));
+			System.out.println(member_id);
+	
+			model.addAttribute("main", "/mypage/passwordChange.jsp");			
+			return "/mypage/passwordChange";
+		}
+		
+		
+	}
+	
+//------------------------------------------------------------------------------------------------------------------------------
+	// 마이페이지 - 비밀번호 변경
+	@RequestMapping("/passwordChangeAction")
+	@ResponseBody
+	public String passwordChange(@RequestParam("member_id") String member_id,
+								@RequestParam("member_pw") String member_pw) {
+		
+		int result = memberservice.passwordChange(member_id,member_pw);
+		if(result == 1) {
+			
+			return "<script>alert('비밀번호 변경에 성공했습니다.'); location.href='/mypage/passwordChange';</script>";
+		}else {
+			return "<script>alert('비밀번호 변경에 실패했습니다.'); history.back(-1);</script>";
+		}
+	}
 
-
+//--------------------------------------------------------------------------------------------------------------------------
+	// 마이페이지 - 장바구니 페이지
+	@RequestMapping("/mypage/basket")
+	public String basket(HttpServletRequest request, Model model) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		System.out.println(member_id);
+		
+		if(member_id==null) {	
+			model.addAttribute("main", "/mypage/basket.jsp");			
+			return "/mypage/basket";
+		}else {
+			model.addAttribute("dto", basketservice.viewBasket(member_id));
+			System.out.println(member_id);
+	
+			model.addAttribute("main", "/mypage/basket.jsp");			
+			return "/mypage/basket";
+		}
+	}
 
 }

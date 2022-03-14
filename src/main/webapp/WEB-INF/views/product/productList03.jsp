@@ -36,7 +36,7 @@
     </div>
     <div class="content">
       <div class="img">
-        <a href="/product/productDetail"><img src=""></a>
+        <a href="/product/productDetail?product_idx=3"><img src=""></a>
       </div>
       <div class="img">
         <a href=""><img src=""></a>

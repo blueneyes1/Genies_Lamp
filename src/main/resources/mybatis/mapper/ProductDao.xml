@@ -9,7 +9,7 @@
 <mapper namespace="com.study.springboot.dao.IProductDao">
 
      <select id="viewProduct" resultType="com.study.springboot.dto.ProductDto">
-    	select * from GENIES_PRODUCT where PRODUCT_IDX=#{ param1 }
+    	select * from GENIES_PRODUCT where product_idx=#{ param1 }
     </select>
 		
 </mapper>    

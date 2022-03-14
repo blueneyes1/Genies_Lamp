@@ -78,7 +78,7 @@
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/' ">장바구니</button>
+          <button onclick="location.href='/mypage/basket' ">장바구니</button>
         </div>
 
         <div class="menu_btn">
@@ -89,7 +89,7 @@
       <div class="box" id="section">
 
         <img src="" />
-        <p>님 환영합니다</p>
+        <input type="text" readonly value="${member_id}"/>님 환영합니다.
         
       </div>
     </div>

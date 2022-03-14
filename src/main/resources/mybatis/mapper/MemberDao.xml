@@ -34,7 +34,7 @@
 	</insert>
 	
 	<select id="viewMember" resultType="com.study.springboot.dto.MemberDto">
-    	select * from GENIES_MEMBER where MEMBER_ID=#{ param1 }
+    	select * from GENIES_MEMBER where MEMBER_ID=#{ MEMBER_ID }
     </select>
 	
 	<update id="memberUpdate">
@@ -43,7 +43,17 @@
 		MEMBER_NAME=#{param2},
 		MEMBER_PHONE=#{param3},
 		MEMBER_EMAIL=#{param4}
-		WHERE MEMBER_ID = #{param5}
+		WHERE MEMBER_ID = #{param1}
+	</update>
+	
+	<select id="viewPassword" resultType="com.study.springboot.dto.MemberDto">
+    	select * from GENIES_MEMBER where MEMBER_ID=#{ MEMBER_ID }
+    </select>
+	
+	<update id="passwordChange">
+		UPDATE GENIES_MEMBER SET  
+		MEMBER_PW=#{param2}
+		WHERE MEMBER_ID = #{param1}
 	</update>
 		
 </mapper>    

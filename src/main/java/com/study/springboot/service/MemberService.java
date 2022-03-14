@@ -73,16 +73,37 @@ public class MemberService {
 		return result;		
 	}
 	
-	public List<MemberDto> viewMember(String member_id) {
+	public MemberDto viewMember(String member_id) {
 		
-		List<MemberDto> list = memberDao.viewMember(member_id);
+		MemberDto member = memberDao.viewMember(member_id);
 		
-		return list;
+		return member;
 	}
 	
 	public int memberUpdate(String member_id, String member_name, String member_phone, String member_email) {
 		
 		int result = memberDao.memberUpdate(member_id, member_name, member_phone, member_email);
+		
+		return result;
+	}
+	
+	public MemberDto viewPassword(String member_id) {
+		
+		MemberDto member = memberDao.viewPassword(member_id);
+		
+		return member;
+	}
+	
+	
+	public int passwordChange(String member_id, String member_pw) {
+		
+		int result = 0;
+		
+		int count = memberDao.passwordChange(member_id,member_pw);
+		
+		if(count>=1) {
+			result = 1;
+		}
 		
 		return result;
 	}

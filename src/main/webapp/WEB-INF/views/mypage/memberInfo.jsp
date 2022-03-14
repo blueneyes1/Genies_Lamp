@@ -78,16 +78,40 @@
     .password_txt div {
       margin: 5px;
     }
-
-    #password_btn {
-      width: 300px;
-      height: 20px;
-      background-color: rgb(213, 213, 218);
-      border: none;
-      color: rgb(17, 17, 17);
-      border-radius: 3px;
-      font-size: 12px;
+    
+    .password_change_box {
+    width: 300px;
+    heght: 20px;
+    text-align: center;
+    background-color: rgb(213, 213, 218);
+    border: none;
+    color: rgb(17, 17, 17);
+    border-radius: 3px;
+    font-size: 12px;
     }
+    
+    a {
+    text-decoration: none;
+    color: black;
+  	}
+
+ 	 a:link {
+    text-decoration: none;
+    color: black;
+  	}
+  	a:visited {
+    text-decoration: none;
+    color: black;
+  	}
+ 	 a:active {
+    text-decoration: none;
+    color: black;
+  	}
+  	a:hover {
+    text-decoration: none;
+    color: black;
+  	}
+
 
     #mypage_btn {
       width: 500px;
@@ -102,6 +126,9 @@
 
   
   </style>
+  <script language="javascript">
+  function showPasswordChange() { window.open("/mypage/passwordChange?member_id=${member_id}", "a", "width=700, height=700, left=100, top=50"); }
+  </script>
 </head>
 <body>
  
@@ -116,7 +143,7 @@
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/' ">장바구니</button>
+          <button onclick="location.href='/mypage/basket' ">장바구니</button>
         </div>
 
         <div class="menu_btn">
@@ -133,22 +160,27 @@
         
         <div class="mypage_contents">
         
-        <form action="memberUpdateAction" method="post">
+        <form action="/memberUpdate" method="post">
         
           <table class="table table-hover">
-      	  <input type="hidden" name="member_id" value="${ list.member_id }" />
+      	  
+      
         
         
             <tr>
               <th>아이디</th>
-              <td>${list.member_id}</td>
+              <td>${dto.member_id}
+              <input type="hidden" name="member_id" readonly value="${ dto.member_id }" />
+              </td>
             </tr>
         
         
         
             <tr>
               <th>이름</th>
-              <td>${list.member_name}</td>
+              <td>${dto.member_name}
+              <input type="hidden" name="member_name" readonly value="${ dto.member_name }" />
+              </td>
             </tr>
         
         
@@ -156,25 +188,16 @@
             <tr>
               <th>연락처</th>
               <td>
-                <input type="text" value="${list.member_phone}">
+                <input type="text" name="member_phone" value="${dto.member_phone}">
               </td>
             </tr>
 
             <tr>
 
               <th>비밀번호 변경</th>
-              <td class="password_txt">
-                <div>
-                  <input type="text" placeholder="현재 비밀번호를 입력하세요" >
-                </div>
-                  <div>
-                  <input type="text" placeholder="새 비밀번호를 입력하세요">
-                </div>
-                <div>
-                  <input type="text" placeholder="새 비밀번호를 한번 더 확인해 주세요">
-                </div>
-                <div>
-                  <input type="submit" value="비밀번호 변경" name="cmd" id="password_btn">
+              <td class="password_change_btn">
+                <div class="password_change_box">
+                   <a href="javascript:showPasswordChange();">비밀번호 변경하기</a>
                 </div>
               </td>
 
@@ -186,7 +209,7 @@
             <tr>
               <th>이메일</th>
               <td>
-                <input type="text" value="${list.member_email}">
+                <input type="text" name="member_email" value="${dto.member_email}">
               </td>
             </tr>
         
@@ -199,9 +222,10 @@
                 <p>(이벤트, 신상품 등 고객님께 혜택이 되는 소식을 알려드립니다.)</p>
             </td>
           </tr>
+
           </table>
         
-        </form>
+       
         </div>
       
         <div class="mypage_btn_box">
@@ -209,6 +233,8 @@
           <input type="submit" value="회원정보 수정" name="cmd" id="mypage_btn">
         
         </div>
+        
+         </form>
         
       </div>
     </div>

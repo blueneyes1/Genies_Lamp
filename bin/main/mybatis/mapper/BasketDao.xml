@@ -8,8 +8,12 @@
 
 <mapper namespace="com.study.springboot.dao.IBasketDao">
 
-     
-		
+	<select id="viewBasket" resultType="com.study.springboot.dto.BasketDto">
+		select * from 
+		GENIES_BASKET  , GENIES_PRODUCT 
+		where GENIES_BASKET.basket_product_idx = GENIES_PRODUCT.product_idx
+        and GENIES_BASKET.basket_member_id = #{Param1} 
+    </select>
 </mapper>    
 
 

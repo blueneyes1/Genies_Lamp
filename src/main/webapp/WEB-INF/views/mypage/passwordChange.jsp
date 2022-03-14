@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +12,7 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 
-<title>상품평 작성하기</title>
+<title>비밀번호 변경하기</title>
 <style>
   
   .wrap {
@@ -25,13 +23,13 @@
     font-size: 12px;
   }
 
-  .review {
+  .password {
     display: flex;
     flex-direction: row;
     margin-top: 50px;
   }
 
-  #review_btn {
+  #password_btn {
     text-align: center;
   }
 
@@ -40,41 +38,26 @@
 <body>
 
 	<div class="wrap">
-	<form method="post" action="/reviewAction">
-		<div class="review">
+	<form method="post" action="/passwordChangeAction">
+		<div class="password">
 
       <table class="table table-sm">
-      <input type="hidden" name="review_product_idx" value="${review_product_idx}" />
-      
-      <tr>
-          <th>작성자</th>
-          <td><input type="text" name="review_member_id" /></td>
-        </tr>
-      
+      <input type="hidden" name="member_id" value="${dto.member_id}" />
         <tr>
-          <th>제목</th>
+          <th>현재 비밀번호를 지우고 변경하고 싶은 새 비밀번호를 입력하세요</th>
           <td>
-            <input type="text" name="review_title" />
+            <input type="text" name="member_pw" value="${dto.member_pw}" />
           </td>
         </tr>
-
-        <tr>
-          <th>내용</th>
-          <td>
-            <textarea name="review_content" cols="70" rows="20"></textarea>
-          </td>
-        </tr>
-
-        <tr id="review_btn">
+        
+        <tr id="password_btn">
           <td colspan="2">
-            <input type="submit" value="상품평 작성" />
+            <input type="submit" value="비밀번호 변경" />
             <input type="button" value="닫기"  onclick="self.close();"/>
           </td>
         </tr>
 
       </table>
-
-
 
 
     </div>

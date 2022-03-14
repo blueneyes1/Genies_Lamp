@@ -96,27 +96,33 @@
 
   </style>
   <script language="javascript">
-    function showPopup() { window.open("reviewActionForm", "a", "width=700, height=700, left=100, top=50"); }
+    function showPopup() { 
+    	var product_idx = $('#product_idx').val();
+    	window.open("reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
+    	}
   </script>
 </head>
 <body>
   <div class="wrap">
-    
+    <input type="hidden" id="product_idx" value="${product_idx }" />
     <div class="head">
       <div class="img">
         <img src="/img/moodlamp.jpg" >
       </div>
       <div class="section">
+      <form action="/" method="post">
         <table class="table">
+        <c:forEach var="dto" items="${list}">
           <thead>
             <tr>
-              <th scope="col" colspan="2">${list.product_name}</th>
+             <input type="hidden" name="product_idx" value="${product_idx}" />
+              <th scope="col" colspan="2">${dto.product_name}</th>
             </tr>
           </thead>
           <tbody>
            <tr>
               <th scope="row">판매 가격</th>
-              <td>${list.product_price}</td>
+              <td>${dto.product_price}</td>
             </tr>
         
             <tr>
@@ -135,20 +141,22 @@
         
             <tr>
               <th scope="row">총 결제 금액</th>
-              <td>${list.product_price}</td>
+              <td>${dto.product_price}</td>
             </tr>
         
             <tr>
               <th scope="row" colspan="2" class="order_btn_box">
               
                 <input type="submit" value="장바구니" name="payment" id="order_btn"/>
-                <input type="submit" value="구매하기" name="payment" id="order_btn"/>
+                <input type="button" value="구매하기" name="payment" id="order_btn"/>
             
         </th>
             </tr>
            
           </tbody>
+          </c:forEach>
         </table>
+        </form>
       </div>
     </div>
     <div class="info">
@@ -231,6 +239,15 @@
             </tr>
           </c:forEach>
         </table>
+        
+        <!-- 데이터가 없을 때 표시할 텍스트 -->
+				<c:if test="${ review_list == null }">
+					<div class="row-group">
+						<div class="cell">
+							작성된 리뷰가 없습니다.
+						</div>
+					</div>
+				</c:if>
       
           </div>
           
