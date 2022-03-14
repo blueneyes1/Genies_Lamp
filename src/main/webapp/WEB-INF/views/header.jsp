@@ -28,17 +28,17 @@
 	<div class="top d-none d-md-block">
 	  <div class="topMenu d-none d-md-block container">
 	    <span class="home"><a href="/main">HOME</a></span>
-	    <c:if test="${ not empty member }">
-	    	<c:if test="${ member.member_grade eq 'A' }">
+	    <c:if test="${ not empty member_id }">
+	    	<c:if test="${ member_grade eq 'A' }">
 	    		<span><a href="/admin/adminMain">관리자페이지</a></span>
 	    	</c:if>
 
-	    	<c:if test="${ member.member_grade ne 'A' }">
+	    	<c:if test="${ member_grade ne 'A' }">
 	    		<span><a href="/mypage/mypageMain">마이페이지</a></span>
 	    	</c:if>
 	  		<span><a href="/logoutAction">로그아웃</a></span>
 	    </c:if>
-	    <c:if test="${ empty member }">
+	    <c:if test="${ empty member_id }">
 	    	<span><a href="/login">로그인</a></span>
 	    	<span><a href="/join">회원가입</a></span>
 	    </c:if>

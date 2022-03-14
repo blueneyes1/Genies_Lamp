@@ -60,7 +60,10 @@ public class MyControllerLDG {
 			
 			
 			// 로그인 세션 등록
-			request.getSession().setAttribute( "member", member );
+			member_id = member.getMember_id();
+			request.getSession().setAttribute( "member_id", member_id );
+			member_grade = member.getMember_grade();
+			request.getSession().setAttribute( "member_grade", member_grade );
 			
 			return "<script>alert('로그인 성공!'); location.href='/';</script>";
 		}else { // 로그인 실패
@@ -201,7 +204,8 @@ public class MyControllerLDG {
 	public String orderDetails(HttpServletRequest request, Model model) {
 		
 		
-		List<OrderDto> orderlist = orderService.orderlist();
+		
+		//List<OrderDto> orderlist = orderService.orderlist();
 		
 		model.addAttribute( "mainPage", "mypage/orderDetails.jsp");
 		
