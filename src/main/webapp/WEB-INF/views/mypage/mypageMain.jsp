@@ -74,7 +74,7 @@
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/' ">주문내역</button>
+          <button onclick="location.href='/mypage/orderDetails'">주문내역</button>
         </div>
 
         <div class="menu_btn">

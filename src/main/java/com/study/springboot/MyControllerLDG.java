@@ -1,5 +1,7 @@
 package com.study.springboot;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +13,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.springboot.dto.MemberDto;
+import com.study.springboot.dto.OrderDto;
 import com.study.springboot.service.MemberService;
+import com.study.springboot.service.OrderService;
 
 @Controller
 public class MyControllerLDG {
 	
 	@Autowired
 	MemberService memberService;
+	
+	@Autowired
+	OrderService orderService;
 	
 	@RequestMapping("/")
 	public String root() {
@@ -189,5 +196,41 @@ public class MyControllerLDG {
 		
 		return "index"; // "member/join2.jsp" 디스패치함.
 	}
+	
+	@RequestMapping("/mypage/orderDetails")
+	public String orderDetails(HttpServletRequest request, Model model) {
+		
+		
+		List<OrderDto> orderlist = orderService.orderlist();
+		
+		model.addAttribute( "mainPage", "mypage/orderDetails.jsp");
+		
+		return "index"; // "mypage/orderDetails.jsp" 디스패치됨.
+		
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
