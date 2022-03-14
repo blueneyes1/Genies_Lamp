@@ -60,6 +60,34 @@ public class MyControllerPYH {
 		
 		return "/admin/orderlist";
 	}
+//------------------------------------------------------------------------------------------------------------------------
+	// 상품 리스트 페이지 - 스탠드등
+	@RequestMapping("/product/productList01")
+	public String productList01(Model mode) {
+		
+		return "/product/productList01";
+	}
+//------------------------------------------------------------------------------------------------------------------------	
+	// 상품 리스트 페이지 - 레일등
+	@RequestMapping("/product/productList02")
+	public String productList02(Model mode) {
+		
+		return "/product/productList02";
+	}
+//------------------------------------------------------------------------------------------------------------------------	
+	// 상품 리스트 페이지 - 천장등
+	@RequestMapping("/product/productList03")
+	public String productList03(Model mode) {
+		
+		return "/product/productList03";
+	}
+//------------------------------------------------------------------------------------------------------------------------	
+	// 상품 리스트 페이지 - 벽등
+	@RequestMapping("/product/productList04")
+	public String productList04(Model mode) {
+		
+		return "/product/productList04";
+	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 상세 페이지
 	@RequestMapping("/product/productDetail")

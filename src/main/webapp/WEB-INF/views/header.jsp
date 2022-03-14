@@ -71,10 +71,10 @@
 	        <li class="nav-item dropdown">
 	          <a class="nav-link" href="#">제품안내</a>
 	          <div class="dropdown-content">
-	            <a href="/product/productDetail">스탠드등</a>
-	            <a href="/product/productDetail">레일등</a>
-	            <a href="/product/productDetail">천장등</a>
-	            <a href="/product/productDetail">벽등</a>
+	            <a href="/product/productList01">스탠드등</a>
+	            <a href="/product/productList02">레일등</a>
+	            <a href="/product/productList03">천장등</a>
+	            <a href="/product/productList04">벽등</a>
 	          </div>
 	        </li>
 	        <li class="nav-item dropdown">
