@@ -78,6 +78,53 @@ public class MyControllerPYH {
 		return "/admin/memberList";
 	}
 //------------------------------------------------------------------------------------------------------------------------
+	// 관리자 페이지 - 상품 리스트 페이지
+	@RequestMapping("admin/product")
+	public String product(Model model) {
+		
+		List<ProductDto> product_list = productservice.product_list();
+		model.addAttribute("product_list", product_list);
+		
+		return "/admin/product";
+	}
+//------------------------------------------------------------------------------------------------------------------------
+	// 관리자 페이지 - 상품 등록 페이지
+	@RequestMapping("/admin/productAddForm")
+	public String productAdd(Model model) {
+		
+		return "/admin/productAddForm";
+	}
+//------------------------------------------------------------------------------------------------------------------------
+	// 관리자 페이지 - 상품 등록 페이지
+	@RequestMapping("/productAddAction")
+	@ResponseBody
+	public String productAddAction(@RequestParam("product_type") String product_type,
+									@RequestParam("product_name") String product_name,
+									@RequestParam("product_brand") String product_brand,
+									@RequestParam("product_color") String product_color,
+									@RequestParam("product_price") String product_price,
+									@RequestParam("product_count") String product_count,
+									@RequestParam("product_img1") String product_img1,
+									@RequestParam("product_img2") String product_img2,
+									@RequestParam("product_img3") String product_img3) {
+		
+		int result = productservice.productAddAction(product_type, 
+				product_name, 
+				product_brand, 
+				product_color, 
+				product_price, 
+				product_count, 
+				product_img1, product_img2, product_img3);
+		
+		if( result == 1 ) {
+			return "<script>alert('상품 등록이 완료 되었습니다.'); location.href='/admin/productAddForm';</script>";
+		}
+		else {		
+			return "<script>alert('상품 등록에 실패하였습니다.'); history.back(-1);</script>";
+		}
+		
+	}
+//------------------------------------------------------------------------------------------------------------------------
 	// 상품 리스트 페이지 - 스탠드등
 	@RequestMapping("/product/productList01")
 	public String productList01(Model mode) {
