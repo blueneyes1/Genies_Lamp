@@ -72,6 +72,11 @@
   	 font-size: 12px;
   	 text-align: center;
  	 }
+ 	 
+ 	 table {
+      font-size: 12px;
+    }
+  
   
   </style>
   <script language="javascript">
@@ -102,7 +107,7 @@
       <div class="box" id="section">
         <div class="product_list">
 		
-          <table>
+          <table class="table table-hover">
             <tr>
               <td>상품 번호</td>
               <td>상품 타입</td>

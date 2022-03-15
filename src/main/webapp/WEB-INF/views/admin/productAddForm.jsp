@@ -13,7 +13,9 @@
 
   <title></title>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-   
+   <script language="javascript">
+  function showproductImgAddForm() { window.open("/admin/productImgAddForm", "a", "width=700, height=700, left=100, top=50"); }
+  </script>
   <style>
   
     body {
@@ -49,9 +51,33 @@
     color: rgb(17, 17, 17);
     border-radius: 3px;
   }
+  
+  span {
+  	background-color: rgb(178, 178, 238);
+    border: none;
+    width: 90px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px;
+  }
+  
+  a {
+   text-decoration: none;
+  }
+	
+	a:hover {
+	 text-decoration: none;
+	}
 
   button:hover {
     background-color: rgb(130, 130, 215);
+  }
+  
+  .btn_box {
+  display: flex;
+  flex-direction : row;
+  align-items: center;
+  text-align: center;
   }
     
    
@@ -124,18 +150,21 @@
                 </td>
               </tr>
               
-              
-              
-              <tr>
-                <td>
-                  <input type="submit" formaction="/productAddAction" value="상품 등록">
-                </td>
-              <td>
-              <button onclick="self.close();">닫기</button>
-              </td>
-              </tr>
-            </tbody>
+              </tbody>
           </table>
+              
+              <div class="btn_box">
+              
+              <div>
+              <a href="javascript:showproductImgAddForm();"><span>상품 이미지 업로드</span></a>
+             </div>
+             <div>
+              <input type="submit" formaction="/productAddAction" value="상품 등록 완료">
+                </div>
+                <div>
+              <button onclick="self.close();">닫기</button>
+             </div>
+             </div>
         </form>
         </div>
   

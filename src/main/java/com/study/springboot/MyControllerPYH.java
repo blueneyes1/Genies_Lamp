@@ -5,11 +5,15 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.PayDto;
@@ -18,6 +22,7 @@ import com.study.springboot.dto.Product_reviewDto;
 import com.study.springboot.service.BasketService;
 import com.study.springboot.service.MemberService;
 import com.study.springboot.service.ProductService;
+import com.study.springboot.service.fileUploadService;
 import com.study.springboot.service.payService;
 
 @Controller
@@ -36,7 +41,66 @@ public class MyControllerPYH {
 	@Autowired
 	BasketService basketservice;
 	
+	@Autowired
+	fileUploadService fileUploadService;
+	
+//-----------------------------------------------------------------------------------------------------------	
+	//파일업로드 설정
+	@Bean(name = "multipartResolver")
+	public CommonsMultipartResolver multipartResolver() {
+		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+		multipartResolver.setMaxUploadSize(200000000);
+		multipartResolver.setMaxInMemorySize(200000000);
+		multipartResolver.setDefaultEncoding("utf-8");
+		return multipartResolver;
+	}
 
+	@RequestMapping(value="/uploadMultiFileOk", method = RequestMethod.POST)
+	public String uploadMultiFileOk( 
+			
+			@RequestParam(value="filename", required=false) MultipartFile[] filelist,
+			Model model) {
+		
+		System.out.println("filelist:" + filelist);
+		for( MultipartFile file : filelist) {
+			System.out.println("filename:" + file);
+		}
+		
+		return "productAddForm"; 
+	}
+	
+	@RequestMapping(value="/uploadOk", method = RequestMethod.POST)
+	//required=false : 파라미터가 null로 들어와도 에러발생안함.
+	public String uploadOk( @RequestParam(value="user_id", required=false, defaultValue="") String user_id,
+							@RequestParam(value="user_pw", required=false, defaultValue="") String user_pw,
+							@RequestParam(value="filename", required=false) MultipartFile file,
+							Model model) {
+		
+		System.out.println("user_id:" + user_id);
+		System.out.println("user_pw:" + user_pw);
+		System.out.println("filename:" + file);
+		
+		//업로드 파일 처리
+		String upload_url = fileUploadService.restore(file);
+		// "/upload/20210114121803123.jpg"
+		System.out.println( "upload_url:" + upload_url );
+		
+		if( upload_url != null ) {
+			if( upload_url.length() > 0 ) {
+				System.out.println("업로드 성공!");
+			}else {
+				System.out.println("업로드 실패!");	
+			}
+		}else {
+			System.out.println("업로드 실패!");
+		}
+		
+		model.addAttribute("upload_url", upload_url);
+		
+		
+		return "productAddForm"; 
+	}
+	
 //-------------------------------------------------------------------------------------------------------------------	
 	
 	// 회사 소개  - 회사소개 페이지
@@ -111,6 +175,14 @@ public class MyControllerPYH {
 		return "/admin/productAddForm";
 	}
 //------------------------------------------------------------------------------------------------------------------------
+	// 관리자 페이지 - 상품 이미지 업로드 페이지
+		@RequestMapping("/admin/productImgAddForm")
+		public String productImgAdd(Model model) {
+			
+			return "/admin/productImgAddForm";
+		}
+	
+//------------------------------------------------------------------------------------------------------------------------
 	// 관리자 페이지 - 상품 등록
 	@RequestMapping("/productAddAction")
 	@ResponseBody
@@ -130,7 +202,11 @@ public class MyControllerPYH {
 				(product_type, 
 				product_name, 
 				product_brand, 
-				product_color, product_price, product_count, product_img1, product_img2);
+				product_color, 
+				product_price, 
+				product_count, 
+				product_img1, 
+				product_img2);
 		
 		if( result == 1 ) {
 			return "<script>alert('상품등록을 완료하였습니다.'); location.href='/admin/product';</script>";
