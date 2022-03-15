@@ -77,20 +77,16 @@
 
     .product_detail {
       height: 500px;
-      background-color: rgb(60, 189, 220);
     }
     .product_delivery {
       height: 500px;
-      background-color: rgb(102, 153, 217);
     }
     .product_refund {
       height: 500px;
-      background-color: rgb(160, 104, 213);
     }
 
     .product_review_list {
       height: 500px;
-      background-color: gainsboro;
     }
 
 
@@ -107,7 +103,7 @@
     <input type="hidden" id="product_idx" value="${product_idx }" />
     <div class="head">
       <div class="img">
-        <img src="/img/moodlamp.jpg" >
+        <img src="${dto.product_img1}" >
       </div>
       <div class="section">
       <form action="/" method="post">
@@ -172,11 +168,11 @@
                 <a class="nav-link active" aria-current="page" href="#detail">상품 상세 보기</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#delivery">배송 정보</a>
+                <a class="nav-link" href="#delivery">배송 정보 보기</a>
               </li>
       
               <li class="nav-item">
-                <a class="nav-link" href="#refund">교환 및 환불 정보</a>
+                <a class="nav-link" href="#refund">교환 및 환불 정보 보기</a>
               </li>
       
         <li class="nav-item">
@@ -193,7 +189,7 @@
 
         <div class="product_detail">
       
-          <p>상세 정보 페이지 입니다.</p>
+          <p>상품 상세 정보 페이지 입니다.</p>
       
         </div>
       
@@ -202,7 +198,11 @@
         <a name="delivery">
         <div class="product_delivery">
       
-          <p>배송 정보 페이지 입니다.</p>
+		<p>지니의 램프는 우체국택배를 이용합니다.</p>
+		<p>대부분 출고 다음날에 바로 도착하며 (주말 제외)</p>
+		<p>지역 택배 기사님들의 일정과 기상상황에 따라 변동이 있을 수 있습니다.</p>
+		<p>기본 배송 준비일은 입고지연 상품 제외, 2~5일 정도가 소요되고 있습니다.</p>
+                
       
         </div>
       
@@ -211,7 +211,30 @@
       <a name="refund">
         <div class="product_refund">
       
-          <p>환불 및 교환 정보 페이지 입니다.</p>
+	            <p>[교환/반품 안내]</p>
+				<p>물품 수령 후(택배 도착일자 기준) 7일 이내에 고객센터 [000-000-0000] 로 반드시 접수 해주세요. </p>
+				<p>사전에 신청해 주신 상품에 한해서만 교환/반품이 가능합니다.</p>
+				<p>접수 시 지니의 램프에서 우체국 택배 회수접수를 도와드리고 있습니다.</p>
+				
+				
+				<p>*패킹하여 보내실 때는 물품 수령시와 동일하게 포장해 주세요.</p>
+				<p>택에 손상이 있는 경우에는 반품과 교환이 모두 불가합니다.</p>
+				<p>성함,주소,전화번호,보내시는 상품,사유등 반품카드 양식에 맞게 적어 보내주셔야 처리가 가능합니다.</p>
+				
+				
+				<p>보내시는 주소지 : 서울시 지니로 지니구</p>
+				
+				
+				<p>[교환반품 불가사항]</p>
+				<p>-상품 수령 후 7일 이상 경과된 경우</p>
+				<p>-상품 구매시 교환/환불 불가능이 명시되어 있는경우</p>
+				<p>-텍 제거 및 바코드 훼손, 오염이 발견된 상품</p>
+				
+				<p>-배송이나 제작과정에서 발생하는 냄새나 초크자국 등 대량생산으로 인해 생긴 사유는 불량으로 간주되지 않습니다.</p>
+				
+				<p>*불량상품의 재발송 시 왕복배송비는 지니의 램프가 부담합니다.</p>
+                
+                
       
         </div>
       

@@ -34,6 +34,14 @@ dependencies {
 	
 	implementation 'javax.servlet:jstl'
 	implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+	
+	implementation 'commons-io:commons-io:2.6'
+	implementation 'commons-fileupload:commons-fileupload:1.4'
+	
+	//jar파일 직접 링크할 때 추가하는 의존성. add build path하지 않아도 됨.
+	//프로젝트 루트폴더 바로 밑의 libs폴더임. 같은 폴더에 src,bin폴더가 있음.
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+	
 }
 
 tasks.named('test') {

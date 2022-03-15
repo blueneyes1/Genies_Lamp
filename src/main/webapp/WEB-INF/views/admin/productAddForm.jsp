@@ -13,6 +13,7 @@
 
   <title></title>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+   
   <style>
   
     body {
@@ -111,22 +112,10 @@
               </tr>
               
               <tr>
-                <td>상품 이미지(1)</td>
-                <td>
-                  <input type="text" name="product_img1">
-                </td>
+              <td><input type="file" name="product_img1" /></td>
               </tr>
               <tr>
-                <td>상품 이미지(2)</td>
-                <td>
-                  <input type="text" name="product_img2">
-                </td>
-              </tr>
-              <tr>
-                <td>상품 이미지(3)</td>
-                <td>
-                  <input type="text" name="product_img3">
-                </td>
+              <td><input type="file" name="product_img2" /></td>
               </tr>
               
               <tr>
@@ -135,9 +124,11 @@
                 </td>
               </tr>
               
+              
+              
               <tr>
                 <td>
-                  <input type="submit" value="상품 등록">
+                  <input type="submit" formaction="/productAddAction" value="상품 등록">
                 </td>
               <td>
               <button onclick="self.close();">닫기</button>

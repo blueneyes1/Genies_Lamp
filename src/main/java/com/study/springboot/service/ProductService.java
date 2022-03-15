@@ -52,18 +52,18 @@ public class ProductService {
 		return result;
 	}
 	
-	public int productAddAction(String product_type, String product_name, String product_brand, String product_color,
-			String product_price, String product_count, String product_img1, String product_img2, String product_img3) {
+	public int productAdd(String product_type, 
+			String product_name, 
+			String product_brand, 
+			String product_color, 
+			String product_price, 
+			String product_count, 
+			String product_img1, 
+			String product_img2) {
 		
-		int result = productDao.productAddAction(product_type, 
-				product_name, 
-				product_brand, 
-				product_color, 
-				product_price, 
-				product_count, 
-				product_img1, product_img2, product_img3);
-		
-		return result;
+		int result = productDao.productAdd(product_type, product_name, product_brand, product_color, product_price, product_count, product_img1, product_img2);
+				
+				return result;
 	}
 
 }

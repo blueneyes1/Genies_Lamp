@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.study.springboot.dto.BasketDto;
 import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.PayDto;
 import com.study.springboot.dto.ProductDto;
@@ -36,6 +35,23 @@ public class MyControllerPYH {
 	
 	@Autowired
 	BasketService basketservice;
+	
+
+//-------------------------------------------------------------------------------------------------------------------	
+	
+	// 회사 소개  - 회사소개 페이지
+	@RequestMapping("/company/company") 
+	public String company(Model model) {
+		
+		return "/company/company";
+	}
+//---------------------------------------------------------------------------------------------------------------------
+	// 회사 소개  - 오시는길 페이지
+	@RequestMapping("/company/companyMap") 
+	public String companyMap(Model model) {
+		
+		return "/company/companyMap";
+	}
 
 //---------------------------------------------------------------------------------------------------------------------
     // 관리자페이지 메인
@@ -95,7 +111,7 @@ public class MyControllerPYH {
 		return "/admin/productAddForm";
 	}
 //------------------------------------------------------------------------------------------------------------------------
-	// 관리자 페이지 - 상품 등록 페이지
+	// 관리자 페이지 - 상품 등록
 	@RequestMapping("/productAddAction")
 	@ResponseBody
 	public String productAddAction(@RequestParam("product_type") String product_type,
@@ -106,49 +122,55 @@ public class MyControllerPYH {
 									@RequestParam("product_count") String product_count,
 									@RequestParam("product_img1") String product_img1,
 									@RequestParam("product_img2") String product_img2,
-									@RequestParam("product_img3") String product_img3) {
+									Model model
+									) {
 		
-		int result = productservice.productAddAction(product_type, 
+
+		int result = productservice.productAdd
+				(product_type, 
 				product_name, 
 				product_brand, 
-				product_color, 
-				product_price, 
-				product_count, 
-				product_img1, product_img2, product_img3);
+				product_color, product_price, product_count, product_img1, product_img2);
 		
 		if( result == 1 ) {
-			return "<script>alert('상품 등록이 완료 되었습니다.'); location.href='/admin/productAddForm';</script>";
+			return "<script>alert('상품등록을 완료하였습니다.'); location.href='/admin/product';</script>";
 		}
 		else {		
-			return "<script>alert('상품 등록에 실패하였습니다.'); history.back(-1);</script>";
+			return "<script>alert('상품등록에 실패하였습니다.'); history.back(-1);</script>";
 		}
 		
+		
+
 	}
+	
+
 //------------------------------------------------------------------------------------------------------------------------
 	// 상품 리스트 페이지 - 스탠드등
 	@RequestMapping("/product/productList01")
-	public String productList01(Model mode) {
+	public String productList01(Model model) {
 		
 		return "/product/productList01";
 	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 레일등
 	@RequestMapping("/product/productList02")
-	public String productList02(Model mode) {
+	public String productList02(Model model) {
 		
 		return "/product/productList02";
 	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 천장등
 	@RequestMapping("/product/productList03")
-	public String productList03(Model mode) {
+	public String productList03(Model model) {
+		
 		
 		return "/product/productList03";
 	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 벽등
 	@RequestMapping("/product/productList04")
-	public String productList04(Model mode) {
+	public String productList04(Model model) {
+		
 		
 		return "/product/productList04";
 	}
@@ -165,6 +187,7 @@ public class MyControllerPYH {
 		System.out.println(product_idx);
 		
 		model.addAttribute("product_idx" , product_idx);
+		
 		
 		// 리뷰 보기
 		List<Product_reviewDto> review_list = productservice.viewReview(product_idx);

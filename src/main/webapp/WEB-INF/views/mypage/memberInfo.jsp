@@ -213,15 +213,6 @@
               </td>
             </tr>
         
-            <tr>
-            <td></td>
-            <td>
-                <label>메일 수신 여부 : </label>
-                <input type="radio" name="email" value="accept" checked /><label>수신함</label>  
-                <input type="radio" name="email" value="refuse"/><label>수신하지않음</label><br />
-                <p>(이벤트, 신상품 등 고객님께 혜택이 되는 소식을 알려드립니다.)</p>
-            </td>
-          </tr>
 
           </table>
         

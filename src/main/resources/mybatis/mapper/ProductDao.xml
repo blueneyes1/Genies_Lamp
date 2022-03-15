@@ -16,12 +16,31 @@
     	select * from GENIES_PRODUCT where product_idx=#{ param1 }
     </select>
     
-    <insert id="productAddAction">
-		INSERT INTO GENIES_PRODUCT( PRODUCT_IDX, PRODUCT_TYPE, PRODUCT_NAME, PRODUCT_BRAND, PRODUCT_COLOR,
-		PRODUCT_PRICE, PRODUCT_COUNT, PRODUCT_IMG1, PRODUCT_IMG2, PRODUCT_IMG3, PRODUCT_DATE )
-		VALUES ( GENIES_PRODUCT_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5},
-		#{param6}, #{param7}, #{param8}, #{param9}, sysdate )
-	</insert>
+    <insert id="productAdd">
+		insert into GENIES_PRODUCT
+		(PRODUCT_IDX, 
+		PRODUCT_TYPE, 
+		PRODUCT_NAME, 
+		PRODUCT_BRAND, 
+		PRODUCT_COLOR, 
+		PRODUCT_PRICE, 
+		PRODUCT_COUNT, 
+		PRODUCT_IMG1, 
+		PRODUCT_IMG2, 
+		PRODUCT_DATE) 
+		values 
+		(GENIES_PRODUCT_seq.nextval, 
+		#{param1}, 
+		#{param2}, 
+		#{param3}, 
+		#{param4}, 
+		#{param5}, 
+		#{param6}, 
+		#{param7}, 
+		#{param8}, 
+		sysdate)
+    
+    </insert>
 		
 </mapper>    
 

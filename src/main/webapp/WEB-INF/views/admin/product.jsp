@@ -51,10 +51,11 @@
 	button {
 	background-color: rgb(178, 178, 238);
 	border: none;
-	width: 90px;
+	width: 100px;
 	height: 25px;
 	color: rgb(17, 17, 17);
 	border-radius: 3px;
+	font-size: 12px;
 	}
 
 	button:hover {
@@ -110,10 +111,9 @@
               <td>상품 색상</td>
               <td>상품 가격</td>
               <td>상품 수</td>
-              <td>상품 이미지(1)</td>
-              <td>상품 이미지(2)</td>
-              <td>상품 이미지(3)</td>
+              <td>상품 이미지</td>
               <td>상품 등록 날짜</td>
+              
             </tr>
 
 			<c:forEach var="product_list" items="${product_list }" >
@@ -125,16 +125,14 @@
               <td>${product_list.product_color }</td>
               <td>${product_list.product_price }</td>
               <td>${product_list.product_count }</td>
-              <td>${product_list.product_img1}</td>
-              <td>${product_list.product_img2}</td>
-              <td>${product_list.product_img3}</td>
+              <td><img src="${product_list.product_img1 }"/></td>
               <td>${product_list.product_date }</td>
             </tr>
             </c:forEach>
           </table>
           
           <div class="product_btn">
-         <button onclick="showProductAddForm();"></button>
+         <button onclick="showProductAddForm();">상품등록</button>
           </div>
                   
       

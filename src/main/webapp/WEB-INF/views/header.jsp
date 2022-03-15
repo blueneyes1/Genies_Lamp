@@ -64,8 +64,8 @@
 	        <li class="nav-item dropdown">
 	          <a class="nav-link" href="#">Genie's Lamp</a>
 	          <div class="dropdown-content">
-	            <a href="/company/company01">Genie's Lamp 소개</a>
-	            <a href="/company/company02">오시는 길</a>
+	            <a href="/company/company">Genie's Lamp 소개</a>
+	            <a href="/company/companyMap">오시는 길</a>
 	          </div>
 	        </li>
 	        <li class="nav-item dropdown">

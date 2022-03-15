@@ -56,11 +56,14 @@ create table genies_product(
     product_color  		varchar2(50),
     product_price 	 number(8),		-- 가격
     product_count     number(8),	-- 수량
-    product_img1		varchar2(100),
-    product_img2		varchar2(100),
-    product_img3		varchar2(100),
-    product_date		date default sysdate
+    product_date		date default sysdate,
+    product_img1      varchar2(1000),
+    product_img2      varchar2(1000)
+    
 );
+	
+drop sequence genies_product_seq;
+create sequence genies_product_seq;
 	
 drop sequence genies_product_seq;
 create sequence genies_product_seq;

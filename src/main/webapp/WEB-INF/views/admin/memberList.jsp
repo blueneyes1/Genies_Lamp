@@ -71,6 +71,10 @@
   	 font-size: 12px;
   	 text-align: center;
  	 }
+
+    table {
+      font-size: 12px;
+    }
   
   </style>
 </head>
@@ -98,15 +102,16 @@
       <div class="box" id="section">
         <div class="member_list">
 	
-          <table>
+          <table class="table table-hover">
+  
             <tr>
-              <td>멤버 아이디</td>
-              <td>멤버 성명</td>
-              <td>멤버 이메일</td>
-              <td>멤버 전화번호</td>
-              <td>멤버 주소</td>
-              <td>멤버 등급</td>
-              <td>멤버 가입날짜</td>
+              <th>멤버 아이디</th>
+              <th>멤버 성명</th>
+              <th>멤버 이메일</th>
+              <th>멤버 전화번호</th>
+              <th>멤버 주소</th>
+              <th>멤버 등급</th>
+              <th>멤버 가입날짜</th>
             </tr>
 		
 		<c:forEach var="list" items="${list }" >
@@ -120,7 +125,10 @@
               <td>${list.member_join_date }</td>
             </tr>
            </c:forEach>
+
           </table>
+            
+          
           
       
         </div>

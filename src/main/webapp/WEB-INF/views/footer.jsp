@@ -6,11 +6,11 @@
 <div class="footer">
   <div class="container text-center">
     <div>
-      <a href="#">회사소개&nbsp;&nbsp;<span>|</span></a>
+      <a href="/company/company">회사소개&nbsp;&nbsp;<span>|</span></a>
       <a href="#">개인정보보호정책&nbsp;&nbsp;<span>|</span></a>
       <a href="#">이메일무단수집거부&nbsp;&nbsp;<span>|</span></a>
       <a href="#">묻고답하기&nbsp;&nbsp;<span>|</span></a>
-      <a href="#">오시는길&nbsp;&nbsp;<span>|</span></a>
+      <a href="/company/companyMap">오시는길&nbsp;&nbsp;<span>|</span></a>
     </div>
     <div>
       <span>회사 : Genie's Lamp &nbsp; 주소 : 서울특별시 노원구 상계로 64 화랑빌딩 4F  &nbsp; 대표 : 지니 <br>
