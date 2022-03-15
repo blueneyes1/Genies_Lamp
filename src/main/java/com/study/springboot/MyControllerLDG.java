@@ -203,9 +203,23 @@ public class MyControllerLDG {
 	@RequestMapping("/mypage/orderDetails")
 	public String orderDetails(HttpServletRequest request, Model model) {
 		
+		String member_id = (String) request.getSession().getAttribute("member_id");
 		
+		List<OrderDto> orderDetail = orderService.orderDetail(member_id);
 		
-		//List<OrderDto> orderlist = orderService.orderlist();
+		int order_count = 0;
+		
+		if( orderDetail.size() > 1 ) {			
+			order_count = 1;
+		}else {
+			order_count = 0;
+		}
+		
+		model.addAttribute("order_count", order_count);
+		model.addAttribute("orderDetail", orderDetail);
+		
+		System.out.println(order_count);
+		System.out.println(orderDetail);
 		
 		model.addAttribute( "mainPage", "mypage/orderDetails.jsp");
 		

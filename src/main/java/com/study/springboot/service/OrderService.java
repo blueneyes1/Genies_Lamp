@@ -14,11 +14,11 @@ public class OrderService {
 	@Autowired
 	IOrderDao orderDao;
 	
-	public List<OrderDto> orderlist() {
+	public List<OrderDto> orderDetail(String member_id) {
 		
-		List<OrderDto> orderlist = orderDao.orderlist();
-		
-		return orderlist;
+		List<OrderDto> orderDetail = orderDao.orderDetail(member_id);
+				
+		return orderDetail;
 		
 	}
 
