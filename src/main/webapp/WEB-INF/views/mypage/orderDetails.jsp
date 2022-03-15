@@ -13,7 +13,7 @@
 	<div align="center">
 		<h1>주문내역</h1>
 		
-		<table>
+		<table border=1>
 			<tr>
 				<td>구매일</td>
 				<td>상품명</td>
@@ -21,8 +21,8 @@
 				<td>금액</td>
 				<td>배송상태</td>
 			</tr>
-			<c:forEach var="dto" items="${ orderlist }">
-				<c:if test="${ not empty orderlist }">
+			<c:forEach var="dto" items="${ orderDetail }">
+				<c:if test="${ order_count == 1 }">
 					<tr>
 						<td>구매일</td>
 						<td>상품명</td>
@@ -30,9 +30,11 @@
 						<td>금액</td>
 						<td>배송상태</td>
 					</tr>
-				</c:if>>
-				<c:if test="${ empty orderlist">
-					<h3 align="center">구매내역이 없습니다.</h3>
+				</c:if>
+				<c:if test="${ order_count == 0 }">
+					<tr>
+						<td colspan=5 align="center">구매내역이 없습니다.</td>
+					</tr>
 				</c:if>
 			</c:forEach>
 		</table>

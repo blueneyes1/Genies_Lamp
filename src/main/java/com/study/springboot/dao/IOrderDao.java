@@ -9,6 +9,6 @@ import com.study.springboot.dto.OrderDto;
 @Mapper
 public interface IOrderDao {
 	
-	public List<OrderDto> orderlist();
+	public List<OrderDto> orderDetail(String member_id);
 
 }

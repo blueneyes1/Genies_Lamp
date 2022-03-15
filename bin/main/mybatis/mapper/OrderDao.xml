@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
+
+<mapper namespace="com.study.springboot.dao.IOrderDao">
+
+     <select id="orderDetail" resultType="com.study.springboot.dto.OrderDto">
+     	SELECT * FROM genies_pay, genies_order WHERE genies_pay.pay_member_id = #{ member_id } 
+     	AND genies_pay.pay_member_id = genies_order.order_member_id
+     </select>
+		
+</mapper>    

@@ -112,7 +112,7 @@ create sequence genies_one2one_reply_seq;
 -- 1:1문의
 drop table genies_one2one;
 create table genies_one2one(
-    one2one_idx      number(4) primary key,
+    one2one_idx      number(20) primary key,
     one2one_name     varchar2(20),
     one2one_phone    varchar2(20),
     one2one_email     varchar2(100),
@@ -152,6 +152,7 @@ create table genies_order(
 	order_idx		number(20) primary key,
 	order_pay_idx		number(20),
 	order_product_idx		number(20),
+	order_product_name		varchar2(50),
 	order_count			number(2),
 	order_price			number(8),
 	foreign key (order_pay_idx)references genies_pay(pay_idx),
