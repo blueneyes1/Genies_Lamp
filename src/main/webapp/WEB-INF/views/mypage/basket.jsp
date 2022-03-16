@@ -59,7 +59,6 @@
         <td>상품정보</td>
         <td>판매가</td>
         <td>수량</td>
-        <td>배송비</td>
         <td>합계</td>
       </tr>
 
@@ -68,13 +67,12 @@
         <td>${dto.product_name }</td>
         <td>${dto.product_price}</td>
         <td>${dto.basket_count }</td>
-        <td>3000원</td>
         <td>${dto.product_price }</td>
       </tr>
 
       <tr>
         <td colspan="2">총 상품금액</td>
-        <td colspan="2">총 배송비</td>
+        <td colspan="2">배송비</td>
         <td colspan="2">결제 예정금액</td>
       </tr>
 

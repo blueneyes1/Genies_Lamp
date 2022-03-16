@@ -206,7 +206,6 @@ public class MyControllerLDG {
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
 		List<OrderDto> orderDetail = orderService.orderDetail(member_id);
-		System.out.println(member_id);
 		int order_count = 0;
 		
 		if( orderDetail.size() > 0 ) {			
