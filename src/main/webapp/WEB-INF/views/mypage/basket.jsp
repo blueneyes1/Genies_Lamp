@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
 <meta charset="UTF-8">
@@ -52,7 +53,6 @@
 		<div class="basket">
 
       <table class="table table-sm">
-      <input type="hidden" name="member_id" value="${dto.basket_member_id}" />
         
       <tr>
         <td>이미지</td>
@@ -61,14 +61,16 @@
         <td>수량</td>
         <td>합계</td>
       </tr>
-
-      <tr>
-        <td>${dto.product_img1 }</td>
-        <td>${dto.product_name }</td>
-        <td>${dto.product_price}</td>
-        <td>${dto.basket_count }</td>
-        <td>${dto.product_price }</td>
-      </tr>
+      
+      <c:forEach var="dto" items="${viewBasket}">
+	      <tr>
+	        <td>${dto.product_img1 }</td>
+	        <td>${dto.product_name }</td>
+	        <td>${dto.product_price}</td>
+	        <td>${dto.basket_count }</td>
+	        <td>${dto.product_price }</td>
+	      </tr>
+	   </c:forEach>
 
       <tr>
         <td colspan="2">총 상품금액</td>

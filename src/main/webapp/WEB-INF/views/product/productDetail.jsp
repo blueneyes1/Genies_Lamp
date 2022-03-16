@@ -97,8 +97,8 @@
     	}
     
     function countP() {
-    	var countP = document.getElementById('countP');
-    	countP.onclick = 
+    	/* var counterP = document.getElementById('counterP');
+    	counterP.onclick = Number(product_count.input) +1; */
     }
   </script>
 </head>
@@ -130,8 +130,8 @@
               <th scope="row">수량</th>
               <td>
              <input type="text" name="product_count" value="1">
-                  <button type="button" class="amount_btn" id="countP" onclick="countP();">+</button>
-                  <button type="button" class="amount_btn" id="countM" onclick="countM();">-</button>
+                  <button type="button" class="amount_btn" id="counterP" onclick="countP();">+</button>
+                  <button type="button" class="amount_btn" id="counterM" onclick="countM();">-</button>
              </td>
             </tr>        
                         

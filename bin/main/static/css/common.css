@@ -56,6 +56,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  border-radius: 5px;
   background-color: rgb(178, 178, 238);
   min-width: 120px;
   z-index: 1;
@@ -73,15 +74,15 @@
   background-color: rgb(178, 178, 238);
 }
 .dropdown-content a:link {
-  color: white;
+  color: black;
 }
 .dropdown-content a:hover {
-  color: white;
+  color: black;
   background-color: rgb(130, 130, 215); 
-  text-decoration: underline;
+  text-decoration: none;
 }
 .dropdown-content a:visited {
-  color: white;
+  color: black;
 }
 /* 드롭다운메뉴의 마우스오버시 팝업 */
 .dropdown:hover .dropdown-content {
