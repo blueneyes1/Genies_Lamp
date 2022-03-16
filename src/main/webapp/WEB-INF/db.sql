@@ -56,9 +56,9 @@ create table genies_product(
     product_color  		varchar2(50),
     product_price 	 number(8),		-- 가격
     product_count     number(8),	-- 수량
-    product_date		date default sysdate,
     product_img1      varchar2(1000),
-    product_img2      varchar2(1000)
+    product_content		varchar2(1000),  	-- 소개글
+    product_date		date default sysdate
     
 );
 
@@ -71,7 +71,7 @@ drop table genies_basket;
 create table genies_basket(
     basket_idx      number(20) primary key,
     basket_member_id    varchar2(20),
-    basket_product_idx	  number(4),
+    basket_product_idx	  number(20),
     basket_count     number(2),
     basket_price     number(8),
     foreign key (basket_member_id)references genies_member(member_id),
@@ -114,7 +114,9 @@ create table genies_one2one(
     one2one_name     varchar2(20),
     one2one_phone    varchar2(20),
     one2one_email     varchar2(100),
-    one2one_address   varchar2(200),
+    one2one_address1   varchar2(100),
+    one2one_address2   varchar2(100),
+    one2one_address3   varchar2(100),
     one2one_title    varchar2(100),
     one2one_content  varchar2(2000),
     one2one_date     date default sysdate

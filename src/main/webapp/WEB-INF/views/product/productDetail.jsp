@@ -51,7 +51,7 @@
       text-align: center;
     }
 
-    #amount_btn {
+    .amount_btn {
     background-color: rgb(178, 178, 238);
     border: none;
     width: 25px;
@@ -96,6 +96,11 @@
     	var product_idx = $('#product_idx').val();
     	window.open("reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
     	}
+    
+    function countP() {
+    	var countP = document.getElementById('countP');
+    	countP.onclick = 
+    }
   </script>
 </head>
 <body>
@@ -106,39 +111,43 @@
         <img src="${dto.product_img1}" >
       </div>
       <div class="section">
-      <form action="/" method="post">
+      <form action="/cart" name="cart" method="post">
         <table class="table">
         <c:forEach var="dto" items="${list}">
           <thead>
             <tr>
              <input type="hidden" name="product_idx" value="${product_idx}" />
-              <th scope="col" colspan="2">${dto.product_name}</th>
+              <th scope="col" colspan="2" name="product_name" >${dto.product_name}</th>
             </tr>
           </thead>
           <tbody>
            <tr>
               <th scope="row">판매 가격</th>
-              <td>${dto.product_price}</td>
+              <td name="product_price">${dto.product_price}</td>
             </tr>
-        
-            <tr>
-              <th scope="row">배송비</th>
-              <td>3000원</td>
-            </tr>
-        
+            
             <tr>
               <th scope="row">수량</th>
               <td>
-             <input type="text" value="1">
-                  <button type="button" id="amount_btn">+</button>
-                  <button type="button" id="amount_btn">-</button>
+             <input type="text" name="product_count" value="1">
+                  <button type="button" class="amount_btn" id="countP" onclick="countP();">+</button>
+                  <button type="button" class="amount_btn" id="countM" onclick="countM();">-</button>
              </td>
+            </tr>        
+                        
+            <tr>
+              <th scope="row">총 제품가격</th>
+              <td>${dto.product_price }</td>
+            </tr>
+            
+            <tr>
+              <th scope="row">배송비</th>
+              <td>
+              		3000원 <br>
+              		( 50,000원 이상 구매시 배송비 무료 )
+              </td>
             </tr>
         
-            <tr>
-              <th scope="row">총 결제 금액</th>
-              <td>${dto.product_price}</td>
-            </tr>
         
             <tr>
               <th scope="row" colspan="2" class="order_btn_box">
@@ -146,7 +155,7 @@
                 <input type="submit" value="장바구니" name="payment" id="order_btn"/>
                 <input type="button" value="구매하기" name="payment" id="order_btn"/>
             
-        </th>
+    	      </th>
             </tr>
            
           </tbody>
