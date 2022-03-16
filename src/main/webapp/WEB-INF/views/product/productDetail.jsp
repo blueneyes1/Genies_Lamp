@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
-<!DOCTYPE html>
-<html lang="en">
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +14,7 @@
   <title>product</title>
   <style>
 
-    .wrap {
+    .box {
       display: flex;
       flex-flow: column;
       justify-content: center;
@@ -23,7 +22,7 @@
       font-size: 12px;
     }
 
-    .head {
+    .head_box {
       display: flex;
       flex-flow: row nowrap;
     }
@@ -32,7 +31,7 @@
     margin-right: 10px;
     }
 
-    img {
+    #product_img {
       width: 250px;
       height: 250px;
     }
@@ -99,16 +98,17 @@
   </script>
 </head>
 <body>
-  <div class="wrap">
+  <div class="box">
     <input type="hidden" id="product_idx" value="${product_idx }" />
-    <div class="head">
+    <c:forEach var="dto" items="${list}">
+    <div class="head_box">
       <div class="img">
-        <img src="${dto.product_img1}" >
+        <img src="${dto.product_img1}" id="product_img">
       </div>
       <div class="section">
       <form action="/" method="post">
         <table class="table">
-        <c:forEach var="dto" items="${list}">
+        
           <thead>
             <tr>
              <input type="hidden" name="product_idx" value="${product_idx}" />
@@ -150,7 +150,7 @@
             </tr>
            
           </tbody>
-          </c:forEach>
+          
         </table>
         </form>
       </div>
@@ -189,12 +189,12 @@
 
         <div class="product_detail">
       
-          <p>상품 상세 정보 페이지 입니다.</p>
+          <p>${dto.product_content}</p>
       
         </div>
       
         </a>
-      
+       </c:forEach>
         <a name="delivery">
         <div class="product_delivery">
       
@@ -253,12 +253,12 @@
           </tr>
           <c:forEach var="review_list" items="${ review_list }">
             <tr>
-              <td>${ review_list.review_content }</td>
               <td>${ review_list.review_member_id }</td>
+              <td>${ review_list.review_content }</td>
               <td>
-                <c:set var="dateVar" value="${ review_list.review_date }" />
-                <fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
-              </td>
+					<c:set var="dateVar" value="${ review_list.review_date }" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-mm-dd" />
+				</td>
             </tr>
           </c:forEach>
         </table>
@@ -286,6 +286,3 @@
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-</body>
-</html>

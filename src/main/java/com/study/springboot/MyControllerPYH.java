@@ -44,63 +44,7 @@ public class MyControllerPYH {
 	@Autowired
 	fileUploadService fileUploadService;
 	
-//-----------------------------------------------------------------------------------------------------------	
-	//파일업로드 설정
-	@Bean(name = "multipartResolver")
-	public CommonsMultipartResolver multipartResolver() {
-		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
-		multipartResolver.setMaxUploadSize(200000000);
-		multipartResolver.setMaxInMemorySize(200000000);
-		multipartResolver.setDefaultEncoding("utf-8");
-		return multipartResolver;
-	}
 
-	@RequestMapping(value="/uploadMultiFileOk", method = RequestMethod.POST)
-	public String uploadMultiFileOk( 
-			
-			@RequestParam(value="filename", required=false) MultipartFile[] filelist,
-			Model model) {
-		
-		System.out.println("filelist:" + filelist);
-		for( MultipartFile file : filelist) {
-			System.out.println("filename:" + file);
-		}
-		
-		return "productAddForm"; 
-	}
-	
-	@RequestMapping(value="/uploadOk", method = RequestMethod.POST)
-	//required=false : 파라미터가 null로 들어와도 에러발생안함.
-	public String uploadOk( @RequestParam(value="user_id", required=false, defaultValue="") String user_id,
-							@RequestParam(value="user_pw", required=false, defaultValue="") String user_pw,
-							@RequestParam(value="filename", required=false) MultipartFile file,
-							Model model) {
-		
-		System.out.println("user_id:" + user_id);
-		System.out.println("user_pw:" + user_pw);
-		System.out.println("filename:" + file);
-		
-		//업로드 파일 처리
-		String upload_url = fileUploadService.restore(file);
-		// "/upload/20210114121803123.jpg"
-		System.out.println( "upload_url:" + upload_url );
-		
-		if( upload_url != null ) {
-			if( upload_url.length() > 0 ) {
-				System.out.println("업로드 성공!");
-			}else {
-				System.out.println("업로드 실패!");	
-			}
-		}else {
-			System.out.println("업로드 실패!");
-		}
-		
-		model.addAttribute("upload_url", upload_url);
-		
-		
-		return "productAddForm"; 
-	}
-	
 //-------------------------------------------------------------------------------------------------------------------	
 	
 	// 회사 소개  - 회사소개 페이지
@@ -120,18 +64,20 @@ public class MyControllerPYH {
 //---------------------------------------------------------------------------------------------------------------------
     // 관리자페이지 메인
 	@RequestMapping("/admin/adminMain")
-	public String adminMain(Model model) {
+	public String adminMain(HttpServletRequest request,Model model) {
 		
-		return "/admin/adminMain";
+		model.addAttribute("mainPage", "admin/adminMain.jsp");
+		
+		return "index";
 	}
 //----------------------------------------------------------------------------------------------------------------------	
     // 관리자페이지 - 주문관리 선택 페이지
 	@RequestMapping("/admin/selectlist")
-	public String selectlist(Model model) {
+	public String selectlist(HttpServletRequest request,Model model) {
 		
 		model.addAttribute("mainPage", "admin/selectlist.jsp");
 		
-			return "/admin/selectlist";
+			return "index";
 	}
 //-----------------------------------------------------------------------------------------------------------------------	
 	// 관리자페이지 - 주문관리 페이지
@@ -150,22 +96,74 @@ public class MyControllerPYH {
 //------------------------------------------------------------------------------------------------------------------------
 	// 관리자 페이지 - 멤버 리스트 페이지
 	@RequestMapping("admin/memberList")
-	public String memberList(Model model) {
+	public String memberList(HttpServletRequest request,Model model) {
 		
 		List<MemberDto> list = memberservice.list();
 		model.addAttribute("list", list);
 		
-		return "/admin/memberList";
+		model.addAttribute("mainPage", "admin/memberList.jsp");
+		
+		return "index";
+	}
+	
+//------------------------------------------------------------------------------------------------------------------------
+	// 관리자 페이지 - 멤버 수정/삭제 페이지
+	@RequestMapping("/admin/memberModify")
+	public String memberModify(@RequestParam(value= "member_id") String member_id,
+								HttpServletRequest request,Model model) {
+		
+		MemberDto admin_member_dto = memberservice.admin_view_member(member_id);
+		model.addAttribute("admin_member_dto", admin_member_dto);
+		
+		model.addAttribute("mainPage", "admin/memberModify.jsp");
+		
+		return "index";
 	}
 //------------------------------------------------------------------------------------------------------------------------
+	// 관리자페이지 - 회원정보 수정
+	@RequestMapping("/admin_member_update")
+	@ResponseBody
+	public String admin_member_modify(@RequestParam("member_id") String member_id, 
+							  @RequestParam("member_name") String member_name,
+							  @RequestParam("member_email") String member_email,
+							  @RequestParam("member_phone") String member_phone, 
+							  @RequestParam("member_address1") String member_address1, 
+							  @RequestParam("member_grade") String member_grade
+							  ) {
+		
+		int result = memberservice.admin_member_modify(member_id, member_name, member_email, member_phone, member_address1, member_grade);
+		if(result == 1) {
+			
+			return "<script>alert('회원정보수정에 성공했습니다.'); location.href='/admin/memberList';</script>";
+		}else {
+			return "<script>alert('회원정보수정에 실패했습니다.'); history.back(-1);</script>";
+		}
+	}
+//-----------------------------------------------------------------------------------------------------------------------------
+	// 관리자페이지 - 회원정보 삭제
+	@RequestMapping("/admin_member_delete")
+	@ResponseBody
+	public String admin_member_modify(@RequestParam("member_id") String member_id) {
+		
+		int result = memberservice.admin_member_delete(member_id);
+		if(result == 1) {
+			
+			return "<script>alert('회원정보삭제에 성공했습니다.'); location.href='/admin/memberList';</script>";
+		}else {
+			return "<script>alert('회원정보삭제에 실패했습니다.'); history.back(-1);</script>";
+		}
+	}
+//-----------------------------------------------------------------------------------------------------------------------------
 	// 관리자 페이지 - 상품 리스트 페이지
 	@RequestMapping("admin/product")
-	public String product(Model model) {
+	public String product(HttpServletRequest request,Model model) {
 		
 		List<ProductDto> product_list = productservice.product_list();
 		model.addAttribute("product_list", product_list);
 		
-		return "/admin/product";
+		model.addAttribute("mainPage", "admin/product.jsp");
+		
+		return "index";
 	}
 //------------------------------------------------------------------------------------------------------------------------
 	// 관리자 페이지 - 상품 등록 페이지
@@ -175,80 +173,97 @@ public class MyControllerPYH {
 		return "/admin/productAddForm";
 	}
 //------------------------------------------------------------------------------------------------------------------------
-	// 관리자 페이지 - 상품 이미지 업로드 페이지
-		@RequestMapping("/admin/productImgAddForm")
-		public String productImgAdd(Model model) {
-			
-			return "/admin/productImgAddForm";
-		}
-	
-//------------------------------------------------------------------------------------------------------------------------
 	// 관리자 페이지 - 상품 등록
-	@RequestMapping("/productAddAction")
-	@ResponseBody
-	public String productAddAction(@RequestParam("product_type") String product_type,
-									@RequestParam("product_name") String product_name,
-									@RequestParam("product_brand") String product_brand,
-									@RequestParam("product_color") String product_color,
-									@RequestParam("product_price") String product_price,
-									@RequestParam("product_count") String product_count,
-									@RequestParam("product_img1") String product_img1,
-									@RequestParam("product_img2") String product_img2,
-									Model model
-									) {
-		
-
-		int result = productservice.productAdd
-				(product_type, 
-				product_name, 
-				product_brand, 
-				product_color, 
-				product_price, 
-				product_count, 
-				product_img1, 
-				product_img2);
-		
-		if( result == 1 ) {
-			return "<script>alert('상품등록을 완료하였습니다.'); location.href='/admin/product';</script>";
-		}
-		else {		
-			return "<script>alert('상품등록에 실패하였습니다.'); history.back(-1);</script>";
+	
+	//파일업로드 설정
+		@Bean(name = "multipartResolver")
+		public CommonsMultipartResolver multipartResolver() {
+			CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
+			multipartResolver.setMaxUploadSize(200000000);
+			multipartResolver.setMaxInMemorySize(200000000);
+			multipartResolver.setDefaultEncoding("utf-8");
+			return multipartResolver;
 		}
 		
+	// 상품 등록
+	@RequestMapping(value="/uploadOk", method = RequestMethod.POST)
+	//required=false : 파라미터가 null로 들어와도 에러발생안함.
+	public String uploadOk( @RequestParam(value="product_type", required=false, defaultValue="") String product_type,
+			@RequestParam(value="product_name", required=false, defaultValue="") String product_name,
+			@RequestParam(value="product_brand", required=false, defaultValue="") String product_brand,
+			@RequestParam(value="product_color", required=false, defaultValue="") String product_color,
+			@RequestParam(value="product_price", required=false, defaultValue="") String product_price,
+			@RequestParam(value="product_count", required=false, defaultValue="") String product_count,
+			@RequestParam(value="filename", required=false) MultipartFile file,
+			@RequestParam(value="product_content", required=false, defaultValue="") String product_content,
+							Model model) {
 		
-
+		
+		System.out.println("filename:" + file);
+		
+		//업로드 파일 처리
+		String upload_url = fileUploadService.restore(file);
+		// "/upload/20210114121803123.jpg"
+		System.out.println( "upload_url:" + upload_url );
+		
+		if( upload_url != null ) {
+			if( upload_url.length() > 0 ) {
+				System.out.println("업로드 성공!");
+			}else {
+				System.out.println("업로드 실패!");	
+			}
+		}else {
+			System.out.println("업로드 실패!");
+		}
+		
+		model.addAttribute("upload_url", upload_url);
+		
+		int result = productservice.productAdd(product_type, product_name, 
+				product_brand, product_color, product_price, product_count,  upload_url , product_content);
+		
+		
+		
+		return "/admin/product"; 
 	}
 	
 
 //------------------------------------------------------------------------------------------------------------------------
 	// 상품 리스트 페이지 - 스탠드등
 	@RequestMapping("/product/productList01")
-	public String productList01(Model model) {
+	public String productList01(HttpServletRequest request,Model model) {
 		
-		return "/product/productList01";
+		model.addAttribute("mainPage", "product/productList01.jsp");
+		
+		return "index";
 	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 레일등
 	@RequestMapping("/product/productList02")
-	public String productList02(Model model) {
+	public String productList02(HttpServletRequest request,Model model) {
 		
-		return "/product/productList02";
+		model.addAttribute("mainPage", "product/productList02.jsp");
+		
+		return "index";
 	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 천장등
 	@RequestMapping("/product/productList03")
-	public String productList03(Model model) {
+	public String productList03(HttpServletRequest request,Model model) {
+		
+		model.addAttribute("mainPage", "product/productList03.jsp");
 		
 		
-		return "/product/productList03";
+		return "index";
 	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 벽등
 	@RequestMapping("/product/productList04")
-	public String productList04(Model model) {
+	public String productList04(HttpServletRequest request,Model model) {
 		
 		
-		return "/product/productList04";
+		model.addAttribute("mainPage", "product/productList04.jsp");
+		
+		return "index";
 	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 상세 페이지
@@ -264,12 +279,15 @@ public class MyControllerPYH {
 		
 		model.addAttribute("product_idx" , product_idx);
 		
+		model.addAttribute("mainPage", "product/productDetail.jsp");
+		
 		
 		// 리뷰 보기
 		List<Product_reviewDto> review_list = productservice.viewReview(product_idx);
 		model.addAttribute("review_list", review_list);
 		
-		return "/product/productDetail";
+		
+		return "index";
 	}
 //-------------------------------------------------------------------------------------------------------------------------	
 	// 리뷰 작성 페이지
@@ -309,8 +327,10 @@ public class MyControllerPYH {
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
 		model.addAttribute("member_id", member_id);
+		
+		model.addAttribute("mainPage", "mypage/mypageMain.jsp");
 	
-		return "/mypage/mypageMain";
+		return "index";
 	}
 //---------------------------------------------------------------------------------------------------------------------------	
 	// 마이페이지 - 회원정보수정페이지
@@ -322,15 +342,16 @@ public class MyControllerPYH {
 		
 		System.out.println(member_id);
 		
+		
 		if(member_id==null) {	
-			model.addAttribute("main", "/mypage/memberInfo.jsp");			
-			return "/mypage/memberInfo";
+			model.addAttribute("mainPage", "mypage/memberInfo.jsp");			
+			return "index";
 		}else {
 			model.addAttribute("dto", memberservice.viewMember(member_id));
 			System.out.println(member_id);
 	
-			model.addAttribute("main", "/mypage/memberInfo.jsp");			
-			return "/mypage/memberInfo";
+			model.addAttribute("mainPage", "mypage/memberInfo.jsp");			
+			return "index";
 		}
 		
 		
@@ -360,13 +381,13 @@ public class MyControllerPYH {
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
 		if(member_id==null) {	
-			model.addAttribute("main", "/mypage/passwordChange.jsp");			
+			model.addAttribute("mainPage", "mypage/passwordChange.jsp");			
 			return "/mypage/passwordChange";
 		}else {
 			model.addAttribute("dto", memberservice.viewPassword(member_id));
 			System.out.println(member_id);
 	
-			model.addAttribute("main", "/mypage/passwordChange.jsp");			
+			model.addAttribute("mainPage", "mypage/passwordChange.jsp");			
 			return "/mypage/passwordChange";
 		}
 		
@@ -399,15 +420,32 @@ public class MyControllerPYH {
 		System.out.println(member_id);
 		
 		if(member_id==null) {	
-			model.addAttribute("main", "/mypage/basket.jsp");			
-			return "/mypage/basket";
+			model.addAttribute("mainPage", "mypage/basket.jsp");			
+			return "index";
 		}else {
 			model.addAttribute("dto", basketservice.viewBasket(member_id));
 			System.out.println(member_id);
 	
-			model.addAttribute("main", "/mypage/basket.jsp");			
-			return "/mypage/basket";
+			model.addAttribute("mainPage", "mypage/basket.jsp");			
+			return "index";
 		}
 	}
+//------------------------------------------------------------------------------------------------------------------------------
+	// 마이페이지 - 장바구니 비우기
+		@RequestMapping("/mypage_basket_delete")
+		@ResponseBody
+		public String basket_delete(HttpServletRequest request) {
+			
+			String member_id = (String) request.getSession().getAttribute("member_id");
+			
+			int result = basketservice.basket_delete(member_id);
+			if(result == 1) {
+				
+				return "<script>alert('장바구니 비우기에 성공했습니다.'); location.href='/mypage/mypageMain';</script>";
+			}else {
+				return "<script>alert('장바구니 비우기에 실패했습니다.'); history.back(-1);</script>";
+			}
+		}
+//-----------------------------------------------------------------------------------------------------------------------------
 
 }

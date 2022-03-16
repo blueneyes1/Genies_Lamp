@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
      <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
 
   <meta charset="UTF-8">
@@ -16,11 +15,7 @@
 
   <title></title>
   <style>
-    * { margin: 0; padding: 0; }
-
-    body {
-      padding: 20px;
-    }
+    
     .box {
       display: flex;
       flex-flow: row nowrap;
@@ -29,16 +24,16 @@
       font-size: 12px;
     }
    
-    #main {
+    #main_box {
       display: flex;
       flex-flow: row nowrap;
     }
-    #aside {
+    #aside_box {
       flex: 1 1 auto;
       flex-direction: column;
       width: 300px;
     }
-    #section {
+    #section_box {
       flex: 2 1 auto;
       flex-direction: column;
       width: 1200px;
@@ -49,7 +44,7 @@
   	text-align: center;
     }
 
-    button {
+    #btns {
     background-color: rgb(178, 178, 238);
     border: none;
     width: 90px;
@@ -132,26 +127,26 @@
 </head>
 <body>
  
-    <div class="box" id="main">
-      <div class="box" id="aside">
+    <div class="box" id="main_box">
+      <div class="box" id="aside_box">
         <div class="menu_btn">
-          <button onclick="location.href='/mypage/memberInfo' ">회원정보수정</button>
+          <button onclick="location.href='/mypage/memberInfo' " id="btns">회원정보수정</button>
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/' ">주문내역</button>
+          <button onclick="location.href='/' " id="btns">주문내역</button>
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/mypage/basket' ">장바구니</button>
+          <button onclick="location.href='/mypage/basket' " id="btns">장바구니</button>
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/' ">1:1문의</button>
+          <button onclick="location.href='/' " id="btns">1:1문의</button>
         </div>
         
       </div>
-      <div class="box" id="section">
+      <div class="box" id="section_box">
         <div class="mypage_head_text">
 
           <p><b>회원정보수정</b></p>
@@ -230,9 +225,7 @@
       </div>
     </div>
 
-</body>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-</html>

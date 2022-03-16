@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,7 +14,7 @@
 <title>장바구니</title>
 <style>
   
-  .wrap {
+  .box {
     display : flex;
     flex-direction : column;
     align-items: center;
@@ -28,15 +27,28 @@
     flex-direction: row;
     margin-top: 50px;
   }
+  
+  #basket_btn {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 90px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	margin: 5px;
+  }
+  
+  
 
+	
   
 
   </style>
 </head>
 <body>
 
-	<div class="wrap">
-	<form method="post" action="basketOrder">
+	<div class="box">
+	<form method="post" >
 		<div class="basket">
 
       <table class="table table-sm">
@@ -72,10 +84,10 @@
         <td colspan="2"></td>
       </tr>
         
-        <tr id="basket_btn">
-          <td colspan="5">
-            <input type="submit" value="주문하기" />
-            <input type="button" value="장바구니 비우기" />
+        <tr>
+          <td colspan="5"  id="basket_btn_box">
+            <button type="button" onclick="location.href='/' " id="basket_btn">주문하기</button>
+            <input type="submit" formaction="/mypage_basket_delete" value="장바구니 비우기"  id="basket_btn"/>
           </td>
         </tr>
 
@@ -92,6 +104,3 @@
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	
-
-</body>
-</html>

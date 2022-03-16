@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
         <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
+
 <head>
  <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,12 +16,7 @@
 <title></title>
   
   <style>
-  * { margin: 0; padding: 0; }
-
-	body {
-      padding: 20px;
-    }
-
+  
 	.box {
   	display: flex;
   	flex-flow: row nowrap;
@@ -46,6 +40,11 @@
   	flex: 2 1 auto;
   	flex-direction: column;
   	width: 900px;
+	}
+	
+	#product_img {
+	width: 150px;
+	height: 150px;
 	}
 
 	button {
@@ -117,6 +116,7 @@
               <td>상품 가격</td>
               <td>상품 수</td>
               <td>상품 이미지</td>
+              <td>상품 설명</td>
               <td>상품 등록 날짜</td>
               
             </tr>
@@ -130,7 +130,8 @@
               <td>${product_list.product_color }</td>
               <td>${product_list.product_price }</td>
               <td>${product_list.product_count }</td>
-              <td><img src="${product_list.product_img1 }"/></td>
+              <td><img src="${product_list.product_img1 }" id="product_img"/></td>
+              <td>${product_list.product_content }</td>
               <td>${product_list.product_date }</td>
             </tr>
             </c:forEach>
@@ -147,13 +148,6 @@
     </div>
 
 
-</body>
-</html>
-
-</body>
-
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-
-</html>

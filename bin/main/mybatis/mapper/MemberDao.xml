@@ -33,10 +33,13 @@
 		#{param6}, #{param7}, #{param8}, #{param9}, #{param10}, #{param11}, sysdate )
 	</insert>
 	
+	
+	<!-- 마이페이지 회원정보 보기 (PYH) -->
 	<select id="viewMember" resultType="com.study.springboot.dto.MemberDto">
     	select * from GENIES_MEMBER where MEMBER_ID=#{ MEMBER_ID }
     </select>
 	
+	<!-- 마이페이지 회원정보 수정 (PYH) -->
 	<update id="memberUpdate">
 		UPDATE GENIES_MEMBER SET 
 		MEMBER_ID=#{param1}, 
@@ -46,19 +49,43 @@
 		WHERE MEMBER_ID = #{param1}
 	</update>
 	
+	<!-- 마이페이지 비밀번호 보기 (PYH) -->
 	<select id="viewPassword" resultType="com.study.springboot.dto.MemberDto">
     	select * from GENIES_MEMBER where MEMBER_ID=#{ MEMBER_ID }
     </select>
 	
+	<!-- 마이페이지 비밀번호 수정 (PYH) -->
 	<update id="passwordChange">
 		UPDATE GENIES_MEMBER SET  
 		MEMBER_PW=#{param2}
 		WHERE MEMBER_ID = #{param1}
 	</update>
 	
+	<!-- 관리자페이지 회원 리스트 보기 (PYH) -->
 	<select id="list" resultType="com.study.springboot.dto.MemberDto">
     	select * from GENIES_MEMBER
     </select>
+    
+    <!-- 관리자페이지 회원정보 수정 페이지 (PYH) -->
+    <select id="admin_view_member" resultType="com.study.springboot.dto.MemberDto">
+    	select * from GENIES_MEMBER where MEMBER_ID=#{ MEMBER_ID }
+    </select>
+    
+    <!-- 관리자페이지 회원정보 수정 (PYH) -->
+    <update id="admin_member_modify">
+		UPDATE GENIES_MEMBER SET  
+		member_name=#{param2},
+		member_email=#{param3},
+		member_phone=#{param4},
+		member_address1=#{param5},
+		member_grade=#{param6}
+		WHERE MEMBER_ID = #{param1}
+	</update>
+	
+	<!-- 관리자페이지 회원정보 삭제 (PYH) -->
+	<delete id="admin_member_delete">
+		delete from GENIES_MEMBER where MEMBER_ID = #{param1}
+	</delete>
 		
 </mapper>    
 

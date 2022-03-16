@@ -1,15 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+
+
 <head>
   <title></title>
   <style>
-    * { margin: 0; padding: 0; }
-
-    body {
-      padding: 20px;
-    }
+    
+   
     .box {
       display: flex;
       flex-flow: row nowrap;
@@ -55,7 +52,7 @@
   
   </style>
 </head>
-<body>
+
 
     <div class="box" id="main">
       <div class="box" id="aside">
@@ -83,6 +80,3 @@
         
       </div>
     </div>
-
-</body>
-</html>

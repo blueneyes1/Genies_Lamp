@@ -7,11 +7,13 @@
 <!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
 
 <mapper namespace="com.study.springboot.dao.IProduct_reviewDao">
-
+	
+	<!-- 제품상세페이지 - 리뷰 보기 (PYH) -->
     <select id="viewReview" resultType="com.study.springboot.dto.Product_reviewDto">
     	select * from GENIES_PRODUCT_REVIEW where review_product_idx=#{ param1 }
     </select>
-        
+    
+    <!-- 제품상세페이지 - 리뷰 작성 (PYH) -->
     <insert id="writeReview">
     	insert into GENIES_PRODUCT_REVIEW (review_idx, review_product_idx, review_member_id, review_title, review_content,review_date ) 
 			values (GENIES_PRODUCT_REVIEW_seq.nextval, #{ param1 }, #{ param2 }, #{ param3 }, #{ param4 }, sysdate )
