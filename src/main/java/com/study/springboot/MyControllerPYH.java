@@ -481,14 +481,10 @@ public class MyControllerPYH {
 			model.addAttribute("mainPage", "mypage/basket.jsp");			
 			return "index";
 		}else {
-<<<<<<< HEAD
+			
 			model.addAttribute("dto", viewBasket);
-=======
-			model.addAttribute("basket_list", basketservice.viewBasket(member_id));
->>>>>>> c584d6e1cfd37b767871cde3a964f75876130ee8
-			System.out.println(member_id);
-	
-			model.addAttribute("mainPage", "mypage/basket.jsp");			
+			model.addAttribute("mainPage", "mypage/basket.jsp");		
+			
 			return "index";
 		}
 	}
