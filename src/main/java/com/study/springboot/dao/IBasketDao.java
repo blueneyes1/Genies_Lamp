@@ -1,6 +1,7 @@
 package com.study.springboot.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -26,7 +27,7 @@ public interface IBasketDao {
 	public int cart_count(String basket_product_idx, String basket_member_id);
 
 	// 마이페이지 장바구니 보기 (PYH)
-	public BasketDto viewBasket(String basket_member_id);
+	public List<BasketDto> viewBasket(String basket_member_id);
 	
 	// 장바구니 비우기 (PYH)
 	public int basket_delete(String basket_member_id);

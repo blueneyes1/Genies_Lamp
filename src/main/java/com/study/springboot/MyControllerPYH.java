@@ -476,7 +476,7 @@ public class MyControllerPYH {
 			model.addAttribute("mainPage", "mypage/basket.jsp");			
 			return "index";
 		}else {
-			model.addAttribute("dto", basketservice.viewBasket(member_id));
+			model.addAttribute("basket_list", basketservice.viewBasket(member_id));
 			System.out.println(member_id);
 	
 			model.addAttribute("mainPage", "mypage/basket.jsp");			

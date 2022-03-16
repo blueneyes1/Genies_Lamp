@@ -1,5 +1,7 @@
 package com.study.springboot.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,11 +15,11 @@ public class BasketService {
 	IBasketDao basketDao;
 	
 	// 마이페이지 - 장바구니 보기 (PYH)
-	public BasketDto viewBasket(String basket_member_id) {
+	public List<BasketDto> viewBasket(String basket_member_id) {
 		
-		BasketDto basket = basketDao.viewBasket(basket_member_id);
+		List<BasketDto> basket_list = basketDao.viewBasket(basket_member_id);
 		
-		return basket;
+		return basket_list;
 	}
 	
 
