@@ -25,4 +25,14 @@ public interface IProductDao {
 						String product_count,
 						String product_img1,
 						String product_content);
+	
+	// 관리자 페이지 - 제품 정보 보기 (PYH)
+	public ProductDto admin_view_product(String product_idx);
+	
+	// 관리자 페이지 - 제품 정보 수정 (PYH)
+	public int admin_product_modify(String product_idx, String product_type, String product_name, String product_brand, String product_color, String product_price,
+			String product_count, String product_content);
+	
+	// 관리자 페이지 - 제품 정보 삭제 (PYH)
+	public int admin_product_delete(String product_idx);
 }

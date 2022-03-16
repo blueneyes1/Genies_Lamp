@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+=======
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+>>>>>>> c584d6e1cfd37b767871cde3a964f75876130ee8
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -51,8 +56,13 @@
 	<div class="box">
 	<form method="post" >
 		<div class="basket">
-
+	
+	<c:forEach var="basket_list" items="${basket_list }">
       <table class="table table-sm">
+<<<<<<< HEAD
+=======
+      <input type="hidden" name="member_id" value="${basket_list.basket_member_id}" />
+>>>>>>> c584d6e1cfd37b767871cde3a964f75876130ee8
         
       <tr>
         <td>이미지</td>
@@ -61,6 +71,7 @@
         <td>수량</td>
         <td>합계</td>
       </tr>
+<<<<<<< HEAD
       
       <c:forEach var="dto" items="${viewBasket}">
 	      <tr>
@@ -71,6 +82,18 @@
 	        <td>${dto.product_price }</td>
 	      </tr>
 	   </c:forEach>
+=======
+
+	
+      <tr>
+        <td>${basket_list.product_img1 }</td>
+        <td>${basket_list.product_name }</td>
+        <td>${basket_list.product_price}</td>
+        <td>${basket_list.basket_count }</td>
+        <td>${basket_list.product_price }</td>
+      </tr>
+	
+>>>>>>> c584d6e1cfd37b767871cde3a964f75876130ee8
 
       <tr>
         <td colspan="2">총 상품금액</td>
@@ -92,7 +115,7 @@
         </tr>
 
       </table>
-
+	</c:forEach>
 
 
 

@@ -7,7 +7,12 @@
 <!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
 
 <mapper namespace="com.study.springboot.dao.IBasketDao">
+<<<<<<< HEAD
 	
+=======
+
+	<!-- 마이페이지 - 장바구니 보기 (PYH) -->
+>>>>>>> c584d6e1cfd37b767871cde3a964f75876130ee8
 	<select id="viewBasket" resultType="com.study.springboot.dto.BasketDto">
 		select * from 
 		GENIES_BASKET  , GENIES_PRODUCT 

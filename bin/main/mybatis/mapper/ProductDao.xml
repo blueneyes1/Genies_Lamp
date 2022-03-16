@@ -44,6 +44,29 @@
 		sysdate)
     
     </insert>
+    
+    <!-- 관리자페이지 - 제품정보 수정 페이지 (PYH) -->
+    <select id="admin_view_product" resultType="com.study.springboot.dto.ProductDto">
+    	select * from GENIES_PRODUCT where PRODUCT_IDX=#{ param1 }
+    </select>
+    
+    <!-- 관리자페이지 - 제품 정보 수정 (PYH) -->
+    <update id="admin_product_modify">
+		UPDATE GENIES_PRODUCT SET  
+		PRODUCT_TYPE = #{param2}, 
+		PRODUCT_NAME = #{param3}, 
+		PRODUCT_BRAND = #{param4}, 
+		PRODUCT_COLOR = #{param5}, 
+		PRODUCT_PRICE = #{param6}, 
+		PRODUCT_COUNT = #{param7}, 
+		PRODUCT_CONTENT = #{param8}
+		WHERE PRODUCT_IDX = #{param1}  
+	</update>
+	
+	<!-- 관리자페이지 회원정보 삭제 (PYH) -->
+	<delete id="admin_product_delete">
+		delete from GENIES_PRODUCT where PRODUCT_IDX = #{param1}
+	</delete>
 		
 </mapper>    
 

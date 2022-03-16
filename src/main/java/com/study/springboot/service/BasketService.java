@@ -17,9 +17,15 @@ public class BasketService {
 	// 마이페이지 - 장바구니 보기 (PYH)
 	public List<BasketDto> viewBasket(String basket_member_id) {
 		
+<<<<<<< HEAD
 		List<BasketDto> viewBasket = basketDao.viewBasket(basket_member_id);
 		
 		return viewBasket;
+=======
+		List<BasketDto> basket_list = basketDao.viewBasket(basket_member_id);
+		
+		return basket_list;
+>>>>>>> c584d6e1cfd37b767871cde3a964f75876130ee8
 	}
 	
 
