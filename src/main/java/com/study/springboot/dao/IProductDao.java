@@ -13,6 +13,9 @@ public interface IProductDao {
 	// 제품 리스트 (PYH)
 	public List<ProductDto> product_list();
 	
+	// 제품 리스트 페이지 (PYH)
+	public List<ProductDto> product_listPage(String product_type, String startRowNum, String endRowNum);
+	
 	// 제품 상세 페이지 (PYH)
 	public List<ProductDto> viewProduct(String product_idx);
 	

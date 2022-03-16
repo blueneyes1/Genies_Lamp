@@ -18,6 +18,10 @@ public class ProductDto {
 	private String product_content;
 	private Date product_date;
 	
+	public ProductDto() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public ProductDto(int product_idx, String product_type, String product_name, String product_brand,
 			String product_color, int product_price, int product_count, String product_img1, String product_content,
 			Date product_date) {

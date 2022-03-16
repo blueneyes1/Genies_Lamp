@@ -31,6 +31,14 @@ public class ProductService {
 		return product_list;
 	}
 	
+	// 제품 리스트 페이지 (PYH)
+	public List<ProductDto> product_listPage(String product_type, String startRowNum, String endRowNum) {
+		
+		List<ProductDto> product_listPage = productDao.product_listPage(product_type, startRowNum, endRowNum);
+		
+		return product_listPage;
+	}
+	
 	// 제품 상세 페이지 (PYH)
 	public List<ProductDto> viewProduct(String product_idx) {
 		

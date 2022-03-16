@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
-import com.study.springboot.dto.BasketDto;
 import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.PayDto;
 import com.study.springboot.dto.ProductDto;
@@ -282,7 +281,27 @@ public class MyControllerPYH {
 //------------------------------------------------------------------------------------------------------------------------
 	// 상품 리스트 페이지 - 스탠드등
 	@RequestMapping("/product/productList01")
-	public String productList01(HttpServletRequest request,Model model) {
+	public String productList01(@RequestParam(value="product_type",required=false) String product_type,
+									@RequestParam(value="page",required=false) String page,
+									HttpServletRequest request,
+									Model model) {
+		
+		if( page == null ) {
+			page = "1";
+		}
+		
+		System.out.println("page:" + page);
+		model.addAttribute("page", page);
+		
+		int num_page_no = Integer.parseInt( page ); //page번호 1,2,3,4
+		int num_page_size = 5; //한페이지당 Row갯수
+		int startRowNum = (num_page_no - 1) * num_page_size + 1; // 1, 6, 11 페이지 시작 줄번호
+		int endRowNum = (num_page_no * num_page_size);           // 5, 10, 15 페이지 끝 줄번호
+		
+		// row 1~5 까지...
+		List<ProductDto> product_listPage = productservice.product_listPage(product_type, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		model.addAttribute("product_listPage", product_listPage);
+		
 		
 		model.addAttribute("mainPage", "product/productList01.jsp");
 		
@@ -291,7 +310,27 @@ public class MyControllerPYH {
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 레일등
 	@RequestMapping("/product/productList02")
-	public String productList02(HttpServletRequest request,Model model) {
+	public String productList02(@RequestParam(value="product_type",required=false) String product_type,
+			@RequestParam(value="page",required=false) String page,
+			HttpServletRequest request,
+			Model model) {
+		
+		if( page == null ) {
+			page = "1";
+		}
+		
+		System.out.println("page:" + page);
+		model.addAttribute("page", page);
+		
+		int num_page_no = Integer.parseInt( page ); //page번호 1,2,3,4
+		int num_page_size = 5; //한페이지당 Row갯수
+		int startRowNum = (num_page_no - 1) * num_page_size + 1; // 1, 6, 11 페이지 시작 줄번호
+		int endRowNum = (num_page_no * num_page_size);           // 5, 10, 15 페이지 끝 줄번호
+		
+		// row 1~5 까지...
+		List<ProductDto> product_listPage = productservice.product_listPage(product_type, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		model.addAttribute("product_listPage", product_listPage);
+		
 		
 		model.addAttribute("mainPage", "product/productList02.jsp");
 		
@@ -300,17 +339,56 @@ public class MyControllerPYH {
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 천장등
 	@RequestMapping("/product/productList03")
-	public String productList03(HttpServletRequest request,Model model) {
+	public String productList03(@RequestParam(value="product_type",required=false) String product_type,
+			@RequestParam(value="page",required=false) String page,
+			HttpServletRequest request,
+			Model model) {
+		
+		if( page == null ) {
+			page = "1";
+		}
+		
+		System.out.println("page:" + page);
+		model.addAttribute("page", page);
+		
+		int num_page_no = Integer.parseInt( page ); //page번호 1,2,3,4
+		int num_page_size = 5; //한페이지당 Row갯수
+		int startRowNum = (num_page_no - 1) * num_page_size + 1; // 1, 6, 11 페이지 시작 줄번호
+		int endRowNum = (num_page_no * num_page_size);           // 5, 10, 15 페이지 끝 줄번호
+		
+		// row 1~5 까지...
+		List<ProductDto> product_listPage = productservice.product_listPage(product_type, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		model.addAttribute("product_listPage", product_listPage);
+		
 		
 		model.addAttribute("mainPage", "product/productList03.jsp");
-		
 		
 		return "index";
 	}
 //------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 벽등
 	@RequestMapping("/product/productList04")
-	public String productList04(HttpServletRequest request,Model model) {
+	public String productList04(@RequestParam(value="product_type",required=false) String product_type,
+			@RequestParam(value="page",required=false) String page,
+			HttpServletRequest request,
+			Model model) {
+		
+		
+		if( page == null ) {
+			page = "1";
+		}
+		
+		System.out.println("page:" + page);
+		model.addAttribute("page", page);
+		
+		int num_page_no = Integer.parseInt( page ); //page번호 1,2,3,4
+		int num_page_size = 5; //한페이지당 Row갯수
+		int startRowNum = (num_page_no - 1) * num_page_size + 1; // 1, 6, 11 페이지 시작 줄번호
+		int endRowNum = (num_page_no * num_page_size);           // 5, 10, 15 페이지 끝 줄번호
+		
+		// row 1~5 까지...
+		List<ProductDto> product_listPage = productservice.product_listPage(product_type, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		model.addAttribute("product_listPage", product_listPage);
 		
 		
 		model.addAttribute("mainPage", "product/productList04.jsp");
@@ -471,18 +549,14 @@ public class MyControllerPYH {
 		
 		System.out.println(member_id);
 		
-		String basket_member_id = member_id;
-		
-		List<BasketDto> viewBasket = basketservice.viewBasket(basket_member_id);
-		
 		if(member_id==null) {	
 			model.addAttribute("mainPage", "mypage/basket.jsp");			
 			return "index";
 		}else {
-			
-			model.addAttribute("dto", viewBasket);
-			model.addAttribute("mainPage", "mypage/basket.jsp");		
-			
+			model.addAttribute("basket_list", basketservice.viewBasket(member_id));
+			System.out.println(member_id);
+	
+			model.addAttribute("mainPage", "mypage/basket.jsp");			
 			return "index";
 		}
 	}

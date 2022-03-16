@@ -13,6 +13,19 @@
     	select * from GENIES_PRODUCT
     </select>
     
+    <!-- 제품 리스트 페이지 (PYH) -->
+    <select id="product_listPage" resultType="com.study.springboot.dto.ProductDto">
+		SELECT * FROM
+	    (
+	        SELECT 
+	            ROWNUM AS RNUM, GENIES_PRODUCT.*
+	        FROM
+	            GENIES_PRODUCT
+            where product_type = #{param1}
+	    )
+		WHERE RNUM BETWEEN #{param2} AND #{param3}
+	</select>
+    
     <!-- 제품 상세 페이지 (PYH) -->
      <select id="viewProduct" resultType="com.study.springboot.dto.ProductDto">
     	select * from GENIES_PRODUCT where product_idx=#{ param1 }
@@ -63,7 +76,7 @@
 		WHERE PRODUCT_IDX = #{param1}  
 	</update>
 	
-	<!-- 관리자페이지 회원정보 삭제 (PYH) -->
+	<!-- 관리자페이지 제품정보 삭제 (PYH) -->
 	<delete id="admin_product_delete">
 		delete from GENIES_PRODUCT where PRODUCT_IDX = #{param1}
 	</delete>
