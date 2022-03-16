@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,8 +56,7 @@
 	
 	<c:forEach var="basket_list" items="${basket_list }">
       <table class="table table-sm">
-      <input type="hidden" name="member_id" value="${basket_list.basket_member_id}" />
-        
+
       <tr>
         <td>이미지</td>
         <td>상품정보</td>
@@ -64,15 +65,17 @@
         <td>합계</td>
       </tr>
 
-	
-      <tr>
-        <td>${basket_list.product_img1 }</td>
-        <td>${basket_list.product_name }</td>
-        <td>${basket_list.product_price}</td>
-        <td>${basket_list.basket_count }</td>
-        <td>${basket_list.product_price }</td>
-      </tr>
-	
+      
+      <c:forEach var="dto" items="${viewBasket}">
+	      <tr>
+	        <td>${dto.product_img1 }</td>
+	        <td>${dto.product_name }</td>
+	        <td>${dto.product_price}</td>
+	        <td>${dto.basket_count }</td>
+	        <td>${dto.product_price }</td>
+	      </tr>
+	   </c:forEach>
+
 
       <tr>
         <td colspan="2">총 상품금액</td>
@@ -104,5 +107,5 @@
 	</div>
 	
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	

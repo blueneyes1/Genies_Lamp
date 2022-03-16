@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
+import com.study.springboot.dto.BasketDto;
 import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.PayDto;
 import com.study.springboot.dto.ProductDto;
@@ -470,14 +471,18 @@ public class MyControllerPYH {
 		
 		System.out.println(member_id);
 		
+		String basket_member_id = member_id;
+		
+		List<BasketDto> viewBasket = basketservice.viewBasket(basket_member_id);
+		
 		if(member_id==null) {	
 			model.addAttribute("mainPage", "mypage/basket.jsp");			
 			return "index";
 		}else {
-			model.addAttribute("basket_list", basketservice.viewBasket(member_id));
-			System.out.println(member_id);
-	
-			model.addAttribute("mainPage", "mypage/basket.jsp");			
+			
+			model.addAttribute("dto", viewBasket);
+			model.addAttribute("mainPage", "mypage/basket.jsp");		
+			
 			return "index";
 		}
 	}

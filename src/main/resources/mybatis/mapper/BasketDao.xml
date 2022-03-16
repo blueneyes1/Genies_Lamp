@@ -8,7 +8,9 @@
 
 <mapper namespace="com.study.springboot.dao.IBasketDao">
 
+
 	<!-- 마이페이지 - 장바구니 보기 (PYH) -->
+
 	<select id="viewBasket" resultType="com.study.springboot.dto.BasketDto">
 		select * from 
 		GENIES_BASKET  , GENIES_PRODUCT 
@@ -32,7 +34,7 @@
 
 	<!-- 장바구니 비우기 (PYH) -->
 	<delete id="basket_delete">
-	delete from GENIES_BASKET where basket_member_id=#{param1}
+		delete from GENIES_BASKET where basket_member_id=#{param1}
 	</delete>
 	
 </mapper>    

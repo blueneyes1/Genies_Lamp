@@ -12,51 +12,7 @@ public class BasketDto {
 	private String basket_product_idx;
 	private int basket_count;
 	private int basket_price;
-	
-	public BasketDto() {
-		super();
-	}
-
-	public BasketDto(int basket_idx, String basket_member_id, String basket_product_idx, int basket_count) {
-		super();
-		this.basket_idx = basket_idx;
-		this.basket_member_id = basket_member_id;
-		this.basket_product_idx = basket_product_idx;
-		this.basket_count = basket_count;
-	}
-
-	public int getbasket_idx() {
-		return basket_idx;
-	}
-
-	public void setbasket_idx(int basket_idx) {
-		this.basket_idx = basket_idx;
-	}
-
-	public String getbasket_member_id() {
-		return basket_member_id;
-	}
-
-	public void setbasket_member_id(String basket_member_id) {
-		this.basket_member_id = basket_member_id;
-	}
-
-	public String getbasket_product_idx() {
-		return basket_product_idx;
-	}
-
-	public void setbasket_product_idx(String basket_product_idx) {
-		this.basket_product_idx = basket_product_idx;
-	}
-
-	public int getbasket_count() {
-		return basket_count;
-	}
-
-	public void setbasket_count(int basket_count) {
-		this.basket_count = basket_count;
-	}
-	
+			
 	private String product_idx;
 	private String product_type;
 	private String product_name;
@@ -69,6 +25,9 @@ public class BasketDto {
 	private String product_img3;
 	private Date product_date;
 	
+	public BasketDto() {
+			
+	}
 	
 	public BasketDto(int basket_idx, String basket_member_id, String basket_product_idx, int basket_count,
 			int basket_price, String product_idx, String product_type, String product_name, String product_brand,
