@@ -28,12 +28,15 @@
 	<insert id="cart_insert_action"> insert into GENIES_BASKET(basket_idx,basket_member_id,basket_product_idx,basket_count)VALUES ( genies_basket_seq.nextval, #{param1},#{param2},#{param3} ) </insert>
 
   	<select resultType="int" id="cart_count">SELECT count(*) from GENIES_BASKET WHERE basket_product_idx = #{param1} AND basket_member_id = #{param2} </select>
+<<<<<<< HEAD
 
 	<!-- 장바구니 비우기 (PYH) -->
 	<delete id="basket_delete">
 	delete from GENIES_BASKET where basket_member_id=#{param1}
 	</delete>
 	
+=======
+>>>>>>> 1856866d65c75953f6a9f0e65f5a76640c7e3ada
 </mapper>    
 
 

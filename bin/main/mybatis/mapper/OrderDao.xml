@@ -10,7 +10,7 @@
 
      <select id="orderDetail" resultType="com.study.springboot.dto.OrderDto">
      	SELECT * FROM genies_pay, genies_order WHERE genies_pay.pay_member_id = #{ member_id } 
-     	AND genies_pay.pay_member_id = genies_order.order_member_id
+     	AND genies_pay.pay_idx = genies_order.order_pay_idx
      </select>
 		
 </mapper>    

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <head>
 	<title>Genie's Lamp - 이용약관</title>
@@ -13,9 +13,7 @@
 <div class="term1">
   <div>이용약관</div>
   <div>
-    <textarea name="" id="" cols="30" rows="10">
-      이용약관
-    </textarea>
+    <c:import url="./member/agree1.jsp" />
     <div><input class="check" type="checkbox">위 약관에 동의합니다.</div>
   </div>
 </div>
@@ -23,9 +21,7 @@
 <div class="term2">
   <div>개인정보보호정책</div>
   <div>
-    <textarea name="" id="" cols="30" rows="10">
-      개인정보보호정책
-    </textarea>
+    <c:import url="./member/agree2.jsp" />
     <div><input class="check" type="checkbox">위 개인정보취급방침에 동의합니다.</div>
   </div>
 </div>
@@ -35,9 +31,7 @@
 <div class="term3">
   <div>개인정보의 수집 및 이용목적</div>
   <div>
-    <textarea name="" id="" cols="30" rows="10">
-      개인정보의 수집 및 이용목적
-    </textarea>
+    <c:import url="./member/agree3.jsp" />
     <div><input class="check" type="checkbox">위 개인정보의 수집 및 이용목적에 동의합니다.</div>
   </div>
 </div>

@@ -61,9 +61,7 @@ create table genies_product(
     product_img2      varchar2(1000)
     
 );
-	
-drop sequence genies_product_seq;
-create sequence genies_product_seq;
+
 	
 drop sequence genies_product_seq;
 create sequence genies_product_seq;
