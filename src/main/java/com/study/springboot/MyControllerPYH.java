@@ -49,16 +49,20 @@ public class MyControllerPYH {
 	
 	// 회사 소개  - 회사소개 페이지
 	@RequestMapping("/company/company") 
-	public String company(Model model) {
+	public String company(HttpServletRequest request,Model model) {
 		
-		return "/company/company";
+		model.addAttribute("mainPage", "company/company.jsp");
+		
+		return "index";
 	}
 //---------------------------------------------------------------------------------------------------------------------
 	// 회사 소개  - 오시는길 페이지
 	@RequestMapping("/company/companyMap") 
-	public String companyMap(Model model) {
+	public String companyMap(HttpServletRequest request,Model model) {
 		
-		return "/company/companyMap";
+		model.addAttribute("mainPage", "company/companyMap.jsp");
+		
+		return "index";
 	}
 
 //---------------------------------------------------------------------------------------------------------------------
