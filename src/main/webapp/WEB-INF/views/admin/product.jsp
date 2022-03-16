@@ -118,12 +118,13 @@
               <td>상품 이미지</td>
               <td>상품 설명</td>
               <td>상품 등록 날짜</td>
+              <td>상품 정보 수정/삭제</td>
               
             </tr>
 
 			<c:forEach var="product_list" items="${product_list }" >
             <tr>
-              <a href=""><td>${product_list.product_idx }</td></a>
+              <td>${product_list.product_idx }</td>
               <td>${product_list.product_type }</td>
               <td>${product_list.product_name }</td>
               <td>${product_list.product_brand }</td>
@@ -133,6 +134,7 @@
               <td><img src="${product_list.product_img1 }" id="product_img"/></td>
               <td>${product_list.product_content }</td>
               <td>${product_list.product_date }</td>
+              <td><a href="/admin/productModify?product_idx=${product_list.product_idx }">제품 정보 수정/삭제</a></td>
             </tr>
             </c:forEach>
           </table>

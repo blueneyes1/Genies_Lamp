@@ -72,5 +72,31 @@ public class ProductService {
 	
 		return result;
 	}
+	
+	// 관리자페이지 - 제품 정보 보기 (PYH)
+	public ProductDto admin_view_product(String product_idx) {
+		
+		ProductDto admin_view_product_dto = productDao.admin_view_product(product_idx);
+		
+		return admin_view_product_dto;
+	}
+	
+	// 관리자페이지 - 제품 정보 수정 (PYH)
+	public int admin_product_modify(String product_idx, String product_type, String product_name, String product_brand, String product_color, String product_price,
+			String product_count, String product_content) {
+		
+		int result = productDao.admin_product_modify(product_idx, product_type, product_name, product_brand, product_color, product_price, product_count, product_content);
+	
+		return result;
+	
+	}
+	
+	// 관리자페이지 - 제품 정보 삭제 (PYH)
+	public int admin_product_delete(String product_idx) {
+		
+		int result = productDao.admin_product_delete(product_idx);
+		
+		return result;
+	}
 
 }

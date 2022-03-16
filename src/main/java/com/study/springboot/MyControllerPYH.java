@@ -143,7 +143,7 @@ public class MyControllerPYH {
 	// 관리자페이지 - 회원정보 삭제
 	@RequestMapping("/admin_member_delete")
 	@ResponseBody
-	public String admin_member_modify(@RequestParam("member_id") String member_id) {
+	public String admin_member_delete(@RequestParam("member_id") String member_id) {
 		
 		int result = memberservice.admin_member_delete(member_id);
 		if(result == 1) {
@@ -225,9 +225,62 @@ public class MyControllerPYH {
 		
 		return "/admin/product"; 
 	}
-	
-
 //------------------------------------------------------------------------------------------------------------------------
+	// 관리자 페이지 - 제품 정보 수정/삭제 페이지
+	@RequestMapping("/admin/productModify")
+	public String productModify(@RequestParam(value= "product_idx") String product_idx,
+								HttpServletRequest request,Model model) {
+		
+		ProductDto admin_view_product_dto = productservice.admin_view_product(product_idx);
+		model.addAttribute("admin_view_product_dto", admin_view_product_dto);
+		
+		model.addAttribute("mainPage", "admin/productModify.jsp");
+		
+		return "index";
+	}
+
+//---------------------------------------------------------------------------------------------------------------------
+	
+	// 관리자페이지 - 제품 정보 수정
+	@RequestMapping("/admin_product_modify")
+	@ResponseBody
+	public String admin_product_modify(@RequestParam("product_idx") String product_idx,
+										@RequestParam("product_type") String product_type, 
+										@RequestParam("product_name") String product_name, 
+										@RequestParam("product_brand") String product_brand, 
+										@RequestParam("product_color") String product_color, 
+										@RequestParam("product_price") String product_price,
+										@RequestParam("product_count") String product_count,
+										@RequestParam("product_content") String product_content) {
+		
+		int result = productservice.admin_product_modify(product_idx, product_type, 
+				product_name, product_brand, product_color, product_price, product_count, product_content);
+				
+				
+		if(result == 1) {
+			
+			return "<script>alert('상품정보수정에 성공했습니다.'); location.href='/admin/product';</script>";
+		}else {
+			return "<script>alert('상품정보수정에 실패했습니다.'); history.back(-1);</script>";
+		}
+	}
+//-----------------------------------------------------------------------------------------------------------------------------
+	// 관리자페이지 - 상품 정보 삭제
+	@RequestMapping("/admin_product_delete")
+	@ResponseBody
+	public String admin_product_delete(@RequestParam("product_idx") String product_idx) {
+		
+		int result = productservice.admin_product_delete(product_idx);
+		if(result == 1) {
+			
+			return "<script>alert('상품정보삭제에 성공했습니다.'); location.href='/admin/product';</script>";
+		}else {
+			return "<script>alert('상품정보삭제에 실패했습니다.'); history.back(-1);</script>";
+		}
+	}
+//------------------------------------------------------------------------------------------------------------------------
+	
+	
 	// 상품 리스트 페이지 - 스탠드등
 	@RequestMapping("/product/productList01")
 	public String productList01(HttpServletRequest request,Model model) {
