@@ -112,9 +112,8 @@ public class MyControllerPJW {
 		
 	}
 	
-	// ********************************************
-	// *            장바구니 - 삭제               *
-	// ********************************************
+	
+	//장바구니 - 삭제
 	@RequestMapping("/cart_delete_action")
 	public String cart_delete_action(@RequestParam("basket_product_idx") List<String> basket_product_idxs,
 									 HttpServletRequest request) {
