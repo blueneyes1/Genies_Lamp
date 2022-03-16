@@ -47,6 +47,7 @@
     <input type="hidden" value="${product_listPage.product_type}" />
       <div class="img">
         <a href="/product/productDetail?product_idx=${product_listPage.product_idx}"><img src="${product_listPage.product_img1}" id="product_img"></a>
+     	<p>${product_listPage.product_name}</p>
       </div>
      </c:forEach> 
      

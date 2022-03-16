@@ -24,7 +24,7 @@
 
 
 
-	#product_add_btn {
+	#product_btns {
 	background-color: rgb(178, 178, 238);
 	border: none;
 	width: 100px;
@@ -86,7 +86,7 @@
             </tr>
 
             <tr>
-              <td>파일</td>
+              <td>이미지 파일</td>
               <td><input type="file" name="filename"></td>
             </tr>
             
@@ -98,7 +98,8 @@
             <tr>
 
               <td colspan="2" id="product_add_btn_box">
-                <input type="submit" value="제품 등록" id="product_add_btn">
+                <input type="submit" value="제품 등록" id="product_btns">
+                <button onclick="self.close();" id="product_btns">닫기</button>
               </td>
             </tr>
 

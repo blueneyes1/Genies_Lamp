@@ -170,6 +170,7 @@ create table genies_product_review(
     review_order_idx		number(20),
     review_product_idx    number(20),
     review_member_id  		varchar2(20),
+    review_img		    varchar2(1000),
     review_title			varchar2(50),
     review_content		varchar2(1000),
     review_grade			char(1),

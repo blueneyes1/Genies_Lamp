@@ -27,8 +27,12 @@
       flex-flow: row nowrap;
     }
     
-    .img {
-    margin-right: 10px;
+    .img_box {
+    margin-right: 50px;
+    }
+    
+    .section {
+    margin-left: 50px;
     }
 
     #product_img {
@@ -63,7 +67,7 @@
     #review_btn {
     background-color: rgb(178, 178, 238);
     border: none;
-    width: 500px;
+    width: 900px;
     height: 25px;
     color: rgb(17, 17, 17);
     border-radius: 3px
@@ -87,6 +91,19 @@
     .product_review_list {
       height: 500px;
     }
+    
+    #review_table {
+    text-align: center;
+    }
+    
+    .review_img_box {
+    text-align: center;
+    }
+    
+    #review_img {
+    width: 150px;
+    height: 100px;
+    }
 
 
   </style>
@@ -107,7 +124,7 @@
     <input type="hidden" id="product_idx" value="${product_idx }" />
     <c:forEach var="dto" items="${list}">
     <div class="head_box">
-      <div class="img">
+      <div class="img_box">
         <img src="${dto.product_img1}" id="product_img">
       </div>
       <div class="section">
@@ -254,19 +271,23 @@
       
           <div class="product_review_list">
       
-            <table width="500" cellpadding="0" cellspacing="0" border="1">
+            <table width="900" cellpadding="0" cellspacing="0" id="review_table">
           <tr>
+          	<th>상품 이미지</th>
             <th>상품평</th>
             <th>아이디</th>
             <th>날짜</th>
           </tr>
           <c:forEach var="review_list" items="${ review_list }">
             <tr>
-              <td>${ review_list.review_member_id }</td>
-              <td>${ review_list.review_content }</td>
+            <td class="review_img_box">
+            <img src=${ review_list.review_img } id="review_img">
+            </td>
+            <td>${ review_list.review_content }</td>
+            <td>${ review_list.review_member_id }</td>
               <td>
 					<c:set var="dateVar" value="${ review_list.review_date }" />
-					<fmt:formatDate value="${dateVar}" pattern="yyyy-mm-dd" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
 				</td>
             </tr>
           </c:forEach>

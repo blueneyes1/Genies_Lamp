@@ -58,9 +58,9 @@ public class ProductService {
 	}
 	
 	// 제품 상세 페이지 - 리뷰 작성 (PYH)
-	public int writeReview(String review_product_idx,String review_member_id, String review_title, String review_content) {
+	public int writeReview(String review_product_idx,String review_member_id, String review_img ,String review_title, String review_content) {
 		
-		int result = product_reviewDao.writeReview(review_product_idx, review_member_id, review_title, review_content);
+		int result = product_reviewDao.writeReview(review_product_idx, review_member_id, review_img , review_title, review_content);
 		
 		return result;
 	}

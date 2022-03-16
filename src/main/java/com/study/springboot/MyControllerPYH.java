@@ -46,7 +46,6 @@ public class MyControllerPYH {
 	
 
 //-------------------------------------------------------------------------------------------------------------------	
-	
 	// 회사 소개  - 회사소개 페이지
 	@RequestMapping("/company/company") 
 	public String company(HttpServletRequest request,Model model) {
@@ -225,9 +224,14 @@ public class MyControllerPYH {
 		int result = productservice.productAdd(product_type, product_name, 
 				product_brand, product_color, product_price, product_count,  upload_url , product_content);
 		
+		if(result == 1) {
+			
+			return "redirect:/admin/productAddForm";
+		}else {
+			return "<script>alert('상품등록에 실패했습니다.'); history.back(-1);</script>";
+		}
 		
 		
-		return "/admin/product"; 
 	}
 //------------------------------------------------------------------------------------------------------------------------
 	// 관리자 페이지 - 상품 정보 수정/삭제 페이지
@@ -435,24 +439,44 @@ public class MyControllerPYH {
 	}
 //-------------------------------------------------------------------------------------------------------------------------	
 	// 리뷰 작성
-	@RequestMapping("/reviewAction")
-	@ResponseBody
-	public String reviewAction(@RequestParam("review_product_idx") String review_product_idx,
-								@RequestParam("review_member_id") String review_member_id,
-								@RequestParam("review_title") String review_title,
-								@RequestParam("review_content") String review_content
-								) {
+	@RequestMapping(value="/reviewAction", method = RequestMethod.POST)
+	public String reviewAction( @RequestParam(value="review_product_idx", required=false, defaultValue="") String review_product_idx,
+			@RequestParam(value="review_member_id", required=false, defaultValue="") String review_member_id,
+			@RequestParam(value="filename", required=false) MultipartFile file,
+			@RequestParam(value="review_title", required=false, defaultValue="") String review_title,
+			@RequestParam(value="review_content", required=false, defaultValue="") String review_content,
+			HttpServletRequest request,
+							Model model) {
 		
-
-		int result = productservice.writeReview(review_product_idx, review_member_id, review_title, review_content);
 		
-		if( result == 1 ) {
-			return "<script>alert('리뷰작성을 완료하였습니다.'); location.href='/product/productDetail';</script>";
+		System.out.println("filename:" + file);
+		
+		//업로드 파일 처리
+		String upload_url = fileUploadService.restore(file);
+		// "/upload/20210114121803123.jpg"
+		System.out.println( "upload_url:" + upload_url );
+		
+		if( upload_url != null ) {
+			if( upload_url.length() > 0 ) {
+				System.out.println("업로드 성공!");
+			}else {
+				System.out.println("업로드 실패!");	
+			}
+		}else {
+			System.out.println("업로드 실패!");
 		}
-		else {		
-			return "<script>alert('리뷰작성에 실패하였습니다.'); history.back(-1);</script>";
+		
+		model.addAttribute("upload_url", upload_url);
+		
+		int result = productservice.writeReview(review_product_idx, review_member_id, upload_url, review_title, review_content);
+		
+		if(result == 1) {
+			
+			return "<script>alert('리뷰 등록에 성공했습니다.'); location.href='/product/reviewActionForm';</script>";
+		}else {
+			return "<script>alert('리뷰 등록에 실패했습니다.'); history.back(-1);</script>";
 		}
-	}	
+	}
 //--------------------------------------------------------------------------------------------------------------------------
 	// 마이페이지 메인
 	@RequestMapping("/mypage/mypageMain")
@@ -575,7 +599,7 @@ public class MyControllerPYH {
 			int result = basketservice.basket_delete(member_id);
 			if(result == 1) {
 				
-				return "<script>alert('장바구니 비우기에 성공했습니다.'); location.href='/mypage/mypageMain';</script>";
+				return "<script>alert('장바구니 비우기에 성공했습니다.'); location.href='/mypage/basket';</script>";
 			}else {
 				return "<script>alert('장바구니 비우기에 실패했습니다.'); history.back(-1);</script>";
 			}

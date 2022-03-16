@@ -36,11 +36,12 @@
   }
 
   </style>
+  
 </head>
 <body>
 
 	<div class="wrap">
-	<form method="post" action="/reviewAction">
+	<form method="post" action="/reviewAction" enctype="multipart/form-data">
 		<div class="review">
 
       <table class="table table-sm">
@@ -49,6 +50,13 @@
       <tr>
           <th>작성자</th>
           <td><input type="text" name="review_member_id" /></td>
+        </tr>
+        
+        <tr>
+        <th>상품 이미지 업로드</th>
+        <td>
+        <input type="file" name="filename">
+        </td>
         </tr>
       
         <tr>

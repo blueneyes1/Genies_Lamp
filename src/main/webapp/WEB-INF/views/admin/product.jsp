@@ -133,7 +133,10 @@
               <td>${product_list.product_count }</td>
               <td><img src="${product_list.product_img1 }" id="product_img"/></td>
               <td>${product_list.product_content }</td>
-              <td>${product_list.product_date }</td>
+              <td>
+              <c:set var="dateVar" value="${ product_list.product_date }" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
+              </td>
               <td><a href="/admin/productModify?product_idx=${product_list.product_idx }">제품 정보 수정/삭제</a></td>
             </tr>
             </c:forEach>

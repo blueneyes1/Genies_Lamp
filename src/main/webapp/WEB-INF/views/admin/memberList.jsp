@@ -137,7 +137,11 @@
               <td>${list.member_phone }</td>
               <td>${list.member_address1 }</td>
               <td>${list.member_grade }</td>
-              <td>${list.member_join_date }</td>
+              <td>
+              <c:set var="dateVar" value="${list.member_join_date }" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
+              
+              </td>
               <td><a href="/admin/memberModify?member_id=${list.member_id }" id="member_btn">정보수정/삭제</a></td>
             </tr>
            </c:forEach>

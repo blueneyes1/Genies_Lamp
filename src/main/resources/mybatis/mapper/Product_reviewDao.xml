@@ -15,8 +15,8 @@
     
     <!-- 제품상세페이지 - 리뷰 작성 (PYH) -->
     <insert id="writeReview">
-    	insert into GENIES_PRODUCT_REVIEW (review_idx, review_product_idx, review_member_id, review_title, review_content,review_date ) 
-			values (GENIES_PRODUCT_REVIEW_seq.nextval, #{ param1 }, #{ param2 }, #{ param3 }, #{ param4 }, sysdate )
+    	insert into GENIES_PRODUCT_REVIEW (review_idx, review_product_idx, review_member_id, review_img, review_title, review_content,review_date ) 
+			values (GENIES_PRODUCT_REVIEW_seq.nextval, #{ param1 }, #{ param2 }, #{ param3 }, #{ param4 }, #{ param5 }, sysdate )
     </insert>
 		
 </mapper>    
