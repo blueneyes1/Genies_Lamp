@@ -52,24 +52,23 @@
 	border-radius: 3px;
 	}
 
-	#member_btn {
-	background-color: rgb(178, 178, 238);
+  .modify_delete_btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+  }
+
+  #modify_delete_btn {
+  background-color: rgb(178, 178, 238);
 	border: none;
 	width: 90px;
 	height: 25px;
 	color: rgb(17, 17, 17);
 	border-radius: 3px;
-	text-align: center;
-	}
-	
-	a {
-	text-decoration: none;
-	}
-	
-	a:hover {
-	text-decoration: none;
-	}
-	
+  margin: 5px;
+  }
+
 	button:hover {
 	background-color: rgb(130, 130, 215);
 	}
@@ -113,6 +112,7 @@
         
       </div>
       
+      <form method="post">
       <div class="box" id="section_box">
         <div class="member_list">
 	
@@ -120,33 +120,63 @@
   
             <tr>
               <th>멤버 아이디</th>
-              <th>멤버 성명</th>
-              <th>멤버 이메일</th>
-              <th>멤버 전화번호</th>
-              <th>멤버 주소</th>
-              <th>멤버 등급</th>
-              <th>멤버 가입날짜</th>
-              <th>멤버 수정/삭제하기</th>
+              <td>
+                <input type="text" value="${admin_member_dto.member_id}" name="member_id">
+              </td>
             </tr>
-		
-		<c:forEach var="list" items="${list }" >
             <tr>
-              <td>${list.member_id }</td>
-              <td>${list.member_name }</td>
-              <td>${list.member_email }</td>
-              <td>${list.member_phone }</td>
-              <td>${list.member_address1 }</td>
-              <td>${list.member_grade }</td>
-              <td>${list.member_join_date }</td>
-              <td><a href="/admin/memberModify?member_id=${list.member_id }" id="member_btn">정보수정/삭제</a></td>
+              <th>멤버 성명</th>
+              <td>
+                <input type="text" value="${admin_member_dto.member_name}" name="member_name">
+              </td>
             </tr>
-           </c:forEach>
+            <tr>
+              <th>멤버 이메일</th>
+              <td>
+                <input type="text" value="${admin_member_dto.member_email}" name="member_email">
+              </td>
+            </tr>
+            <tr>
+              <th>멤버 전화번호</th>
+              <td>
+                <input type="text" value="${admin_member_dto.member_phone}" name="member_phone">
+              </td>
+            </tr>
+            <tr>
+              <th>멤버 주소</th>
+              <td>
+                <input type="text" value="${admin_member_dto.member_address1}" name="member_address1">
+              </td>
+            </tr>
+            <tr>
+              <th>멤버 등급</th>
+              <td>
+                <input type="text" value="${admin_member_dto.member_grade}" name="member_grade">
+              </td>
+            </tr>
+            <tr>
+              <th>멤버 가입날짜</th>
+              <td>
+                <input type="text" readonly value="${admin_member_dto.member_join_date}" name="member_join_date">
+              </td>
+            </tr>
+
 
           </table>
          
+
+          <div class="modify_delete_btns">
+
+            <input type="submit" formaction="/admin_member_update" value="수정" id="modify_delete_btn">
+            <input type="submit" formaction="/admin_member_delete" value="삭제" id="modify_delete_btn">
+
+          </div>
+
         </div>
         
       </div>
+
+    </form>
       
     </div>
 

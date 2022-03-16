@@ -14,6 +14,9 @@ public class Product_reviewDto {
 	private String review_content;
 	private Date review_date;
 	
+	public Product_reviewDto() {
+	}
+
 	public Product_reviewDto(int review_idx, int review_product_idx, String review_member_id, String review_title,
 			String review_content, Date review_date) {
 		super();
@@ -24,6 +27,13 @@ public class Product_reviewDto {
 		this.review_content = review_content;
 		this.review_date = review_date;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 
 }

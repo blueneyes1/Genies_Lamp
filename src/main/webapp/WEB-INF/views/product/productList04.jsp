@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +11,7 @@
   
   <title>productList</title>
   <style>
-    .wrap {
+    .box {
       display: flex;
       flex-flow: column;
       justify-content: center;
@@ -20,43 +19,40 @@
       font-size: 12px;
     }
 
-    .content {
+    .content_box {
       display: flex;
       flex-flow: row;
       justify-content: center;
       align-items: center;
     }
 
-    img {
+    #product_img {
       width: 250px;
       height: 250px;
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="head">
+  <div class="box">
+    <div class="head_box">
 
     </div>
-    <div class="content">
+    <div class="content_box">
       <div class="img">
-        <a href="/product/productDetail?product_idx=4"><img src=""></a>
+        <a href="/product/productDetail?product_idx=4"><img src="" id="product_img"></a>
       </div>
       <div class="img">
-        <a href=""><img src=""></a>
+        <a href=""><img src=""  id="product_img"></a>
       </div>
       <div class="img">
-        <a href=""><img src=""></a>
+        <a href=""><img src=""  id="product_img"></a>
       </div>
       <div class="img">
-        <a href=""><img src=""></a>
+        <a href=""><img src=""  id="product_img"></a>
       </div>
     </div>
     <div class="page">
-      <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-	
-      
+     
     </div>
   </div>
   
@@ -64,5 +60,3 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	
   
-</body>
-</html>

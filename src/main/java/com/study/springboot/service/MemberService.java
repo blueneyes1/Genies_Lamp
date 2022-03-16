@@ -73,6 +73,7 @@ public class MemberService {
 		return result;		
 	}
 	
+	// 마이페이지 회원정보 보기 (PYH)
 	public MemberDto viewMember(String member_id) {
 		
 		MemberDto member = memberDao.viewMember(member_id);
@@ -80,6 +81,7 @@ public class MemberService {
 		return member;
 	}
 	
+	// 마이페이지 회원정보 수정 (PYH)
 	public int memberUpdate(String member_id, String member_name, String member_phone, String member_email) {
 		
 		int result = memberDao.memberUpdate(member_id, member_name, member_phone, member_email);
@@ -87,6 +89,7 @@ public class MemberService {
 		return result;
 	}
 	
+	// 마이페이지 비밀번호 보기 (PYH)
 	public MemberDto viewPassword(String member_id) {
 		
 		MemberDto member = memberDao.viewPassword(member_id);
@@ -94,7 +97,7 @@ public class MemberService {
 		return member;
 	}
 	
-	
+	// 마이페이지 비밀번호 수정 (PYH)
 	public int passwordChange(String member_id, String member_pw) {
 		
 		int result = 0;
@@ -108,6 +111,7 @@ public class MemberService {
 		return result;
 	}
 	
+	// 관리자페이지 회원 리스트 (PYH)
 	public List<MemberDto> list() {
 		
 		List<MemberDto> list = memberDao.list();
@@ -115,5 +119,29 @@ public class MemberService {
 		return list;
 	}
 	
-
+	// 관리자페이지 회원정보 수정 페이지 (PYH)
+	public MemberDto admin_view_member(String member_id) {
+		
+		MemberDto admin_member_dto = memberDao.admin_view_member(member_id);
+		
+		return admin_member_dto;
+	}
+	
+	// 관리자페이지 회원정보 수정 (PYH)
+	public int admin_member_modify(String member_id, String member_name, String member_email, 
+			String member_phone, String member_address1, String member_grade) {
+		
+		int result = memberDao.admin_member_modify(member_id, member_name, member_email, member_phone, member_address1, member_grade);
+		
+		return result;
+		
+	}
+	
+	// 관리자페이지 회원정보 삭제 (PYH)
+	public int admin_member_delete(String member_id) {
+		
+		int result = memberDao.admin_member_delete(member_id);
+		
+		return result;
+	}
 }

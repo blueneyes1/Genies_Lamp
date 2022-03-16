@@ -1,177 +1,113 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+      
 <head>
-  <meta charset="UTF-8">
+ <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+	
+	
+	
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-
-  <title></title>
-  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-   <script language="javascript">
-  function showproductImgAddForm() { window.open("/admin/productImgAddForm", "a", "width=700, height=700, left=100, top=50"); }
-  </script>
+<title></title>
+  
   <style>
   
-    body {
-      display : flex;
-      flex-direction : column;
-      align-items: center;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    .wrap {
-      margin-top: 50px;
-    }
-  
-    table {
-      font-size: 12px;
-    }
-
-    input[type=submit] {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 90px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px;
-    }
-
-    button {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 90px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px;
-  }
-  
-  span {
-  	background-color: rgb(178, 178, 238);
-    border: none;
-    width: 90px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px;
-  }
-  
-  a {
-   text-decoration: none;
-  }
-	
-	a:hover {
-	 text-decoration: none;
+	.box {
+  	display: flex;
+  	flex-flow: row nowrap;
+  	justify-content: center;
+  	align-items: center;
 	}
 
-  button:hover {
-    background-color: rgb(130, 130, 215);
-  }
+
+
+	#product_add_btn {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 100px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	font-size: 12px;
+	}
+
+ 	 table {
+      font-size: 12px;
+    }
+
+    #product_add_btn_box {
+      text-align: center;
+    }
   
-  .btn_box {
-  display: flex;
-  flex-direction : row;
-  align-items: center;
-  text-align: center;
-  }
-    
+  
+  </style>
+  <script language="javascript">
+  function showProductAddForm() { window.open("/admin/productAddForm", "a", "width=700, height=700, left=100, top=50"); }
+  </script>
+</head>
+<body>
+
    
-    </style>
-  <body>
-  
-      <div class="wrap">
-        <form action="/productAddAction" method="post">
-          <table class="table">
-            <thead>
-              
-              <tr>
-                <td>
-                  <input type="hidden" value="${product_idx}" name="product_idx">
-                </td>
-              </tr>
-              
-              <tr>
-                <td>상품 타입</td>
-                <td>
-                  <input type="text" name="product_type">
-                </td>
-              </tr>
-              
-              <tr>
-                <td>상품명</td>
-                <td>
-                  <input type="text" name="product_name">
-                </td>
-              </tr>
-              
-              <tr>
-                <td>상품 브랜드명</td>
-                <td>
-                  <input type="text" name="product_brand">
-                </td>
-              </tr>
-              
-              <tr>
-                <td>상품 색상</td>
-                <td>
-                  <input type="text" name="product_color">
-                </td>
-              </tr>
-              
-              <tr>
-                <td>상품 가격</td>
-                <td>
-                  <input type="text" name="product_price">
-                </td>
-              </tr>
-              
-              <tr>
-                <td>상품 수</td>
-                <td>
-                  <input type="text" name="product_count">
-                </td>
-              </tr>
-              
-              <tr>
-              <td><input type="file" name="product_img1" /></td>
-              </tr>
-              <tr>
-              <td><input type="file" name="product_img2" /></td>
-              </tr>
-              
-              <tr>
-                <td>
-                  <input type="hidden" value="${product_date}" name="product_date">
-                </td>
-              </tr>
-              
-              </tbody>
+      
+      <div class="box" id="section">
+        <form action="/uploadOk" method="post" enctype="multipart/form-data">
+          <table class="table table-hover">
+            <tr>
+              <th>제품타입</th>
+              <td><input type="text" name="product_type"></td>
+            </tr>
+
+            <tr>
+              <th>제품명</th>
+              <td><input type="text" name="product_name"></td>
+            </tr>
+
+            <tr>
+              <th>제품브랜드명</th>
+              <td><input type="text" name="product_brand"></td>
+            </tr>
+
+            <tr>
+              <th>제품 색상</th>
+              <td><input type="text" name="product_color"></td>
+            </tr>
+
+            <tr>
+              <th>제품 가격</th>
+              <td><input type="text" name="product_price"></td>
+            </tr>
+
+            <tr>
+              <th>제품 수</th>
+              <td><input type="text" name="product_count"></td>
+            </tr>
+
+            <tr>
+              <td>파일</td>
+              <td><input type="file" name="filename"></td>
+            </tr>
+            
+            <tr>
+              <th>제품 설명</th>
+              <td><input type="text" name="product_content"></td>
+            </tr>
+
+            <tr>
+
+              <td colspan="2" id="product_add_btn_box">
+                <input type="submit" value="제품 등록" id="product_add_btn">
+              </td>
+            </tr>
+
+			
           </table>
-              
-              <div class="btn_box">
-              
-              <div>
-              <a href="javascript:showproductImgAddForm();"><span>상품 이미지 업로드</span></a>
-             </div>
-             <div>
-              <input type="submit" formaction="/productAddAction" value="상품 등록 완료">
-                </div>
-                <div>
-              <button onclick="self.close();">닫기</button>
-             </div>
-             </div>
         </form>
-        </div>
-  
-  </body>
+    </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
-
-</html>
