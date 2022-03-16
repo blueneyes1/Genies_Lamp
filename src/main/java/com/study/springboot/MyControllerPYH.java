@@ -226,7 +226,7 @@ public class MyControllerPYH {
 		return "/admin/product"; 
 	}
 //------------------------------------------------------------------------------------------------------------------------
-	// 관리자 페이지 - 제품 정보 수정/삭제 페이지
+	// 관리자 페이지 - 상품 정보 수정/삭제 페이지
 	@RequestMapping("/admin/productModify")
 	public String productModify(@RequestParam(value= "product_idx") String product_idx,
 								HttpServletRequest request,Model model) {
@@ -241,7 +241,7 @@ public class MyControllerPYH {
 
 //---------------------------------------------------------------------------------------------------------------------
 	
-	// 관리자페이지 - 제품 정보 수정
+	// 관리자페이지 - 상품 정보 수정
 	@RequestMapping("/admin_product_modify")
 	@ResponseBody
 	public String admin_product_modify(@RequestParam("product_idx") String product_idx,
@@ -279,8 +279,6 @@ public class MyControllerPYH {
 		}
 	}
 //------------------------------------------------------------------------------------------------------------------------
-	
-	
 	// 상품 리스트 페이지 - 스탠드등
 	@RequestMapping("/product/productList01")
 	public String productList01(HttpServletRequest request,Model model) {
