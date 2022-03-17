@@ -128,7 +128,7 @@
         <img src="${dto.product_img1}" id="product_img">
       </div>
       <div class="section">
-      <form action="/cart" name="cart" method="post">
+      <form method="post">
         <table class="table">
         
           <thead>
@@ -154,7 +154,9 @@
                         
             <tr>
               <th scope="row">총 제품가격</th>
-              <td>${dto.product_price }</td>
+              <td>
+              <input type="text" readonly value="${dto.product_price }" name="product_price">
+              </td>
             </tr>
             
             <tr>
@@ -169,7 +171,7 @@
             <tr>
               <th scope="row" colspan="2" class="order_btn_box">
               
-                <input type="submit" value="장바구니" name="payment" id="order_btn"/>
+                <input type="submit" value="장바구니" formaction="/basketAdd" name="payment" id="order_btn"/>
                 <input type="button" value="구매하기" name="payment" id="order_btn"/>
             
     	      </th>
