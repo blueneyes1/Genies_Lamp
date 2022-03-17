@@ -304,7 +304,7 @@ public class MyControllerPYH {
 	@ResponseBody
 	public String admin_review_delete(@RequestParam("review_idx") String review_idx) {
 		
-		int result = productservice.admin_product_delete(review_idx);
+		int result = productservice.admin_review_delete(review_idx);
 		if(result == 1) {
 			
 			return "<script>alert('상품평삭제에 성공했습니다.'); location.href='/admin/reviewlist';</script>";

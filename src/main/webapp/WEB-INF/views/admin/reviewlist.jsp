@@ -114,10 +114,11 @@
       
       <div class="box" id="section_box">
         <div class="member_list">
-	
+		<form method="post">
           <table class="table table-hover">
   
             <tr>
+              <th>상품평 번호</th>
               <th>상품평 작성자</th>
               <th>상품평 이미지</th>
               <th>상품평 타이틀</th>
@@ -129,6 +130,7 @@
 		
 		<c:forEach var="admin_view_review" items="${admin_view_review }" >
             <tr>
+              <td>${admin_view_review.review_idx }</td>
               <td>${admin_view_review.review_member_id }</td>
               <td>
               <img src="${admin_view_review.review_img }" id="review_img">
@@ -141,14 +143,14 @@
               
               </td>
               <td>
-              <a href="/admin_review_delete_action?review_idx=${ admin_view_review.review_idx }"><input type="button" value="삭제" id="btns"></a>
+              <input type="submit" value="삭제" formaction="/admin_review_delete_action?review_idx=${ admin_view_review.review_idx }" id="btns">
               </td>
             </tr>
        
            </c:forEach>
 
           </table>
-         
+         </form>
         </div>
         
       </div>
