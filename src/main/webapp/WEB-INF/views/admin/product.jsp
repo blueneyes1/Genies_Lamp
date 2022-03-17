@@ -87,19 +87,23 @@
     <div class="box" id="main">
       <div class="box" id="aside">
         <div class="menu_btn">
-          <button onclick="location.href='/admin/member.jsp' ">회원관리</button>
+          <button onclick="location.href='/admin/member' ">회원관리</button>
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/admin/selectlist.jsp' ">주문관리</button>
+          <button onclick="location.href='/admin/selectlist' ">주문관리</button>
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/admin/product.jsp' ">상품관리</button>
+          <button onclick="location.href='/admin/product' ">상품관리</button>
+        </div>
+        
+        <div class="menu_btn">
+          <button onclick="location.href='/admin/reviewlist' ">상품평관리</button>
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/admin/board.jsp' ">게시판관리</button>
+          <button onclick="location.href='/admin/board' ">게시판관리</button>
         </div>
         
       </div>

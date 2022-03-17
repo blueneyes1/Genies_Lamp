@@ -18,7 +18,49 @@
     	insert into GENIES_PRODUCT_REVIEW (review_idx, review_product_idx, review_member_id, review_img, review_title, review_content,review_date ) 
 			values (GENIES_PRODUCT_REVIEW_seq.nextval, #{ param1 }, #{ param2 }, #{ param3 }, #{ param4 }, #{ param5 }, sysdate )
     </insert>
-		
+    
+    <!-- 관리자페이지 - 리뷰 관리 페이지 - 리뷰 보기 (PYH) -->
+    <select id="admin_view_review" resultType="com.study.springboot.dto.Product_reviewDto">
+    	select * from GENIES_PRODUCT_REVIEW
+    </select>
+    
+    <!-- 관리자페이지 - 리뷰 관리 페이지 - 리뷰 삭제 (PYH) -->
+    <delete id="admin_review_delete">
+    	delete from GENIES_PRODUCT_REVIEW where review_idx=#{param1}
+    </delete>
+    
+    <!-- 마이페이지 - 내가 작성한 리뷰 페이지 - 리뷰 리스트 보기  (PYH) -->
+    <select id="mypage_view_review" resultType="com.study.springboot.dto.Product_reviewDto">
+    	select * from 
+		GENIES_PRODUCT_REVIEW  
+		where 
+        review_member_id = #{param1} 
+	</select>
+	
+    <!-- 마이페이지 - 내가 작성한 리뷰 페이지 - 리뷰 수정/삭제 페이지 보기  (PYH) -->
+    <select id="mypage_view_modify_review" resultType="com.study.springboot.dto.Product_reviewDto">
+    	select * from 
+		GENIES_PRODUCT_REVIEW  
+		where 
+        review_member_id = #{param1}
+        and review_idx = #{param2}
+	</select>
+	
+	<!-- 마이페이지 - 내가 작성한 리뷰 페이지 - 리뷰 수정 (PYH) -->
+	<update id="mypage_review_update">
+		UPDATE GENIES_PRODUCT_REVIEW SET 
+		review_title=#{param3}, 
+		review_content=#{param4}
+		WHERE review_member_id = #{param1}
+		and
+		review_product_idx = #{param2}
+	</update>
+	
+	<!-- 마이페이지 - 내가 작성한 리뷰 페이지 - 리뷰 삭제 (PYH) -->
+	<delete id="mypage_review_delete">
+		delete from GENIES_PRODUCT_REVIEW where review_member_id= #{param1} and review_product_idx = #{param2}
+	</delete>
+	
 </mapper>    
 
 

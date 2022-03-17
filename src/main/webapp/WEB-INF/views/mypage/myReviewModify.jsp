@@ -66,64 +66,31 @@
       margin-top: 50px;
     }
 
-    .password_txt {
-      flex-direction: column;
-    }
-
-    .password_txt div {
-      margin: 5px;
-    }
+   .modify_delete_btns {
+     text-align: center;
+   }
     
-    .password_change_box {
-    width: 300px;
-    heght: 20px;
-    text-align: center;
-    background-color: rgb(213, 213, 218);
+   #review_img {
+   width: 150px;
+   height: 100px;
+   }
+   
+
+
+    #modify_delete_btn {
+      background-color: rgb(178, 178, 238);
     border: none;
+    width: 90px;
+    height: 25px;
     color: rgb(17, 17, 17);
     border-radius: 3px;
     font-size: 12px;
-    }
-    
-    a {
-    text-decoration: none;
-    color: black;
-  	}
-
- 	 a:link {
-    text-decoration: none;
-    color: black;
-  	}
-  	a:visited {
-    text-decoration: none;
-    color: black;
-  	}
- 	 a:active {
-    text-decoration: none;
-    color: black;
-  	}
-  	a:hover {
-    text-decoration: none;
-    color: black;
-  	}
-
-
-    #mypage_btn {
-      width: 500px;
-      height: 20px;
-      background-color: rgb(213, 213, 218);
-      border: none;
-      color: rgb(17, 17, 17);
-      border-radius: 3px;
-      font-size: 12px;
     }
 
 
   
   </style>
-  <script language="javascript">
-  function showPasswordChange() { window.open("/mypage/passwordChange?member_id=${member_id}", "a", "width=700, height=700, left=100, top=50"); }
-  </script>
+ 
 </head>
 <body>
  
@@ -151,84 +118,65 @@
         
       </div>
       <div class="box" id="section_box">
-        <div class="mypage_head_text">
-
-          <p><b>회원정보수정</b></p>
-        
-        </div>
-        
-        <div class="mypage_contents">
-        
-        <form action="/memberUpdate" method="post">
-        
-          <table class="table table-hover">
-      	  
+        <form method="post">
+          <div class="box" id="section_box">
+            <div class="review_modify_box">
       
-        
-        
-            <tr>
-              <th>아이디</th>
-              <td>${dto.member_id}
-              <input type="hidden" name="member_id" readonly value="${ dto.member_id }" />
-              </td>
-            </tr>
-        
-        
-        
-            <tr>
-              <th>이름</th>
-              <td>${dto.member_name}
-              <input type="hidden" name="member_name" readonly value="${ dto.member_name }" />
-              </td>
-            </tr>
-        
-        
-        
-            <tr>
-              <th>연락처</th>
-              <td>
-                <input type="text" name="member_phone" value="${dto.member_phone}">
-              </td>
-            </tr>
-
-            <tr>
-
-              <th>비밀번호 변경</th>
-              <td class="password_change_btn">
-                <div class="password_change_box">
-                   <a href="javascript:showPasswordChange();">비밀번호 변경하기</a>
-                </div>
-              </td>
-
-
-            </tr>
-        
-        
-        
-            <tr>
-              <th>이메일</th>
-              <td>
-                <input type="text" name="member_email" value="${dto.member_email}">
-              </td>
-            </tr>
-        
-
-          </table>
-        
-       
-        </div>
-      
-        <div class="mypage_btn_box">
-        
-          <input type="submit" value="회원정보 수정" name="cmd" id="mypage_btn">
-        
-        </div>
-        
-         </form>
-        
-      </div>
+              <table class="table table-hover">
+                <tr>
+                  <th>상품평 상품 번호</th>
+                  <td>
+                    <input type="text" readonly value="${mypage_view_modify_review.review_product_idx}" name="review_product_idx">
+                  </td>
+                </tr>
+    
+                <tr>
+                  <th>상품평 이미지</th>
+                  <td>
+                    <img src="${mypage_view_modify_review.review_img}" id="review_img">
+                  </td>
+                </tr>
+    
+                <tr>
+                  <th>상품평 타이틀</th>
+                  <td>
+                    <input type="text" value="${mypage_view_modify_review.review_title}" name="review_title">
+                  </td>
+                </tr>
+               
+    
+                <tr>
+                  <th>상품평 내용</th>
+                  <td>
+                    <input type="text" value="${mypage_view_modify_review.review_content}" name="review_content">
+                  </td>
+                </tr>
+    
+                <tr>
+                  <th>상품평 작성 날짜</th>
+                  <td>
+                    <c:set var="dateVar" value="${mypage_view_modify_review.review_date }" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
+                  </td>
+                </tr>
+    
+              </table>
+             
+    
+              <div class="modify_delete_btns">
+    
+                <input type="submit" formaction="/mypage_review_modify" value="수정" id="modify_delete_btn">
+                <input type="submit" formaction="/mypage_review_delete" value="삭제" id="modify_delete_btn">
+    
+              </div>
+    
+            </div>
+            
+          </div>
+    
+        </form>
     </div>
-
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

@@ -67,6 +67,10 @@
         <div class="menu_btn">
           <button onclick="location.href='/admin/product' ">상품관리</button>
         </div>
+        
+        <div class="menu_btn">
+          <button onclick="location.href='/admin/reviewlist' ">상품평관리</button>
+        </div>
 
         <div class="menu_btn">
           <button onclick="location.href='/admin/board' ">게시판관리</button>

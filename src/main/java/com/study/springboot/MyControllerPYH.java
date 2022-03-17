@@ -287,6 +287,32 @@ public class MyControllerPYH {
 		}
 	}
 //------------------------------------------------------------------------------------------------------------------------
+	// 관리자 페이지 - 상품평 관리 페이지
+	@RequestMapping("/admin/reviewlist")
+	public String product_review(HttpServletRequest request,Model model) {
+		
+		List<Product_reviewDto> admin_view_review = productservice.admin_view_review();
+		model.addAttribute("admin_view_review", admin_view_review);
+		
+		model.addAttribute("mainPage", "admin/reviewlist.jsp");
+		
+		return "index";
+	}
+//------------------------------------------------------------------------------------------------------------------------
+	// 관리자페이지 - 상품평 삭제
+	@RequestMapping("/admin_review_delete_action")
+	@ResponseBody
+	public String admin_review_delete(@RequestParam("review_idx") String review_idx) {
+		
+		int result = productservice.admin_product_delete(review_idx);
+		if(result == 1) {
+			
+			return "<script>alert('상품평삭제에 성공했습니다.'); location.href='/admin/reviewlist';</script>";
+		}else {
+			return "<script>alert('상품평삭제에 실패했습니다.'); history.back(-1);</script>";
+		}
+	}
+//------------------------------------------------------------------------------------------------------------------------	
 	// 상품 리스트 페이지 - 스탠드등
 	@RequestMapping("/product/productList01")
 	public String productList01(@RequestParam(value="product_type",required=false) String product_type,
@@ -590,20 +616,96 @@ public class MyControllerPYH {
 	}
 //------------------------------------------------------------------------------------------------------------------------------
 	// 마이페이지 - 장바구니 비우기
-		@RequestMapping("/mypage_basket_delete")
-		@ResponseBody
-		public String basket_delete(HttpServletRequest request) {
+	@RequestMapping("/mypage_basket_delete")
+	@ResponseBody
+	public String basket_delete(HttpServletRequest request) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		int result = basketservice.basket_delete(member_id);
+		if(result == 1) {
 			
-			String member_id = (String) request.getSession().getAttribute("member_id");
-			
-			int result = basketservice.basket_delete(member_id);
-			if(result == 1) {
-				
-				return "<script>alert('장바구니 비우기에 성공했습니다.'); location.href='/mypage/basket';</script>";
-			}else {
-				return "<script>alert('장바구니 비우기에 실패했습니다.'); history.back(-1);</script>";
-			}
+			return "<script>alert('장바구니 비우기에 성공했습니다.'); location.href='/mypage/basket';</script>";
+		}else {
+			return "<script>alert('장바구니 비우기에 실패했습니다.'); history.back(-1);</script>";
 		}
+	}
 //-----------------------------------------------------------------------------------------------------------------------------
+	// 마이페이지 - 내가 작성한 상품평 페이지
+	@RequestMapping("/mypage/myReviewList")
+	public String myReviewList(HttpServletRequest request, Model model) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		System.out.println(member_id);
+		
+		if(member_id==null) {	
+			model.addAttribute("mainPage", "mypage/myReviewList.jsp");			
+			return "index";
+		}else {
+			model.addAttribute("mypage_view_review", productservice.mypage_view_review(member_id));
+			System.out.println(member_id);
+	
+			model.addAttribute("mainPage", "mypage/myReviewList.jsp");			
+			return "index";
+		}
+	}
+//-----------------------------------------------------------------------------------------------------------------------
+	// 마이페이지 - 내가 작성한 상품평 페이지 - 리뷰 수정/삭제 페이지
+	@RequestMapping("/mypage/myReviewModify")
+	public String myReviewModify(@RequestParam("review_idx") String review_idx,
+								HttpServletRequest request, Model model) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		System.out.println(member_id);
+		
+		if(member_id==null) {	
+			model.addAttribute("mainPage", "mypage/myReviewModify.jsp");			
+			return "index";
+		}else {
+			model.addAttribute("mypage_view_modify_review", productservice.mypage_view_modify_review(member_id, review_idx));
+			System.out.println(member_id);
+			
+			model.addAttribute("mainPage", "mypage/myReviewModify.jsp");			
+			return "index";
+		}
+	}
+//-----------------------------------------------------------------------------------------------------------------------
+	// 마이페이지 - 내가 작성한 상품평 - 수정
+	@RequestMapping("/mypage_review_modify")
+	@ResponseBody
+	public String mypage_review_update(@RequestParam("review_product_idx") String review_product_idx,
+			@RequestParam("review_title") String review_title,
+			@RequestParam("review_content") String review_content,
+			HttpServletRequest request) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		int result = productservice.mypage_review_update(member_id, review_product_idx, review_title, review_content);
+		if(result == 1) {
+			
+			return "<script>alert('상품평 수정에 성공했습니다.'); location.href='/mypage/myReviewList';</script>";
+		}else {
+			return "<script>alert('상품평 수정에 실패했습니다.'); history.back(-1);</script>";
+		}
+	}
+//-----------------------------------------------------------------------------------------------------------------------
+	// 마이페이지 - 내가 작성한 상품평 - 삭제
+	@RequestMapping("/mypage_review_delete")
+	@ResponseBody
+	public String mypage_review_delete(@RequestParam("review_product_idx") String review_product_idx,
+										HttpServletRequest request) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		int result = productservice.mypage_review_delete(member_id, review_product_idx);
+		if(result == 1) {
+			
+			return "<script>alert('상품평 삭제에 성공했습니다.'); location.href='/mypage/myReviewList';</script>";
+		}else {
+			return "<script>alert('상품평 삭제에 실패했습니다.'); history.back(-1);</script>";
+		}
+	}
 
 }

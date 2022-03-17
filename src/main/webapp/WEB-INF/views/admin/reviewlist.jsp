@@ -51,16 +51,6 @@
 	color: rgb(17, 17, 17);
 	border-radius: 3px;
 	}
-
-	#member_btn {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 90px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	text-align: center;
-	}
 	
 	a {
 	text-decoration: none;
@@ -88,6 +78,11 @@
     table {
       font-size: 12px;
     }
+    
+    #review_img {
+    width:150px;
+    height: 100px;
+    }
   
   </style>
 </head>
@@ -96,23 +91,23 @@
     <div class="box" id="main_box">
       <div class="box" id="aside_box">
         <div class="menu_btn">
-          <button onclick="location.href='/admin/memberList.jsp' " id="btns">회원관리</button>
+          <button onclick="location.href='/admin/memberList' " id="btns">회원관리</button>
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/admin/selectlist.jsp' " id="btns">주문관리</button>
+          <button onclick="location.href='/admin/selectlist' " id="btns">주문관리</button>
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/admin/product.jsp' " id="btns">상품관리</button>
+          <button onclick="location.href='/admin/product' " id="btns">상품관리</button>
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/admin/reviewlist' ">상품평관리</button>
+          <button onclick="location.href='/admin/reviewlist' " id="btns">상품평관리</button>
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/admin/board.jsp' " id="btns">게시판관리</button>
+          <button onclick="location.href='/admin/board' " id="btns">게시판관리</button>
         </div>
         
       </div>
@@ -123,31 +118,33 @@
           <table class="table table-hover">
   
             <tr>
-              <th>멤버 아이디</th>
-              <th>멤버 성명</th>
-              <th>멤버 이메일</th>
-              <th>멤버 전화번호</th>
-              <th>멤버 주소</th>
-              <th>멤버 등급</th>
-              <th>멤버 가입날짜</th>
-              <th>멤버 수정/삭제하기</th>
+              <th>상품평 작성자</th>
+              <th>상품평 이미지</th>
+              <th>상품평 타이틀</th>
+              <th>상품평 내용</th>
+              <th>상품평 작성 날짜</th>
+              <th>상품평 삭제</th>
+              
             </tr>
 		
-		<c:forEach var="list" items="${list }" >
+		<c:forEach var="admin_view_review" items="${admin_view_review }" >
             <tr>
-              <td>${list.member_id }</td>
-              <td>${list.member_name }</td>
-              <td>${list.member_email }</td>
-              <td>${list.member_phone }</td>
-              <td>${list.member_address1 }</td>
-              <td>${list.member_grade }</td>
+              <td>${admin_view_review.review_member_id }</td>
               <td>
-              <c:set var="dateVar" value="${list.member_join_date }" />
+              <img src="${admin_view_review.review_img }" id="review_img">
+              </td>
+              <td>${admin_view_review.review_title }</td>
+              <td>${admin_view_review.review_content }</td>
+              <td>
+              <c:set var="dateVar" value="${admin_view_review.review_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
               
               </td>
-              <td><a href="/admin/memberModify?member_id=${list.member_id }" id="member_btn">정보수정/삭제</a></td>
+              <td>
+              <a href="/admin_review_delete_action?review_idx=${ admin_view_review.review_idx }"><input type="button" value="삭제" id="btns"></a>
+              </td>
             </tr>
+       
            </c:forEach>
 
           </table>

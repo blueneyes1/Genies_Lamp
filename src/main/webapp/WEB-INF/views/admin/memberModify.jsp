@@ -105,6 +105,10 @@
         <div class="menu_btn">
           <button onclick="location.href='/admin/product.jsp' " id="btns">상품관리</button>
         </div>
+        
+        <div class="menu_btn">
+          <button onclick="location.href='/admin/reviewlist' ">상품평관리</button>
+        </div>
 
         <div class="menu_btn">
           <button onclick="location.href='/admin/board.jsp' " id="btns">게시판관리</button>

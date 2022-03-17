@@ -75,6 +75,10 @@
         <div class="menu_btn">
           <button onclick="location.href='/mypage/basket' " id="btns">장바구니</button>
         </div>
+        
+        <div class="menu_btn">
+          <button onclick="location.href='/mypage/myReviewList' " id="btns">나의 상품평 보기</button>
+        </div>
 
         <div class="menu_btn">
           <button onclick="location.href='/' " id="btns">1:1문의</button>
