@@ -16,6 +16,13 @@
   <title></title>
   <style>
     
+    .wrap {
+  	display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+  	}
+  	
     .box {
       display: flex;
       flex-flow: row nowrap;
@@ -31,12 +38,15 @@
     #aside_box {
       flex: 1 1 auto;
       flex-direction: column;
-      width: 300px;
+      width: 200px;
+      margin-left: 150px;
+      
     }
     #section_box {
       flex: 2 1 auto;
       flex-direction: column;
-      width: 1200px;
+      width: 850px;
+      text-align: center;
     }
     
     .menu_btn {
@@ -47,7 +57,7 @@
     #btns {
     background-color: rgb(178, 178, 238);
     border: none;
-    width: 90px;
+    width: 100px;
     height: 25px;
     color: rgb(17, 17, 17);
     border-radius: 3px;
@@ -126,7 +136,8 @@
   </script>
 </head>
 <body>
- 
+ 	
+ 	<div class="wrap">
     <div class="box" id="main_box">
       <div class="box" id="aside_box">
         <div class="menu_btn">
@@ -228,7 +239,7 @@
         
       </div>
     </div>
-
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

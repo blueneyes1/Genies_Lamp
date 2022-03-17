@@ -18,30 +18,38 @@
   <style>
 
 
-	.box {
+	.wrap {
   	display: flex;
-  	flex-flow: row nowrap;
-  	justify-content: center;
-  	align-items: center;
-	}
-
-	#main_box {
-  	display: flex;
-  	flex-flow: row nowrap;
-  	width: 1200px;
-	}
-	
-	#aside_box {
-  	flex: 1 1 auto;
-  	flex-direction: column;
-  	width: 300px;
-	}
-	
-	#section_box {
-  	flex: 2 1 auto;
-  	flex-direction: column;
-  	width: 900px;
-	}
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+  	}
+  	
+    .box {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
+   
+    #main_box {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    #aside_box {
+      flex: 1 1 auto;
+      flex-direction: column;
+      width: 200px;
+      margin-left: 150px;
+      
+    }
+    #section_box {
+      flex: 2 1 auto;
+      flex-direction: column;
+      width: 850px;
+      text-align: center;
+    }
 
 	#btns {
 	background-color: rgb(178, 178, 238);
@@ -92,7 +100,8 @@
   </style>
 </head>
 <body>
-
+	
+	<div class="wrap">
     <div class="box" id="main_box">
       <div class="box" id="aside_box">
         <div class="menu_btn">
@@ -108,7 +117,7 @@
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/admin/reviewlist' ">상품평관리</button>
+          <button onclick="location.href='/admin/reviewlist' " id="btns">상품평관리</button>
         </div>
 
         <div class="menu_btn">
@@ -157,7 +166,7 @@
       </div>
       
     </div>
-
+</div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
