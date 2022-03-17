@@ -113,10 +113,24 @@
     	window.open("reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
     	}
     
-    function countP() {
-    	/* var counterP = document.getElementById('counterP');
-    	counterP.onclick = Number(product_count.input) +1; */
-    }
+    function counter() {
+    	var counterP = document.getElementById('counterP');
+    	var count = document.getElementById('product_count');
+    	var maxcount = document.getElementById('max_count');
+    	counterP.onclick = function(){
+    		if ( count.value < maxcount.value ) {
+    			count.value = Number(count.value) + 1;
+    			}    
+    	}
+    	counterM.onclick = function(){
+    		if ( count.value > 1 ) {
+    			count.value = Number(count.value) - 1;
+    		}    		
+    	}
+    	    	  	
+    	
+    	
+    } 
   </script>
 </head>
 <body>
@@ -128,33 +142,38 @@
         <img src="${dto.product_img1}" id="product_img">
       </div>
       <div class="section">
-      <form action="/cart" name="cart" method="post">
+      <form method="post">
         <table class="table">
         
           <thead>
             <tr>
-             <input type="hidden" name="product_idx" value="${product_idx}" />
+             <input type="hidden" name="product_idx" value="${product_idx}" >
               <th scope="col" colspan="2" name="product_name" >${dto.product_name}</th>
             </tr>
           </thead>
           <tbody>
            <tr>
               <th scope="row">판매 가격</th>
-              <td name="product_price">${dto.product_price}</td>
+              <td id="product_price" name="product_price">${dto.product_price}원</td>
             </tr>
             
             <tr>
-              <th scope="row">수량</th>
+              <th scope="row">수량 <br>( 최대 ${dto.product_count}개 )</th>
               <td>
-             <input type="text" name="product_count" value="1">
-                  <button type="button" class="amount_btn" id="counterP" onclick="countP();">+</button>
-                  <button type="button" class="amount_btn" id="counterM" onclick="countM();">-</button>
+             <input type="text" id="product_count" name="product_count" value="1" min="1" max="${dto.product_count}" >
+             <input type="hidden" id="max_count" value="${dto.product_count}">
+                  <button type="button" class="amount_btn" id="counterP" onclick="counter();">+</button>
+                  <button type="button" class="amount_btn" id="counterM" onclick="counter();">-</button>
              </td>
             </tr>        
                         
             <tr>
               <th scope="row">총 제품가격</th>
-              <td>${dto.product_price }</td>
+              <td>
+              
+              <input type="text" readonly value="${dto.product_price }" name="product_price">
+
+              </td>
             </tr>
             
             <tr>
@@ -169,7 +188,7 @@
             <tr>
               <th scope="row" colspan="2" class="order_btn_box">
               
-                <input type="submit" value="장바구니" name="payment" id="order_btn"/>
+                <input type="submit" value="장바구니" formaction="/basketAdd" name="payment" id="order_btn"/>
                 <input type="button" value="구매하기" name="payment" id="order_btn"/>
             
     	      </th>
