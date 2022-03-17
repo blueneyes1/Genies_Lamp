@@ -117,15 +117,22 @@
     	var counterP = document.getElementById('counterP');
     	var count = document.getElementById('product_count');
     	var maxcount = document.getElementById('max_count');
+    	var price = document.getElementById('product_price');
+    	var total = document.getElementById('total_price');
+    	
     	counterP.onclick = function(){
     		if ( count.value < maxcount.value ) {
     			count.value = Number(count.value) + 1;
-    			}    
+    			total.value = Number(price.value) * Number(count.value) + "원";
+    			}
+    		
     	}
+    	
     	counterM.onclick = function(){
     		if ( count.value > 1 ) {
     			count.value = Number(count.value) - 1;
-    		}    		
+    			total.value = Number(price.value) * Number(count.value) + "원";
+    			}    		
     	}
     	    	  	
     	
@@ -154,7 +161,8 @@
           <tbody>
            <tr>
               <th scope="row">판매 가격</th>
-              <td id="product_price" name="product_price">${dto.product_price}원</td>
+              <td name="product_price">${dto.product_price}원</td>
+              <input type="hidden" name="product_price" id="product_price" value="${dto.product_price}" >
             </tr>
             
             <tr>
@@ -171,7 +179,7 @@
               <th scope="row">총 제품가격</th>
               <td>
               
-              <input type="text" readonly value="${dto.product_price }" name="product_price">
+              <input type="text" readonly value="${dto.product_price }원" name="total_price" id="total_price">
 
               </td>
             </tr>

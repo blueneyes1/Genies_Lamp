@@ -467,6 +467,7 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
+		
 		int result = basketservice.basketAdd(member_id, product_idx, product_count, product_price);
 		if(result == 1) {
 			
