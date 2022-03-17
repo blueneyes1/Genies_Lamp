@@ -1,0 +1,13 @@
+.wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+}
+
+.loginMain {
+	background-color: rgba(130, 130, 215, 0.322);
+	padding: 50px;
+	margin: 50px;
+	
+}

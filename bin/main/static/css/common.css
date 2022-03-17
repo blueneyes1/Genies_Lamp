@@ -58,7 +58,7 @@
   position: absolute;
   border-radius: 5px;
   background-color: rgb(178, 178, 238);
-  min-width: 120px;
+  min-width: 140px;
   z-index: 1;
   font-size: 12px;
   margin-top: -3px;
@@ -70,8 +70,9 @@
   color: white;
   padding: 12px 16px;
   text-decoration: none;
-  text-align: left;
+  text-align: center;
   background-color: rgb(178, 178, 238);
+  border-radius: 5px;
 }
 .dropdown-content a:link {
   color: black;
@@ -87,11 +88,12 @@
 /* 드롭다운메뉴의 마우스오버시 팝업 */
 .dropdown:hover .dropdown-content {
   display: block;
+  border-radius: 5px;
 }
 /* footer */
 .footer {
   height: 250px;
-  background-color: rgb(54, 54, 54);
+  background-color: rgb(95, 59, 151);
 }
 .footer div a {
   color: white;

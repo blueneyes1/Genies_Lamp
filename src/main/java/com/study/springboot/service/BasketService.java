@@ -31,4 +31,12 @@ public class BasketService {
 		
 		return result;
 	}
+	
+	// 제품 상세 페이지에서 장바구니 추가하기 (PYH)
+	public int basketAdd(String basket_member_id, String basket_product_idx, String basket_count, String basket_price) {
+		
+		int result = basketDao.basketAdd(basket_member_id, basket_product_idx, basket_count, basket_price);
+		
+		return result;
+	}
 }

@@ -304,7 +304,7 @@ public class MyControllerPYH {
 	@ResponseBody
 	public String admin_review_delete(@RequestParam("review_idx") String review_idx) {
 		
-		int result = productservice.admin_product_delete(review_idx);
+		int result = productservice.admin_review_delete(review_idx);
 		if(result == 1) {
 			
 			return "<script>alert('상품평삭제에 성공했습니다.'); location.href='/admin/reviewlist';</script>";
@@ -433,6 +433,7 @@ public class MyControllerPYH {
 	// 상품 상세 페이지
 	@RequestMapping("/product/productDetail")
 	public String productDetail(@RequestParam(value="product_idx") String product_idx,
+								HttpServletRequest request,
 								Model model) {
 		
 		// 상품 상세 보기
@@ -445,6 +446,7 @@ public class MyControllerPYH {
 		
 		model.addAttribute("mainPage", "product/productDetail.jsp");
 		
+		String member_id = (String) request.getSession().getAttribute("member_id");
 		
 		// 리뷰 보기
 		List<Product_reviewDto> review_list = productservice.viewReview(product_idx);
@@ -452,6 +454,26 @@ public class MyControllerPYH {
 		
 		
 		return "index";
+	}
+	
+//------------------------------------------------------------------------------------------------------------------------------
+	// 제품 상세 페이지 - 장바구니 추가
+	@RequestMapping("/basketAdd")
+	@ResponseBody
+	public String basketAdd(@RequestParam("product_idx") String product_idx,
+							@RequestParam("product_count") String product_count,
+							@RequestParam("product_price") String product_price,
+											HttpServletRequest request) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		int result = basketservice.basketAdd(member_id, product_idx, product_count, product_price);
+		if(result == 1) {
+			
+			return "<script>alert('제품을 장바구니에 넣었습니다.'); location.href='/mypage/basket';</script>";
+		}else {
+			return "<script>alert('제품을 장바구니에 넣기 실패했습니다.'); history.back(-1);</script>";
+		}
 	}
 //-------------------------------------------------------------------------------------------------------------------------	
 	// 리뷰 작성 페이지
@@ -614,6 +636,7 @@ public class MyControllerPYH {
 			return "index";
 		}
 	}
+
 //------------------------------------------------------------------------------------------------------------------------------
 	// 마이페이지 - 장바구니 비우기
 	@RequestMapping("/mypage_basket_delete")

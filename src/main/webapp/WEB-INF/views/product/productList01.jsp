@@ -54,7 +54,7 @@
     </div>
     <div class="page_box">
       <nav aria-label="Page navigation example">
-  <ul class="pagination">
+  			<ul class="pagination">
 		    
 		    <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
 		    	<a class="page-link" href="/product/productList01?page=${page-1}">Previous</a>

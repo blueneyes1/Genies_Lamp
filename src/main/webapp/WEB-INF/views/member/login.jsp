@@ -9,6 +9,7 @@
 
 <!-- 로그인페이지 -->
 
+<div class="wrap">
 <div class="loginMain">
 	<form action="loginAction">
 		<table class="main1">
@@ -47,4 +48,5 @@
 	        </table>
 	      </div>
 	</form>
+</div>
 </div>

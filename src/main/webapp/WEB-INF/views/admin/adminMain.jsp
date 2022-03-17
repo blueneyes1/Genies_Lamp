@@ -7,26 +7,37 @@
   <style>
     
    
+    .wrap {
+  	display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+  	}
+  	
     .box {
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
       align-items: center;
+      font-size: 12px;
     }
    
-    #main {
+    #main_box {
       display: flex;
       flex-flow: row nowrap;
-      width: 1200px;
     }
-    #aside {
+    #aside_box {
       flex: 1 1 auto;
       flex-direction: column;
-      width: 300px;
+      width: 200px;
+      margin-left: 150px;
+      
     }
-    #section {
+    #section_box {
       flex: 2 1 auto;
-      width: 900px;
+      flex-direction: column;
+      width: 850px;
+      text-align: center;
     }
     
     .menu_btn {
@@ -53,9 +64,10 @@
   </style>
 </head>
 
-
-    <div class="box" id="main">
-      <div class="box" id="aside">
+	
+	<div class="wrap">
+    <div class="box" id="main_box">
+      <div class="box" id="aside_box">
         <div class="menu_btn">
           <button onclick="location.href='/admin/memberList' ">회원관리</button>
         </div>
@@ -77,10 +89,14 @@
         </div>
         
       </div>
-      <div class="box" id="section">
+      <div class="box" id="section_box">
         <div class="img">
-          <img src="/img/admin/admin_lamp.PNG">
+          <img src="/img/Genie_lamp.png">
+        </div>
+        <div class="txt">
+        <p><b>관리자</b>님 환영합니다</p>
         </div>
         
       </div>
     </div>
+</div>

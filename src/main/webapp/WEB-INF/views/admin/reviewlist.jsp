@@ -18,30 +18,38 @@
   <style>
 
 
-	.box {
+	.wrap {
   	display: flex;
-  	flex-flow: row nowrap;
-  	justify-content: center;
-  	align-items: center;
-	}
-
-	#main_box {
-  	display: flex;
-  	flex-flow: row nowrap;
-  	width: 1200px;
-	}
-	
-	#aside_box {
-  	flex: 1 1 auto;
-  	flex-direction: column;
-  	width: 300px;
-	}
-	
-	#section_box {
-  	flex: 2 1 auto;
-  	flex-direction: column;
-  	width: 900px;
-	}
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+  	}
+  	
+    .box {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
+   
+    #main_box {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    #aside_box {
+      flex: 1 1 auto;
+      flex-direction: column;
+      width: 200px;
+      margin-left: 150px;
+      
+    }
+    #section_box {
+      flex: 2 1 auto;
+      flex-direction: column;
+      width: 850px;
+      text-align: center;
+    }
 
 	#btns {
 	background-color: rgb(178, 178, 238);
@@ -87,7 +95,8 @@
   </style>
 </head>
 <body>
-
+	
+	<div class="wrap">
     <div class="box" id="main_box">
       <div class="box" id="aside_box">
         <div class="menu_btn">
@@ -114,10 +123,11 @@
       
       <div class="box" id="section_box">
         <div class="member_list">
-	
+		<form method="post">
           <table class="table table-hover">
   
             <tr>
+              <th>상품평 번호</th>
               <th>상품평 작성자</th>
               <th>상품평 이미지</th>
               <th>상품평 타이틀</th>
@@ -129,6 +139,7 @@
 		
 		<c:forEach var="admin_view_review" items="${admin_view_review }" >
             <tr>
+              <td>${admin_view_review.review_idx }</td>
               <td>${admin_view_review.review_member_id }</td>
               <td>
               <img src="${admin_view_review.review_img }" id="review_img">
@@ -141,20 +152,20 @@
               
               </td>
               <td>
-              <a href="/admin_review_delete_action?review_idx=${ admin_view_review.review_idx }"><input type="button" value="삭제" id="btns"></a>
+              <input type="submit" value="삭제" formaction="/admin_review_delete_action?review_idx=${ admin_view_review.review_idx }" id="btns">
               </td>
             </tr>
        
            </c:forEach>
 
           </table>
-         
+         </form>
         </div>
         
       </div>
       
     </div>
-
+</div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
