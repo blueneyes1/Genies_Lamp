@@ -119,7 +119,7 @@
 	<form method="post" >
 		<div class="basket">
 	
-	<c:forEach var="basket_list" items="${basket_list }">
+	
       <table class="table table-sm">
 
       <tr>
@@ -131,13 +131,15 @@
       </tr>
 
       
-      <c:forEach var="dto" items="${viewBasket}">
+      <c:forEach var="basket_list" items="${basket_list }">
 	      <tr>
-	        <td>${dto.product_img1 }</td>
-	        <td>${dto.product_name }</td>
-	        <td>${dto.product_price}</td>
-	        <td>${dto.basket_count }</td>
-	        <td>${dto.product_price }</td>
+	        <td>
+	        <img src="${basket_list.product_img1 }">
+	        </td>
+	        <td>${basket_list.product_name }</td>
+	        <td>${basket_list.product_price}</td>
+	        <td>${basket_list.basket_count }</td>
+	        <td>${basket_list.product_price }</td>
 	      </tr>
 	   </c:forEach>
 
@@ -162,7 +164,6 @@
         </tr>
 
       </table>
-	</c:forEach>
 
 
 
