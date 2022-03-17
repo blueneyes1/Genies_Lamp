@@ -225,6 +225,14 @@ public class MyControllerLDG {
 		return "index"; // "mypage/orderDetails.jsp" 디스패치됨.
 		
 	}
+	
+	@RequestMapping("/order/pay")
+	public String pay(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("mainPage", "order/pay.jsp");
+		
+		return "index"; // "order/pay.jsp" 디스패치함.
+	}
 
 }
 
