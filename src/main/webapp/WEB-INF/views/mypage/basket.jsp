@@ -19,42 +19,19 @@
   
   .wrap {
   	display: flex;
-    flex-flow: row nowrap;
+    flex-direction: column;
     align-items: center;
     width: 100%;
   	}
   	
     .box {
       display: flex;
-      flex-flow: row nowrap;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       font-size: 12px;
     }
-   
-    #main_box {
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    #aside_box {
-      flex: 1 1 auto;
-      flex-direction: column;
-      width: 200px;
-      margin-left: 150px;
-      
-    }
-    #section_box {
-      flex: 2 1 auto;
-      flex-direction: column;
-      width: 850px;
-      text-align: center;
-    }
     
-    .menu_btn {
-    margin: 10px;
-  	text-align: center;
-    }
-
     #btns {
     background-color: rgb(178, 178, 238);
     border: none;
@@ -70,6 +47,11 @@
     flex-direction: row;
     margin-top: 50px;
   }
+  
+  #basket_btn_box {
+  text-align: center;
+  }
+  
   
   #basket_btn {
 	background-color: rgb(178, 178, 238);
@@ -94,31 +76,8 @@
 <body>
 	
 	<div class="wrap">
-	<div class="box" id="main_box">
-      <div class="box" id="aside_box">
-      
-      <div class="menu_btn">
-          <button onclick="location.href='/mypage/memberInfo' " id="btns">회원정보수정</button>
-        </div>
-        
-        <div class="menu_btn">
-          <button onclick="location.href='/mypage/orderDetails'" id="btns">주문내역</button>
-        </div>
-
-        <div class="menu_btn">
-          <button onclick="location.href='/mypage/basket' " id="btns">장바구니</button>
-        </div>
-        
-        <div class="menu_btn">
-          <button onclick="location.href='/mypage/myReviewList' " id="btns">나의 상품평 보기</button>
-        </div>
-
-        <div class="menu_btn">
-          <button onclick="location.href='/' " id="btns">1:1문의</button>
-        </div>
-        
-      </div>
-      <div class="box" id="section_box">
+	
+      <div class="box" >
 	<form method="post" >
 		<div class="basket">
 	
