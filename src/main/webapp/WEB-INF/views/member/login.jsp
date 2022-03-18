@@ -23,26 +23,29 @@
 	            	<input type="password" name="member_pw">
 	          	</td>
 	         	<td>
-	            	<input class="loginImg" type="image" name="submit" value="submit" src="/img/member/btn_login.gif">
+	            	
+	            	<input type="submit" name="submit" id="login_btn" value="로그인"/>
 	          	</td>
 			</tr>			
 		</table>
 		<div class="loginSection">
 	     	<table class="main2">
 	          <tr>
-	            <td>-아이디를 잊으셨나요?</td>
 	            <td>
-	              <input type="image"
-	              onclick="window.open('/idFind','아이디찾기', 'width=470,height=320,location=no,status=no,scrollbars=no')",
-	              src="img/member/btn_id_find.gif" />
+	            <img src="/img/dot.PNG">아이디를 잊으셨나요?</td>
+	            <td>
+	              <input type="button"
+	              onclick="window.open('/idFind','아이디찾기', 'width=450,height=200,location=no,status=no,scrollbars=no')",
+	              id="find_btn" value="아이디 찾기"/>
 	            </td>
 	          </tr>
 	          <tr>
-	            <td>-비밀번호를 잊으셨나요?</td>
 	            <td>
-	            	<input type="image" 
-	            	onclick="window.open('/passwordFind','비밀번호찾기', 'width=470,height=320,location=no,status=no,scrollbars=no')",
-			      	src="img/member/btn_pw_find.gif" />
+	            <img src="/img/dot.PNG">비밀번호를 잊으셨나요?</td>
+	            <td>
+	            	<input type="button" 
+	            	onclick="window.open('/passwordFind','비밀번호찾기', 'width=450,height=250,location=no,status=no,scrollbars=no')",
+			      	id="find_btn" value="비밀번호 찾기"/>
 	            </td>
 	          </tr>
 	        </table>

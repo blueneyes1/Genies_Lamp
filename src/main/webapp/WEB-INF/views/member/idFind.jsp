@@ -26,53 +26,55 @@
 <!-- 아이디찾기 페이지 -->
 
 	<div class="main">
-		<form action="/idFindAction" name="idFindAction">
-			<table>
-				<c:if test="${ not empty find_member_id }">
-					<tr>
-						<td colspan="2">아이디 찾기</td>
-					</tr>
-					<tr>
-						<td colspan="2"></td>
-					</tr>
-					<tr>
-						<td align="center">
-							회원님의 아이디는 ${ find_member_id } 입니다. <br>
-						</td>
-					</tr>
-				</c:if>
-				
-				<c:if test="${ empty find_member_id }">
-					<tr>
-						<td colspan="2">아이디 찾기</td>
-					</tr>
-					<tr>
-						<td colspan="2">아이디를 잊어버리셨나요?<br>회원님의 성명과 이메일을 입력하여 주세요.</td>
-					</tr>
-					<tr>
-						<td style="width: 20%;">
-						<img src="/img/member/txt_join1.gif">
-						<img src="/img/member/txt_email.gif">
-					</td>
-					<td style="width: 80%;">
-						<input type="text" name="member_name">
-						<input type="text" class="emailText" name="member_email">
-					</td>
-					</tr>
-				</c:if>
-			</table>
-			
-			<c:if test="${ not empty find_member_id }">
-				<div><input type="image" src="/img/member/btn_confirm.gif" onclick="window.close()"></div>
-				<div><input type="image" src="/img/member/btn_close.gif" onclick="window.close()"></div>
-			</c:if>
-			
-			<c:if test="${ empty find_member_id }">
-				<div><input type="image" src="/img/member/btn_confirm.gif" onclick="submit()"></div>
-				<div><input type="image" src="/img/member/btn_close.gif" onclick="window.close()"></div>
-			</c:if>	
-		</form>
-	</div>
+  <form action="/idFindAction" name="idFindAction">
+    <table id="findid_table">
+      <c:if test="${ not empty find_member_id }">
+        <tr>
+          <td colspan="2">아이디 찾기</td>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+        </tr>
+        <tr>
+          <td align="center">
+            회원님의 아이디는 ${ find_member_id } 입니다. <br>
+          </td>
+        </tr>
+      </c:if>
+      
+      <c:if test="${ empty find_member_id }">
+        <tr>
+          <td colspan="2">아이디 찾기</td>
+        </tr>
+        <tr>
+          <td colspan="2">아이디를 잊어버리셨나요?<br>회원님의 성명과 이메일을 입력하여 주세요.</td>
+        </tr>
+        <tr>
+          <th>성명</th>
+          <td><input type="text" name="member_name"></td>
+         </tr>
+         <tr>
+         <th>
+         이메일
+         </th>
+         <td>
+         <input type="text" class="emailText" name="member_email">
+         </td>
+         </tr>
+      </c:if>
+    </table>
+    
+    <c:if test="${ not empty find_member_id }">
+      <div class="btn_box"><input type="button" value="확인" onclick="window.close()" id="idfind_btns">
+      <input type="button" value="닫기" onclick="window.close()" id="idfind_btns"></div>
+    </c:if>
+    
+    <c:if test="${ empty find_member_id }">
+      <div class="btn_box"><input type="button" value="확인" onclick="submit()" id="idfind_btns">
+      <input type="button" value="닫기" onclick="window.close()" id="idfind_btns"></div>
+    </c:if>	
+  </form>
+</div>
 
 	<script>
 		function submit() {

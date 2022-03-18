@@ -34,6 +34,7 @@
     </div>
 
 <div class="box">
+<div class="inside_box">
   <div class="box_left">
     <div class="box_left_one">
       <p><b>GENIE'S LAMP</b></p>
@@ -80,6 +81,7 @@
 
       </table>
     </div>
+  </div>
   </div>
 </div>
 </body>

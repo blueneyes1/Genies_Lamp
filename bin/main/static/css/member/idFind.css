@@ -1,29 +1,29 @@
-.box {
+.main {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
-	align-items: center;
 	font-size: 12px;
-	margin-bottom: 50px;
+	
 }
 
-.term1, .term2, .term3 {
-	margin: 30px;
+.btn_box {
+	text-align: center;
 }
 
-#agree {
-	font-size: 12px;
+
+#findid_table {
+padding: 5px;
+margin: 10px 10px 10px 30px;	
 }
 
-#join_btn {
+#idfind_btns {
 	background-color: rgb(178, 178, 238);
     border: none;
-    width: 850px;
-    height: 30px;
+    width: 90px;
+    height: 25px;
     color: rgb(17, 17, 17);
     border-radius: 3px
 }
 
-#join_btn:hover {
+#idfind_btns:hover {
 	background-color: rgb(132, 132, 227);
 }

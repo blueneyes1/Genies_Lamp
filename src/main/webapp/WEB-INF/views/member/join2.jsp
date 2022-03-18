@@ -104,7 +104,7 @@
 <!-- 회원가입 -->
 
 <!-- 입력폼 -->
-
+<div class="box">
 <form action="/join2Action" method="post" name="userInfo" onsubmit="return checkValue();">
 	<div class="information">
 		<table>
@@ -112,8 +112,8 @@
 				<td>아이디</td>
 				<td>
 					<input type="text" name="member_id" id="member_id" required>
-					<img src="/img/member/btn_iddupl.gif" onclick="idCheck();">
-		            (영문 소문자, 숫자로 4~16자)
+					<button onclick="idCheck();" id="id_confirm_btn">아이디중복확인</button>
+		            <span id="small_txt">(영문 소문자, 숫자로 4~16자)</span>
 		            <input type="hidden" name="member_id_check" id="member_id_check" value="no">
 		       	</td>
 			</tr>
@@ -121,7 +121,7 @@
 				<td>비밀번호</td>
 		        <td>
 		        	<input type="password" name="member_pw" id="member_pw" required>
-					영문/숫자/특수문자조합으로 8~16자리. 첫글자는 영문자로 사용
+					<span id="small_txt">영문/숫자/특수문자조합으로 8~16자리. 첫글자는 영문자로 사용</span>
 		        </td>
 			</tr>
 		    <tr>
@@ -171,7 +171,7 @@
 				<td>주소</td>
 	            <td>
 	            	<input type="text" style="margin-bottom:10px;" name="member_address1" id="member_address1" placeholder="우편번호">
-	            	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+	            	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="find_address_btn"><br>
 	            	<input type="text" style="margin-bottom:10px;" class="inputStyle1" name="member_address2" id="member_address2" placeholder="주소"><br>
 	            	<input type="text" class="inputStyle1" name="member_address3" id="member_address3" placeholder="상세주소">
 	            	<input type="hidden" class="inputStyle1" id="sample6_extraAddress" placeholder="참고항목">
@@ -181,14 +181,14 @@
 	</div>
 	
 	<div class="imageBtn2">
-      <input type="image" name="submit" value="submit" src="/img/member/btn_confirm.gif">
+      <input type="submit" name="submit" value="확인" id="join_btns"/>
       <a href="/" id="cancel">
-      	<input type="image" src="/img/member/btn_cancel.gif">
+      	<input type="button" value="취소"  id="join_btns"/>
       </a>
     </div>
     
 </form>
-
+</div>
 
 
 	<!-- 다음 우편번호 서비스 API -->

@@ -1,18 +1,18 @@
-
-    .wrap {
+.wrap {
       display: flex;
       flex-flow: column;
       justify-content: center;
       align-items: center;
       font-size: 12px;
+			
     }
 
     .content {
       display: flex;
       flex-flow: column nowrap;
       text-align: center;
+	border: 3px solid rgb(178, 178, 238);
+	padding: 10px;
+	margin: 30px;
     }
-    
-   
-
 

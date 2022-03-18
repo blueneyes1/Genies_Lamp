@@ -22,7 +22,7 @@
 <body>
   <div class="main">
   	<form action="/passwordFindAction" name="passwordFindForm">
-      <table>
+      <table id="password_table">
       	<c:if test="${ not empty find_member_pw }">
       		<tr>
 	          <td colspan="2">비밀번호 찾기</td>
@@ -46,37 +46,46 @@
 	            <br>회원님의 아이디와 성명,이메일을 입력하여 주세요.</td>
 	        </tr>
 	        <tr>
-	          <td style="width: 20%;">
-	            아이디 : <br>
-	            이름 : <br>
-	            비밀번호힌트 : <br>
-	            힌트답변 :
-	          </td>
-	          <td style="width: 80%;">
-	            <input type="text" name="member_name">
-	            <input type="text" name="member_id">
-	            <select class="size" name="member_pw_question" id="member_pw_question"> 
-						<option value="0">========선택========</option>
-				        <option value="1">기억에 남는 추억의 장소는?</option>
-				        <option value="2">자신의 인생 좌우명은?</option>
-				        <option value="3">자신의 보물 제1호는?</option>
-				        <option value="4">가장 좋아하는 색은?</option>
-				        <option value="5">내가 좋아하는 캐릭터는?</option>
-				</select>
-				<input type="text" name="member_pw_answer">
-	          </td>
-	        </tr>
+  <th>아이디</th>
+  <td>
+    <input type="text" name="member_id">
+  </td>
+</tr>
+
+<tr>
+  <th>이름</th>
+  <td><input type="text" name="member_name"></td>
+</tr>
+<tr>
+  <th>비밀번호힌트</th>
+  <td>
+    <select class="size" name="member_pw_question" id="member_pw_question"> 
+      <option value="0">========선택========</option>
+          <option value="1">기억에 남는 추억의 장소는?</option>
+          <option value="2">자신의 인생 좌우명은?</option>
+          <option value="3">자신의 보물 제1호는?</option>
+          <option value="4">가장 좋아하는 색은?</option>
+          <option value="5">내가 좋아하는 캐릭터는?</option>
+    </select>
+  </td>
+</tr>
+<tr>
+  <th>힌트답변</th>
+  <td>
+    <input type="text" name="member_pw_answer">
+  </td>
+</tr>
 	     </c:if>
       </table>
       
       <c:if test="${ not empty find_member_pw }">
-   		<div><input type="image" src="/img/member/btn_confirm.gif" onclick="window.close()"></div>
- 	  	<div><input type="image" src="/img/member/btn_close.gif" onclick="window.close()"></div>
+   		<div class="btn_box"><input type="button" value="확인" onclick="window.close()" id="password_btns">
+ 	  	<input type="button" value="닫기" onclick="window.close()" id="password_btns"></div>
       </c:if>
       
       <c:if test="${ empty find_member_pw }">     	  
-  	 	<div><input type="image" src="/img/member/btn_confirm.gif" onclick="submit()"></div>
-  	 	<div><input type="image" src="/img/member/btn_close.gif" onclick="window.close()"></div>
+  	 	<div class="btn_box"><input type="button" value="확인" onclick="submit()" id="password_btns">
+  	 	<input type="button" value="닫기" onclick="window.close()" id="password_btns"></div>
   	  </c:if>
     </form>
   </div>

@@ -4,6 +4,7 @@
       justify-content: center;
       align-items: center;
       font-size: 12px;
+      margin-bottom: 30px;
     }
     .head_box {
       display: flex;
@@ -15,6 +16,14 @@
     .section {
     margin-left: 50px;
     }
+    
+    .product_detail {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    }
+    
     #product_img {
       width: 250px;
       height: 250px;
@@ -27,6 +36,11 @@
     color: rgb(17, 17, 17);
     border-radius: 3px
     }
+    
+    #order_btn:hover {
+    background-color: rgb(132, 132, 227);
+    }
+    
     .order_btn_box {
       text-align: center;
     }
@@ -38,14 +52,25 @@
     color: rgb(17, 17, 17);
     border-radius: 3px
     }
+    
+    .product_review_list {
+    margin-bottom: 10px;
+    border: 1px solid rgb(178, 178, 238);
+    }
+    
     #review_btn {
     background-color: rgb(178, 178, 238);
     border: none;
     width: 900px;
-    height: 25px;
+    height: 45px;
     color: rgb(17, 17, 17);
     border-radius: 3px
     }
+    
+    #review_btn:hover {
+    background-color: rgb(132, 132, 227);
+    }
+    
     .review_btn_box {
       text-align: center;
     }

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true" %>
 
-<textarea name="" id="" cols="30" rows="10">
+<textarea name="" id="agree" cols="150" rows="10">
 [제1장 총칙]
 
 

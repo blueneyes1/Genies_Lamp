@@ -9,37 +9,33 @@
 <link rel="stylesheet" href="/css/member/join.css">
 
  <!-- 이용약관 -->
- 
+
+<div class="box">
 <div class="term1">
-  <div>이용약관</div>
-  <div>
-    <c:import url="./member/agree1.jsp" />
-    <div><input class="check" type="checkbox">위 약관에 동의합니다.</div>
+  <p><b>이용약관</b></p>
+    <c:import url="./member/agree1.jsp"/><br/>
+    <input class="check" type="checkbox">위 약관에 동의합니다.
   </div>
-</div>
+
 <!-- 개인정보보호정책 -->
 <div class="term2">
-  <div>개인정보보호정책</div>
-  <div>
-    <c:import url="./member/agree2.jsp" />
-    <div><input class="check" type="checkbox">위 개인정보취급방침에 동의합니다.</div>
-  </div>
+  <p><b>개인정보보호정책</b></p>
+    <c:import url="./member/agree2.jsp" /><br/>
+    <input class="check" type="checkbox">위 개인정보취급방침에 동의합니다.
 </div>
 
 <!-- 개인정보의 수집 및 이용목적 -->
 
 <div class="term3">
-  <div>개인정보의 수집 및 이용목적</div>
-  <div>
-    <c:import url="./member/agree3.jsp" />
-    <div><input class="check" type="checkbox">위 개인정보의 수집 및 이용목적에 동의합니다.</div>
-  </div>
+<p><b>개인정보의 수집 및 이용목적</b></p>
+    <c:import url="./member/agree3.jsp" /> <br/>
+    <input class="check" type="checkbox">위 개인정보의 수집 및 이용목적에 동의합니다.
 </div>
 
-<div class="imageBtn">
-  <input type="image" onclick="agree();" src="/img/member/btn_join.gif">
+<div class="join_btn_box">
+  <input type="button" onclick="agree();" value="회원가입" id="join_btn">
 </div>
-
+</div>
 
  <script>
    function agree() {

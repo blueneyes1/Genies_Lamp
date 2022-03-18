@@ -27,10 +27,16 @@
     <div class="content_box">
     <c:forEach var="product_listPage" items="${product_listPage}">
     <input type="hidden" value="${product_listPage.product_type}" />
-      <div class="img">
+      <div class="img_txt_box"> 
+		<div class="img">
         <a href="/product/productDetail?product_idx=${product_listPage.product_idx}"><img src="${product_listPage.product_img1}" id="product_img"></a>
-      	<p>${product_listPage.product_name}</p>
+      <div class="overlay">
+     	</div>
       </div>
+			<div class="txt">
+				<p>${product_listPage.product_name}</p>
+			</div>
+		</div> 
      </c:forEach> 
      
     </div>

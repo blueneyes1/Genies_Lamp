@@ -1,3 +1,37 @@
+.box {
+	display: flex;
+	justify-content: center;
+	margin: 30px;
+	font-size: 12px;
+}
+
+#small_txt {
+	font-size: 7px;
+}
+
+#join_btns {
+	background-color: rgb(178, 178, 238);
+    border: none;
+    width: 90px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px;
+}
+
+#join_btns:hover {
+	background-color: rgb(132, 132, 227);
+}
+
+#id_confirm_btn, #find_address_btn {
+	background-color: rgb(212, 212, 212);
+    border: none;
+    width: 70px;
+    height: 20px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px;
+    font-size: 6px;
+}
+
 .userInfo {
   padding-top: 50px;
   padding-bottom: 50px;

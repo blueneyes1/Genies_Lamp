@@ -3,7 +3,7 @@
 <%@ page trimDirectiveWhitespaces="true" %> 
     
     
-<textarea name="" id="" cols="30" rows="10">
+<textarea name="" id="agree" cols="150" rows="10">
 ▶ 개인정보의 수집 및 이용목적
 - 서비스 이용에 따른 본인식별, 실명확인, 가입의사 확인, 연령제한 서비스 이용
 - 고지사항 전달, 불만처리 의사소통 경로 확보, 물품배송 시 정확한 배송지 정보 확보

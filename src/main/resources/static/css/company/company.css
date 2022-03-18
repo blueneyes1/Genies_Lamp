@@ -1,10 +1,19 @@
-  .box {
+.box {
     display: flex;
     flex-direction: row;
     justify-content: center;
       margin-top: 30px;
   margin-bottom: 30px;
+	
   }
+
+	.inside_box {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+		border: 3px solid rgb(178, 178, 238);
+		padding: 10px;
+	}
 
   .box_left {
     display: flex;
