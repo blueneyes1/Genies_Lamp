@@ -59,7 +59,6 @@
         <tr id="review_btn">
           <td colspan="2">
             <input type="submit" value="작성" id="review_btns"/>
-            <button onclick="window.close();"  id="review_btns">닫기</button>
           </td>
         </tr>
 

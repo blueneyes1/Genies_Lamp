@@ -14,37 +14,34 @@
   
   
   <script language="javascript">
-    function showPopup() {
-    	var product_idx = $('#product_idx').val();
-    	window.open("reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
-    	}
-    
-    function counter() {
-    	var counterP = document.getElementById('counterP');
-    	var count = document.getElementById('product_count');
-    	var maxcount = document.getElementById('max_count');
-    	var price = document.getElementById('product_price');
-    	var total = document.getElementById('total_price');
-    	
-    	counterP.onclick = function(){
-    		if ( count.value < maxcount.value ) {
-    			count.value = Number(count.value) + 1;
-    			total.value = Number(price.value) * Number(count.value) + "원";
-    			}
-    		
-    	}
-    	
-    	counterM.onclick = function(){
-    		if ( count.value > 1 ) {
-    			count.value = Number(count.value) - 1;
-    			total.value = Number(price.value) * Number(count.value) + "원";
-    			}    		
-    	}
-    }
-    	    	  	
-    	
-    	
-    }
+  function showPopup() { 
+  	var product_idx = $('#product_idx').val();
+  	window.open("reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
+  	}
+  
+  function counter() {
+  	var counterP = document.getElementById('counterP');
+  	var count = document.getElementById('product_count');
+  	var maxcount = document.getElementById('max_count');
+  	var price = document.getElementById('product_price');
+  	var total = document.getElementById('total_price');
+  	
+  	counterP.onclick = function(){
+  		if ( count.value < maxcount.value ) {
+  			count.value = Number(count.value) + 1;
+  			total.value = Number(price.value) * Number(count.value) + "원";
+  			}
+  		
+  	}
+  	
+  	counterM.onclick = function(){
+  		if ( count.value > 1 ) {
+  			count.value = Number(count.value) - 1;
+  			total.value = Number(price.value) * Number(count.value) + "원";
+  			}    		
+  	}
+  }    	  	
+   
   </script>
 </head>
 <body>
