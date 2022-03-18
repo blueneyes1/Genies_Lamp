@@ -14,27 +14,8 @@
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     
   <title>productList</title>
-  <style>
-    .box {
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-
-    .content_box {
-      display: flex;
-      flex-flow: row;
-      justify-content: center;
-      align-items: center;
-    }
-
-    #product_img {
-      width: 250px;
-      height: 250px;
-    }
-  </style>
+  
+  <link rel="stylesheet" href="/css/product/productList.css">
 </head>
 <body>
   <div class="box">

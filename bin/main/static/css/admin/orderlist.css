@@ -1,0 +1,31 @@
+  
+    body {
+      display : flex;
+      flex-direction : column;
+      align-items: center;
+      text-align: center;
+      font-size: 12px;
+    }
+
+    .wrap {
+      margin-top: 50px;
+    }
+  
+    table {
+      font-size: 12px;
+    }
+
+    button {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 90px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px;
+  }
+
+  button:hover {
+    background-color: rgb(130, 130, 215);
+  }
+    
+   

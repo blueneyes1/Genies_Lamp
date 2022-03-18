@@ -13,55 +13,11 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-<title></title>
-  
-<style>
-  .box {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-      margin-top: 30px;
-  margin-bottom: 30px;
-  }
+<title>company</title>
 
-  .box_left {
-    display: flex;
-    flex-direction: column;
-  }
+<link rel="stylesheet" href="/css/company/company.css">
+  
 
-  .box_right {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #info_img {
-  	width: 200px;
-  	height: 150px;
-  }
-  
-  .commonSection1 {
-  width: 100%;
-  position: relative;
-    margin-top: 30px;
-  margin-bottom: 30px;
-  }
-  .commonContent1 {
-  height: 200px;
-  }
-  .commonContent1 img {
-  max-height: 100%;
-  }
-  
-  .company_txt {
-  text-align: center;
-    margin-top: 30px;
-  margin-bottom: 30px;
-  }
-  
-  .box_left_one , .box_right_one {
-  margin-right: 10px;
-  }
-</style>
 </head>
 <body>
 

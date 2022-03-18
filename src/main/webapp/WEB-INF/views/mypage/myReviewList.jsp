@@ -15,81 +15,10 @@
 
 
 <title>리뷰</title>
-<style>
-  
-  .wrap {
-  	display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    width: 100%;
-  	}
-  	
-    .box {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-   
-    #main_box {
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    #aside_box {
-      flex: 1 1 auto;
-      flex-direction: column;
-      width: 200px;
-      margin-left: 150px;
-      
-    }
-    #section_box {
-      flex: 2 1 auto;
-      flex-direction: column;
-      width: 850px;
-      text-align: center;
-    }
-    
-    .menu_btn {
-    margin: 10px;
-  	text-align: center;
-    }
 
-    #btns {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 100px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px;
-    font-size: 12px;
-    }
+<link rel="stylesheet" href="/css/mypage/myReviewList.css">
 
-  .review_box {
-    display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-  }
-  
-  #review_btn {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 90px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	margin: 5px;
-  }
-  
-  #review_img {
-  width: 150px;
-  height: 100px;
-  }
 
-	
-  
-
-  </style>
 </head>
 <body>
 	

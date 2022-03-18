@@ -1,0 +1,19 @@
+    .box {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
+
+    .content_box {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #product_img {
+      width: 250px;
+      height: 250px;
+    }

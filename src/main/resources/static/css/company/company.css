@@ -1,0 +1,45 @@
+  .box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+      margin-top: 30px;
+  margin-bottom: 30px;
+  }
+
+  .box_left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .box_right {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #info_img {
+  	width: 200px;
+  	height: 150px;
+  }
+  
+  .commonSection1 {
+  width: 100%;
+  position: relative;
+    margin-top: 30px;
+  margin-bottom: 30px;
+  }
+  .commonContent1 {
+  height: 200px;
+  }
+  .commonContent1 img {
+  max-height: 100%;
+  }
+  
+  .company_txt {
+  text-align: center;
+    margin-top: 30px;
+  margin-bottom: 30px;
+  }
+  
+  .box_left_one , .box_right_one {
+  margin-right: 10px;
+  }

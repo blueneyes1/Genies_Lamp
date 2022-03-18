@@ -15,33 +15,16 @@
 
 
 <title>상품평 작성하기</title>
-<style>
-  
-  .wrap {
-    display : flex;
-    flex-direction : column;
-    align-items: center;
-    text-align: left;
-    font-size: 12px;
-  }
 
-  .review {
-    display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-  }
+<link rel="stylesheet" href="/css/product/reviewActionForm.css">
 
-  #review_btn {
-    text-align: center;
-  }
 
-  </style>
   
 </head>
 <body>
 
 	<div class="wrap">
-	<form method="post" action="/reviewAction" enctype="multipart/form-data">
+	<form method="post" name="reviewAction" action="/reviewAction" enctype="multipart/form-data">
 		<div class="review">
 
       <table class="table table-sm">
@@ -75,8 +58,8 @@
 
         <tr id="review_btn">
           <td colspan="2">
-            <input type="submit" value="상품평 작성" />
-            <input type="button" value="닫기"  onclick="self.close();"/>
+            <input type="submit" value="작성" id="review_btns"/>
+            <button onclick="window.close();"  id="review_btns">닫기</button>
           </td>
         </tr>
 
@@ -89,6 +72,9 @@
 	</form>
 	
 	</div>
+	
+	
+	
 	
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

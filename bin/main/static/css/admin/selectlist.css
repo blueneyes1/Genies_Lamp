@@ -1,0 +1,59 @@
+  
+
+	.wrap {
+  	display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    width: 100%;
+  	}
+  	
+    .box {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+    }
+   
+    #main_box {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    #aside_box {
+      flex: 1 1 auto;
+      flex-direction: column;
+      width: 200px;
+      margin-left: 150px;
+      
+    }
+    #section_box {
+      flex: 2 1 auto;
+      flex-direction: column;
+      width: 850px;
+      text-align: center;
+    }
+
+	button {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 90px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	}
+
+	button:hover {
+	background-color: rgb(130, 130, 215);
+	}
+  
+  	.menu_btn {
+    margin: 10px;
+    font-size: 12px;
+  	text-align: center;
+ 	 }  
+
+  	.order_btn {
+  	 font-size: 12px;
+  	 text-align: center;
+ 	 }
+  

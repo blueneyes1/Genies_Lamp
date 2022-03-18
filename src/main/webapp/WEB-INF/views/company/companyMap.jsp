@@ -11,27 +11,11 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-  <title>product</title>
-  <style>
-
-    .wrap {
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-
-    .content {
-      display: flex;
-      flex-flow: column nowrap;
-      text-align: center;
-    }
-    
-   
-
-
-  </style>
+  <title>companyMap</title>
+  
+  <link rel="stylesheet" href="/css/company/companyMap.css">
+  
+  
  
 </head>
 <body>

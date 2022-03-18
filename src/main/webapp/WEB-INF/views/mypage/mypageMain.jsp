@@ -11,64 +11,11 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 
-  <title></title>
-  <style>
+  <title>mypageMain</title>
   
-  	.wrap {
-  	display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    width: 100%;
-  	}
-  	
-    .box {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-   
-    #main_box {
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    #aside_box {
-      flex: 1 1 auto;
-      flex-direction: column;
-      width: 200px;
-      margin-left: 150px;
-      
-    }
-    #section_box {
-      flex: 2 1 auto;
-      flex-direction: column;
-      width: 850px;
-      text-align: center;
-    }
-    
-    .menu_btn {
-    margin: 10px;
-  	text-align: center;
-    }
-
-    #btns {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 100px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px;
-    font-size: 12px;
-    }
-
-   button:hover {
-    background-color: rgb(130, 130, 215);
-    }
-
+  <link rel="stylesheet" href="/css/mypage/mypageMain.css">
   
   
-  </style>
 </head>
 <body>
  	

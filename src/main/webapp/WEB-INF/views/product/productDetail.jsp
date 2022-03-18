@@ -1,118 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> 
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-
   <title>product</title>
-  <style>
-
-    .box {
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-
-    .head_box {
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    
-    .img_box {
-    margin-right: 50px;
-    }
-    
-    .section {
-    margin-left: 50px;
-    }
-
-    #product_img {
-      width: 250px;
-      height: 250px;
-    }
-
-    #order_btn {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 90px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px
-
-    }
-
-    .order_btn_box {
-      text-align: center;
-    }
-
-    .amount_btn {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 25px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px
-
-    }
-
-    #review_btn {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 900px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px
-
-    }
-
-    .review_btn_box {
-      text-align: center;
-    }
-
-    .product_detail {
-      height: 500px;
-    }
-    .product_delivery {
-      height: 500px;
-    }
-    .product_refund {
-      height: 500px;
-    }
-
-    .product_review_list {
-      height: 500px;
-    }
-    
-    #review_table {
-    text-align: center;
-    }
-    
-    .review_img_box {
-    text-align: center;
-    }
-    
-    #review_img {
-    width: 150px;
-    height: 100px;
-    }
-
-
-  </style>
+  
+  <link rel="stylesheet" href="/css/product/productDetail.css">
+  
+  
   <script language="javascript">
-    function showPopup() { 
+    function showPopup() {
     	var product_idx = $('#product_idx').val();
     	window.open("reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
     	}
-    
     function counter() {
     	var counterP = document.getElementById('counterP');
     	var count = document.getElementById('product_count');
@@ -137,7 +42,7 @@
     	    	  	
     	
     	
-  
+    }
   </script>
 </head>
 <body>
@@ -162,7 +67,6 @@
               <td name="product_price">${dto.product_price}원</td>
               <input type="hidden" name="product_price" id="product_price" value="${dto.product_price}" >
             </tr>
-            
             <tr>
               <th scope="row">수량 <br>( 최대 ${dto.product_count}개 )</th>
               <td>
@@ -171,17 +75,13 @@
                   <button type="button" class="amount_btn" id="counterP" onclick="counter();">+</button>
                   <button type="button" class="amount_btn" id="counterM" onclick="counter();">-</button>
              </td>
-            </tr>        
-                        
+            </tr>
             <tr>
               <th scope="row">총 제품가격</th>
               <td>
-              
               <input type="text" readonly value="${dto.product_price }원" name="total_price" id="total_price">
-
               </td>
             </tr>
-            
             <tr>
               <th scope="row">배송비</th>
               <td>
@@ -189,19 +89,13 @@
               		( 50,000원 이상 구매시 배송비 무료 )
               </td>
             </tr>
-        
-        
             <tr>
               <th scope="row" colspan="2" class="order_btn_box">
-              
                 <input type="submit" value="장바구니" formaction="/basketAdd" name="payment" id="order_btn"/>
                 <input type="submit" value="구매하기" formaction="/order/orderForm?product_idx=${dto.product_idx}" name="payment" id="order_btn"/>
-            
     	      </th>
             </tr>
-           
           </tbody>
-          
         </table>
         </form>
       </div>
@@ -213,7 +107,6 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#detail">상품 상세 보기</a>
@@ -221,47 +114,32 @@
               <li class="nav-item">
                 <a class="nav-link" href="#delivery">배송 정보 보기</a>
               </li>
-      
               <li class="nav-item">
                 <a class="nav-link" href="#refund">교환 및 환불 정보 보기</a>
               </li>
-      
         <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#reviews">상품평 보기</a>
               </li>
-              
             </ul>
-            
           </div>
         </div>
       </nav>
-
       <a name="detail">
-
         <div class="product_detail">
-      
           <p>${dto.product_content}</p>
-      
         </div>
-      
         </a>
        </c:forEach>
         <a name="delivery">
         <div class="product_delivery">
-      
 		<p>지니의 램프는 우체국택배를 이용합니다.</p>
 		<p>대부분 출고 다음날에 바로 도착하며 (주말 제외)</p>
 		<p>지역 택배 기사님들의 일정과 기상상황에 따라 변동이 있을 수 있습니다.</p>
 		<p>기본 배송 준비일은 입고지연 상품 제외, 2~5일 정도가 소요되고 있습니다.</p>
-                
-      
         </div>
-      
       </a>
-      
       <a name="refund">
         <div class="product_refund">
-      
 	            <p>[교환/반품 안내]</p>
 				<p>물품 수령 후(택배 도착일자 기준) 7일 이내에 고객센터 [000-000-0000] 로 반드시 접수 해주세요. </p>
 				<p>사전에 신청해 주신 상품에 한해서만 교환/반품이 가능합니다.</p>
@@ -284,18 +162,11 @@
 				<p>-배송이나 제작과정에서 발생하는 냄새나 초크자국 등 대량생산으로 인해 생긴 사유는 불량으로 간주되지 않습니다.</p>
 				
 				<p>*불량상품의 재발송 시 왕복배송비는 지니의 램프가 부담합니다.</p>
-                
-                
-      
         </div>
-      
         </a>
-      
         <a name="reviews">
         <div class="product_review">
-      
           <div class="product_review_list">
-      
             <table width="900" cellpadding="0" cellspacing="0" id="review_table">
           <tr>
           	<th>상품 이미지</th>
@@ -317,7 +188,6 @@
             </tr>
           </c:forEach>
         </table>
-        
         <!-- 데이터가 없을 때 표시할 텍스트 -->
 				<c:if test="${ review_list == null }">
 					<div class="row-group">
@@ -326,19 +196,13 @@
 						</div>
 					</div>
 				</c:if>
-      
           </div>
-          
           <div class="review_btn_box">
-          <input type="button" value="상품평 작성하기" id="review_btn" onclick="showPopup();" />
+            <input type="button" value="상품평 작성하기" id="review_btn" onclick="showPopup();"/>
           </div>
-      
         </div>
         </a>
-
     </div>
-    </div>
- 
-
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

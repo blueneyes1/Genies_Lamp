@@ -13,91 +13,11 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-<title></title>
+<title>memberList</title>
+
+<link rel="stylesheet" href="/css/admin/memberList.css">
   
-  <style>
-
-
-	.wrap {
-  	display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    width: 100%;
-  	}
-  	
-    .box {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-   
-    #main_box {
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    #aside_box {
-      flex: 1 1 auto;
-      flex-direction: column;
-      width: 200px;
-      margin-left: 150px;
-      
-    }
-    #section_box {
-      flex: 2 1 auto;
-      flex-direction: column;
-      width: 850px;
-      text-align: center;
-    }
-
-	#btns {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 90px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	}
-
-	#member_btn {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 90px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	text-align: center;
-	}
-	
-	a {
-	text-decoration: none;
-	}
-	
-	a:hover {
-	text-decoration: none;
-	}
-	
-	button:hover {
-	background-color: rgb(130, 130, 215);
-	}
   
-  	.menu_btn {
-    margin: 10px;
-    font-size: 12px;
-  	text-align: center;
- 	 }  
-
-  	.order_btn {
-  	 font-size: 12px;
-  	 text-align: center;
- 	 }
-
-    table {
-      font-size: 12px;
-    }
-  
-  </style>
 </head>
 <body>
 	

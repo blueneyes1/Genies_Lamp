@@ -13,27 +13,10 @@
 
 
 <title>비밀번호 변경하기</title>
-<style>
-  
-  .wrap {
-    display : flex;
-    flex-direction : column;
-    align-items: center;
-    text-align: left;
-    font-size: 12px;
-  }
 
-  .password {
-    display: flex;
-    flex-direction: row;
-    margin-top: 50px;
-  }
+<link rel="stylesheet" href="/css/mypage/passwordChange.css">
 
-  #password_btn {
-    text-align: center;
-  }
 
-  </style>
 </head>
 <body>
 

@@ -11,39 +11,11 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-<title></title>
-  
-  <style>
-  
-	.box {
-  	display: flex;
-  	flex-flow: row nowrap;
-  	justify-content: center;
-  	align-items: center;
-	}
+<title>productAddForm</title>
 
-
-
-	#product_btns {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 100px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	font-size: 12px;
-	}
-
- 	 table {
-      font-size: 12px;
-    }
-
-    #product_add_btn_box {
-      text-align: center;
-    }
+<link rel="stylesheet" href="/css/admin/productAddForm.css">
   
   
-  </style>
   <script language="javascript">
   function showProductAddForm() { window.open("/admin/productAddForm", "a", "width=700, height=700, left=100, top=50"); }
   </script>

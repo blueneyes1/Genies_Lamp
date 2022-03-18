@@ -13,41 +13,12 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 
-  <title></title>
+  <title>orderlist</title>
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-  <style>
   
-    body {
-      display : flex;
-      flex-direction : column;
-      align-items: center;
-      text-align: center;
-      font-size: 12px;
-    }
-
-    .wrap {
-      margin-top: 50px;
-    }
+  <link rel="stylesheet" href="/css/admin/orderlist.css">
   
-    table {
-      font-size: 12px;
-    }
-
-    button {
-    background-color: rgb(178, 178, 238);
-    border: none;
-    width: 90px;
-    height: 25px;
-    color: rgb(17, 17, 17);
-    border-radius: 3px;
-  }
-
-  button:hover {
-    background-color: rgb(130, 130, 215);
-  }
-    
-   
-    </style>
+ 
   <body>
   
       <div class="wrap">

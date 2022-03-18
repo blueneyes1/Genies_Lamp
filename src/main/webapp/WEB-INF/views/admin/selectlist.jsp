@@ -13,7 +13,7 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-<title></title>
+<title>selectlist</title>
 
  <script language="javascript">
   function showDelivery_1() { window.open("/admin/orderlist?pay_delivery=1", "a", "width=700, height=700, left=100, top=50"); }
@@ -21,67 +21,9 @@
   function showDelivery_3() { window.open("/admin/orderlist?pay_delivery=3", "a", "width=700, height=700, left=100, top=50"); }
   </script>
   
-  <style>
+  <link rel="stylesheet" href="/css/admin/selectlist.css">
   
-
-	.wrap {
-  	display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    width: 100%;
-  	}
-  	
-    .box {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-   
-    #main_box {
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    #aside_box {
-      flex: 1 1 auto;
-      flex-direction: column;
-      width: 200px;
-      margin-left: 150px;
-      
-    }
-    #section_box {
-      flex: 2 1 auto;
-      flex-direction: column;
-      width: 850px;
-      text-align: center;
-    }
-
-	button {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 90px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	}
-
-	button:hover {
-	background-color: rgb(130, 130, 215);
-	}
   
-  	.menu_btn {
-    margin: 10px;
-    font-size: 12px;
-  	text-align: center;
- 	 }  
-
-  	.order_btn {
-  	 font-size: 12px;
-  	 text-align: center;
- 	 }
-  
-  </style>
 </head>
 <body>
 	
