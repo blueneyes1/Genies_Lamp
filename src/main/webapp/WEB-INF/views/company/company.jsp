@@ -29,12 +29,9 @@
 
 </div>
 
-<div class="commonSection1">
-    <div class="commonContent1">
-      <img src="/img/company/background_img.jpg" 
-          style="width: 100%; height: 100%;">
+    <div class="img_section">
+      <img src="/img/Genie_lamp.png" >
     </div>
-  </div>
 
 <div class="box">
   <div class="box_left">

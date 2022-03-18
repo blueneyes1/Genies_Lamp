@@ -21,17 +21,9 @@
   	height: 150px;
   }
   
-  .commonSection1 {
-  width: 100%;
-  position: relative;
-    margin-top: 30px;
-  margin-bottom: 30px;
-  }
-  .commonContent1 {
-  height: 200px;
-  }
-  .commonContent1 img {
-  max-height: 100%;
+  .img_section {
+  display: flex;
+  justify-content: center;
   }
   
   .company_txt {

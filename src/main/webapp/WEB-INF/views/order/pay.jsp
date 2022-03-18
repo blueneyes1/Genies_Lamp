@@ -13,7 +13,7 @@
 
 <!-- 결제페이지 -->
 
-<div>
+<div class="box">
 	<form action="pay" method="post">
 		<table>
 			<tr>
