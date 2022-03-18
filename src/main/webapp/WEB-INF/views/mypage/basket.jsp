@@ -81,7 +81,10 @@
 	margin: 5px;
   }
   
-  
+  #basket_img {
+  width: 150px;
+  height: 150px;
+  }
 
 	
   
@@ -134,7 +137,7 @@
       <c:forEach var="basket_list" items="${basket_list }">
 	      <tr>
 	        <td>
-	        <img src="${basket_list.product_img1 }">
+	        <img src="${basket_list.product_img1 }" id="basket_img">
 	        </td>
 	        <td>${basket_list.product_name }</td>
 	        <td>${basket_list.product_price}</td>
