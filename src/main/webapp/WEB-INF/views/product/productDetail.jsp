@@ -134,6 +134,7 @@
     			total.value = Number(price.value) * Number(count.value) + "원";
     			}    		
     	}
+    }
     	    	  	
     	
     	

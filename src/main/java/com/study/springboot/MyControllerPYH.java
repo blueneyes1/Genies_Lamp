@@ -490,6 +490,7 @@ public class MyControllerPYH {
 //-------------------------------------------------------------------------------------------------------------------------	
 	// 리뷰 작성
 	@RequestMapping(value="/reviewAction", method = RequestMethod.POST)
+	@ResponseBody
 	public String reviewAction( @RequestParam(value="review_product_idx", required=false, defaultValue="") String review_product_idx,
 			@RequestParam(value="review_member_id", required=false, defaultValue="") String review_member_id,
 			@RequestParam(value="filename", required=false) MultipartFile file,
@@ -522,7 +523,7 @@ public class MyControllerPYH {
 		
 		if(result == 1) {
 			
-			return "<script>alert('리뷰 등록에 성공했습니다.'); location.href='/product/reviewActionForm';</script>";
+			return "<script>alert('리뷰 등록에 성공했습니다.'); window.close(); </script>";
 		}else {
 			return "<script>alert('리뷰 등록에 실패했습니다.'); history.back(-1);</script>";
 		}

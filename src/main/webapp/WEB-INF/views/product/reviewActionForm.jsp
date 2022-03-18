@@ -75,7 +75,7 @@
 
         <tr id="review_btn">
           <td colspan="2">
-            <input type="submit" value="상품평 작성" />
+            <input type="submit" value="상품평 작성"  />
             <input type="button" value="닫기"  onclick="self.close();"/>
           </td>
         </tr>
