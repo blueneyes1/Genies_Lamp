@@ -483,6 +483,7 @@ public class MyControllerPYH {
 									Model model) {
 		
 		model.addAttribute("review_product_idx", review_product_idx);
+		System.out.println( review_product_idx);
 	
 		return "/product/reviewActionForm";
 	}
