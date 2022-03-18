@@ -88,6 +88,7 @@ public class MyControllerLDG {
 		
 		// hasText함수 : null체크? 문자열공백없이 의미있는 문자열있는지?
 		if( StringUtils.hasText(member_id) ) {			
+			  
 			return "<script>alert('아이디를 찾았습니다.'); location.href='/idFind?find_member_id=" + member_id + "';</script>";
 		}else {
 			return "<script>alert('아이디를 찾을 수 없습니다.'); history.back(-1);</script>";

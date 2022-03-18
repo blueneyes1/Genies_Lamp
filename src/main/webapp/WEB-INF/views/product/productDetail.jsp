@@ -18,6 +18,7 @@
     	var product_idx = $('#product_idx').val();
     	window.open("reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
     	}
+    
     function counter() {
     	var counterP = document.getElementById('counterP');
     	var count = document.getElementById('product_count');
@@ -39,6 +40,7 @@
     			total.value = Number(price.value) * Number(count.value) + "원";
     			}    		
     	}
+    }
     	    	  	
     	
     	
