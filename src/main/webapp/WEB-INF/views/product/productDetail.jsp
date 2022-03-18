@@ -142,7 +142,6 @@
 </head>
 <body>
   <div class="box">
-    <input type="hidden" id="product_idx" value="${product_idx }" />
     <c:forEach var="dto" items="${list}">
     <div class="head_box">
       <div class="img_box">
@@ -151,10 +150,9 @@
       <div class="section">
       <form method="post">
         <table class="table">
-        
+        <input type="hidden" name="product_idx" value="${product_idx }" />
           <thead>
             <tr>
-             <input type="hidden" name="product_idx" value="${product_idx}" >
               <th scope="col" colspan="2" name="product_name" >${dto.product_name}</th>
             </tr>
           </thead>
@@ -197,7 +195,7 @@
               <th scope="row" colspan="2" class="order_btn_box">
               
                 <input type="submit" value="장바구니" formaction="/basketAdd" name="payment" id="order_btn"/>
-                <input type="button" value="구매하기" name="payment" id="order_btn"/>
+                <input type="submit" value="구매하기" formaction="/order/orderForm?product_idx=${dto.product_idx}" name="payment" id="order_btn"/>
             
     	      </th>
             </tr>
