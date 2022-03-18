@@ -137,7 +137,7 @@
     	    	  	
     	
     	
-    } 
+  
   </script>
 </head>
 <body>
@@ -150,7 +150,7 @@
       <div class="section">
       <form method="post">
         <table class="table">
-        <input type="hidden" name="product_idx" value="${product_idx }" />
+        <input type="hidden" name="review_product_idx" value="${product_idx}" />
           <thead>
             <tr>
               <th scope="col" colspan="2" name="product_name" >${dto.product_name}</th>
@@ -330,14 +330,15 @@
           </div>
           
           <div class="review_btn_box">
-            <input type="button" value="상품평 작성하기" id="review_btn" onclick="showPopup();"/>
+          <input type="button" value="상품평 작성하기" id="review_btn" onclick="showPopup();" />
           </div>
       
         </div>
         </a>
 
     </div>
-  </div>
+    </div>
+ 
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
