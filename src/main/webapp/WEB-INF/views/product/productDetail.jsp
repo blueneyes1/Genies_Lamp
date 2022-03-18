@@ -150,7 +150,7 @@
       <div class="section">
       <form method="post">
         <table class="table">
-        <input type="hidden" name="review_product_idx" value="${product_idx}" />
+        <input type="hidden" id="product_idx" name="product_idx" value="${product_idx }" />
           <thead>
             <tr>
               <th scope="col" colspan="2" name="product_name" >${dto.product_name}</th>
