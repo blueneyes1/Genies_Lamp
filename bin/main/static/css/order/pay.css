@@ -1,0 +1,12 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  font-size: 12px;
+}
+
+
