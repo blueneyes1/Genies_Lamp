@@ -14,7 +14,8 @@ public class payService {
 	@Autowired
 	IPayDao payDao;
 	
-
+	
+	// 관리자 페이지 - 주문관리 (PYH)
 	public List<PayDto> delivery(String pay_delivery) {
 		
 		System.out.println(payDao);
@@ -24,5 +25,6 @@ public class payService {
 		
 		return list;
 	}
+	
 
 }
