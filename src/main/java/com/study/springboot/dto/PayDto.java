@@ -14,6 +14,10 @@ public class PayDto {
 	private int pay_total;
 	private int pay_delivery;
 	
+	public PayDto() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public PayDto(int pay_idx, String pay_member_id, String pay_receiver, String pay_phone, String pay_address,
 			String pay_message, int pay_total, int pay_delivery) {
 		super();
