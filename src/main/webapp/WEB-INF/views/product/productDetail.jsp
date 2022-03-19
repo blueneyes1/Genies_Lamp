@@ -14,11 +14,12 @@
   
   
   <script language="javascript">
-  function showPopup() { 
+  function showPopup() {
   	var product_idx = $('#product_idx').val();
   	window.open("reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
   	}
   
+	  
   function counter() {
   	var counterP = document.getElementById('counterP');
   	var count = document.getElementById('product_count');
@@ -29,7 +30,10 @@
   	counterP.onclick = function(){
   		if ( count.value < maxcount.value ) {
   			count.value = Number(count.value) + 1;
-  			total.value = Number(price.value) * Number(count.value) + "원";
+  			totalPrice = Number(price.value) * Number(count.value);
+  			/* 값 삽입 */
+  			// 총 가격
+  			$(".totalPrice_span").text(totalPrice.toLocaleString());
   			}
   		
   	}
@@ -37,10 +41,25 @@
   	counterM.onclick = function(){
   		if ( count.value > 1 ) {
   			count.value = Number(count.value) - 1;
-  			total.value = Number(price.value) * Number(count.value) + "원";
+  			totalPrice = Number(price.value) * Number(count.value);
+  			/* 값 삽입 */
+  			// 총 가격
+  			$(".totalPrice_span").text(totalPrice.toLocaleString());
   			}    		
   	}
-  }    	  	
+  }
+  
+  $(document).ready(function(){
+	  let totalPrice = 0;				// 총 가격
+		var count = document.getElementById('product_count');
+		var price = document.getElementById('product_price');
+		totalPrice = Number(price.value) * Number(count.value);
+		
+		/* 값 삽입 */
+		// 총 가격
+		$(".totalPrice_span").text(totalPrice.toLocaleString());
+	});
+
    
   </script>
 </head>
@@ -78,7 +97,7 @@
             <tr>
               <th scope="row">총 제품가격</th>
               <td>
-              <input type="text" readonly value="${dto.product_price }원" name="total_price" id="total_price">
+              		<span class="totalPrice_span" ></span>원
               </td>
             </tr>
             <tr>
