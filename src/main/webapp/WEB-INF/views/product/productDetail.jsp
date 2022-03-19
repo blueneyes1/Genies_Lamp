@@ -167,6 +167,7 @@
         </a>
         <a name="reviews">
         <div class="product_review">
+          
           <div class="product_review_list">
             <table width="900" cellpadding="0" cellspacing="0" id="review_table">
           <tr>
@@ -189,15 +190,8 @@
             </tr>
           </c:forEach>
         </table>
-        <!-- 데이터가 없을 때 표시할 텍스트 -->
-				<c:if test="${ review_list == null }">
-					<div class="row-group">
-						<div class="cell">
-							작성된 리뷰가 없습니다.
-						</div>
-					</div>
-				</c:if>
           </div>
+          
           <div class="review_btn_box">
             <input type="button" value="상품평 작성하기" id="review_btn" onclick="showPopup();"/>
           </div>

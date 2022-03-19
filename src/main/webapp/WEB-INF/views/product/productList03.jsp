@@ -37,7 +37,10 @@
 			<div class="txt">
 				<p>${product_listPage.product_name}</p>
 				<p>${product_listPage.product_price}원</p>
-				<span id="tag">당일 발송</span> <span id="tag">NEW</span>
+				<span id="tag">당일 발송</span> 
+				<c:if test="${product_listPage.product_date>=nowday }">
+				<span id="tag">NEW</span>
+			</c:if>
 			</div>
 		</div> 
      </c:forEach> 

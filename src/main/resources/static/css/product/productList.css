@@ -6,6 +6,18 @@
       font-size: 12px;
     }
 
+.head_box {
+	display: felx;
+	align-items: center;
+	text-align: right;
+	width: 1000px;
+}
+
+.head_box a {
+	text-decoration: none;
+	color: black;
+}
+
 .content_box {
   display: flex;
   flex-flow: row;
