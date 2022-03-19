@@ -28,12 +28,19 @@
     <input type="hidden" value="${product_listPage.product_type}" />
       <div class="img_txt_box"> 
 		<div class="img">
-        <a href="/product/productDetail?product_idx=${product_listPage.product_idx}"><img src="${product_listPage.product_img1}" id="product_img"></a>
-      <div class="overlay">
+        <a href="/product/productDetail?product_idx=${product_listPage.product_idx}">
+        <img src="${product_listPage.product_img1}" id="product_img">
+     	<div class="overlay">
      	</div>
+     	</a>
       </div>
 			<div class="txt">
 				<p>${product_listPage.product_name}</p>
+				<p>${product_listPage.product_price}원</p>
+				<span id="tag">당일 발송</span> 
+				<c:if test="${product_listPage.product_date>=nowday }">
+				<span id="tag">NEW</span>
+			</c:if>
 			</div>
 		</div> 
      </c:forEach> 

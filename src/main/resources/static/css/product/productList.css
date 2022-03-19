@@ -6,12 +6,35 @@
       font-size: 12px;
     }
 
+.head_box {
+	display: felx;
+	align-items: center;
+	text-align: right;
+	width: 1000px;
+}
+
+.head_box a {
+	text-decoration: none;
+	color: black;
+}
+
 .content_box {
   display: flex;
   flex-flow: row;
   justify-content: center;
   align-items: center;
 
+}
+
+.img_txt_box {
+	border: 1px solid rgb(240, 240, 240);
+	margin: 10px;
+}
+
+#tag {
+	background-color: rgb(178, 178, 238);
+	border-radius: 3px;
+	padding: 3px;
 }
 
 .img {
@@ -56,7 +79,7 @@
 .pagination > li > span:hover,
 .pagination > li > span:active
 {
-    color: purple;
+    color: rgb(95, 59, 151);
     background-color: #eee;
     border-color: #ddd;
 }

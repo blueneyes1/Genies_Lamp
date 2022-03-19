@@ -1,5 +1,7 @@
 package com.study.springboot;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -333,11 +335,18 @@ public class MyControllerPYH {
 		int endRowNum = (num_page_no * num_page_size);           // 5, 10, 15 페이지 끝 줄번호
 		
 		// row 1~5 까지...
-		List<ProductDto> product_listPage = productservice.product_listPage(product_type, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		List<ProductDto> product_listPage = productservice.product_listPage(product_type ,String.valueOf(startRowNum), String.valueOf(endRowNum));
 		model.addAttribute("product_listPage", product_listPage);
 		
 		
 		model.addAttribute("mainPage", "product/productList01.jsp");
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, -7); //7일간 보이도록 하기위해서.
+        String nowday = format.format(cal.getTime());
+        
+        model.addAttribute("nowday",nowday);
 		
 		return "index";
 	}
@@ -362,11 +371,18 @@ public class MyControllerPYH {
 		int endRowNum = (num_page_no * num_page_size);           // 5, 10, 15 페이지 끝 줄번호
 		
 		// row 1~5 까지...
-		List<ProductDto> product_listPage = productservice.product_listPage(product_type, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		List<ProductDto> product_listPage = productservice.product_listPage(product_type , String.valueOf(startRowNum), String.valueOf(endRowNum));
 		model.addAttribute("product_listPage", product_listPage);
 		
 		
 		model.addAttribute("mainPage", "product/productList02.jsp");
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, -7); //7일간 보이도록 하기위해서.
+        String nowday = format.format(cal.getTime());
+        
+        model.addAttribute("nowday",nowday);
 		
 		return "index";
 	}
@@ -391,11 +407,18 @@ public class MyControllerPYH {
 		int endRowNum = (num_page_no * num_page_size);           // 5, 10, 15 페이지 끝 줄번호
 		
 		// row 1~5 까지...
-		List<ProductDto> product_listPage = productservice.product_listPage(product_type, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		List<ProductDto> product_listPage = productservice.product_listPage(product_type , String.valueOf(startRowNum), String.valueOf(endRowNum));
 		model.addAttribute("product_listPage", product_listPage);
 		
 		
 		model.addAttribute("mainPage", "product/productList03.jsp");
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, -7); //7일간 보이도록 하기위해서.
+        String nowday = format.format(cal.getTime());
+        
+        model.addAttribute("nowday",nowday);
 		
 		return "index";
 	}
@@ -421,11 +444,18 @@ public class MyControllerPYH {
 		int endRowNum = (num_page_no * num_page_size);           // 5, 10, 15 페이지 끝 줄번호
 		
 		// row 1~5 까지...
-		List<ProductDto> product_listPage = productservice.product_listPage(product_type, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		List<ProductDto> product_listPage = productservice.product_listPage(product_type , String.valueOf(startRowNum), String.valueOf(endRowNum));
 		model.addAttribute("product_listPage", product_listPage);
 		
 		
 		model.addAttribute("mainPage", "product/productList04.jsp");
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DAY_OF_MONTH, -7); //7일간 보이도록 하기위해서.
+        String nowday = format.format(cal.getTime());
+        
+        model.addAttribute("nowday",nowday);
 		
 		return "index";
 	}

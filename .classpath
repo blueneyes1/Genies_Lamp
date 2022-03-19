@@ -30,6 +30,10 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="src/main/webapp/lib/ojdbc6.jar"/>
+=======
+	<classpathentry kind="lib" path="C:/Users/user/Desktop/CODER/Genies_Lamp/src/main/webapp/lib/ojdbc6.jar"/>
+>>>>>>> a49d02b13cac2d849962adb1b052a11e7774ccef
 	<classpathentry kind="output" path="bin/default"/>
 </classpath>
