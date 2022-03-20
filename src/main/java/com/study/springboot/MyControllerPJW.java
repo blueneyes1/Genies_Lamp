@@ -34,21 +34,21 @@ public class MyControllerPJW {
 			HttpServletRequest request ) {
 		
 		List<One2oneDto> list = one2onedao.list();
-		model.addAttribute("mainPage", "one2one/list.jsp");
+		model.addAttribute("mainPage", "mypage/121list.jsp");
 		
 		//System.out.println( list );
 		
-		return "one2one/listForm";  //"listForm.jsp" 디스패치함.
+		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
 	}
 	
 	
-	@RequestMapping("/customer/writeForm")
+	@RequestMapping("/customer/mypage/writeForm")
 	public String writeForm(HttpServletRequest request ) {
 		
-		return "one2one/writeForm"; //"writeForm.jsp" 디스패치함.
+		return "mypage/121writeForm"; //"writeForm.jsp" 디스패치함.
 	}
 	
-	@RequestMapping("/customer/writeAction")
+	@RequestMapping("/customer/mypage/writeAction")
 	@ResponseBody
 	public String writeAction( @RequestParam("one2one_member_id") String one2one_member_id,
 								@RequestParam("one2one_title") String one2one_title,
@@ -60,7 +60,7 @@ public class MyControllerPJW {
 			System.out.println("글쓰기 성공!");
 			
 			//return "redirect:listForm"; //listForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글쓰기 성공!'); location.href='/customer/customer01';</script>";
+			return "<script>alert('글쓰기 성공!'); location.href='/customer/listForm';</script>";
 		}else {
 			System.out.println("글쓰기 실패!");
 			
@@ -70,9 +70,21 @@ public class MyControllerPJW {
 		
 	}
 	
-	
 	@RequestMapping("/customer/listForm")
-	public String contentForm(@RequestParam("one2one_idx") String one2one_idx,
+	public String list( Model model,
+			HttpServletRequest request ) {
+		
+		List<One2oneDto>list = one2onedao.list();
+		model.addAttribute("mainPage", "mypage/121list.jsp");
+		
+		//System.out.println( list );
+		
+		return "mypage/121list";  //"listForm.jsp" 디스패치함.
+	}
+	
+	
+	@RequestMapping("/customer/mypage/listForm")
+	public String contentForm(@RequestParam(value="one2one_idx",required=false) String one2one_idx,
 			                   Model model,
 			       			   HttpServletRequest request ) {
 		
@@ -85,8 +97,9 @@ public class MyControllerPJW {
 		List<One2one_replyDto> reply_list = replydao.reply_list( one2one_idx  );
 		model.addAttribute("reply_list", reply_list);
 		
-		return "one2one/contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
+		return "mypage/121contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
 	}
+	
 	
 	@RequestMapping("/updateAction")
 	@ResponseBody
