@@ -19,7 +19,7 @@
   
   
   <script language="javascript">
-  function showPasswordChange() { window.open("/mypage/passwordChange?member_id=${member_id}", "a", "width=700, height=700, left=100, top=50"); }
+  function showPasswordChange() { window.open("/mypage/passwordChange?member_id=${member_id}", "a", "width=330, height=300, left=100, top=50"); }
   </script>
 </head>
 <body>
