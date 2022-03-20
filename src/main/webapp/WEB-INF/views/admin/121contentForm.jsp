@@ -7,11 +7,11 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>1대1 문의</title>
+	<title>문의 내용</title>
 	
 </head>
 <body>
-	<h2>문의내용</h2>
+	<h2>문의 내용</h2>
 	
 	<form action="updateAction" method="post">
 		<table width="500" cellpadding="0" cellspacing="0" border="1">
@@ -21,8 +21,8 @@
 				<td>${ dto.one2one_idx }</td>
 			</tr>
 			<tr>
-				<td>이름</td>
-				<td><input type="text" name="one2one_name" value="${ dto.one2one_name }" size="50"></td>
+				<td>아이디</td>
+				<td><input type="text" name="one2one_member_id" value="${ dto.one2one_member_id }" size="50"></td>
 			</tr>
 			<tr>
 				<td>제목</td>
@@ -52,8 +52,8 @@
 			<tr>
 				<td colspan=""2>
 					<input type="hidden" name="reply_board_index" value="${ dto.one2one_idx }">
-					<label>답변</label><textarea rows="2" cols="50" name="reply_content"></textarea><br>
-					<label>관리자</label><input type="text" name="reply_name" value=""><br>
+					<label>댓글</label><textarea rows="2" cols="50" name="reply_content"></textarea><br>
+					<label>별명</label><input type="text" name="reply_name" value=""><br>
 					<input type="submit" value="댓글달기">
 				</td>
 			</tr>
@@ -64,20 +64,20 @@
 	
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 		<tr>
-			<th>이름</th>
+			<th>별명</th>
 			<th>내용</th>
 			<th>날짜</th>
 			<th>삭제</th>
 		</tr>
 		<c:forEach var="reply_dto" items="${ reply_list }">
 			<tr>
-				<td>${ One2one_replyDto.one2one_reply_name }</td>
-				<td>${ One2one_replyDto.one2one_reply_content }</td>
+				<td>${ reply_dto.reply_name }</td>
+				<td>${ reply_dto.reply_content }</td>
 				<td>
-					<c:set var="dateVar" value="${ One2one_replyDto.one2one_reply_date }" />
+					<c:set var="dateVar" value="${ reply_dto.reply_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
 				</td>
-				<td><a href="deleteReplyAction?reply_idx=${ One2one_replyDto.one2one_reply_idx }&board_idx=${ dto.one2one_idx }"><button>삭제</button></a></td>
+				<td><a href="deleteReplyAction?reply_idx=${ reply_dto.reply_idx }&board_idx=${ dto.board_idx }"><button>삭제</button></a></td>
 			</tr>
 		</c:forEach>
 	</table>

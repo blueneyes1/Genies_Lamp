@@ -7,7 +7,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>1대1 게시판 목록보기</title>
+	<title>게시판 목록보기</title>
 	<style>
 		* {
 			margin: 0 auto;
@@ -21,12 +21,12 @@
 	
 </head>
 <body>
-	<h2>1대1 문의</h2>
+	<h2>1대1 게시판 글목록</h2>
 	
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 		<tr>
 			<th>번호</th>
-			<th>이름</th>
+			<th>아이디</th>
 			<th>제목</th>
 			<th>날짜</th>
 		</tr>
@@ -36,7 +36,7 @@
 				<td>${ dto.one2one_idx }</td>
 				<td>${ dto.one2one_member_id }</td>
 				<td>
-					<a href="customer/customer01?one2one_idx=${dto.one2one_idx}"> ${ dto.one2one_title } </a>
+					<a href="contentForm?one2one_idx=${dto.one2one_idx}"> ${ dto.one2one_title } </a>
 				</td>
 				<td>
 					<c:set var="dateVar" value="${ dto.one2one_date }" />
@@ -46,7 +46,7 @@
 		</c:forEach>
 		
 		<tr>
-			<td colspan="5"><a href="mypage/writeForm">문의하기</a></td>
+			<td colspan="5"><a href="writeForm">문의작성</a></td>
 		</tr>
 	</table>
 	

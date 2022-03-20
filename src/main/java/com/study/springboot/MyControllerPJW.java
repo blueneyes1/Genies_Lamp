@@ -34,7 +34,7 @@ public class MyControllerPJW {
 			HttpServletRequest request ) {
 		
 		List<One2oneDto> list = one2onedao.list();
-		model.addAttribute("mainPage", "mypage/121list.jsp");
+		model.addAttribute("list", list);
 		
 		//System.out.println( list );
 		
@@ -42,13 +42,13 @@ public class MyControllerPJW {
 	}
 	
 	
-	@RequestMapping("/customer/mypage/writeForm")
+	@RequestMapping("/customer/writeForm")
 	public String writeForm(HttpServletRequest request ) {
 		
 		return "mypage/121writeForm"; //"writeForm.jsp" 디스패치함.
 	}
 	
-	@RequestMapping("/customer/mypage/writeAction")
+	@RequestMapping("/customer/writeAction")
 	@ResponseBody
 	public String writeAction( @RequestParam("one2one_member_id") String one2one_member_id,
 								@RequestParam("one2one_title") String one2one_title,
@@ -60,7 +60,7 @@ public class MyControllerPJW {
 			System.out.println("글쓰기 성공!");
 			
 			//return "redirect:listForm"; //listForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글쓰기 성공!'); location.href='/customer/listForm';</script>";
+			return "<script>alert('글쓰기 성공!'); location.href='/customer/customer01';</script>";
 		}else {
 			System.out.println("글쓰기 실패!");
 			
@@ -69,22 +69,10 @@ public class MyControllerPJW {
 		}
 		
 	}
-	
-	@RequestMapping("/customer/listForm")
-	public String list( Model model,
-			HttpServletRequest request ) {
-		
-		List<One2oneDto>list = one2onedao.list();
-		model.addAttribute("mainPage", "mypage/121list.jsp");
-		
-		//System.out.println( list );
-		
-		return "mypage/121list";  //"listForm.jsp" 디스패치함.
-	}
-	
-	
-	@RequestMapping("/customer/mypage/listForm")
-	public String contentForm(@RequestParam(value="one2one_idx",required=false) String one2one_idx,
+
+
+	@RequestMapping("/customer/contentForm")
+	public String contentForm(@RequestParam("one2one_idx") String one2one_idx,
 			                   Model model,
 			       			   HttpServletRequest request ) {
 		
@@ -101,7 +89,7 @@ public class MyControllerPJW {
 	}
 	
 	
-	@RequestMapping("/updateAction")
+	@RequestMapping("/customer/updateAction")
 	@ResponseBody
 	public String updateAction( @RequestParam("one2one_idx") String one2one_idx,
 								@RequestParam("one2one_member_id") String one2one_member_id,
@@ -114,12 +102,12 @@ public class MyControllerPJW {
 			System.out.println("글수정 성공!");
 			
 			//return "redirect:listForm"; //listForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글수정 성공!'); location.href='/one2one/listForm';</script>";
+			return "<script>alert('글수정 성공!'); location.href='/customer/customer01';</script>";
 		}else {
 			System.out.println("글수정 실패!");
 			
 			//return "redirect:contentForm?one2one_idx=" + one2one_idx; //updateForm 으로 리다이렉트 됨.
-			return "<script>alert('글수정 실패!'); location.href='/one2one/contentForm?one2one_idx=" + one2one_idx + "';</script>";
+			return "<script>alert('글수정 실패!'); location.href='/customer/contentForm?one2one_idx=" + one2one_idx + "';</script>";
 		}
 		
 	}
