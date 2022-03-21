@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 상세</title>
-<<<<<<< HEAD
+
 <style>
 
 table.noticetable{
@@ -56,14 +56,12 @@ margin: auto;
 
 </head>
 <body>
-<form action="faqupdateAction" method="post">
-<table class="noticetable" border="1" color="black" width="500">
-=======
+
 </head>
 <body>
 <form action="faqupdateAction" method="post">
 <table class="faqtable" border="1" color="black" width="500">
->>>>>>> dev
+
 <input type="hidden" name="faq_idx" value="${viewDto.faq_idx }"/>
 	
 	
@@ -79,11 +77,9 @@ margin: auto;
 	
 	 <tr>
 	 <th>내용</th>
-<<<<<<< HEAD
+
 	 <td><textarea rows="10" cols="100" name="faq_content">${viewDto.faq_content }</textarea></td>
-=======
-	 <td><textarea rows="10" cols="50" name="faq_content">${viewDto.faq_content }</textarea></td>
->>>>>>> dev
+
 	 </tr>
 	 
 </table>

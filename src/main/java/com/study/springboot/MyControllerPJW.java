@@ -30,21 +30,24 @@ public class MyControllerPJW {
 	
 	
 	@RequestMapping("/admin/board")
-	public String root() {
-		return "admin/board";
+	public String adminboard(HttpServletRequest request,Model model) {
+		
+		model.addAttribute("mainPage", "admin/board.jsp");
+		return "index";
 	}
 	
 
 	@RequestMapping("/admin/121listForm")
-	public String customer01( Model model,
-			HttpServletRequest request ) {
+		public String admin121list(HttpServletRequest request,Model model) {
+		
+		model.addAttribute("mainPage", "admin/121listForm.jsp");
 		
 		List<One2oneDto> list = one2onedao.list();
 		model.addAttribute("list", list);
 		
 		//System.out.println( list );
 		
-		return "admin/121listForm";  //"listForm.jsp" 디스패치함.
+		return "index";  //"listForm.jsp" 디스패치함.
 	}
 	
 	@RequestMapping("/mypage/121listForm")

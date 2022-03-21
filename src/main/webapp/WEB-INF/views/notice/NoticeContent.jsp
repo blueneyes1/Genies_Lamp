@@ -47,6 +47,11 @@ border-bottom : 1px solid #ccc;
 </head>
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 51234165675cf49ed8dedc8ecae86cf65266e752
 <body>
 <form action="updateAction" method="post">
 <table class="noticetable" border="1" color="black" width="500">

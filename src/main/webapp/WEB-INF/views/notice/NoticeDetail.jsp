@@ -7,7 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 상세</title>
+<<<<<<< HEAD
 <head>
+=======
+
+>>>>>>> 51234165675cf49ed8dedc8ecae86cf65266e752
 <style>
 
 .menu{width:800px; margin: 0 auto}
@@ -60,6 +64,11 @@ margin: auto;
 <body>
 
 <div class=main>
+<<<<<<< HEAD
+=======
+<table class="noticetable">
+
+>>>>>>> 51234165675cf49ed8dedc8ecae86cf65266e752
 
 
 
@@ -75,11 +84,18 @@ margin: auto;
 		<fmt:formatDate pattern="yyyy-MM-dd" value="${ notice_dto.notice_date }" /></td>
 	 </tr>
 	 <tr>
+<<<<<<< HEAD
 
 	 	<td colspan="2" width="500" height="80">${notice_dto.notice_content }</td>
 
 	 	
 	 </tr>
+=======
+<td colspan="2" width="500" height="80">${notice_dto.notice_content }</td>
+
+
+ </tr>
+>>>>>>> 51234165675cf49ed8dedc8ecae86cf65266e752
 </table>
 	
 	
@@ -95,9 +111,13 @@ margin: auto;
 	</a></c:if>
 	</div>
 </div>
+<<<<<<< HEAD
 
 	
 
 
+=======
+
+>>>>>>> 51234165675cf49ed8dedc8ecae86cf65266e752
 </body>
 </html>

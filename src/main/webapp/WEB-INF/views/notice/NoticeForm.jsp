@@ -5,6 +5,7 @@
 
  
 
+<<<<<<< HEAD
 <!DOCTYPE html>
 
 <html lang="en">
@@ -93,6 +94,11 @@
 <!DOCTYPE html>
 
 >>>>>>> dev
+=======
+
+<!DOCTYPE html>
+
+>>>>>>> 51234165675cf49ed8dedc8ecae86cf65266e752
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -112,10 +118,9 @@ line-height:1.5;
 border-top:1px solid #ccc;
 border-left:1px solid #ccc;
 margin: 20px 10px;
-<<<<<<< HEAD
+
 width:800px;
-=======
->>>>>>> dev
+
 }
 
 table.NFForm th{
@@ -128,10 +133,9 @@ border-bottom : 1px solid #ccc;
 border-top: 1px solid #fff;
 border-left: 1px solid #fff;
 background:	#F5F5DC;
-<<<<<<< HEAD
+
 text-align:center;
-=======
->>>>>>> dev
+
 }
 table.NFForm td{
 width:250px;
@@ -144,7 +148,7 @@ border-bottom : 1px solid #ccc;
 .contanier-fluid{
 margin:auto;
 }
-<<<<<<< HEAD
+
 
 .btnwrite{
 background-color: #87CEFA;
@@ -154,10 +158,10 @@ float:right;
 .writebtn{
 margin: auto;
 }
-=======
-.writebtn
+
+.writebtn{
 color:cyan;
->>>>>>> dev
+}
 
 .topline{
 position:relative;
@@ -188,19 +192,17 @@ text-align: center;
        <div class="name">
           <p><font color="white"> 공지사항</font></p>
           </div>
-<<<<<<< HEAD
-     
-=======
+
      	
      	
         
->>>>>>> dev
+
          </div>
   <div class="menu">
 <div class="NFtable">
       <table class="NFForm">
         <colgroup>
-<<<<<<< HEAD
+
     	<col width="10%"/>
     	<col width="70%"/>
     	<col width="20%"/>
@@ -212,34 +214,24 @@ text-align: center;
        
           <th scope="row" colspan="1">작성일</th>
        
-=======
-        <col width="10%"/>
-        <col width="70%"/>
-        <col width="20%"/>
-        <tr>
-          <th scope="row">번호</th>
-          <th scope="row">제목</th>
-          <th scope="row">작성일</th>
->>>>>>> dev
+
         </tr>
         
         
       		<c:forEach var="dto" items="${ notice_list }" varStatus="status">
 	        <tr onclick="window.location.href='/notice/NoticeDetail?notice_idx=${dto.notice_idx}';"  style="cursor:pointer;">
-<<<<<<< HEAD
-	          <td class="num" >${ status.count  }</td>
-	          <td >${ dto.notice_title }</td>
-	          <td ><fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.notice_date }" /></td>
-=======
+
+	       
+
 	          <td class="num">${ status.count  }</td>
 	          <td>${ dto.notice_title }</td>
 	          <td><fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.notice_date }" /></td>
->>>>>>> dev
+
 	        </tr>
         	</c:forEach>
        
       </table>
-<<<<<<< HEAD
+
        
        
      <div class="writebtn">
@@ -248,8 +240,7 @@ text-align: center;
 	</c:if>
 	</div>
  	<div></div>
-=======
->>>>>>> dev
+
  </div> 	
 <div class="contanier-fluid">
   	<div class="row">
@@ -288,41 +279,13 @@ text-align: center;
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
   
-<<<<<<< HEAD
 
   </div>
-<!-- footer -->
 
-<div class="footer">
-  <div class="container text-center">
-    <div>
-      <a href="/company/company">회사소개&nbsp;&nbsp;<span>|</span></a>
-      <a href="#">개인정보보호정책&nbsp;&nbsp;<span>|</span></a>
-      <a href="#">이메일무단수집거부&nbsp;&nbsp;<span>|</span></a>
-      <a href="#">묻고답하기&nbsp;&nbsp;<span>|</span></a>
-      <a href="/company/companyMap">오시는길&nbsp;&nbsp;<span>|</span></a>
-    </div>
-    <div>
-      <span>회사 : Genie's Lamp &nbsp; 주소 : 서울특별시 노원구 상계로 64 화랑빌딩 4F  &nbsp; 대표 : 지니 <br>
-        고객지원 : 010-2222-3333, FAX : 070-888-5555, EMAIL : support@gmail.com, 사업자등록번호 : 111-22-33333, 통신판매업 : 1234-서울노원-12345호<br>COPYRIGHT(C) 2021 GENIES_LAMP. ALL RIGHT RESERVED.</span>
-    </div>
-    <div>
-      <img src="/img/mf-icon01.png" alt="">
-      <img src="/img/mf-icon02.png" alt="">
-      <img src="/img/mf-icon03.png" alt="">
-      <img src="/img/mf-icon04.png" alt="">
-    </div>
-  </div>
-</div>
-
-</body>
-</html>
-
-=======
   <div class="writebtn">
 	 <button onclick="location.href='/notice/NoticeWrite'">글작성</button>
 	
 
 	</div>
   </div>
->>>>>>> dev
+
