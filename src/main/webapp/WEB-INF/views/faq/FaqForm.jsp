@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<<<<<<< HEAD
 
 <!DOCTYPE html>
 <html lang="en">
@@ -83,6 +84,8 @@
 
 
  
+=======
+>>>>>>> dev
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,6 +93,7 @@
 	<title>Faq</title>
 	<style>
 
+<<<<<<< HEAD
 .menu{width:800px; margin: 0 auto}
 
 
@@ -148,12 +152,18 @@ text-align: center;
 
 	</style>
 	
+=======
+	</style>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+>>>>>>> dev
 </head>
 <body>
 
   
   <!-- 메인 -->
 
+<<<<<<< HEAD
  	<div class="topline">
        <div class="name">
           <p><font color="white"> 공지사항</font></p>
@@ -170,6 +180,17 @@ text-align: center;
     	<col width="10%"/>
     	<col width="90%"/>
 
+=======
+
+ 
+        <div>
+          <h3>Faq</h3>
+        </div>
+         
+ 
+
+      <table width="500" cellpadding="0" cellspacing="0" boarder="1">
+>>>>>>> dev
         <tr>
           <th>번호</th>
           <th>제목</th>
@@ -179,15 +200,24 @@ text-align: center;
         
       		<c:forEach var="faq_dto" items="${ faq_list }" varStatus="status">
 	        <tr onclick="window.location.href='/faq/FaqDetail?faq_idx=${faq_dto.faq_idx}';"  style="cursor:pointer;">
+<<<<<<< HEAD
 	          <td width=300 height=30 style='table-layout:fixed'>${ status.count  }</td>
 	          <td width=300 height=30 style='table-layout:fixed'>${ faq_dto.faq_title }</td>
+=======
+	          <td>${ status.count  }</td>
+	          <td>${ faq_dto.faq_title }</td>
+>>>>>>> dev
 	         
 	        </tr>
         	</c:forEach>
        
       </table>
+<<<<<<< HEAD
   </div>
  
+=======
+  
+>>>>>>> dev
   <div class="contanier-fluid">
   	<div class="row">
   	<nav aria-label="Page navigation example">
@@ -218,12 +248,17 @@ text-align: center;
 </nav>
   	</div>
  </div>
+<<<<<<< HEAD
   </div>
+=======
+ 
+>>>>>>> dev
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
   <div class="writebtn">
+<<<<<<< HEAD
  	 <c:if test="${ member_grade eq 'A' }">
 	 <button onclick="location.href='/faq/FaqWrite'">글작성</button>
 	
@@ -257,6 +292,12 @@ text-align: center;
 </html>
 
 	
+=======
+	 <button onclick="location.href='/faq/FaqWrite'">글작성</button>
+	
+
+	</div>
+>>>>>>> dev
   
 
 

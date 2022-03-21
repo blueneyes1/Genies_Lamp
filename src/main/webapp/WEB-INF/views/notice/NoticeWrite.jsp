@@ -8,9 +8,72 @@
 <meta charset="UTF-8">
 <title>공지사항 상세</title>
 </head>
+<<<<<<< HEAD
 <body>
 <form action="writeAction" method="post">
 <table class="noticetable" border="1" color="black" width="500">
+=======
+<style>
+.menu{width:800px; margin: 0 auto}
+
+
+
+
+table.NFForm{
+border-collapse:separate;
+border-spacing:0;
+text-align:left;
+line-height:1.5;
+border-top:1px solid #ccc;
+border-left:1px solid #ccc;
+margin: 20px 10px;
+width:800px;
+}
+
+table.NFForm th{
+width:50px;
+padding : 10px;
+font-weight:bold;
+vertical-align:top;
+border-right :1px solid #ccc;
+border-bottom : 1px solid #ccc;
+border-top: 1px solid #fff;
+border-left: 1px solid #fff;
+background:	#F5F5DC;
+}
+table.NFForm td{
+width:250px;
+padding : 10px;
+vertical-align:top;
+border-right :1px solid #ccc;
+border-bottom : 1px solid #ccc;
+}
+
+.contanier-fluid{
+margin:auto;
+}
+.writebtn
+color:cyan;
+
+.topline{
+position:relative;
+}
+
+.name{
+position: absolute;
+top: 50%;
+text-align: center;
+
+}
+</style>
+
+
+<body>
+ <div class="menu">
+<div class="NFtable">
+<form action="writeAction" method="post">
+<table class="NFForm">
+>>>>>>> dev
 	
 	<tr>
 	<th>번호</th>
@@ -29,10 +92,19 @@
 	 
 	 <tr>
 	 <th>내용</th>
+<<<<<<< HEAD
 	 <td><textarea rows="10" cols="50" name="notice_content"></textarea></td>
 	 </tr>
 	 
 </table>
+=======
+	 <td><textarea rows="10" cols="80" name="notice_content"></textarea></td>
+	 </tr>
+	 
+</table>
+	</div>
+	</div>
+>>>>>>> dev
 	
 	
 	
