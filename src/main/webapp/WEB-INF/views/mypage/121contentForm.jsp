@@ -38,7 +38,7 @@
 			<c:if test="${ member_grade ne 'A' }">
 				<td colspan="2">
 					&nbsp;&nbsp;<input type="submit" value="수정하기">&nbsp;&nbsp;
-					<a href="listForm"><input type="button" value="목록보기"></a>&nbsp;&nbsp;
+					<a href="121listForm"><input type="button" value="목록보기"></a>&nbsp;&nbsp;
 					<a href="deleteAction?one2one_idx=${ dto.one2one_idx }"><input type="button" value="삭제하기"></a>
 				</td>
 			</c:if>	
@@ -50,6 +50,7 @@
 	<br>	
 	
 	<form action="writeReplyAction" method="post">
+	<input type="hidden" name="one2one_reply_one2one_idx" value="${ dto.one2one_idx }" />
 		<table width="500" cellpadding="0" cellspacing="0" border="1">
 			<tr>
 	    	<c:if test="${ member_grade eq 'A' }">
@@ -67,23 +68,24 @@
 	</form>
 	
 	<br>
+	<input type="hidden" name="one2one_reply_one2one_idx" value="${ dto.one2one_idx }" />
 	
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 		<tr>
 			<th>아이디</th>
 			<th>내용</th>
 			<th>날짜</th>
-			<th>삭제</th>
+			
 		</tr>
 		<c:forEach var="reply_dto" items="${ reply_list }">
 			<tr>
 				<td>${ reply_dto.one2one_reply_member_id }</td>
 				<td>${ reply_dto.one2one_reply_content }</td>
 				<td>
-					<c:set var="dateVar" value="${ reply_dto.reply_date }" />
+					<c:set var="dateVar" value="${ reply_dto.one2one_reply_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
 				</td>
-				<td><a href="deleteReplyAction?one2one_reply_idx=${ reply_dto.one2one_reply_idx }&one2one_reply_one2one_idx=${ dto.one2one_reply_one2one_idx }"><button>삭제</button></a></td>
+				
 			</tr>
 		</c:forEach>
 	</table>

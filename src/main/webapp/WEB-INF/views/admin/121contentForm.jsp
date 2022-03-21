@@ -42,6 +42,7 @@
 	<br>	
 	
 	<form action="writeReplyAction" method="post">
+	<input type="hidden" name="one2one_reply_one2one_idx" value="${ dto.one2one_idx }" />
 		<table width="500" cellpadding="0" cellspacing="0" border="1">
 			<tr>
 	    	<c:if test="${ member_grade eq 'A' }">
@@ -61,6 +62,7 @@
 	
 	<br>
 	
+	
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
 		<tr>
 			<th>아이디</th>
@@ -70,13 +72,15 @@
 		</tr>
 		<c:forEach var="reply_dto" items="${ reply_list }">
 			<tr>
+			<input type="hidden" name="one2one_reply_idx" value="${ reply_dto.one2one_reply_idx }" />
+			<input type="hidden" name="one2one_reply_one2one_idx" value="${ reply_dto.one2one_reply_one2one_idx }" />
 				<td>${ reply_dto.one2one_reply_member_id }</td>
 				<td>${ reply_dto.one2one_reply_content }</td>
 				<td>
-					<c:set var="dateVar" value="${ reply_dto.reply_date }" />
+					<c:set var="dateVar" value="${ reply_dto.one2one_reply_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
 				</td>
-				<td><a href="deleteReplyAction?one2one_reply_idx=${ reply_dto.one2one_reply_idx }&one2one_reply_one2one_idx=${ dto.one2one_reply_one2one_idx }"><button>삭제</button></a></td>
+				<td><a href="/admin/deleteReplyAction?one2one_reply_idx=${ reply_dto.one2one_reply_idx }&one2one_reply_one2one_idx=${ reply_dto.one2one_reply_one2one_idx }"><button>삭제</button></a></td>
 			</tr>
 		</c:forEach>
 	</table>
