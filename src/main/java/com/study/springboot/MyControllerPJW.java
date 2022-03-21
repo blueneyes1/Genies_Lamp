@@ -138,12 +138,12 @@ public class MyControllerPJW {
 			System.out.println("글삭제 성공!");
 			
 			//return "redirect:listForm"; //listForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글삭제 성공!'); location.href='/customer/customer01';</script>";
+			return "<script>alert('글삭제 성공!'); location.href='/listForm';</script>";
 		}else {
 			System.out.println("글삭제 실패!");
 			
 			//return "redirect:contentForm?one2one_idx=" + one2one_idx; //updateForm 으로 리다이렉트 됨.
-			return "<script>alert('글수정 실패!'); location.href='/customer/contentForm?one2one_idx=" + one2one_idx + "';</script>";
+			return "<script>alert('글수정 실패!'); location.href='/contentForm?one2one_idx=" + one2one_idx + "';</script>";
 		}
 		
 	}
