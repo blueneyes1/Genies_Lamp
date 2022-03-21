@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<td>아이디</td>
-				<td><input type="text" name="one2one_member_id" value="${ dto.one2one_member_id }" size="50"></td>
+				<td><input type="text" name="one2one_member_id" value="${ dto.member_id }" size="50"></td>
 			</tr>
 			<tr>
 				<td>제목</td>

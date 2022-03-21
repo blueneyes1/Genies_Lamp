@@ -108,12 +108,12 @@ public class MyControllerPJW {
 	@RequestMapping("/customer/updateAction")
 	@ResponseBody
 	public String updateAction( @RequestParam("one2one_idx") String one2one_idx,
-								@RequestParam("one2one_member_id") String one2one_member_id,
 								@RequestParam("one2one_title") String one2one_title,
 								@RequestParam("one2one_content") String one2one_content,
 								HttpServletRequest request ) {
 		
-		int result = one2onedao.updateDto(one2one_idx, one2one_member_id, one2one_title, one2one_content);
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		int result = one2onedao.updateDto(one2one_idx, member_id, one2one_title, one2one_content);
 		if( result == 1 ) {
 			System.out.println("글수정 성공!");
 			
@@ -128,7 +128,7 @@ public class MyControllerPJW {
 		
 	}
 	
-	@RequestMapping("/deleteAction")
+	@RequestMapping("/customer/deleteAction")
 	@ResponseBody
 	public String deleteAction(@RequestParam("one2one_idx") String one2one_idx,
 								HttpServletRequest request)
@@ -148,28 +148,26 @@ public class MyControllerPJW {
 		
 	}
 	
-	@RequestMapping("/writeReplyAction")
+	@RequestMapping("/customer/writeReplyAction")
 	@ResponseBody
 	public String writeReplyAction( @RequestParam("one2one_reply_content") String one2one_reply_content,
-								@RequestParam("one2one_reply_title") String one2one_reply_title,
-								@RequestParam("one2one_reply_member_id") String one2one_reply_member_id,
 								HttpServletRequest request) 
 	{
-		
-		int result = replydao.reply_write(one2one_reply_title, one2one_reply_content, one2one_reply_member_id);
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		int result = replydao.reply_write(one2one_reply_content, member_id);
 		if( result == 1 ) {
 			System.out.println("답변달기 성공!");
 			
-			return "<script>alert('답변달기 성공!'); location.href='/contentForm?one2one_idx=" + one2one_reply_member_id + "';</script>";
+			return "<script>alert('답변달기 성공!'); location.href='/contentForm?one2one_idx=" + member_id + "';</script>";
 		}else {
 			System.out.println("답변달기 실패!");
 			
-			return "<script>alert('답변달기 실패!'); location.href='/contentForm?one2one_idx=" + one2one_reply_member_id + "';</script>";
+			return "<script>alert('답변달기 실패!'); location.href='/contentForm?one2one_idx=" + member_id + "';</script>";
 		}
 		
 	}
 	
-	@RequestMapping("/deleteReplyAction")
+	@RequestMapping("/customer/deleteReplyAction")
 	@ResponseBody
 	public String deleteReplyAction(@RequestParam("one2one_reply_idx") String one2one_reply_idx,
 								   @RequestParam("one2one_idx") String one2one_idx,

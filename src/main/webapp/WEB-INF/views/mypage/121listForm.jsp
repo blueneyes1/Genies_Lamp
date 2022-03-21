@@ -47,10 +47,8 @@
 		
 		<tr>
 			<c:if test="${ not empty member_id }">
-	    	<c:if test="${ member_grade eq 'A' }">
-	    		<span><a href="/admin/adminMain">관리자페이지</a></span>
-	    	
-			<td colspan="5"><a href="writeForm">문의작성</a></td>
+	    	<c:if test="${ member_grade ne 'A' }">
+	    		<td colspan="5"><a href="writeForm">문의작성</a></td>
 			</c:if>
 			</c:if>
 		</tr>

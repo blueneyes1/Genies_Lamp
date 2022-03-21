@@ -50,12 +50,18 @@
 	<form action="writeReplyAction" method="post">
 		<table width="500" cellpadding="0" cellspacing="0" border="1">
 			<tr>
+			<c:if test="${ not empty member_id }">
+	    	<c:if test="${ member_grade eq 'A' }">
+	    		
 				<td colspan=""2>
-					<input type="hidden" name="one2one_reply_one2one_idx" value="${ dto.one2one_idx }">
+					<input type="hidden" name="one2one_reply_one2one_idx" value="${ dto.one2one_reply_one2one_idx }">
 					<label>댓글</label><textarea rows="2" cols="50" name="one2one_reply_content"></textarea><br>
 					<label>아이디</label><input type="text" name="one2one_reply_member_id" value=""><br>
 					<input type="submit" value="댓글달기">
 				</td>
+				
+			</c:if>
+			</c:if>
 			</tr>
 		</table>
 	</form>
