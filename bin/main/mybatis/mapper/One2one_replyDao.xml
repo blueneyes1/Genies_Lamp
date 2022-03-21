@@ -13,8 +13,8 @@
 	</select>
     
     <insert id="reply_write">
-    	insert into genies_one2one_reply (one2one_reply_idx, one2one_reply_content, one2one_reply_date, one2one_reply_one2one_idx) 
-			values (genies_one2one_reply_seq.nextval, #{ param1 }, sysdate, #{ param2 } )
+    	insert into genies_one2one_reply (one2one_reply_idx, one2one_reply_member_id, one2one_reply_content, one2one_reply_date, one2one_reply_one2one_idx) 
+			values (genies_one2one_reply_seq.nextval, #{ param1 }, #{ param2 }, sysdate, #{ param3 } )
     </insert>
     
     <delete id="reply_deleteDto">

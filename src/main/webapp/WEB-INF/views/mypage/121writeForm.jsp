@@ -14,9 +14,10 @@
 		<table width="500" cellpadding="0" cellspacing="0" border="1">
 			
 			<tr>
-				<td>이름</td>
-				<td><input type="text" name="one2one_member_id" value="" size="50"></td>
-			</tr>
+				<th>아이디</th>
+				<td>${ member_id }</td>
+	
+			<tr>
 			<tr>
 				<td>제목</td>
 				<td><input type="text" name="one2one_title" value="" size="50"></td>

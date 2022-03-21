@@ -9,7 +9,11 @@
 <mapper namespace="com.study.springboot.dao.IOne2oneDao">
 	<select id="list" resultType="com.study.springboot.dto.One2oneDto">
 		select * from genies_one2one order by one2one_date desc
-	</select>    
+	</select>   
+	
+	<select id="list2" resultType="com.study.springboot.dto.One2oneDto">
+		select * from genies_one2one  where one2one_member_id =#{ param1 } order by one2one_date desc
+	</select>   
     
     <insert id="write">
     	insert into genies_one2one (one2one_idx, one2one_member_id, one2one_title, one2one_content, one2one_date) 
