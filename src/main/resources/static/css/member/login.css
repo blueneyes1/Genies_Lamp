@@ -5,9 +5,20 @@
     align-items: center;
 }
 
+.box {
+	margin: 10px;
+}
+
 .loginMain {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
 	border: 3px solid rgb(178, 178, 238);
-	padding: 50px;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 50px;
+	padding-bottom: 50px;
 	margin: 50px;
 	font-size: 12px;
 }
@@ -19,10 +30,20 @@
 #login_btn {
 background-color: rgb(178, 178, 238);
  border: none;
- width: 90px;
- height: 50px;
+ width: 200px;
+ height: 30px;
  color: rgb(17, 17, 17);
  border-radius: 3px;
+}
+
+#login_text {
+	width: 200px;
+	height: 30px;
+}
+
+#login_img {
+	width: 100px;
+	height: 100px;
 }
 
 #login_btn:hover {
@@ -40,4 +61,8 @@ background-color: rgb(132, 132, 227);
 
 #find_btn:hover {
 	background-color: rgb(132, 132, 227);
+}
+
+#btn_box {
+	justify-content: space-between;
 }
