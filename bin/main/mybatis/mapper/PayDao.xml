@@ -12,6 +12,15 @@
 	<select id="delivery" resultType="com.study.springboot.dto.PayDto">
 	    select * from genies_pay where pay_delivery=#{param1}
 	</select>
+	
+	<!-- 단품결제액션 (LDG) -->
+	
+	<insert id="singlePay">
+		INSERT INTO genies_pay( pay_idx, pay_number, pay_member_id, pay_receiver, pay_phone, 
+		pay_address1, pay_address2,	pay_address3, pay_message, pay_cost, pay_total, pay_date )
+		VALUES( genies_pay_seq.nextval, #{param1}, #{param2}, #{param3}, #{param4}, #{param5}, 
+		#{param6}, #{param7}, #{param8}, #{param9}, #{param10}, sysdate )
+	</insert>
 
 </mapper>    
 

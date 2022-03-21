@@ -9,10 +9,19 @@ import com.study.springboot.dto.MemberDto;
 @Mapper
 public interface IMemberDao {
 	
+	// 로그인 (LDG)
 	public MemberDto login( String member_id, String member_pw, String member_grade );
+	
+	// 아이디 중복체크 (LDG)
 	public int idCheck( String member_id );
+	
+	// 아이디 찾기 (LDG)
 	public List<MemberDto> idFind( String member_name, String member_email );
+	
+	// 비밀번호 찾기 (LDG)
 	public List<MemberDto> passwordFind( String member_id, String member_name, String member_pw_question, String member_pw_answer );
+	
+	// 회원가입 (LDG)
 	public int join( String member_id, String member_pw, String member_name,
 			String member_email, String member_email_receive, String member_pw_question,
 			String member_pw_answer, String member_phone, String member_address1, String member_address2,

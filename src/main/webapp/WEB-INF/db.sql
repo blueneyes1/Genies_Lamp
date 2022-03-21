@@ -131,7 +131,8 @@ create sequence genies_one2one_seq;
 -- 결제정보
 drop table genies_pay;
 create table genies_pay(
-    pay_idx      number(20) primary key,
+    pay_idx      number(20),
+    pay_number		CHAR(12) primary key,	-- 주문 정보 식별자(날마다 시퀸스 초기화하는 프로시저 필요)
     pay_member_id     varchar2(20),
     pay_receiver       varchar2(20),		-- 받는사람
     pay_phone  		varchar2(13),
@@ -139,8 +140,8 @@ create table genies_pay(
     pay_address2		varchar2(100),		-- 회원주소
     pay_address3		varchar2(100),		-- 회원상세주소
     pay_message     varchar2(100),
-    pay_cost		number(4) default '3000',		-- 배송비
-    pay_total		number(8),
+    pay_cost		number(4),		-- 배송비
+    pay_total		number(8),				-- 결제금액 ( 배송비포함 )
     pay_delivery	number(1) default '1',		-- 0:결제취소 1:배송준비 2:배송중 3:배송완료
     pay_date		date default sysdate,
     foreign key (pay_member_id)references genies_member(member_id)
@@ -153,12 +154,13 @@ create sequence genies_pay_seq;
 drop table genies_order;
 create table genies_order(
 	order_idx		number(20) primary key,
-	order_pay_idx		number(20),
+	order_pay_number		CHAR(12),
 	order_product_idx		number(20),
 	order_product_name		varchar2(50),
 	order_count			number(2),
 	order_price			number(8),
-	foreign key (order_pay_idx)references genies_pay(pay_idx),
+	order_review		CHAR(1) default 'N',
+	foreign key (order_pay_number)references genies_pay(pay_number),
 	foreign key (order_product_idx)references genies_product(product_idx)
 );
 
@@ -185,6 +187,7 @@ create table genies_product_review(
 drop sequence genies_product_review_seq;
 create sequence genies_product_review_seq;
 
+
 -- 리뷰답글
 drop table genies_review_reply;
 create table genies_review_reply(
@@ -198,7 +201,4 @@ drop sequence genies_review_reply_seq;
 create sequence genies_review_reply_seq;
 
 commit;
-
-
-
 

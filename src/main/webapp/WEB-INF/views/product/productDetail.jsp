@@ -71,12 +71,13 @@
         <img src="${dto.product_img1}" id="product_img">
       </div>
       <div class="section">
-      <form method="post">
+      <form action="/singlePay" method="post">
         <table class="table">
-        <input type="hidden" id="product_idx" name="product_idx" value="${product_idx }" />
+        <input type="hidden" id="product_idx" name="product_idx" value="${product_idx }" >
           <thead>
             <tr>
               <th scope="col" colspan="2" name="product_name" >${dto.product_name}</th>
+              <input type="hidden" id="product_name" name="product_name" value="${dto.product_name }" >
             </tr>
           </thead>
           <tbody>
@@ -110,12 +111,13 @@
             <tr>
               <th scope="row" colspan="2" class="order_btn_box">
                 <input type="submit" value="장바구니" formaction="/basketAdd" name="payment" id="order_btn"/>
-                <input type="submit" value="구매하기" formaction="/order/orderForm?product_idx=${dto.product_idx}" name="payment" id="order_btn"/>
+                <input type="submit" value="구매하기" formaction="/singlePay" name="payment" id="order_btn"/>
     	      </th>
             </tr>
           </tbody>
         </table>
         </form>
+       
       </div>
     </div>
     <div class="info">

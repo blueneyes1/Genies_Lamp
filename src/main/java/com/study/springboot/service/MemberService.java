@@ -14,6 +14,7 @@ public class MemberService {
 	@Autowired
 	IMemberDao memberDao;
 	
+	// 로그인 (LDG)
 	public MemberDto login(String member_id, String member_pw, String member_grade ) {
 		MemberDto member = memberDao.login(member_id, member_pw, member_grade);
 		
@@ -21,6 +22,7 @@ public class MemberService {
 						
 	}
 	
+	// 아이디찾기 (LDG)
 	public String idFind( String member_name, String member_email ) {
 		
 		List<MemberDto> list = memberDao.idFind( member_name, member_email );
@@ -33,6 +35,7 @@ public class MemberService {
 		return "";
 	}
 	
+	// 비밀번호 찾기 (LDG)
 	public String passwordFind( String member_id, String member_name, String member_pw_question, String member_pw_answer ) {
 		
 		List<MemberDto> list = memberDao.passwordFind( member_id, member_name, member_pw_question, member_pw_answer );
@@ -45,6 +48,7 @@ public class MemberService {
 		
 	}
 	
+	// 아이디 중복체크 (LDG)
 	public int idCheckAjax( String member_id ) {
 			
 			int result = memberDao.idCheck( member_id );
@@ -53,6 +57,7 @@ public class MemberService {
 			
 		}
 	
+	// 회원가입  (LDG)
 	public int join( String member_id, String member_pw, String member_name,
 			String member_email, String member_email_receive, String member_pw_question,
 			String member_pw_answer, String member_phone, String member_address1, 
