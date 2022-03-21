@@ -9,12 +9,12 @@
 <mapper namespace="com.study.springboot.dao.IOne2one_replyDao">
 
     <select id="reply_list" resultType="com.study.springboot.dto.One2one_replyDto">
-		select * from genies_one2one_reply where one2one_reply_member_id=#{param1} order by one2one_reply_date desc
+		select * from genies_one2one_reply where one2one_reply_one2one_idx=#{param1} order by one2one_reply_date desc
 	</select>
     
     <insert id="reply_write">
-    	insert into genies_one2one_reply (one2one_reply_idx, one2one_reply_member_id, one2one_reply_content, one2one_reply_date, one2one_reply_one2one_idx) 
-			values (genies_one2one_reply_seq.nextval, #{ param1 }, #{ param2 }, sysdate, #{ param3 } )
+    	insert into genies_one2one_reply (one2one_reply_idx, one2one_reply_content, one2one_reply_member_id, one2one_reply_one2one_idx, one2one_reply_date) 
+			values (genies_one2one_reply_seq.nextval, #{ param1 }, #{ param2 }, #{ param3 } , sysdate )
     </insert>
     
     <delete id="reply_deleteDto">

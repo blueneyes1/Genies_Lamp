@@ -92,26 +92,6 @@ create table genies_faq(
 drop sequence genies_faq_seq;
 create sequence genies_faq_seq;
 
--- 1:1문의
-drop table genies_one2one;
-create table genies_one2one(
-    one2one_idx      number(20) primary key,
-    one2one_member_id		varchar2(20),
-    one2one_name     varchar2(20),
-    one2one_phone    varchar2(20),
-    one2one_email     varchar2(100),
-    one2one_address1   varchar2(100),
-    one2one_address2   varchar2(100),
-    one2one_address3   varchar2(100),
-    one2one_title    varchar2(100),
-    one2one_content  varchar2(2000),
-    one2one_date     date default sysdate,
- foreign key (one2one_member_id)references genies_member(member_id)
-);
-
-drop sequence genies_one2one_seq;
-create sequence genies_one2one_seq;
-
 -- 1:1 문의 답변
 drop table genies_one2one_reply;
 create table genies_one2one_reply(
@@ -127,6 +107,26 @@ create table genies_one2one_reply(
 
 drop sequence genies_one2one_reply_seq;
 create sequence genies_one2one_reply_seq;
+   
+   
+-- 1:1문의
+drop table genies_one2one;
+create table genies_one2one(
+    one2one_idx      number(20) primary key,
+    one2one_member_id		varchar2(20),
+    one2one_name     varchar2(20),
+    one2one_phone    varchar2(20),
+    one2one_email     varchar2(100),
+    one2one_address1   varchar2(100),
+    one2one_address2   varchar2(100),
+    one2one_address3   varchar2(100),
+    one2one_title    varchar2(100),
+    one2one_content  varchar2(2000),
+    one2one_date     date default sysdate
+);
+
+drop sequence genies_one2one_seq;
+create sequence genies_one2one_seq;
 
 -- 결제정보
 drop table genies_pay;
@@ -148,7 +148,10 @@ create table genies_pay(
 );
 
 drop sequence genies_pay_seq;
-create sequence genies_pay_seq;
+create sequence genies_pay_seq
+ START WITH 1
+    INCREMENT BY 1
+    MAXVALUE 999;
 
 -- 주문제품
 drop table genies_order;
@@ -202,8 +205,6 @@ create sequence genies_review_reply_seq;
 
 commit;
 
-<<<<<<< HEAD
-=======
 
 insert into genies_member(member_idx, member_id, member_pw, member_name, 
 member_email, member_email_receive, member_pw_question, member_pw_answer, 
@@ -211,4 +212,4 @@ member_phone, member_address1, member_address2, member_address3, member_grade, m
 values (genies_member_seq.nextval, 'test', '1234', 'test', 'test@test.com', 0,0,0,'010-1234-5678', 
 '01695', '서울 노원구 상계로 64 화랑빌딩', '7층', 'c', sysdate);
 
->>>>>>> d7ba44e55d8e13412c7c365d491e10e7e644a126
+

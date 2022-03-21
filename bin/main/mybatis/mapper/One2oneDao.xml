@@ -29,7 +29,7 @@
     </update>
     
     <delete id="deleteDto">
-    	delete from genies_one2one where board_idx=#{param1}
+    	delete from genies_one2one where one2one_idx=#{param1}
     </delete>
      
 		

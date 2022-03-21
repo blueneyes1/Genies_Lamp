@@ -31,7 +31,7 @@
 			<tr>
 				<td colspan="2">
 					&nbsp;&nbsp;<input type="submit" value="문의하기">&nbsp;&nbsp;
-					<a href="listForm"><input type="button" value="목록보기"></a>
+					<a href="/mypage/121listForm"><input type="button" value="목록보기"></a>
 				</td>
 			</tr>
 		

@@ -40,7 +40,7 @@ private INoticeDao NoticeDao;
 
 
 
-//----°øÁö»çÇ×°Ô½ÃÆÇ----//
+
    
     @RequestMapping("/notice/NoticeForm")
     public String NoticeForm(@RequestParam(value="page", required=false)String page,
@@ -48,7 +48,7 @@ private INoticeDao NoticeDao;
     						 @RequestParam(value="keyword", required=false) String keyword,
     						HttpServletRequest request, Model model) {
         
-    	//pagenavi ÇÔ¼ö//
+    	//pagenavi ï¿½Ô¼ï¿½//
     	if(page == null) {
         	page = "1";
         }
@@ -57,16 +57,16 @@ private INoticeDao NoticeDao;
     		System.out.println("page"+page);
     		model.addAttribute("page",page);
     		
-    		int num_page_no = Integer.parseInt(page);	//page ¹øÈ£
-    		int num_page_size = 5;									//ÆäÀÌÁö´ç º¸ÀÌ´Â row °³¼ö
-    		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 ÆäÀÌÁö ½ÃÀÛ¹øÈ£
-    		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 ÆäÀÌÁö ³¡¹øÈ£
+    		int num_page_no = Integer.parseInt(page);	//page ï¿½ï¿½È£
+    		int num_page_size = 5;									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ row ï¿½ï¿½ï¿½ï¿½
+    		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¹ï¿½È£
+    		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È£
     	
     	
     	List<NoticeDto> notice_list = NoticeService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
     	 model.addAttribute("notice_list", notice_list);
     	}
-    	  return "/notice/NoticeForm";//NoticeForm À¸·Î µð½ºÆÐÄ¡µÊ
+    	  return "/notice/NoticeForm";//NoticeForm ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½
     
 //    	 {  
 //    	  
@@ -75,7 +75,7 @@ private INoticeDao NoticeDao;
 //		
 //		List<NoticeDto> notice_list = null;
 //		
-//		//°Ë»öÀ» ÅëÇØ È£ÃâµÊ.
+//		//ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½.
 //		if( StringUtils.hasText(keyword) ) {
 //			notice_list = NoticeService.notice_list_search(search_cate, keyword);	
 //		}else {
@@ -87,11 +87,10 @@ private INoticeDao NoticeDao;
 //		model.addAttribute("mainPage", "community/community01.jsp");
 //		
 //    	 }
-//		  return "/notice/NoticeForm";//NoticeForm À¸·Î µð½ºÆÐÄ¡µÊ
+//		  return "/notice/NoticeForm";//NoticeForm ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½
 	}
     	 
-    
-//----°øÁö»çÇ× °Ô½ÃÆÇ »ó¼¼----//
+
 @RequestMapping("/notice/NoticeDetail")
 public String NoticeDetail(@RequestParam("notice_idx") String notice_idx,
                             HttpServletRequest request, 
@@ -105,10 +104,10 @@ public String NoticeDetail(@RequestParam("notice_idx") String notice_idx,
     model.addAttribute("mainPage", "notice/NoticeDetail.jsp");
 
     
-    return "index"; //index.jsp µð½ºÆÐÄ¡ 
+    return "index"; //index.jsp ï¿½ï¿½ï¿½ï¿½Ä¡ 
 }
 
-//----°øÁöÀÛ¼ºÈ­¸é----//
+//----ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½È­ï¿½ï¿½----//
 @RequestMapping("/notice/NoticeWrite")
 public String NoticeWrite (@RequestParam(value="notice_idx", required=false, defaultValue="") String notice_idx,
 							Model model) {
@@ -121,7 +120,7 @@ public String NoticeWrite (@RequestParam(value="notice_idx", required=false, def
    
 }
 
-//----°øÁöÀÛ¼º¾×¼Ç----//
+//----ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½ï¿½×¼ï¿½----//
 
 @RequestMapping(value="/notice/writeAction", method = RequestMethod.POST)
 @ResponseBody
@@ -136,14 +135,14 @@ public String writeAction(	@RequestParam(value="notice_idx", required=false, def
 		if(result == 1) {
 			
 		
-			return "<script>alert('°øÁöµî·Ï¿¡ ¼º°øÇß½À´Ï´Ù.'); location.href='/notice/NoticeForm';</script>";
+			return "<script>alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.'); location.href='/notice/NoticeForm';</script>";
 		
 		}else {
 		
-			return "<script>alert('°øÁöµî·Ï¿¡ ½ÇÆÐÇß½À´Ï´Ù.'); history.back(-1);</script>";
+			return "<script>alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.'); history.back(-1);</script>";
 		}
 }
-//----°øÁö ¼öÁ¤ ºÒ·¯¿À±â----//
+//----ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½----//
 
 @RequestMapping("/notice/NoticeContent")
 public String NoticeContent(@RequestParam("notice_idx") String notice_idx,
@@ -159,7 +158,7 @@ public String NoticeContent(@RequestParam("notice_idx") String notice_idx,
     model.addAttribute("mainPage", "notice/NoticeContent.jsp");
 
 	
-	return "index"; //NoticeContent.jsp À¸·Î ¸®´ÙÀÌ·ºÆ® µÊ.
+	return "index"; //NoticeContent.jsp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì·ï¿½Æ® ï¿½ï¿½.
     
 }
 @RequestMapping(value="/notice/updateAction", method = RequestMethod.POST)
@@ -172,12 +171,12 @@ public String updateAction( @RequestParam("notice_idx") String notice_idx,
 
 	int result = NoticeService.update(notice_idx, notice_title, notice_content);
 	if(result == 1) {
-		System.out.println("¼öÁ¤ ¼º°ø");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		return "redirect:/notice/NoticeDetail?notice_idx=" + notice_idx;
 	}else {
 		
-		System.out.println("¼öÁ¤½ÇÆÐ");
-		return "<script>alert('¼öÁ¤¿¡ ½ÇÆÐÇß½À´Ï´Ù.'); history.back(-1);</script>";
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		return "<script>alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.'); history.back(-1);</script>";
 	}
 }
 	@RequestMapping("/notice/deleteAction")
@@ -188,16 +187,16 @@ public String updateAction( @RequestParam("notice_idx") String notice_idx,
 
 		int result = NoticeService.delete(notice_idx);
 		if(result == 1) {
-			System.out.println("»èÁ¦ ¼º°ø");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			return "redirect:/notice/NoticeForm";
 		}else {
 			
-			System.out.println("»èÁ¦½ÇÆÐ");
-			return "<script>alert('¼öÁ¤¿¡ ½ÇÆÐÇß½À´Ï´Ù.'); history.back(-1);</script>";
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+			return "<script>alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.'); history.back(-1);</script>";
 		}
 
 }
-	//----Faq°Ô½ÃÆÇ----//
+	//----Faqï¿½Ô½ï¿½ï¿½ï¿½----//
 	   
     @RequestMapping("/faq/FaqForm")
     public String FaqForm(@RequestParam(value="page", required=false)String page,
@@ -212,10 +211,10 @@ public String updateAction( @RequestParam("notice_idx") String notice_idx,
     		System.out.println("page"+page);
     		model.addAttribute("page",page);
     		
-    		int num_page_no = Integer.parseInt(page);	//page ¹øÈ£
-    		int num_page_size = 5;									//ÆäÀÌÁö´ç º¸ÀÌ´Â row °³¼ö
-    		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 ÆäÀÌÁö ½ÃÀÛ¹øÈ£
-    		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 ÆäÀÌÁö ³¡¹øÈ£
+    		int num_page_no = Integer.parseInt(page);	//page ï¿½ï¿½È£
+    		int num_page_size = 5;									//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì´ï¿½ row ï¿½ï¿½ï¿½ï¿½
+    		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Û¹ï¿½È£
+    		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È£
     	
     	
     	List<FaqDto> faq_list = FaqService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
@@ -229,11 +228,11 @@ public String updateAction( @RequestParam("notice_idx") String notice_idx,
     	
       
     	}
-    	  return "/faq/FaqForm";//FaqForm À¸·Î µð½ºÆÐÄ¡µÊ
+    	  return "/faq/FaqForm";//FaqForm ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½
     }
 
     
-//----°øÁö»çÇ× °Ô½ÃÆÇ »ó¼¼----//
+//----ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½----//
 @RequestMapping("/faq/FaqDetail")
 public String FaqDetail(@RequestParam("faq_idx") String faq_idx,
                             HttpServletRequest request, 
@@ -247,7 +246,7 @@ public String FaqDetail(@RequestParam("faq_idx") String faq_idx,
     model.addAttribute("mainPage", "faq/FaqDetail.jsp");
 
     
-    return "index"; //index.jsp µð½ºÆÐÄ¡ 
+    return "index"; //index.jsp ï¿½ï¿½ï¿½ï¿½Ä¡ 
 }
 //@RequestMapping("/notice/NoticeDetail")
 //public String NoticeDetail(@RequestParam("notice_idx") String notice_idx,
@@ -262,12 +261,12 @@ public String FaqDetail(@RequestParam("faq_idx") String faq_idx,
 //    model.addAttribute("mainPage", "notice/NoticeDetail.jsp");
 //
 //    
-//    return "index"; //index.jsp µð½ºÆÐÄ¡ 
+//    return "index"; //index.jsp ï¿½ï¿½ï¿½ï¿½Ä¡ 
 //}
 
 
 
-//----°øÁöÀÛ¼ºÈ­¸é----//
+//----ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½È­ï¿½ï¿½----//
 @RequestMapping("/faq/FaqWrite")
 public String FaqWrite (@RequestParam(value="faq_idx", required=false, defaultValue="") String faq_idx,
 							Model model) {
@@ -280,7 +279,7 @@ public String FaqWrite (@RequestParam(value="faq_idx", required=false, defaultVa
    
 }
 
-//----°øÁöÀÛ¼º¾×¼Ç----//
+//----ï¿½ï¿½ï¿½ï¿½ï¿½Û¼ï¿½ï¿½×¼ï¿½----//
 
 @RequestMapping(value="/faq/faqwriteAction", method = RequestMethod.POST)
 @ResponseBody
@@ -295,14 +294,14 @@ public String faqwriteAction(	@RequestParam(value="faq_idx", required=false, def
 		if(result == 1) {
 			
 		
-			return "<script>alert('°øÁöµî·Ï¿¡ ¼º°øÇß½À´Ï´Ù.'); location.href='/faq/FaqForm';</script>";
+			return "<script>alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.'); location.href='/faq/FaqForm';</script>";
 		
 		}else {
 		
-			return "<script>alert('°øÁöµî·Ï¿¡ ½ÇÆÐÇß½À´Ï´Ù.'); history.back(-1);</script>";
+			return "<script>alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.'); history.back(-1);</script>";
 		}
 }
-//----°øÁö ¼öÁ¤ ºÒ·¯¿À±â----//
+//----ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½----//
 
 @RequestMapping("/faq/FaqContent")
 public String FaqContent(@RequestParam("faq_idx") String faq_idx,
@@ -318,7 +317,7 @@ public String FaqContent(@RequestParam("faq_idx") String faq_idx,
     model.addAttribute("mainPage", "faq/FaqContent.jsp");
 
 	
-	return "index"; //NoticeContent.jsp À¸·Î ¸®´ÙÀÌ·ºÆ® µÊ.
+	return "index"; //NoticeContent.jsp ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì·ï¿½Æ® ï¿½ï¿½.
     
 }
 @RequestMapping(value="/faq/faqupdateAction", method = RequestMethod.POST)
@@ -331,12 +330,12 @@ public String faqupdateAction( @RequestParam("faq_idx") String faq_idx,
 
 	int result = FaqService.updatefaq(faq_idx, faq_title, faq_content);
 	if(result == 1) {
-		System.out.println("¼öÁ¤ ¼º°ø");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		return "redirect:/faq/FaqDetail?faq_idx=" + faq_idx;
 	}else {
 		
-		System.out.println("¼öÁ¤½ÇÆÐ");
-		return "<script>alert('¼öÁ¤¿¡ ½ÇÆÐÇß½À´Ï´Ù.'); history.back(-1);</script>";
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		return "<script>alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.'); history.back(-1);</script>";
 	}
 }
 	@RequestMapping("/faq/faqdeleteAction")
@@ -347,17 +346,17 @@ public String faqupdateAction( @RequestParam("faq_idx") String faq_idx,
 
 		int result = FaqService.delete(faq_idx);
 		if(result == 1) {
-			System.out.println("»èÁ¦ ¼º°ø");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			return "redirect:/faq/FaqForm";
 		}else {
 			
-			System.out.println("»èÁ¦½ÇÆÐ");
-			return "<script>alert('¼öÁ¤¿¡ ½ÇÆÐÇß½À´Ï´Ù.'); history.back(-1);</script>";
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+			return "<script>alert('ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.'); history.back(-1);</script>";
 		}
 
 }
 }
-    //////----1:1¹®ÀÇ ÀÔ·Â Æû----//
+    //////----1:1ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½----//
 ////@RequestMapping("/customer/customer01")
 ////public String customer01(   HttpServletRequest request, 
 ////                            Model model) {
@@ -365,10 +364,10 @@ public String faqupdateAction( @RequestParam("faq_idx") String faq_idx,
 ////    model.addAttribute("mainPage", "customer/customer01.jsp");
 ////    
 ////    
-////    return "index"; //index.jsp µð½ºÆÐÄ¡ 
+////    return "index"; //index.jsp ï¿½ï¿½ï¿½ï¿½Ä¡ 
 ////}
 ////
-//////----1:1¹®ÀÇ µ¥ÀÌÅÍÀÔ·Â----//
+//////----1:1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô·ï¿½----//
 ////@RequestMapping("/customer/one2one_insert")
 ////@ResponseBody
 ////public String one2one_insert(HttpServletRequest request, Model model) {
@@ -394,10 +393,10 @@ public String faqupdateAction( @RequestParam("faq_idx") String faq_idx,
 ////    System.out.println("one2one_title:"+one2one_title);
 ////    System.out.println("one2one_content:"+one2one_content);
 ////    
-////    //DAO(xml, sql)¿¡ ÆÄ¶ó¹ÌÅÍ¸¦ Àü´ÞÇÏ´Â ¹æ¹ý
-////    // 1. ³¹°³·Î ÇÏ³ª¾¿
-////    // 2. DTO °´Ã¼·Î 
-////    // 3. Map °´Ã¼·Î 
+////    //DAO(xml, sql)ï¿½ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½
+////    // 1. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½
+////    // 2. DTO ï¿½ï¿½Ã¼ï¿½ï¿½ 
+////    // 3. Map ï¿½ï¿½Ã¼ï¿½ï¿½ 
 ////    
 ////    One2oneDto dto = new One2oneDto();
 ////    dto.setOne2one_name(one2one_name);
@@ -419,9 +418,9 @@ public String faqupdateAction( @RequestParam("faq_idx") String faq_idx,
 ////    int result = one2oneService.one2one_insert_map(map);
 ////    
 ////    if( result >= 1 ) {
-////        return "<script>alert('1:1¹®ÀÇ°¡ Àü¼ÛµÇ¾ú½À´Ï´Ù.'); location.href='/';</script>";
+////        return "<script>alert('1:1ï¿½ï¿½ï¿½Ç°ï¿½ ï¿½ï¿½ï¿½ÛµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.'); location.href='/';</script>";
 ////    }else {
-////        return "<script>alert('1:1¹®ÀÇ Àü¼Û ½ÇÆÐÇÏ¿´½À´Ï´Ù.'); history.back(-1);</script>";
+////        return "<script>alert('1:1ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.'); history.back(-1);</script>";
 ////    }
 ////     
 ////}

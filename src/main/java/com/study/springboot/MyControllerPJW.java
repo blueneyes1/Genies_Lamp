@@ -61,17 +61,18 @@ public class MyControllerPJW {
 	}
 	
 	@RequestMapping("/mypage/listForm")
-	public String listForm( Model model,
+	public String list( Model model,
 			HttpServletRequest request ) {
 		
-		List<One2oneDto> list = one2onedao.list();
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		List<One2oneDto> list = one2onedao.list2( member_id);
 		model.addAttribute("list", list);
 		
 		//System.out.println( list );
 		
 		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
 	}
-	
+		
 	
 	@RequestMapping("/mypage/writeForm")
 	public String writeForm(HttpServletRequest request ) {
@@ -81,7 +82,7 @@ public class MyControllerPJW {
 		return "mypage/121writeForm"; //"writeForm.jsp" 디스패치함.
 	}
 	
-	@RequestMapping("/mypgae/writeAction")
+	@RequestMapping("/mypage/writeAction")
 	@ResponseBody
 	public String writeAction( 
 								@RequestParam("one2one_title") String one2one_title,
@@ -95,7 +96,7 @@ public class MyControllerPJW {
 			System.out.println("글쓰기 성공!");
 			
 			//return "redirect:listForm"; //listForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글쓰기 성공!'); location.href='/mypage/listForm';</script>";
+			return "<script>alert('글쓰기 성공!'); location.href='/mypage/121listForm';</script>";
 		}else {
 			System.out.println("글쓰기 실패!");
 			
@@ -141,7 +142,7 @@ public class MyControllerPJW {
 	}
 	
 	
-	@RequestMapping("/customer/updateAction")
+	@RequestMapping("/mypage/updateAction")
 	@ResponseBody
 	public String updateAction( @RequestParam("one2one_idx") String one2one_idx,
 								@RequestParam("one2one_title") String one2one_title,
@@ -164,7 +165,7 @@ public class MyControllerPJW {
 		
 	}
 	
-	@RequestMapping("/customer/deleteAction")
+	@RequestMapping("/mypage/deleteAction")
 	@ResponseBody
 	public String deleteAction(@RequestParam("one2one_idx") String one2one_idx,
 								HttpServletRequest request)
@@ -174,7 +175,7 @@ public class MyControllerPJW {
 			System.out.println("글삭제 성공!");
 			
 			//return "redirect:listForm"; //listForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글삭제 성공!'); location.href='/listForm';</script>";
+			return "<script>alert('글삭제 성공!'); location.href='/mypage/121listForm';</script>";
 		}else {
 			System.out.println("글삭제 실패!");
 			
@@ -186,19 +187,23 @@ public class MyControllerPJW {
 	
 	@RequestMapping("/admin/writeReplyAction")
 	@ResponseBody
-	public String writeReplyAction( @RequestParam("one2one_reply_content") String one2one_reply_content,
-								HttpServletRequest request) 
+	public String writeReplyAction( @RequestParam( "one2one_reply_one2one_idx") String one2one_reply_one2one_idx,
+									@RequestParam("one2one_reply_content") String one2one_reply_content,
+									HttpServletRequest request) 
 	{
+		System.out.println("one2one_reply_one2one_idx:"+one2one_reply_one2one_idx);
+		System.out.println("one2one_reply_content:"+one2one_reply_content);
+		
 		String member_id = (String) request.getSession().getAttribute("member_id");
-		int result = replydao.reply_write(one2one_reply_content, member_id);
+		int result = replydao.reply_write(one2one_reply_content, member_id, one2one_reply_one2one_idx);
 		if( result == 1 ) {
 			System.out.println("답변달기 성공!");
 			
-			return "<script>alert('답변달기 성공!'); location.href='/admin/contentForm?one2one_idx=" + member_id + "';</script>";
+			return "<script>alert('답변달기 성공!'); location.href='/admin/contentForm?one2one_idx=" + one2one_reply_one2one_idx + "';</script>";
 		}else {
 			System.out.println("답변달기 실패!");
 			
-			return "<script>alert('답변달기 실패!'); location.href='/admin/contentForm?one2one_idx=" + member_id + "';</script>";
+			return "<script>alert('답변달기 실패!'); location.href='/admin/contentForm?one2one_idx=" + one2one_reply_one2one_idx + "';</script>";
 		}
 		
 	}
@@ -206,18 +211,20 @@ public class MyControllerPJW {
 	@RequestMapping("/admin/deleteReplyAction")
 	@ResponseBody
 	public String deleteReplyAction(@RequestParam("one2one_reply_idx") String one2one_reply_idx,
-								   @RequestParam("one2one_idx") String one2one_idx,
+									@RequestParam("one2one_reply_one2one_idx") String one2one_reply_one2one_idx,
 								HttpServletRequest request)
 	{
-		int result = replydao.reply_deleteDto(one2one_reply_idx);
+		System.out.println("one2one_reply_idx"+ one2one_reply_idx );
+		System.out.println("one2one_reply_one2one_idx"	+one2one_reply_one2one_idx);
+		int result = replydao.reply_deleteDto(one2one_reply_idx, one2one_reply_one2one_idx);
 		if( result == 1 ) {
 			System.out.println("답변삭제 성공!");
 			
-			return "<script>alert('답변삭제 성공!'); location.href='/contentForm?one2one_idx=" + one2one_idx + "';</script>";
+			return "<script>alert('답변삭제 성공!'); location.href='/admin/contentForm?one2one_idx=" + one2one_reply_one2one_idx+ "';</script>";
 		}else {
 			System.out.println("답변삭제 실패!");
 			
-			return "<script>alert('답변삭제 실패!'); location.href='/contentForm?one2one_idx=" + one2one_idx + "';</script>";
+			return "<script>alert('답변삭제 실패!'); location.href='/admin/contentForm?one2one_idx=" + one2one_reply_one2one_idx+ "';</script>";
 		}
 		
 	}
