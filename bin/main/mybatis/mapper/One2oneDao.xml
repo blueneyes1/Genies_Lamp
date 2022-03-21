@@ -12,7 +12,7 @@
 	</select>    
     
     <insert id="write">
-    	insert into genies_one2one (one2one_idx, one2one_member_id, one2one_title, one2one_content, one2one_date) 
+    	insert into genies_one2one (one2one_idx, one2one_name, one2one_title, one2one_content, one2one_date) 
 			values (genies_one2one_seq.nextval, #{ param1 }, #{ param2 }, #{ param3 }, sysdate)
     </insert>
     
@@ -21,7 +21,7 @@
     </select>
     
     <update id="updateDto">
-		update genies_one2one set one2one_member_id=#{param2}, one2one_title=#{param3}, one2one_content=#{param4} where one2one_idx=#{param1}
+		update genies_one2one set one2one_name=#{param2}, one2one_title=#{param3}, one2one_content=#{param4} where one2one_idx=#{param1}
     </update>
     
     <delete id="deleteDto">

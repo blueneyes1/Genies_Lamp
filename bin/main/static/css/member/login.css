@@ -6,38 +6,8 @@
 }
 
 .loginMain {
-	border: 3px solid rgb(178, 178, 238);
+	background-color: rgba(130, 130, 215, 0.322);
 	padding: 50px;
 	margin: 50px;
-	font-size: 12px;
-}
-
-.main1 td, .main2 td {
-	padding: 3px;
-}
-
-#login_btn {
-background-color: rgb(178, 178, 238);
- border: none;
- width: 90px;
- height: 50px;
- color: rgb(17, 17, 17);
- border-radius: 3px;
-}
-
-#login_btn:hover {
-background-color: rgb(132, 132, 227);
-}
-
-#find_btn {
-	background-color: rgb(178, 178, 238);
- border: none;
- width: 90px;
- height: 25px;
- color: rgb(17, 17, 17);
- border-radius: 3px;
-}
-
-#find_btn:hover {
-	background-color: rgb(132, 132, 227);
+	
 }
