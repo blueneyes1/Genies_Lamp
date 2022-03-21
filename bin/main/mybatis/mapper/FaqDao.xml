@@ -8,8 +8,47 @@
 
 <mapper namespace="com.study.springboot.dao.IFaqDao">
 
-     
+	<select id="faq_list" resultType="com.study.springboot.dto.FaqDto">
+		SELECT * FROM genies_faq order by faq_idx desc
+	</select>
+	
+	<select id="listPage" resultType="com.study.springboot.dto.FaqDto">
+		SELECT * FROM 
+		(
+		SELECT
+		ROWNUM AS RNUM, genies_faq.*
+		From
+		genies_faq
+		ORDER BY FAQ_idx DESC
+		)
+		where RNUM between #{param1} and #{param2}
 		
+
+	</select>
+
+	<select id="faq_content" resultType="com.study.springboot.dto.FaqDto">
+		SELECT * FROM genies_faq where faq_idx=#{param1}
+	</select>
+	
+	<insert id ="writefaq">
+		insert into genies_faq (faq_idx, faq_title, faq_content)
+		values(genies_faq_seq.nextval, #{param2}, #{param3})
+	</insert>
+	
+     <select id="viewDto" resultType="com.study.springboot.dto.FaqDto">
+    	SELECT * FROM genies_faq where faq_idx=#{param1}
+     </select>
+	
+	<update id ="updatefaq">
+		update genies_faq set faq_title=#{param2}, faq_content=#{param3} where faq_idx=#{param1}
+	</update>	
+	
+	<delete id="delete">
+		delete from genies_faq where faq_idx=#{param1}
+	</delete>	
 </mapper>    
+
+
+ 
 
 
