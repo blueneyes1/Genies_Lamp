@@ -763,5 +763,13 @@ public class MyControllerPYH {
 			return "<script>alert('상품평 삭제에 실패했습니다.'); history.back(-1);</script>";
 		}
 	}
-
+//------------------------------------------------------------------------------------------------------------------------
+	// 주문 - 주문완료 페이지
+		@RequestMapping("/order/confrimOrder") 
+		public String confirmOrder(HttpServletRequest request,Model model) {
+			
+			model.addAttribute("mainPage", "order/confrimOrder.jsp");
+			
+			return "index";
+		}
 }
