@@ -6,7 +6,7 @@
  
 
 <!DOCTYPE html>
-<<<<<<< HEAD
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -91,7 +91,7 @@
 
 
 <!DOCTYPE html>
-=======
+
 >>>>>>> dev
 <html>
 <head>

@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 상세</title>
-<<<<<<< HEAD
+<head>
 <style>
 
 .menu{width:800px; margin: 0 auto}
@@ -60,14 +60,11 @@ margin: auto;
 <body>
 
 <div class=main>
-<table class="noticetable">
-=======
-</head>
-<body>
+
 
 
 <table class="noticetable" border="1" color="black" width="500">
->>>>>>> dev
+
 	<tr>
 		<th>제목</th>
 		<td>${notice_dto.notice_title }</td>		
@@ -78,11 +75,10 @@ margin: auto;
 		<fmt:formatDate pattern="yyyy-MM-dd" value="${ notice_dto.notice_date }" /></td>
 	 </tr>
 	 <tr>
-<<<<<<< HEAD
+
 	 	<td colspan="2" width="500" height="80">${notice_dto.notice_content }</td>
-=======
-	 	<td>${notice_dto.notice_content }</td>
->>>>>>> dev
+
+	 	
 	 </tr>
 </table>
 	
@@ -90,7 +86,7 @@ margin: auto;
 	
 	<div class="writelistbtn">
 	<input type="hidden" name="notice_idx" value="${ notice_dto.notice_idx }">
-<<<<<<< HEAD
+
 	<input type="button" class="btn" value="목록" onclick="window.location.href='/notice/NoticeForm'">
 	
 	<c:if test="${ member_grade eq 'A' }">
@@ -99,15 +95,9 @@ margin: auto;
 	</a></c:if>
 	</div>
 </div>
-=======
-	<input type="button" value="목록" onclick="window.location.href='/notice/NoticeForm'">
-	
-	
-	<a href="/notice/NoticeContent?notice_idx=${ notice_dto.notice_idx }">
-		<input type="button" value="수정" >
-	</a>
-	</div>
 
->>>>>>> dev
+	
+
+
 </body>
 </html>
