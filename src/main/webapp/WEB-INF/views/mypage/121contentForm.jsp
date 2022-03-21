@@ -35,11 +35,13 @@
 				</td>
 			</tr>
 			<tr>
+			<c:if test="${ member_grade ne 'A' }">
 				<td colspan="2">
 					&nbsp;&nbsp;<input type="submit" value="수정하기">&nbsp;&nbsp;
 					<a href="listForm"><input type="button" value="목록보기"></a>&nbsp;&nbsp;
 					<a href="deleteAction?one2one_idx=${ dto.one2one_idx }"><input type="button" value="삭제하기"></a>
 				</td>
+			</c:if>	
 			</tr>
 		
 		</table>
@@ -50,17 +52,15 @@
 	<form action="writeReplyAction" method="post">
 		<table width="500" cellpadding="0" cellspacing="0" border="1">
 			<tr>
-			<c:if test="${ not empty member_id }">
 	    	<c:if test="${ member_grade eq 'A' }">
 	    		
 				<td colspan=""2>
-					<input type="hidden" name="one2one_reply_one2one_idx" value="${ dto.one2one_reply_one2one_idx }">
+					
 					<label>댓글</label><textarea rows="2" cols="50" name="one2one_reply_content"></textarea><br>
-					<label>아이디</label><input type="text" name="one2one_reply_member_id" value=""><br>
-					<input type="submit" value="댓글달기">
+					<label>아이디</label><input type="text" name="one2one_reply_member_id" value="${ member_id }"><br>
+					<input type="submit" value="답글달기">
 				</td>
 				
-			</c:if>
 			</c:if>
 			</tr>
 		</table>

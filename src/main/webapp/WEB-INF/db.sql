@@ -200,5 +200,9 @@ create sequence genies_review_reply_seq;
 commit;
 
 
-
+insert into genies_member(member_idx, member_id, member_pw, member_name, 
+member_email, member_email_receive, member_pw_question, member_pw_answer, 
+member_phone, member_address1, member_address2, member_address3, member_grade, member_join_date) 
+values (genies_member_seq.nextval, 'test', '1234', 'test', 'test@test.com', 0,0,0,'010-1234-5678', 
+'01695', '서울 노원구 상계로 64 화랑빌딩', '7층', 'c', sysdate);
 
