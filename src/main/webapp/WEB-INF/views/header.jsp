@@ -80,9 +80,9 @@
 	        <li class="nav-item dropdown">
 	          <a class="nav-link" href="#">커뮤니티</a>
 	          <div class="dropdown-content">
-	            <a href="/community/community01">공지사항</a>
+	            <a href="/notice/NoticeForm">공지사항</a>
 	            <a href="/customer/customer01">1:1 문의</a>
-	            <a href="/customer/customer03">FAQ</a>
+	            <a href="/faq/FaqForm">FAQ</a>
 	          </div>
 	        </li>	       
 	      </ul>
