@@ -57,17 +57,21 @@ public class MyControllerPJW {
 	@RequestMapping("/customer/writeForm")
 	public String writeForm(HttpServletRequest request ) {
 		
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
 		return "mypage/121writeForm"; //"writeForm.jsp" 디스패치함.
 	}
 	
 	@RequestMapping("/customer/writeAction")
 	@ResponseBody
-	public String writeAction( @RequestParam("one2one_member_id") String one2one_member_id,
+	public String writeAction( 
 								@RequestParam("one2one_title") String one2one_title,
 								@RequestParam("one2one_content") String one2one_content,
 								HttpServletRequest request) 
 	{
-		int result = one2onedao.write(one2one_member_id, one2one_title, one2one_content);
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		int result = one2onedao.write(member_id, one2one_title, one2one_content);
 		if( result == 1 ) {
 			System.out.println("글쓰기 성공!");
 			
