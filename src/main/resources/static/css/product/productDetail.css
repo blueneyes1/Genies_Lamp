@@ -1,3 +1,5 @@
+ 
+   
     .box {
       display: flex;
       flex-flow: column;
@@ -10,8 +12,15 @@
       display: flex;
       flex-flow: row nowrap;
     }
+    
     .img_box {
-    margin-right: 50px;
+    display: flex;
+     justify-content: center;
+      align-items: center;
+    }
+    .img_box img {
+    width: 250px;
+    height: 250px;
     }
     .section {
     margin-left: 50px;
@@ -24,10 +33,14 @@
     align-items: center;
     }
     
-    #product_img {
-      width: 250px;
-      height: 250px;
-    }
+    .product_review {
+	 display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      margin-bottom: 30px;
+ }  
     #order_btn {
     background-color: rgb(178, 178, 238);
     border: none;
