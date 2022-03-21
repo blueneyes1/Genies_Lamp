@@ -81,7 +81,14 @@
 	          <a class="nav-link" href="#">커뮤니티</a>
 	          <div class="dropdown-content">
 	            <a href="/notice/NoticeForm">공지사항</a>
-	            <a href="/customer/customer01">1:1 문의</a>
+	            <c:if test="${ not empty member_id }">
+	            <c:if test="${ member_grade eq 'A' }">
+	            <a href="/admin/121listForm">1:1 문의</a>
+	            </c:if>
+	            <c:if test="${ member_grade ne 'A' }">
+	            <a href="/mypage/121listForm">1:1 문의</a>
+	            </c:if>
+	            </c:if>
 	            <a href="/faq/FaqForm">FAQ</a>
 	          </div>
 	        </li>	       
