@@ -22,14 +22,12 @@ display: flex;
  #aside_box {
    flex: 1 1 auto;
    flex-direction: column;
-   width: 200px;
    margin-left: 150px;
    
  }
  #section_box {
    flex: 2 1 auto;
    flex-direction: column;
-   width: 850px;
    text-align: center;
    margin-bottom: 50px;
  }
