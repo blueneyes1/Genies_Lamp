@@ -79,7 +79,7 @@
         
         <tr>
           <td colspan="5"  id="basket_btn_box">
-            <button type="button" onclick="location.href='/' " id="basket_btn">주문하기</button>
+            <button type="button" onclick="location.href='/pay/${member_id}' " id="basket_btn">주문하기</button>
             <input type="submit" formaction="/mypage_basket_delete" value="장바구니 비우기"  id="basket_btn"/>
           </td>
         </tr>
@@ -89,6 +89,12 @@
 
 
     </div>
+	</form>
+	
+	<!-- 주문 form -->
+	<form action="/pay/${member_Id}" method="get" class="order_form">
+		<input type="hidden" name="orders[0].product_idx" value="${product_idx}">
+		<input type="hidden" name="orders[0].product_count" value="">
 	</form>
 	
 	</div>

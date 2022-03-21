@@ -1,21 +1,30 @@
 package com.study.springboot;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.study.springboot.dao.IPayNumber_seqDao;
 import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.OrderDto;
 import com.study.springboot.service.MemberService;
 import com.study.springboot.service.OrderService;
+import com.study.springboot.service.payService;
 
 @Controller
 public class MyControllerLDG {
@@ -26,11 +35,27 @@ public class MyControllerLDG {
 	@Autowired
 	OrderService orderService;
 	
+	@Autowired
+	payService payService;
+	
+	@Autowired
+	IPayNumber_seqDao payNumber_seqDao;
+	
+	/* 트랜잭션 매니저 초기화1 */
+	@Autowired
+	PlatformTransactionManager transactionManager;
+	
+	/* 트랜잭션 매니저 초기화2 */
+	@Autowired
+	TransactionDefinition definition;
+	
+	
 	@RequestMapping("/")
 	public String root() {
 		return "redirect:main";
 	}
 	
+	// 메인 페이지
 	@RequestMapping("/main")
 	public String main( Model model) {
 		
@@ -39,6 +64,7 @@ public class MyControllerLDG {
 		return "index"; // "index.jsp" 디스패치함.
 	}
 	
+	// 로그인 페이지
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request, Model model) {
 		
@@ -47,6 +73,7 @@ public class MyControllerLDG {
 		return "index"; // "member/login.jsp" 디스패치함.
 	}
 	
+	// 로그인액션
 	@RequestMapping("/loginAction")
 	@ResponseBody
 	public String loginAction(@RequestParam("member_id") String member_id, 
@@ -71,6 +98,7 @@ public class MyControllerLDG {
 		}
 	}
 	
+	// 아이디찾기 페이지
 	@RequestMapping("/idFind")
 	public String idFind(@RequestParam(value="find_member_id", required=false) String find_member_id,
 			             Model model) {
@@ -78,6 +106,7 @@ public class MyControllerLDG {
 		return "/member/idFind"; // "idFind.jsp" 디스패치
 	}
 	
+	// 아이디찾기 액션
 	@RequestMapping("/idFindAction") 
 	@ResponseBody
 	public String idFindAction(@RequestParam("member_name") String member_name,
@@ -96,6 +125,7 @@ public class MyControllerLDG {
 		
 	}
 	
+	// 비밀번호찾기 페이지
 	@RequestMapping("/passwordFind")
 	public String passwordFind(@RequestParam(value="find_member_pw", required=false) String find_member_pw,
 			             Model model) {
@@ -103,6 +133,7 @@ public class MyControllerLDG {
 		return "/member/passwordFind"; // "passwordFind.jsp" 디스패치
 	}
 	
+	// 비밀번호찾기 액션
 	@RequestMapping("/passwordFindAction") 
 	@ResponseBody
 	public String passwordFindAction(@RequestParam("member_id") String member_id,
@@ -122,6 +153,7 @@ public class MyControllerLDG {
 		
 	}
 	
+	// 로그아웃 액션
 	@RequestMapping("/logoutAction")
 	@ResponseBody
 	public String logoutAction(HttpServletRequest request) {
@@ -133,6 +165,7 @@ public class MyControllerLDG {
 		
 	}
 	
+	// 이용약관 페이지
 	@RequestMapping("/join")
 	public String join(HttpServletRequest request, Model model) {
 		
@@ -141,6 +174,7 @@ public class MyControllerLDG {
 		return "index"; // "member/join.jsp" 디스패치함.
 	}
 	
+	// 아이디 중복여부 확인
 	@RequestMapping("/member/idCheckAjax")
 	@ResponseBody
 	public String idCheckAjax(@RequestParam("member_id") String member_id) {
@@ -155,6 +189,16 @@ public class MyControllerLDG {
 		}
 	}
 	
+	// 회원가입 페이지
+	@RequestMapping("/join2")
+	public String join2(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("mainPage", "member/join2.jsp");
+		
+		return "index"; // "member/join2.jsp" 디스패치함.
+	}
+	
+	// 회원가입 액션
 	@RequestMapping("/join2Action")
 	@ResponseBody
 	public String join2Action(
@@ -192,15 +236,7 @@ public class MyControllerLDG {
 		}
 	}
 	
-	
-	@RequestMapping("/join2")
-	public String join2(HttpServletRequest request, Model model) {
-		
-		model.addAttribute("mainPage", "member/join2.jsp");
-		
-		return "index"; // "member/join2.jsp" 디스패치함.
-	}
-	
+	// 마이페이지 - 주문내역
 	@RequestMapping("/mypage/orderDetails")
 	public String orderDetails(HttpServletRequest request, Model model) {
 		
@@ -218,8 +254,8 @@ public class MyControllerLDG {
 		model.addAttribute("order_count", order_count);
 		model.addAttribute("orderDetail", orderDetail);
 		
-		System.out.println(order_count);
-		System.out.println(orderDetail);
+		//System.out.println(order_count);
+		//System.out.println(orderDetail);
 		
 		model.addAttribute( "mainPage", "mypage/orderDetails.jsp");
 		
@@ -227,12 +263,129 @@ public class MyControllerLDG {
 		
 	}
 	
-	@RequestMapping("/order/pay")
+	// 단건구매
+	@RequestMapping("/singlePay")
+	public String singlePay(@RequestParam("product_idx") String product_idx,
+							@RequestParam("product_name") String product_name,
+							@RequestParam("product_price") String product_price,
+							@RequestParam("product_count") String product_count,
+							HttpServletRequest request, Model model
+			) {
+		
+		//String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		List<String> list = new ArrayList<String>();
+		ArrayList<String> dto = new ArrayList<>();
+				
+		dto.add(product_idx);
+		dto.add(product_name);
+		dto.add(product_price);
+		dto.add(product_count);
+				
+		list = dto;
+			
+		model.addAttribute( "list", list );
+		System.out.println(list);
+		
+		model.addAttribute("mainPage", "order/singlePay.jsp");
+		
+		return "index"; // "order/pay.jsp" 디스패치함.
+				
+		//return "<script>location.href='/pay/" + member_id + "';</script>";
+		
+	}
+	
+	// 결제 페이지
+	@RequestMapping("/pay/{member_id}")
 	public String pay(HttpServletRequest request, Model model) {
 		
 		model.addAttribute("mainPage", "order/pay.jsp");
 		
 		return "index"; // "order/pay.jsp" 디스패치함.
+	}
+	
+	// 결제액션
+	@RequestMapping("/singlePayAction")
+	@ResponseBody
+	public String singlePayAction (@RequestParam("pay_receiver") String pay_receiver,
+								@RequestParam("pay_phone") String pay_phone,
+								@RequestParam("pay_address1") String pay_address1,
+								@RequestParam("pay_address2") String pay_address2,
+								@RequestParam("pay_address3") String pay_address3,
+								@RequestParam("pay_message") String pay_message,
+								@RequestParam("pay_cost") String pay_cost,
+								@RequestParam("pay_total") String pay_total,
+								@RequestParam("order_product_idx") String order_product_idx,
+								@RequestParam("order_product_name") String order_product_name,
+								@RequestParam("order_count") String order_count,
+								@RequestParam("order_price") String order_price,
+								HttpServletRequest request, Model model
+			) {
+		
+		// 트랜잭션 매니저 초기화
+		TransactionStatus status = transactionManager.getTransaction(definition);
+		
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		// 주문번호 Merge 
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+		Calendar cal = Calendar.getInstance();
+		
+		// 주문번호 앞 날짜		
+		String dateOfPayNumber = sdf.format(cal.getTime());
+		
+		System.out.println("payNumber_seqDao:"+payNumber_seqDao);	
+		System.out.println("dateOfPayNumber:"+dateOfPayNumber);	
+		
+		// 주문번호 뒤 시퀀스
+		String seqOfPayNumber = payNumber_seqDao.get_payNumber_seq(dateOfPayNumber).getPay_number_seq();
+			
+		System.out.println("payNumber_seqDao.get_payNumber_seq(dateOfPayNumber):"+payNumber_seqDao.get_payNumber_seq(dateOfPayNumber));
+		// 주문번호 생성		
+		String pay_number = "S" + dateOfPayNumber + seqOfPayNumber ;
+		
+		
+		
+		
+		int result = payService.singlePay(
+				pay_number,
+				member_id,
+				pay_receiver,
+				pay_phone,
+				pay_address1,
+				pay_address2,
+				pay_address3,
+				pay_message,
+				pay_cost,
+				pay_total
+				);
+		
+		
+		
+		// insert fail : RollBack
+		if(result == 0) {
+					
+			transactionManager.rollback(status);			
+			return "<script>alert('서비스에러1 : 다시 시도해 주세요.'); history.back(-1);</script>";
+		}
+		
+		System.out.println("pay_number:"+pay_number);
+		int result1 = orderService.singleOrder(
+				pay_number,
+				order_product_idx,
+				order_product_name,
+				order_count,
+				order_price
+				);
+		if(result1 == 0) {
+			transactionManager.rollback(status);			
+			return "<script>alert('서비스에러2 : 다시 시도해 주세요.'); history.back(-1);</script>";
+		
+		}
+		
+		return "<script>alert('구매해주셔서 감사합니다.'); location.href='/product/productDetail?product_idx=" + order_product_idx + "'; </script>";
+
 	}
 
 }

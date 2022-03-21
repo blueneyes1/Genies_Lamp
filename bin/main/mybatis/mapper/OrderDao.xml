@@ -8,9 +8,17 @@
 
 <mapper namespace="com.study.springboot.dao.IOrderDao">
 
+     <!-- 마이페이지 - 주문내역 (LDG) -->
      <select id="orderDetail" resultType="com.study.springboot.dto.OrderDto">
      	SELECT * FROM genies_pay, genies_order WHERE genies_pay.pay_member_id = #{ member_id } 
      	AND genies_pay.pay_idx = genies_order.order_pay_idx
      </select>
-		
+     
+     <!-- 단건구매 - 제품등록 (LDG) -->
+     <insert id="singleOrder">
+     	INSERT INTO genies_order( order_idx, order_pay_number, order_product_idx, order_product_name, 
+     	order_count, order_price ) VALUES ( genies_order_seq.nextval, #{param1}, #{param2},
+     	#{param3}, #{param4}, #{param5} )
+     </insert>
+    
 </mapper>    
