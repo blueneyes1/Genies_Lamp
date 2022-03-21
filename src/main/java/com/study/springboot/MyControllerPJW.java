@@ -30,6 +30,18 @@ public class MyControllerPJW {
 
 
 	@RequestMapping("/customer/customer01")
+	public String customer01( Model model,
+			HttpServletRequest request ) {
+		
+		List<One2oneDto> list = one2onedao.list();
+		model.addAttribute("list", list);
+		
+		//System.out.println( list );
+		
+		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
+	}
+	
+	@RequestMapping("/customer/listForm")
 	public String listForm( Model model,
 			HttpServletRequest request ) {
 		
