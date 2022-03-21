@@ -27,9 +27,9 @@
       <table class="table table-sm">
       <input type="hidden" name="member_id" value="${dto.member_id}" />
         <tr>
-          <th>현재 비밀번호를 지우고 변경하고 싶은 새 비밀번호를 입력하세요</th>
+          <th>새 비밀번호를 입력하세요</th>
           <td>
-            <input type="text" name="member_pw" value="${dto.member_pw}" />
+            <input type="text" name="member_pw" />
           </td>
         </tr>
         

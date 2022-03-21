@@ -4,6 +4,7 @@
     flex-flow: row nowrap;
     align-items: center;
     width: 100%;
+    margin-bottom: 50px;
   	}
   	
     .box {
@@ -31,6 +32,8 @@
       width: 850px;
       text-align: center;
     }
+    
+ 
     
     .menu_btn {
     margin: 10px;

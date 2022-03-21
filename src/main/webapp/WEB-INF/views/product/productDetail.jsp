@@ -67,6 +67,7 @@
   <div class="box">
     <c:forEach var="dto" items="${list}">
     <div class="head_box">
+<<<<<<< HEAD
       <div class="img_box">
         <img src="${dto.product_img1}" id="product_img">
       </div>
@@ -119,6 +120,59 @@
         </form>
        
       </div>
+=======
+    <div class="img_box">
+      <img src="${dto.product_img1}" id="product_img">
+  </div>
+	      
+	      	      <div class="section">
+	      	<form method="post">
+	        <table class="table">
+	        <input type="hidden" id="product_idx" name="product_idx" value="${product_idx }" />
+	          <thead>
+	            <tr>
+	              <th scope="col" colspan="2" name="product_name" >${dto.product_name}</th>
+	            </tr>
+	          </thead>
+	          <tbody>
+	           <tr>
+	              <th scope="row">판매 가격</th>
+	              <td name="product_price">${dto.product_price}원</td>
+	              <input type="hidden" name="product_price" id="product_price" value="${dto.product_price}" >
+	            </tr>
+	            <tr>
+	              <th scope="row">수량 <br>( 최대 ${dto.product_count}개 )</th>
+	              <td>
+	             <input type="text" id="product_count" name="product_count" value="1" min="1" max="${dto.product_count}" >
+	             <input type="hidden" id="max_count" value="${dto.product_count}">
+	                  <button type="button" class="amount_btn" id="counterP" onclick="counter();">+</button>
+	                  <button type="button" class="amount_btn" id="counterM" onclick="counter();">-</button>
+	             </td>
+	            </tr>
+	            <tr>
+	              <th scope="row">총 제품가격</th>
+	              <td>
+	              		<span class="totalPrice_span" ></span>원
+	              </td>
+	            </tr>
+	            <tr>
+	              <th scope="row">배송비</th>
+	              <td>
+	              		3000원 <br>
+	              		( 50,000원 이상 구매시 배송비 무료 )
+	              </td>
+	            </tr>
+	            <tr>
+	              <th scope="row" colspan="2" class="order_btn_box">
+	                <input type="submit" value="장바구니" formaction="/basketAdd" name="payment" id="order_btn"/>
+	                <input type="submit" value="구매하기" formaction="/order/orderForm?product_idx=${dto.product_idx}" name="payment" id="order_btn"/>
+	    	      </th>
+	            </tr>
+	          </tbody>
+	       	 </table>
+	        </form>
+	      </div>
+>>>>>>> d7ba44e55d8e13412c7c365d491e10e7e644a126
     </div>
     <div class="info">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -187,38 +241,42 @@
         </div>
         </a>
         <a name="reviews">
-        <div class="product_review">
-          
-          <div class="product_review_list">
-            <table width="900" cellpadding="0" cellspacing="0" id="review_table">
+    <div class="product_review">
+      
+      <div class="product_review_list">
+          <table width="900" cellpadding="0" cellspacing="0" id="review_table">
+         <tr>
+          <th>상품 이미지</th>
+          <th>상품평</th>
+          <th>아이디</th>
+          <th>날짜</th>
+        </tr>
+        <c:forEach var="review_list" items="${ review_list }">
           <tr>
-          	<th>상품 이미지</th>
-            <th>상품평</th>
-            <th>아이디</th>
-            <th>날짜</th>
+          <td class="review_img_box">
+          <img src=${ review_list.review_img } id="review_img">
+          </td>
+          <td>${ review_list.review_content }</td>
+          <td>${ review_list.review_member_id }</td>
+            <td>
+        <c:set var="dateVar" value="${ review_list.review_date }" />
+        <fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
+         </td>
           </tr>
-          <c:forEach var="review_list" items="${ review_list }">
-            <tr>
-            <td class="review_img_box">
-            <img src=${ review_list.review_img } id="review_img">
-            </td>
-            <td>${ review_list.review_content }</td>
-            <td>${ review_list.review_member_id }</td>
-              <td>
-					<c:set var="dateVar" value="${ review_list.review_date }" />
-					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
-				</td>
-            </tr>
-          </c:forEach>
+        </c:forEach>
         </table>
-          </div>
-          
-          <div class="review_btn_box">
-            <input type="button" value="상품평 작성하기" id="review_btn" onclick="showPopup();"/>
-          </div>
-        </div>
-        </a>
+      </div>
+      
+      <div class="review_btn_box">
+        <input type="button" value="상품평 작성하기" id="review_btn" onclick="showPopup();"/>
+      </div>
     </div>
-  </div>
+  </a>
+        
+        
+        
+        </div>
+    </div>
+    </div>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

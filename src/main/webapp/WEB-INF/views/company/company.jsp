@@ -29,9 +29,13 @@
 
 </div>
 
+    <div class="img_box">
     <div class="img_section">
-      <img src="/img/Genie_lamp.png" >
+      <img src="/img/company_back_img.jpg" 
+          style="width: 100%; height: 100%;">
+      
     </div>
+  </div>
 
 <div class="box">
 <div class="inside_box">

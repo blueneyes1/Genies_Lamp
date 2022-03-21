@@ -2,6 +2,11 @@
     pageEncoding="UTF-8"%>
 
 <head>
+
+<!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+
 	<title>Genie's Lamp - 회원가입</title>
 </head>
 
@@ -107,12 +112,12 @@
 <div class="box">
 <form action="/join2Action" method="post" name="userInfo" onsubmit="return checkValue();">
 	<div class="information">
-		<table>
+		<table class="table table-hover">
 			<tr>
 				<td>아이디</td>
 				<td>
 					<input type="text" name="member_id" id="member_id" required>
-					<button onclick="idCheck();" id="id_confirm_btn">아이디중복확인</button>
+					<button onclick="idCheck();" id="id_confirm_btn">중복확인</button>
 		            <span id="small_txt">(영문 소문자, 숫자로 4~16자)</span>
 		            <input type="hidden" name="member_id_check" id="member_id_check" value="no">
 		       	</td>
@@ -189,6 +194,10 @@
     
 </form>
 </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
 
 	<!-- 다음 우편번호 서비스 API -->

@@ -27,51 +27,86 @@ public class MyControllerPJW {
 	IOne2oneDao one2onedao;
 	@Autowired
 	IOne2one_replyDao replydao;
+	
+	
+	@RequestMapping("/admin/board")
+	public String root() {
+		return "admin/board";
+	}
+	
 
-
-	@RequestMapping("/customer/customer01")
+	@RequestMapping("/admin/121listForm")
+	public String customer01( Model model,
+			HttpServletRequest request ) {
+		
+		List<One2oneDto> list = one2onedao.list();
+		model.addAttribute("list", list);
+		
+		//System.out.println( list );
+		
+		return "admin/121listForm";  //"listForm.jsp" 디스패치함.
+	}
+	
+	@RequestMapping("/mypage/121listForm")
+	public String list2( Model model,
+			HttpServletRequest request ) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		List<One2oneDto> list = one2onedao.list2( member_id);
+		model.addAttribute("list", list);
+		
+		//System.out.println( list );
+		
+		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
+	}
+	
+	@RequestMapping("/mypage/listForm")
 	public String listForm( Model model,
 			HttpServletRequest request ) {
 		
 		List<One2oneDto> list = one2onedao.list();
-		model.addAttribute("mainPage", "one2one/list.jsp");
+		model.addAttribute("list", list);
 		
 		//System.out.println( list );
 		
-		return "one2one/listForm";  //"listForm.jsp" 디스패치함.
+		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
 	}
 	
 	
-	@RequestMapping("/customer/writeForm")
+	@RequestMapping("/mypage/writeForm")
 	public String writeForm(HttpServletRequest request ) {
 		
-		return "one2one/writeForm"; //"writeForm.jsp" 디스패치함.
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		return "mypage/121writeForm"; //"writeForm.jsp" 디스패치함.
 	}
 	
-	@RequestMapping("/customer/writeAction")
+	@RequestMapping("/mypgae/writeAction")
 	@ResponseBody
-	public String writeAction( @RequestParam("one2one_member_id") String one2one_member_id,
+	public String writeAction( 
 								@RequestParam("one2one_title") String one2one_title,
 								@RequestParam("one2one_content") String one2one_content,
 								HttpServletRequest request) 
 	{
-		int result = one2onedao.write(one2one_member_id, one2one_title, one2one_content);
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		int result = one2onedao.write(member_id, one2one_title, one2one_content);
 		if( result == 1 ) {
 			System.out.println("글쓰기 성공!");
 			
 			//return "redirect:listForm"; //listForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글쓰기 성공!'); location.href='/customer/customer01';</script>";
+			return "<script>alert('글쓰기 성공!'); location.href='/mypage/listForm';</script>";
 		}else {
 			System.out.println("글쓰기 실패!");
 			
 			//return "redirect:writeForm"; //writeForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글쓰기 실패!'); location.href='/customer/writeForm';</script>";
+			return "<script>alert('글쓰기 실패!'); location.href='/mypage/writeForm';</script>";
 		}
 		
 	}
-	
-	
-	@RequestMapping("/customer/listForm")
+
+
+	@RequestMapping("/mypage/contentForm")
 	public String contentForm(@RequestParam("one2one_idx") String one2one_idx,
 			                   Model model,
 			       			   HttpServletRequest request ) {
@@ -85,33 +120,51 @@ public class MyControllerPJW {
 		List<One2one_replyDto> reply_list = replydao.reply_list( one2one_idx  );
 		model.addAttribute("reply_list", reply_list);
 		
-		return "one2one/contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
+		return "mypage/121contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
 	}
 	
-	@RequestMapping("/updateAction")
+	@RequestMapping("/admin/contentForm")
+	public String admincontentForm(@RequestParam("one2one_idx") String one2one_idx,
+			                   Model model,
+			       			   HttpServletRequest request ) {
+		
+		
+		//게시글 보기
+		One2oneDto dto = one2onedao.viewDto( one2one_idx );
+		model.addAttribute("dto", dto);
+		
+		//댓글 리스트 가져오기
+		List<One2one_replyDto> reply_list = replydao.reply_list( one2one_idx  );
+		model.addAttribute("reply_list", reply_list);
+		
+		return "admin/121contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
+	}
+	
+	
+	@RequestMapping("/customer/updateAction")
 	@ResponseBody
 	public String updateAction( @RequestParam("one2one_idx") String one2one_idx,
-								@RequestParam("one2one_member_id") String one2one_member_id,
 								@RequestParam("one2one_title") String one2one_title,
 								@RequestParam("one2one_content") String one2one_content,
 								HttpServletRequest request ) {
 		
-		int result = one2onedao.updateDto(one2one_idx, one2one_member_id, one2one_title, one2one_content);
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		int result = one2onedao.updateDto(one2one_idx, member_id, one2one_title, one2one_content);
 		if( result == 1 ) {
 			System.out.println("글수정 성공!");
 			
 			//return "redirect:listForm"; //listForm.jsp 으로 리다이렉트 됨.
-			return "<script>alert('글수정 성공!'); location.href='/one2one/listForm';</script>";
+			return "<script>alert('글수정 성공!'); location.href='/mypage/121listForm';</script>";
 		}else {
 			System.out.println("글수정 실패!");
 			
 			//return "redirect:contentForm?one2one_idx=" + one2one_idx; //updateForm 으로 리다이렉트 됨.
-			return "<script>alert('글수정 실패!'); location.href='/one2one/contentForm?one2one_idx=" + one2one_idx + "';</script>";
+			return "<script>alert('글수정 실패!'); location.href='/mypage/contentForm?one2one_idx=" + one2one_idx + "';</script>";
 		}
 		
 	}
 	
-	@RequestMapping("/deleteAction")
+	@RequestMapping("/customer/deleteAction")
 	@ResponseBody
 	public String deleteAction(@RequestParam("one2one_idx") String one2one_idx,
 								HttpServletRequest request)
@@ -131,28 +184,26 @@ public class MyControllerPJW {
 		
 	}
 	
-	@RequestMapping("/writeReplyAction")
+	@RequestMapping("/admin/writeReplyAction")
 	@ResponseBody
 	public String writeReplyAction( @RequestParam("one2one_reply_content") String one2one_reply_content,
-								@RequestParam("one2one_reply_title") String one2one_reply_title,
-								@RequestParam("one2one_reply_member_id") String one2one_reply_member_id,
 								HttpServletRequest request) 
 	{
-		
-		int result = replydao.reply_write(one2one_reply_title, one2one_reply_content, one2one_reply_member_id);
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		int result = replydao.reply_write(one2one_reply_content, member_id);
 		if( result == 1 ) {
 			System.out.println("답변달기 성공!");
 			
-			return "<script>alert('답변달기 성공!'); location.href='/contentForm?one2one_idx=" + one2one_reply_member_id + "';</script>";
+			return "<script>alert('답변달기 성공!'); location.href='/admin/contentForm?one2one_idx=" + member_id + "';</script>";
 		}else {
 			System.out.println("답변달기 실패!");
 			
-			return "<script>alert('답변달기 실패!'); location.href='/contentForm?one2one_idx=" + one2one_reply_member_id + "';</script>";
+			return "<script>alert('답변달기 실패!'); location.href='/admin/contentForm?one2one_idx=" + member_id + "';</script>";
 		}
 		
 	}
 	
-	@RequestMapping("/deleteReplyAction")
+	@RequestMapping("/admin/deleteReplyAction")
 	@ResponseBody
 	public String deleteReplyAction(@RequestParam("one2one_reply_idx") String one2one_reply_idx,
 								   @RequestParam("one2one_idx") String one2one_idx,
