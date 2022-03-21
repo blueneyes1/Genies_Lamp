@@ -8,11 +8,9 @@
 <meta charset="UTF-8">
 <title>공지사항 상세</title>
 </head>
-<<<<<<< HEAD
+
 <body>
-<form action="writeAction" method="post">
-<table class="noticetable" border="1" color="black" width="500">
-=======
+
 <style>
 .menu{width:800px; margin: 0 auto}
 
@@ -73,7 +71,7 @@ text-align: center;
 <div class="NFtable">
 <form action="writeAction" method="post">
 <table class="NFForm">
->>>>>>> dev
+
 	
 	<tr>
 	<th>번호</th>
@@ -92,19 +90,16 @@ text-align: center;
 	 
 	 <tr>
 	 <th>내용</th>
-<<<<<<< HEAD
-	 <td><textarea rows="10" cols="50" name="notice_content"></textarea></td>
-	 </tr>
+
 	 
-</table>
-=======
+
 	 <td><textarea rows="10" cols="80" name="notice_content"></textarea></td>
 	 </tr>
 	 
 </table>
 	</div>
 	</div>
->>>>>>> dev
+
 	
 	
 	
