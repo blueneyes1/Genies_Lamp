@@ -52,6 +52,10 @@ border-radius: 3px;
 text-align: center;
 }
 
+.menu_btn button:hover {
+	background-color: rgb(130, 130, 215);
+	}
+
 a {
 text-decoration: none;
 }

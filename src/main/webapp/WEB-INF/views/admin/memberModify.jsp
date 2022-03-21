@@ -36,7 +36,7 @@
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/admin/reviewlist' ">상품평관리</button>
+          <button onclick="location.href='/admin/reviewlist' " id="btns">상품평관리</button>
         </div>
 
         <div class="menu_btn">
