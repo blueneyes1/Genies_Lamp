@@ -10,19 +10,16 @@
 	#main_box {
   	display: flex;
   	flex-flow: row nowrap;
-  	width: 1200px;
 	}
 	
 	#aside_box {
   	flex: 1 1 auto;
   	flex-direction: column;
-  	width: 300px;
 	}
 	
 	#section_box {
   	flex: 2 1 auto;
   	flex-direction: column;
-  	width: 900px;
 	}
 
 	#btns {
