@@ -73,7 +73,9 @@ margin: auto;
 	<div class="writelistbtn">
 	<input type="hidden" name="faq_idx" value="${ faq_dto.faq_idx }" >
 	<input type="button"  value="목록" onclick="window.location.href='/faq/FaqForm'">
+	<c:if test="${ member_grade eq 'A' }">
 	<a href="/faq/FaqContent?faq_idx=${ faq_dto.faq_idx }"><input type="button"  value="수정" ></a>
+	</c:if>
 	</div>
 	<div></div>
 
