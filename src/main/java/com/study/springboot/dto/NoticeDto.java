@@ -12,6 +12,10 @@ public class NoticeDto {
 	private String notice_content;
 	private Date notice_date;
 	
+	public NoticeDto() {
+		
+	}
+
 	public NoticeDto(int notice_idx, String notice_title, String notice_content, Date notice_date) {
 		super();
 		this.notice_idx = notice_idx;

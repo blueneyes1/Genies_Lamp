@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+.box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-bottom: 50px;
+	font-size: 12px;
+}
+
+.btn_box button {
+	background-color: rgb(178, 178, 238);
+ border: none;
+ width: 90px;
+ height: 25px;
+ color: rgb(17, 17, 17);
+ border-radius: 3px;
+}
+

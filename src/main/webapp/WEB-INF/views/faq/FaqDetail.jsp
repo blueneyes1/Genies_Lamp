@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>공지사항 상세</title>
 </head>
+<<<<<<< HEAD
 <style>
 table.noticetable{
 border-collapse:separate;
@@ -64,6 +65,19 @@ margin: auto;
 	
 	 <tr> 
 	 	<td>${faq_dto.faq_title }</td>
+=======
+<body>
+
+
+<table class="faqtable" border="1" color="black" width="500">
+	<tr>
+		<th>제목</th>
+		<td>${faq_dto.faq_title }</td>		
+	</tr>
+	
+	 <tr> 
+	 	<th>내용</th>
+>>>>>>> dev
 	 	<td>${faq_dto.faq_content }</td>
 	 </tr>
 </table>
@@ -71,6 +85,7 @@ margin: auto;
 	
 	
 	<div class="writelistbtn">
+<<<<<<< HEAD
 	<input type="hidden" name="faq_idx" value="${ faq_dto.faq_idx }" >
 	<input type="button"  value="목록" onclick="window.location.href='/faq/FaqForm'">
 	<c:if test="${ member_grade eq 'A' }">
@@ -78,6 +93,14 @@ margin: auto;
 	</c:if>
 	</div>
 	<div></div>
+=======
+	<input type="hidden" name="faq_idx" value="${ faq_dto.faq_idx }">
+	<input type="button" value="목록" onclick="window.location.href='/faq/FaqForm'">
+	<a href="/faq/FaqContent?faq_idx=${ faq_dto.faq_idx }">
+		<input type="button" value="수정" >
+	</a>
+	</div>
+>>>>>>> dev
 
 </body>
 </html>

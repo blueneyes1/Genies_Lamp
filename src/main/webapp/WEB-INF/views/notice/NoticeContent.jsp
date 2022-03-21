@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>공지사항 상세</title>
+<<<<<<< HEAD
 <style>
 table.noticetable{
 border-collapse:separate;
@@ -45,6 +46,9 @@ border-bottom : 1px solid #ccc;
 
 </head>
 
+=======
+</head>
+>>>>>>> dev
 <body>
 <form action="updateAction" method="post">
 <table class="noticetable" border="1" color="black" width="500">
@@ -68,7 +72,11 @@ border-bottom : 1px solid #ccc;
 	 
 	 <tr>
 	 <th>내용</th>
+<<<<<<< HEAD
 	 <td><textarea rows="10" cols="100" name="notice_content">${viewDto.notice_content }</textarea></td>
+=======
+	 <td><textarea rows="10" cols="50" name="notice_content">${viewDto.notice_content }</textarea></td>
+>>>>>>> dev
 	 </tr>
 	 
 </table>
