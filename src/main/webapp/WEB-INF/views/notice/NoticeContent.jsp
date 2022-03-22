@@ -7,18 +7,19 @@
 <head>
 <meta charset="UTF-8">
 
-
+<!-- 테이블 부트스트랩 링크 -->
  <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 <title>공지사항 상세</title>
 
 <style>
+<!--전체 메인 -->
 .main{
 padding-bottom:20px;
-
-
 }
+
+
 .tablesize{
 width:100%;
 display:flex;

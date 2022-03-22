@@ -5,13 +5,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-
+	<meta charset="UTF-8">
 
  <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-<title>공지사항 상세</title>
+<title>문의내용</title>
 
 <style>
 .main{
@@ -100,15 +99,9 @@ float: right;
 }
 
 
-
-</style>
+	</style>
 
 </head>
-	 <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-	
-
-
 <body>
 <div class="main">
 	<div class="maintable">
@@ -119,7 +112,7 @@ float: right;
 	<form action="updateAction" method="post">
 		<div class="tablesize">
 		<table class="table table-sm"  style="margin-left: auto; margin-right: auto;">
-			<input type="hidden" name="one2one_idx" value="${ dto.one2one_idx }" />
+			<input type="hidden" name="one2one_idx" value="${ dto.one2one_idx }"/>
 			<thead>
 			<tr>
 				<th scope="row">번호</th>
@@ -166,7 +159,7 @@ float: right;
 					
 					<label>댓글</label><textarea rows="2" cols="50" name="one2one_reply_content"></textarea><br>
 					<label>아이디</label><input type="text" name="one2one_reply_member_id" value="${ member_id }"><br>
-					<input type="submit" value="답글달기">
+					<button type="submit" class="w-btn w-btn-indigo">답글달기</button>
 				</td>
 				
 			</c:if>
