@@ -164,70 +164,6 @@ text-align: center;
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
 
-
- 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>1대1문의</title>
-	<style>
-
-.menu{width:800px; margin: 0 auto}
-
-
-table.NFForm{
-border-collapse:separate;
-border-spacing:0;
-text-align:left;
-line-height:1.5;
-border-top:1px solid #ccc;
-border-left:1px solid #ccc;
-margin: auto;
-}
-
-table.NFForm th{
-width:50px;
-padding : 10px;
-font-weight:bold;
-vertical-align:top;
-border-right :1px solid #ccc;
-border-bottom : 1px solid #ccc;
-border-top: 1px solid #fff;
-border-left: 1px solid #fff;
-background:	#F5F5DC;
-}
-table.NFForm td{
-width:250px;
-padding : 10px;
-vertical-align:top;
-border-right :1px solid #ccc;
-border-bottom : 1px solid #ccc;
-}
-
-.contanier-fluid{
-margin:auto;
-}
-.writebtn
-color:cyan;
-
-.topline{
-position:relative;
-}
-
-.name{
-position: absolute;
-top: 50%;
-text-align: center;
-
-}
-
-
-
-
-
-
-	</style>
 	
 </head>
 <body>
@@ -236,26 +172,17 @@ text-align: center;
 
   <div class="menu">
 	<div class="NFtable">
-
- 
-
-      <table class="NFForm">
-		  <colgroup>
-    	<col width="7%"/>
-    	<col width="20%"/>
-    	<col width="60%"/>
-    	<col widht="13%"/>
-
-
-	
+      <table class="table table-sm"">
+  <thead>
 		<tr>
-			<th>번호</th>
-			<th>아이디</th>
-			<th>제목</th>
-			<th>날짜</th>
-		</tr>
-		
-		<c:forEach var="dto" items="${ list }">
+		  <th scope="col">번호</th>
+     	  <th scope="col">아이디</th>
+      	  <th scope="col">제목</th>
+		  <th scope="col">날짜</th>
+		 </tr>
+  </thead>
+  	<tbody>
+	<c:forEach var="dto" items="${ list }">
 			<tr>
 				<td>${ dto.one2one_idx }</td>
 				<td>${ dto.one2one_member_id }</td>
@@ -268,7 +195,7 @@ text-align: center;
 				</td>
 			</tr>
 		</c:forEach>
-		
+		  </tbody>
 	</table>
 	
 	<script>
@@ -313,7 +240,12 @@ text-align: center;
 </div>
 </div>
 
-	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+  
   
 
 

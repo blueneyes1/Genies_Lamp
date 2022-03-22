@@ -102,12 +102,18 @@ public class MyControllerPJW {
 		
 	
 	@RequestMapping("/mypage/writeForm")
-	public String writeForm(HttpServletRequest request ) {
+	public String writeForm(@RequestParam(value="one2one_idx", required=false, defaultValue="") String one2one_idx,
+			Model model) {
 		
 		
-		String member_id = (String) request.getSession().getAttribute("member_id");
-		return "mypage/121writeForm"; //"writeForm.jsp" 디스패치함.
-	}
+model.addAttribute("one2one_idx", one2one_idx);
+System.out.println( one2one_idx);
+
+model.addAttribute("mainPage", "mypage/121writeForm.jsp");
+
+
+return "index"; //index.jsp 디스패치 
+}
 	
 	@RequestMapping("/mypage/writeAction")
 	@ResponseBody

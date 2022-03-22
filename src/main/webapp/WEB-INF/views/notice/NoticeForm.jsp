@@ -187,7 +187,7 @@ text-align: center;
 	 <button onclick="location.href='/notice/NoticeWrite'" class="w-btn w-btn-indigo">작성</button>
 	</c:if>
 	</div>
- 	<div></div>
+ 	<div>
 
  </div> 	
 <div class="contanier-fluid">
