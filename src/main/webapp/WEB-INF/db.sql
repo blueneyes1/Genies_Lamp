@@ -205,13 +205,41 @@ create table genies_review_reply(
 drop sequence genies_review_reply_seq;
 create sequence genies_review_reply_seq;
 
+
+insert into genies_faq(faq_idx, faq_title,  faq_content)
+values (genies_faq_seq.nextval, '회원가입을 해야지만 주문할수 있나요?', 
+'지니의 램프는 고객님의 소중한 상품을 빠르고 정확하게 보내드리기 위해 회원가입제를 운영하고 있습니다.');
+
+insert into genies_faq(faq_idx, faq_title,  faq_content)
+values (genies_faq_seq.nextval, '아이디/비밀번호/회원정보 변경이 가능한가요?', 
+'비밀번호와 회원정보는 변경 가능하나 아이디 변경은 불가합니다.
+아이디 변경을 원할시 회원 탈퇴 후 재가입 해주셔야 합니다.
+비밀번호 및 회원정보 변경을 원할 시[마이페이지]>[회원정보수정]에서 변경할 사항을 입력하신뒤 [회원정보수정] 버튼을 눌러 저장해주시면 됩니다.');
+
+insert into genies_faq(faq_idx, faq_title,  faq_content)
+values (genies_faq_seq.nextval, 'ID/ 비밀번호가 기억나지 않아요 찾을수 있나요?', 
+'홈페이지 상단[로그인]>[아이디/비밀번호 찾기]에서 가입정보를 입력하시면 확인 가능합니다.');
+
+insert into genies_faq(faq_idx, faq_title,  faq_content)
+values (genies_faq_seq.nextval, '최저가 보상 제도는 어떤 제도인가요?', 
+'지니의 램프에서 구입한 동일한 제품이 타 사이트에서 결제한 금액보다 저렴하게 판매되고 있을 경우 고객센터로 연락주시면 대조작업을 통해 동일제품 유무를 확인 후 차액을 환불해드리는 보상 제도입니다.');
+
+insert into genies_faq(faq_idx, faq_title,  faq_content)
+values (genies_faq_seq.nextval, '수령자/배송지 주소를 변경하고 싶어요.', 
+'고객센터로 연락하시어 상담을 통해 발송 전 변경요청이 가능합니다.
+단, 발송 후에는 변경 처리가 어려운 점 양해 부탁 드립니다.
+출고 후, 고객님 사정에 의해 택배사를 통해 주소지 변경요청은 드릴수 있으나 택배비용이 착불로 청구될수 있습니다.(고객부담)');
+
+insert into genies_faq(faq_idx, faq_title,  faq_content)
+values (genies_faq_seq.nextval, '교환, 환불, AS가 가능한가요?', 
+'제품 자체의 하자가 아닌 고객님 개인 사정으로 인한 요청의 경우,
+주문건이 아닌 박스 기준으로 1박스당 왕복 택배비가 발생되며, 
+특수 지역 및 대형 제품의 경우 비용이 추가될 수 있습니다.');
+
+
+insert into genies_faq(faq_idx, faq_title,  faq_content)
+values (genies_faq_seq.nextval, '일반 설치 서비스도 이용 가능한가요?', 
+'네, 지니의 램프는 인테리어 공사 일정, 이사 일정 등으로 인해 조명을 먼저 받고 추후에 설치 전문가의 도움을 받을수 있는 "일반 설치 서비스"도 운영 중입니다.');
+
+
 commit;
-
-
-insert into genies_member(member_idx, member_id, member_pw, member_name, 
-member_email, member_email_receive, member_pw_question, member_pw_answer, 
-member_phone, member_address1, member_address2, member_address3, member_grade, member_join_date) 
-values (genies_member_seq.nextval, 'test', '1234', 'test', 'test@test.com', 0,0,0,'010-1234-5678', 
-'01695', '서울 노원구 상계로 64 화랑빌딩', '7층', 'c', sysdate);
-
-
