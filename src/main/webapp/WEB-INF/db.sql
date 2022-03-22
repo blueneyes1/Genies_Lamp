@@ -105,7 +105,7 @@ create table genies_one2one(
     one2one_address3   varchar2(100),
     one2one_title    varchar2(100),
     one2one_content  varchar2(2000),
-    one2one_date     date default sysdate
+    one2one_date     date default sysdate,
     foreign key (one2one_member_id)references genies_member(member_id)
 );
 
