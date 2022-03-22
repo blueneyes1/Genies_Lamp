@@ -122,6 +122,9 @@ text-align: center;
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
 </head>
+	 <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+	
 <body>
 
   
@@ -130,11 +133,7 @@ text-align: center;
 
  	<div class="topline">
        <div class="name">
-<<<<<<< HEAD
-          
-=======
-         
->>>>>>> ac2cdb923e7e70ba9a378786fc8091d46e1f9b89
+
           </div>
      
          </div>
@@ -151,25 +150,23 @@ text-align: center;
           <h3>Faq</h3>
         </div>
          
-  <table class="NFForm">
-		  <colgroup>
-    	<col width="10%"/>
-    	<col width="90%"/>
- 
+         <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">제목</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
 
-
-        <tr>
-          <th>번호</th>
-          <th>제목</th>
-          
-        </tr>
-        
         
       		<c:forEach var="faq_dto" items="${ faq_list }" varStatus="status">
 	        <tr onclick="window.location.href='/faq/FaqDetail?faq_idx=${faq_dto.faq_idx}';"  style="cursor:pointer;">
 
-          <td width=300 height=30 style='table-layout:fixed'>${ status.count  }</td>
-	      <td width=300 height=30 style='table-layout:fixed'>${ faq_dto.faq_title }</td>
+          <td >${ status.count  }</td>
+	      <td >${ faq_dto.faq_title }</td>
 	          </tr>
         	</c:forEach>
        
