@@ -57,7 +57,7 @@ create table genies_product(
     product_price 	 number(8),		-- 가격
     product_count     number(8),	-- 수량
     product_img1      varchar2(1000),
-    product_content		varchar2(5000),  	-- 소개글
+    product_content		varchar2(4000),  	-- 소개글
     product_date		date default sysdate
     
 );
@@ -242,19 +242,19 @@ values (genies_faq_seq.nextval, '일반 설치 서비스도 이용 가능한가�
 '네, 지니의 램프는 인테리어 공사 일정, 이사 일정 등으로 인해 조명을 먼저 받고 추후에 설치 전문가의 도움을 받을수 있는 "일반 설치 서비스"도 운영 중입니다.');
 
 insert into genies_product(product_idx, product_type,  product_name, product_brand, product_color, product_price, product_count, product_img1,product_content, product_date)
-values (genies_product_seq.nextval, '스탠드 등', '큐브 미드센추리 스텐드', 'Genie origins', '블랙', '28,900 원', '17', '/upload/2022222115456166.JPG', '전구가 자연스럽게 노출되어 전구 선택에 따른 비비드, 심플, 미니멀, 미드센추리 모던 까지 트렌드의 모든 키워드를 담은 스탠드 조명으로 감각적인 연출이 가능한 인테리어 스탠드 입니다.',  sysdate);
+values (genies_product_seq.nextval, '스탠드 등', '큐브 미드센추리 스텐드', 'Genie origins', '블랙', '28900', '17', '/upload/2022222115456166.JPG', '전구가 자연스럽게 노출되어 전구 선택에 따른 비비드, 심플, 미니멀, 미드센추리 모던 까지 트렌드의 모든 키워드를 담은 스탠드 조명으로 감각적인 연출이 가능한 인테리어 스탠드 입니다.',  sysdate);
 
 insert into genies_product(product_idx, product_type,  product_name, product_brand, product_color, product_price, product_count, product_img1,product_content, product_date)
-values (genies_product_seq.nextval, '스탠드 등', 'LED 오로라 우주비행사 무드등', 'Genie origins', '화이트', '24,500 원', '22', '/upload/20222220135853.JPG', '리모컨으로 변화 속도와 밝기를 손 쉽게 전환할 수 있는 우주비행사 무드등과 함께 방안을 우주의 오로라로 수놓아 보세요.',  sysdate);
+values (genies_product_seq.nextval, '스탠드 등', 'LED 오로라 우주비행사 무드등', 'Genie origins', '화이트', '24500', '22', '/upload/20222220135853.JPG', '리모컨으로 변화 속도와 밝기를 손 쉽게 전환할 수 있는 우주비행사 무드등과 함께 방안을 우주의 오로라로 수놓아 보세요.',  sysdate);
+
+insert into genies_product(product_idx, product_type,  product_name, product_brand, product_color, product_price, product_count, product_img1, product_content, product_date)
+values (genies_product_seq.nextval, '스탠드 등', 'LED 태양광 반딧불 정원등', 'Genie origins', '옐로우', '6300', '14', '/upload/2022222093558.JPG', '태양광 전지 패널이 붙어 있어 태양광을 이용해 충전되며 어두운곳에서 센서가 작동하여 마치 병속에 담아둔 반딧불 처럼 반짝이는 분위기를 연출할 수 있습니다. 주거공간, 상업공간 등의 정원등, 무드등으로 추천드립니다.',  sysdate);
 
 insert into genies_product(product_idx, product_type,  product_name, product_brand, product_color, product_price, product_count, product_img1,product_content, product_date)
-values (genies_product_seq.nextval, '스탠드 등', 'LED 태양광 반딧불 정원등', 'Genie origins', '옐로우', '6,300 원', '14', '/upload/2022222093558.JPG, '태양광 전지 패널이 붙어 있어 태양광을 이용해 충전되며 어두운 곳에서 센서가 작동하여 마치 병속에 담아둔 반딧불 처럼 반짝이는 분위기를 연출할 수 있습니다. 주거공간, 상업공간 등의 정원등, 무드등으로 추천드립니다.',  sysdate);
+values (genies_product_seq.nextval, '스탠드 등', '카르텔 무선 배터리 램프', 'Genie origins', '화이트', '39800', '12', '/upload/202222201545917.JPG', '크리스탈 형태의 갓에서 퍼져 나오는 매혹적인 빛 그림자가 공간을 밝혀주며 USB충전형 무선 타입으로 휴대성까지 높은 카르텔 무선 배터리 램프를 이용해, 감각적인 무드를 연출해보세요.',  sysdate);
 
 insert into genies_product(product_idx, product_type,  product_name, product_brand, product_color, product_price, product_count, product_img1,product_content, product_date)
-values (genies_product_seq.nextval, '스탠드 등', '카르텔 무선 배터리 램프', 'Genie origins', '화이트', '39,800 원', '12', '/upload/202222201545917.JPG', '크리스탈 형태의 갓에서 퍼져 나오는 매혹적인 빛 그림자가 공간을 밝혀주며 USB충전형 무선 타입으로 휴대성까지 높은 카르텔 무선 배터리 램프를 이용해, 감각적인 무드를 연출해보세요.',  sysdate);
-
-insert into genies_product(product_idx, product_type,  product_name, product_brand, product_color, product_price, product_count, product_img1,product_content, product_date)
-values (genies_product_seq.nextval, '스탠드 등', '오프리시 공기청정 단스탠드', 'Genie origins', '골드', '263,900 원', '19', '/upload/202222202530402.JPG', '쾌적한 일상을 위한 필수품이 되어버린 공기청정기에 시각적 쾌적함을 챙긴 오프리시 공기청정 단스탠드로 공기와 인테리어를 모두 잡아보세요.',  sysdate);
+values (genies_product_seq.nextval, '스탠드 등', '오프리시 공기청정 단스탠드', 'Genie origins', '골드', '263900', '19', '/upload/202222202530402.JPG', '쾌적한 일상을 위한 필수품이 되어버린 공기청정기에 시각적 쾌적함을 챙긴 오프리시 공기청정 단스탠드로 공기와 인테리어를 모두 잡아보세요.',  sysdate);
 
 
 commit;
