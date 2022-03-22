@@ -151,7 +151,7 @@ float: right;
 	    		
 				<td>
 					
-					<label>댓글</label><textarea rows="2" cols="50" name="one2one_reply_content"></textarea><br>
+					<label>댓글</label><textarea rows="1" cols="50" name="one2one_reply_content"></textarea><br>
 					<label>아이디</label><input type="text" name="one2one_reply_member_id" value="${ member_id }"><br>
 					<button type="submit" class="w-btn w-btn-indigo">답글달기</button>
 				</td>
@@ -185,7 +185,7 @@ float: right;
 					<c:set var="dateVar" value="${ reply_dto.one2one_reply_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
 				</td>
-				<td><a href="/admin/deleteReplyAction?one2one_reply_idx=${ reply_dto.one2one_reply_idx }&one2one_reply_one2one_idx=${ reply_dto.one2one_reply_one2one_idx }"><button>삭제</button></a></td>
+				<td><a href="/admin/deleteReplyAction?one2one_reply_idx=${ reply_dto.one2one_reply_idx }&one2one_reply_one2one_idx=${ reply_dto.one2one_reply_one2one_idx }"><button class="w-btn w-btn-indigo">삭제</button></a></td>
 			</tr>
 		</c:forEach>
 	</table>
