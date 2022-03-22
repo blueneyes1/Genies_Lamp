@@ -44,11 +44,12 @@ border-bottom : 1px solid #ccc;
 
 .btn{
 background-color: #87CEFA;
-float:right;
+
 }
 
 .writelistbtn{
 margin: auto;
+float:right;
 }
 
 </style>
@@ -62,7 +63,7 @@ margin: auto;
 
 
 
-<table class="noticetable" border="1" color="black" width="500">
+<table class="noticetable">
 
 	<tr>
 		<th>제목</th>

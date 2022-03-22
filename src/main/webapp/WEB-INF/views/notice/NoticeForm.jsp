@@ -133,6 +133,8 @@ text-align: center;
 	<!-- 부트스트랩 -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	 <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 	
 </head>
 <body>
@@ -153,43 +155,32 @@ text-align: center;
          </div>
   <div class="menu">
 <div class="NFtable">
-      <table class="NFForm">
-        <colgroup>
-
-    	<col width="10%"/>
-    	<col width="70%"/>
-    	<col width="20%"/>
-  </colgroup>
-        <tr>
-          <th scope="row" colspan="1" >번호</th>
-         
-          <th scope="row" colspan="1">제목</th>
-       
-          <th scope="row" colspan="1">작성일</th>
-       
-
-        </tr>
-        
-        
-      		<c:forEach var="dto" items="${ notice_list }" varStatus="status">
-	        <tr onclick="window.location.href='/notice/NoticeDetail?notice_idx=${dto.notice_idx}';"  style="cursor:pointer;">
-
-	       
-
-	          <td class="num">${ status.count  }</td>
-	          <td>${ dto.notice_title }</td>
-	          <td><fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.notice_date }" /></td>
-
-	        </tr>
-        	</c:forEach>
-       
-      </table>
-
+     <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">번호</th>
+      <th scope="col">제목</th>
+      <th scope="col">작성일</th>
+ 
+    </tr>
+  </thead>
+  <tbody>
+      <c:forEach var="dto" items="${ notice_list }" varStatus="status">
+	  <tr onclick="window.location.href='/notice/NoticeDetail?notice_idx=${dto.notice_idx}';"  style="cursor:pointer;">
+      <td class="num">${ status.count  }</td>
+	  <td>${ dto.notice_title }</td>
+	  <td><fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.notice_date }" /></td>
+	</tr>
+       	</c:forEach>
+   </tbody>
+</table>
+   
        
        
      <div class="writebtn">
      <c:if test="${ member_grade eq 'A' }">
-	 <button onclick="location.href='/notice/NoticeWrite'" class="btnwrite">글작성</button>
+	 <button onclick="location.href='/notice/NoticeWrite'" class="btnwrite"><img src="/img/button.png" 
+	 width="60" height="30">작성</button>
 	</c:if>
 	</div>
  	<div></div>
@@ -230,6 +221,8 @@ text-align: center;
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
   
   
 

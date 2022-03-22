@@ -6,9 +6,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
+
+ <!-- Bootstrap CSS -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
 <title>공지사항 상세</title>
 
 <style>
+
+
+
+
 table.noticetable{
 border-collapse:separate;
 border-spacing:0;
@@ -38,7 +47,19 @@ vertical-align:top;
 border-right :1px solid #ccc;
 border-bottom : 1px solid #ccc;
 }
+.btn{
+background-color: #87CEFA;
+float:right;
+}
 
+.wbtn{
+background-color: #87CEFA;
+float:right;
+}
+
+.wbtn:active {
+    transform: scale(1.5);
+}
 
 
 
@@ -47,7 +68,7 @@ border-bottom : 1px solid #ccc;
 </head>
 
 
-
+<div class="noticetablemanin">
 <body>
 <form action="updateAction" method="post">
 <table class="noticetable" border="1" color="black" width="500">
@@ -79,14 +100,14 @@ border-bottom : 1px solid #ccc;
 </table>
 	
 	
-	
-	<input type="submit" value="수정">
+
+	<button type="submit" class="wbtn">수정</button>
 		</form>
 
-	<input type="button" value="목록" onclick="window.location.href='/notice/NoticeForm'">
-	<a href="/notice/deleteAction?notice_idx=${viewDto.notice_idx }"><input type="button" value="삭제하기"></a>
+	<input type="button" class="wbtn" value="목록" onclick="window.location.href='/notice/NoticeForm'">
+	<a href="/notice/deleteAction?notice_idx=${viewDto.notice_idx }"><input type="button" class="wbtn" value="삭제하기"></a>
 
+</div>
 
-
-</body>
-</html>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
