@@ -16,7 +16,14 @@
 <style>
 .main{
 padding-bottom:20px;
+}
 
+.maintable{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
 
 }
 .tablesize{
@@ -28,7 +35,10 @@ margin-left: auto;
 margin-right: auto;
 }
 
+.writebtn{
+float: right;
 
+}
 
 .w-btn {
     position: relative;
@@ -41,7 +51,7 @@ margin-right: auto;
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s;
-
+	margin:5px;
 }
 
 .w-btn-outline {
@@ -101,6 +111,7 @@ margin-right: auto;
 
 <body>
 <div class="main">
+	<div class="maintable">
 	<div class="updatetable">
 	
  
@@ -164,7 +175,7 @@ margin-right: auto;
 		</table>
 	</form>
 	
-
+<div class="replytable">
 	<input type="hidden" name="one2one_reply_one2one_idx" value="${ dto.one2one_idx }" />
 	
 	<table class="table table-sm"  style="margin-left: auto; margin-right: auto;">
@@ -190,6 +201,8 @@ margin-right: auto;
 		</c:forEach>
 		</tbody>
 	</table>
+	</div>
+</div>
 </div>
 
 </body>

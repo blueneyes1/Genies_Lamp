@@ -34,7 +34,7 @@ margin-right: auto;
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s;
-
+	margin:5px;
 }
 
 .w-btn-outline {
