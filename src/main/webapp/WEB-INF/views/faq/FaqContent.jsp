@@ -6,11 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 상세</title>
+<title>FAQ 상세</title>
 
 <style>
 
-table.noticetable{
+table.faqtable{
 border-collapse:separate;
 border-spacing:0;
 text-align:left;
@@ -21,7 +21,7 @@ margin: auto;
 width:800px;
 }
 
-table.noticetable th{
+table.faqtable th{
 width:50px;
 padding : 10px;
 font-weight:bold;
@@ -32,7 +32,7 @@ border-top: 1px solid #fff;
 border-left: 1px solid #fff;
 background:	#F5F5DC;
 }
-table.noticetable td{
+table.faqtable td{
 width:250px;
 padding : 10px;
 vertical-align:top;

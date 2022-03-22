@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>공지사항 상세</title>
+<title>FAQ 상세</title>
 </head>
 
 <style>
@@ -47,11 +47,12 @@ float:right;
 
 .writelistbtn{
 margin: auto;
+
 }
 
 </style>
 <body>
-
+<div class=main>
 
   <table class="noticetable">
 		<colgroup>
@@ -78,12 +79,12 @@ margin: auto;
 	<div class="writelistbtn">
 
 	<input type="hidden" name="faq_idx" value="${ faq_dto.faq_idx }" >
-	<input type="button"  value="목록" onclick="window.location.href='/faq/FaqForm'">
+	<input type="button" class="btn" value="목록" onclick="window.location.href='/faq/FaqForm'">
 	<c:if test="${ member_grade eq 'A' }">
-	<a href="/faq/FaqContent?faq_idx=${ faq_dto.faq_idx }"><input type="button"  value="수정" ></a>
+	<a href="/faq/FaqContent?faq_idx=${ faq_dto.faq_idx }"><input type="button" class="btn" value="수정" ></a>
 	</c:if>
 	</div>
-	<div></div>
+</div>
 
 
 </body>

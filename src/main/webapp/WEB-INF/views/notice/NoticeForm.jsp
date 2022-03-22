@@ -187,10 +187,6 @@ text-align: center;
 
   </div>
 
-  <div class="writebtn">
-	 <button onclick="location.href='/notice/NoticeWrite'">글작성</button>
-	
 
-	</div>
   </div>
 

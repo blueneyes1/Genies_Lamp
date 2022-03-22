@@ -82,7 +82,7 @@ text-align: center;
 
  	<div class="topline">
        <div class="name">
-          <p><font color="white"> 공지사항</font></p>
+          
           </div>
      
          </div>
@@ -163,16 +163,9 @@ text-align: center;
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   
-  <div class="writebtn">
 
- 	 <c:if test="${ member_grade eq 'A' }">
-	 <button onclick="location.href='/faq/FaqWrite'">글작성</button>
-	
-	</c:if>
-	</div>
 	
 
-	</div>
 
   
 

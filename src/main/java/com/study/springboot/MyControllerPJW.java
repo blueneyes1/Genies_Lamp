@@ -106,7 +106,6 @@ public class MyControllerPJW {
 			                   Model model,
 			       			   HttpServletRequest request ) {
 		
-		
 		//게시글 보기
 		One2oneDto dto = one2onedao.viewDto( one2one_idx );
 		model.addAttribute("dto", dto);
@@ -115,7 +114,8 @@ public class MyControllerPJW {
 		List<One2one_replyDto> reply_list = replydao.reply_list( one2one_idx  );
 		model.addAttribute("reply_list", reply_list);
 		
-		return "mypage/121contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
+		model.addAttribute("mainPage", "mypage/121contentForm.jsp");
+		return "index"; //contentForm.jsp 으로 리다이렉트 됨.
 	}
 	
 	@RequestMapping("/admin/contentForm")
@@ -132,7 +132,8 @@ public class MyControllerPJW {
 		List<One2one_replyDto> reply_list = replydao.reply_list( one2one_idx  );
 		model.addAttribute("reply_list", reply_list);
 		
-		return "admin/121contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
+		model.addAttribute("mainPage", "admin/121contentForm.jsp");
+		return "index"; //contentForm.jsp 으로 리다이렉트 됨.
 	}
 	
 	
