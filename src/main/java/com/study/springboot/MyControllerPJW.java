@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.springboot.dao.IOne2oneDao;
+import com.study.springboot.dto.NoticeDto;
 import com.study.springboot.dto.One2oneDto;
 import com.study.springboot.dao.IOne2one_replyDao;
 import com.study.springboot.dto.One2one_replyDto;
@@ -37,18 +38,50 @@ public class MyControllerPJW {
 	}
 	
 
-	@RequestMapping("/admin/121listForm")
-		public String admin121list(HttpServletRequest request,Model model) {
-		
-		model.addAttribute("mainPage", "admin/121listForm.jsp");
-		
-		List<One2oneDto> list = one2onedao.list();
-		model.addAttribute("list", list);
-		
-		//System.out.println( list );
-		
-		return "index";  //"listForm.jsp" 디스패치함.
-	}
+	/*
+	 * @RequestMapping("/admin/121listForm") public String
+	 * admin121list(HttpServletRequest request,Model model) {
+	 * 
+	 * model.addAttribute("mainPage", "admin/121listForm.jsp");
+	 * 
+	 * List<One2oneDto> list = one2onedao.list(); model.addAttribute("list", list);
+	 * 
+	 * System.out.println( list );
+	 * 
+	 * return "index"; //"listForm.jsp" 디스패치함. }
+	 */
+	
+	 @RequestMapping("/admin/121listForm")
+	    public String NoticeForm(@RequestParam(value="page", required=false)String page,
+	    						HttpServletRequest request, Model model) {
+	        if(page == null) {
+
+	        	page = "1";
+	        }
+	    	
+	    	if(page != null) {
+	    		System.out.println("page"+page);
+	    		model.addAttribute("page",page);
+	    		
+
+	    		int num_page_no = Integer.parseInt(page);	//page 번호
+	    		int num_page_size = 5;									//페이지당 보이는 row 개수
+	    		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 페이지 시작번호
+	    		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 페이지 끝번호
+
+	    	
+	    	
+	    	List<One2oneDto> list = one2onedao.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
+	    	 model.addAttribute("list", list);
+	 
+
+
+	    	  model.addAttribute("mainPage", "admin/121listForm.jsp");
+	    	}
+	    	
+	    	
+	    		    return "index"; //index.jsp 디스패치 
+	    }
 	
 	@RequestMapping("/mypage/121listForm")
 		public String mypage121list(HttpServletRequest request,Model model) {
