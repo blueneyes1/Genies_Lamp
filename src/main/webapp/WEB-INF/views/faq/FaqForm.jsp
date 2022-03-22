@@ -130,11 +130,7 @@ text-align: center;
 
  	<div class="topline">
        <div class="name">
-<<<<<<< HEAD
-          
-=======
-         
->>>>>>> ac2cdb923e7e70ba9a378786fc8091d46e1f9b89
+
           </div>
      
          </div>
