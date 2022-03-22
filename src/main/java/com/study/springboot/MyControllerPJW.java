@@ -51,30 +51,21 @@ public class MyControllerPJW {
 	}
 	
 	@RequestMapping("/mypage/121listForm")
-	public String list2( Model model,
-			HttpServletRequest request ) {
+		public String mypage121list(HttpServletRequest request,Model model) {
+		
+		
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		List<One2oneDto> list = one2onedao.list2( member_id);
 		model.addAttribute("list", list);
 		
+		model.addAttribute("mainPage", "mypage/121listForm.jsp");
+		
 		//System.out.println( list );
 		
-		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
+		return "index";  //"listForm.jsp" 디스패치함.
 	}
 	
-	@RequestMapping("/mypage/listForm")
-	public String list( Model model,
-			HttpServletRequest request ) {
-		
-		String member_id = (String) request.getSession().getAttribute("member_id");
-		List<One2oneDto> list = one2onedao.list2( member_id);
-		model.addAttribute("list", list);
-		
-		//System.out.println( list );
-		
-		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
-	}
 		
 	
 	@RequestMapping("/mypage/writeForm")

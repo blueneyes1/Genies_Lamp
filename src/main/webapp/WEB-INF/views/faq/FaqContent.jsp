@@ -85,14 +85,14 @@ margin: auto;
 </table>
 	
 	
-	
+	<c:if test="${ member_grade eq 'A' }">
 	<input type="submit" value="수정">
-		</form>
+		
 
 	<input type="button" value="목록" onclick="window.location.href='/faq/FaqForm'">
 	<a href="/faq/faqdeleteAction?faq_idx=${viewDto.faq_idx }"><input type="button" value="삭제하기"></a>
+	</c:if>
 
-
-
+</form>
 </body>
 </html>
