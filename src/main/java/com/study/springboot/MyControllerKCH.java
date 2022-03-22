@@ -271,11 +271,11 @@ public String faqwriteAction(	@RequestParam(value="faq_idx", required=false, def
 			
 		
 
-			return "<script>alert('공지등록에 성공했습니다.'); location.href='/faq/FaqForm';</script>";
+			return "<script>alert('FAQ등록에 성공했습니다.'); location.href='/faq/FaqForm';</script>";
 		
 		}else {
 		
-			return "<script>alert('공지등록에 실패했습니다.'); history.back(-1);</script>";
+			return "<script>alert('FAQ등록에 실패했습니다.'); history.back(-1);</script>";
 		}
 }
 //----공지 수정 불러오기----//

@@ -159,16 +159,6 @@ text-align: center;
   <!-- 메인 -->
 
 
- 	<div class="topline">
-       <div class="name">
-        
-          </div>
-
-     	
-     	
-        
-
-         </div>
   <div class="menu">
 <div class="NFtable">
      <table class="table table-sm"">
