@@ -28,7 +28,7 @@
   	var total = document.getElementById('total_price');
   	
   	counterP.onclick = function(){
-  		if ( count.value < maxcount.value ) {
+  		if ( Number(count.value) < Number(maxcount.value) ) {
   			count.value = Number(count.value) + 1;
   			totalPrice = Number(price.value) * Number(count.value);
   			/* 값 삽입 */

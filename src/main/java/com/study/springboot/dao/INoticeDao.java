@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.study.springboot.dto.FaqDto;
 import com.study.springboot.dto.NoticeDto;
 
 @Mapper

@@ -2,6 +2,7 @@ package com.study.springboot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.List;
 
@@ -17,11 +18,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.springboot.dao.IPayNumber_seqDao;
 import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.OrderDto;
+import com.study.springboot.dto.OrderListDto;
 import com.study.springboot.service.MemberService;
 import com.study.springboot.service.OrderService;
 import com.study.springboot.service.payService;
@@ -285,7 +286,6 @@ public class MyControllerLDG {
 		list = dto;
 			
 		model.addAttribute( "list", list );
-		System.out.println(list);
 		
 		model.addAttribute("mainPage", "order/singlePay.jsp");
 		
@@ -294,17 +294,8 @@ public class MyControllerLDG {
 		//return "<script>location.href='/pay/" + member_id + "';</script>";
 		
 	}
-	
-	// 결제 페이지
-	@RequestMapping("/pay/{member_id}")
-	public String pay(HttpServletRequest request, Model model) {
 		
-		model.addAttribute("mainPage", "order/pay.jsp");
-		
-		return "index"; // "order/pay.jsp" 디스패치함.
-	}
-	
-	// 결제액션
+	// 단품결제액션
 	@RequestMapping("/singlePayAction")
 	@ResponseBody
 	public String singlePayAction (@RequestParam("pay_receiver") String pay_receiver,
@@ -387,6 +378,26 @@ public class MyControllerLDG {
 		return "<script>alert('구매해주셔서 감사합니다.'); location.href='/product/productDetail?product_idx=" + order_product_idx + "'; </script>";
 
 	}
+		
+	// 결제 페이지
+	@RequestMapping("/pay/{member_id}")
+	public String multiPay( OrderListDto odl, HttpServletRequest request, Model model) {
+		
+		/*
+		 * System.out.println(odl); odl.getOrderList(); odl.toString();
+		 * System.out.println("odl :" + odl); List<OrderDto> list = new
+		 * ArrayList<OrderDto>(); list = odl.getOrderList(); List<OrderDto> dto = list;
+		 * System.out.println("dto : " + dto);
+		 */
+		
+		model.addAttribute("dto", orderService.orders(odl.getOrderList()));
+		System.out.println("dto : " + orderService.orders(odl.getOrderList()));
+		
+		model.addAttribute("mainPage", "order/pay.jsp");
+		
+		return "index"; // "order/pay.jsp" 디스패치함.
+	}
+		
 
 }
 

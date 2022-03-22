@@ -9,11 +9,11 @@ public class BasketDto {
 	
 	private int basket_idx;
 	private String basket_member_id;
-	private String basket_product_idx;
+	private int basket_product_idx;
 	private int basket_count;
 	private int basket_price;
 			
-	private String product_idx;
+	private int product_idx;
 	private String product_type;
 	private String product_name;
 	private String product_brand;
@@ -28,9 +28,9 @@ public class BasketDto {
 	public BasketDto() {
 			
 	}
-	
-	public BasketDto(int basket_idx, String basket_member_id, String basket_product_idx, int basket_count,
-			int basket_price, String product_idx, String product_type, String product_name, String product_brand,
+
+	public BasketDto(int basket_idx, String basket_member_id, int basket_product_idx, int basket_count,
+			int basket_price, int product_idx, String product_type, String product_name, String product_brand,
 			String product_color, int product_price, int product_count, String product_img1, String product_img2,
 			String product_img3, Date product_date) {
 		super();
@@ -50,10 +50,8 @@ public class BasketDto {
 		this.product_img2 = product_img2;
 		this.product_img3 = product_img3;
 		this.product_date = product_date;
-		
-		
-	
 	}
+	
 	
 	
 	

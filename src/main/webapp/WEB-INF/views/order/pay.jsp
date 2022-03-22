@@ -11,54 +11,12 @@
 	<title>결제정보</title>
 </head>
 
-<script>
-
-  $(document).ready(function(){
-	  var deliveryPrice = 0;			// 배송비
-	  var totalPrice = 0;				// 총 가격
-	  var finalTotalPrice = 0;			// 결제금액
-	  
-		var count = document.getElementById('product_count');
-		var price = document.getElementById('product_price');
-		totalPrice = Number(price.value) * Number(count.value);
-		
-		/* 배송비 결정 */
-		if(totalPrice >= 50000){
-			deliveryPrice = 0;
-		} else if(totalPrice == 0){
-			deliveryPrice = 0;
-		} else {
-			deliveryPrice = 3000;	
-		}
-		 
-		finalTotalPrice = totalPrice + deliveryPrice;
-		
-								
-		/* 값 삽입 */
-		// 총 가격
-		$(".totalPrice_span").text(totalPrice.toLocaleString());
-		// 배송비
-		$(".delivery_price").text(deliveryPrice.toLocaleString());	
-		// 최종 가격(총 가격 + 배송비)
-		$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());
-		
-						
-
-	});
-
-</script>
-
-<!-- 결제페이지 -->
+<!-- 멀티 결제페이지 -->
 
 <div class="box">
 	<form action="/singlePayAction" method="post">
 		<table>
-			<td>
-				<input type="hidden" id="product_idx" name="order_product_idx" value="${list[0]}" >
-				<input type="hidden" id="product_name" name="order_product_name" value="${list[1]}" >
-				<input type="hidden" id="product_price" name="order_price" value="${list[2]}" >
-				<input type="hidden" id="product_count" name="order_count" value="${list[3]}" >
-			</td>
+			
 			<tr>
 				<td>받는사람</td>
 				<td>
@@ -92,11 +50,33 @@
 	        </tr>
 	        	        
 		</table>
-		
+				
 		<br>
+		
+		<!-- 구매물품 리스트 -->
+		<tbody type="hidden" >
+			<c:set var="sum" value="0" />
+			<c:forEach items="${dto}" var="dto">
+				<td>
+					<input type="hidden" name="order_product_idx" value="${dto.order_product_idx}">
+				</td>
+				<td>
+					<input type="hidden" name="order_product_name" value="${dto.order_product_name}">
+				</td>
+				<td class="goods_table_price_td">
+					<input type="hidden" name="order_price" value="${dto.order_price}">
+					<input type="hidden" name="order_count" value="${dto.order_count}">					
+				</td>
+				<c:set var="sum" value="${sum + (dto.order_price * dto.order_count)}" />
+			</c:forEach>	
+			
+		</tbody>
 		
 		<div>
 			<table>
+				<td>
+									
+				</td>
 					        	        
 		        <tr>
 		        	<td>합계</td>
@@ -105,7 +85,7 @@
 		        
 		        <tr>
 		        	<td>배송비</td>
-		        	<td><span class="delivery_price"></span>원</td>
+		        	<td><span class="delivery_price_span"></span>원</td>
 		        </tr>
 		        
 		        <tr>
@@ -113,13 +93,13 @@
 		        	<td><span class="finalTotalPrice_span"></span>원</td>
 		        </tr>
 		        <tr>
-		        	<c:if test="${ (list[2] * list[3]) >= 50000 }">
+		        	<c:if test="${ sum >= 50000 }">
 			    		<input type="hidden" name="pay_cost" value="0">
-			    		<input type="hidden" name="pay_total" value="${list[2] * list[3]}">
+			    		<input type="hidden" name="pay_total" value="${sum}">
 			    	</c:if>
-			    	<c:if test="${ (list[2] * list[3]) < 50000 }">
+			    	<c:if test="${ sum < 50000 }">
 			    		<input type="hidden" name="pay_cost" value="3000">
-			    		<input type="hidden" name="pay_total" value="${(list[2] * list[3])+3000}">
+			    		<input type="hidden" name="pay_total" value="${sum + 3000}">
 			    	</c:if>
 		        </tr>
 			</table>
@@ -132,8 +112,7 @@
 	
 		
 	</form>
-	
-	
+		
 	
 </div>
 
@@ -145,7 +124,53 @@
 <!-- http://postcode.map.daum.net/guide -->
 	
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <script>
+
+	$(document).ready(function(){
+		
+		/* 주문 조합정보란 최신화 */
+		setTotalInfo();
+		
+	});
+	
+	/* 총 주문 정보 세팅(금액합계, 배송비, 결게금액) */
+	function setTotalInfo(){
+	
+		var totalPrice = ${sum};				// 금액합계
+		var deliveryPrice = 0;			// 배송비
+		var finalTotalPrice = 0; 		// 결제금액( 금액합계 + 배송비 )	
+		
+		/* $(".goods_table_price_td").each(function(index, element){
+			// 총 가격
+			totalPrice += parseInt($(element).find(".individual_totalPrice_input").val());			
+		});	 */
+					
+		/* 배송비 결정 */
+		if(totalPrice >= 50000){
+			deliveryPrice = 0;
+		} else if(totalPrice == 0){
+			deliveryPrice = 0;
+		} else {
+			deliveryPrice = 3000;	
+		}
+		
+		finalTotalPrice = totalPrice + deliveryPrice;
+		
+		/* 값 삽입 */
+		// 금액합계
+		$(".totalPrice_span").text(totalPrice.toLocaleString());
+		// 배송비
+		$(".delivery_price_span").text(deliveryPrice.toLocaleString());	
+		// 결제금액(금액합계 + 배송비)
+		$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());		
+		
+	}
+	
+</script>
+
+<script>
+	/* 주소검색 */
     function sample6_execDaumPostcode() {
         new daum.Postcode({
             oncomplete: function(data) {

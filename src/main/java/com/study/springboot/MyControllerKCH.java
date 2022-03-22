@@ -18,7 +18,6 @@ import com.study.springboot.dto.NoticeDto;
 
 import com.study.springboot.service.FaqService;
 import com.study.springboot.service.NoticeService;
-import com.study.springboot.service.One2oneService;
 
 
 @Controller
@@ -29,10 +28,6 @@ private NoticeService NoticeService;
 
 @Autowired
 private FaqService FaqService;
-
-
-@Autowired
-private INoticeDao NoticeDao;
 
 
 

@@ -663,7 +663,6 @@ public class MyControllerPYH {
 			return "index";
 		}else {
 			model.addAttribute("basket_list", basketservice.viewBasket(member_id));
-			System.out.println(member_id);
 	
 			model.addAttribute("mainPage", "mypage/basket.jsp");			
 			return "index";

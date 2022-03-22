@@ -1,5 +1,7 @@
 package com.study.springboot.dto;
 
+
+
 import lombok.Data;
 
 @Data
@@ -27,11 +29,9 @@ public class OrderDto {
 	private int pay_delivery;
 	private int pay_date;
 	
-	
 	public OrderDto() {
 		
 	}
-
 
 	public OrderDto(int order_idx, String order_pay_number, int order_product_idx, String order_product_name,
 			int order_count, int order_price, String order_review, int pay_idx, String pay_number, String pay_member_id,
@@ -61,7 +61,12 @@ public class OrderDto {
 	}
 
 	
-	
+	@Override
+	public String toString() {
+		return "OrderDto [order_product_idx=" + order_product_idx + 
+				", order_product_name=" + order_product_name + ", order_count=" 
+				+ order_count + ", order_price=" + order_price + "]";
+	}	
 	
 	
 	

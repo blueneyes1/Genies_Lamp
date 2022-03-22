@@ -16,10 +16,6 @@ import com.study.springboot.dto.One2oneDto;
 import com.study.springboot.dao.IOne2one_replyDao;
 import com.study.springboot.dto.One2one_replyDto;
 
-import com.study.springboot.service.One2oneService;
-import com.study.springboot.service.One2one_replyService;
-
-
 @Controller
 public class MyControllerPJW {
 
