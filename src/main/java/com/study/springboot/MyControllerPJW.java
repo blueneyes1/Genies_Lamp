@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.springboot.dao.IOne2oneDao;
+import com.study.springboot.dto.NoticeDto;
 import com.study.springboot.dto.One2oneDto;
 import com.study.springboot.dao.IOne2one_replyDao;
 import com.study.springboot.dto.One2one_replyDto;
@@ -33,53 +34,82 @@ public class MyControllerPJW {
 	}
 	
 
-	@RequestMapping("/admin/121listForm")
-		public String admin121list(HttpServletRequest request,Model model) {
+	/*
+	 * @RequestMapping("/admin/121listForm") public String
+	 * admin121list(HttpServletRequest request,Model model) {
+	 * 
+	 * model.addAttribute("mainPage", "admin/121listForm.jsp");
+	 * 
+	 * List<One2oneDto> list = one2onedao.list(); model.addAttribute("list", list);
+	 * 
+	 * System.out.println( list );
+	 * 
+	 * return "index"; //"listForm.jsp" 디스패치함. }
+	 */
+	
+	 @RequestMapping("/admin/121listForm")
+	    public String NoticeForm(@RequestParam(value="page", required=false)String page,
+	    						HttpServletRequest request, Model model) {
+	        if(page == null) {
+
+	        	page = "1";
+	        }
+	    	
+	    	if(page != null) {
+	    		System.out.println("page"+page);
+	    		model.addAttribute("page",page);
+	    		
+
+	    		int num_page_no = Integer.parseInt(page);	//page 번호
+	    		int num_page_size = 5;									//페이지당 보이는 row 개수
+	    		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 페이지 시작번호
+	    		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 페이지 끝번호
+
+	    	
+	    	
+	    	List<One2oneDto> list = one2onedao.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
+	    	 model.addAttribute("list", list);
+	 
+
+
+	    	  model.addAttribute("mainPage", "admin/121listForm.jsp");
+	    	}
+	    	
+	    	
+	    		    return "index"; //index.jsp 디스패치 
+	    }
+	
+	@RequestMapping("/mypage/121listForm")
+		public String mypage121list(HttpServletRequest request,Model model) {
 		
-		model.addAttribute("mainPage", "admin/121listForm.jsp");
 		
-		List<One2oneDto> list = one2onedao.list();
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		List<One2oneDto> list = one2onedao.list2( member_id);
 		model.addAttribute("list", list);
+		
+		model.addAttribute("mainPage", "mypage/121listForm.jsp");
 		
 		//System.out.println( list );
 		
 		return "index";  //"listForm.jsp" 디스패치함.
 	}
 	
-	@RequestMapping("/mypage/121listForm")
-	public String list2( Model model,
-			HttpServletRequest request ) {
-		
-		String member_id = (String) request.getSession().getAttribute("member_id");
-		List<One2oneDto> list = one2onedao.list2( member_id);
-		model.addAttribute("list", list);
-		
-		//System.out.println( list );
-		
-		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
-	}
-	
-	@RequestMapping("/mypage/listForm")
-	public String list( Model model,
-			HttpServletRequest request ) {
-		
-		String member_id = (String) request.getSession().getAttribute("member_id");
-		List<One2oneDto> list = one2onedao.list2( member_id);
-		model.addAttribute("list", list);
-		
-		//System.out.println( list );
-		
-		return "mypage/121listForm";  //"listForm.jsp" 디스패치함.
-	}
 		
 	
 	@RequestMapping("/mypage/writeForm")
-	public String writeForm(HttpServletRequest request ) {
+	public String writeForm(@RequestParam(value="one2one_idx", required=false, defaultValue="") String one2one_idx,
+			Model model) {
 		
 		
-		String member_id = (String) request.getSession().getAttribute("member_id");
-		return "mypage/121writeForm"; //"writeForm.jsp" 디스패치함.
-	}
+model.addAttribute("one2one_idx", one2one_idx);
+System.out.println( one2one_idx);
+
+model.addAttribute("mainPage", "mypage/121writeForm.jsp");
+
+
+return "index"; //index.jsp 디스패치 
+}
 	
 	@RequestMapping("/mypage/writeAction")
 	@ResponseBody
@@ -111,7 +141,6 @@ public class MyControllerPJW {
 			                   Model model,
 			       			   HttpServletRequest request ) {
 		
-		
 		//게시글 보기
 		One2oneDto dto = one2onedao.viewDto( one2one_idx );
 		model.addAttribute("dto", dto);
@@ -120,7 +149,8 @@ public class MyControllerPJW {
 		List<One2one_replyDto> reply_list = replydao.reply_list( one2one_idx  );
 		model.addAttribute("reply_list", reply_list);
 		
-		return "mypage/121contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
+		model.addAttribute("mainPage", "mypage/121contentForm.jsp");
+		return "index"; //contentForm.jsp 으로 리다이렉트 됨.
 	}
 	
 	@RequestMapping("/admin/contentForm")
@@ -137,7 +167,8 @@ public class MyControllerPJW {
 		List<One2one_replyDto> reply_list = replydao.reply_list( one2one_idx  );
 		model.addAttribute("reply_list", reply_list);
 		
-		return "admin/121contentForm"; //contentForm.jsp 으로 리다이렉트 됨.
+		model.addAttribute("mainPage", "admin/121contentForm.jsp");
+		return "index"; //contentForm.jsp 으로 리다이렉트 됨.
 	}
 	
 	

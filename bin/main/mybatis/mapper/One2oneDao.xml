@@ -11,6 +11,18 @@
 		select * from genies_one2one order by one2one_date desc
 	</select>   
 	
+	<select id="listPage" resultType="com.study.springboot.dto.One2oneDto">
+		SELECT * FROM 
+		(
+		SELECT
+		ROWNUM AS RNUM, genies_one2one.*
+		From
+		genies_one2one
+		ORDER BY ONE2ONE_DATE DESC
+		)
+		where RNUM between #{param1} and #{param2}
+	</select>	
+	
 	<select id="list2" resultType="com.study.springboot.dto.One2oneDto">
 		select * from genies_one2one  where one2one_member_id =#{ param1 } order by one2one_date desc
 	</select>   
