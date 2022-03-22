@@ -62,7 +62,55 @@ top: 50%;
 text-align: center;
 
 }
+.pagination > li > a
+{
+ background-color: white;
+ color: rgb(228, 211, 241);
+}
 
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > a:active,
+.pagination > li > span:focus,
+.pagination > li > span:hover,
+.pagination > li > span:active
+{
+    color: rgb(95, 59, 151);
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active
+{
+    color: white;
+    background-color: rgb(178, 178, 238);
+    border: solid 1px rgb(178, 178, 238);
+}
+
+.page-item > .active {
+	background-color: rgb(178, 178, 238);
+}
+
+.pagination > .active > a:hover
+{
+    background-color: rgb(178, 178, 238);
+    border: solid 1px rgb(178, 178, 238);
+}
+
+ .page-link:focus {
+	background-color: rgb(178, 178, 238);
+}
+
+.page-link:active {
+	background-color: rgb(178, 178, 238);
+}
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:visited {
+    background-color: rgb(178, 178, 238);
+    border: 1px solid rgb(178, 178, 238);
+}
 
 
 
@@ -82,7 +130,7 @@ text-align: center;
 
  	<div class="topline">
        <div class="name">
-          <p><font color="white"> 공지사항</font></p>
+         
           </div>
      
          </div>
