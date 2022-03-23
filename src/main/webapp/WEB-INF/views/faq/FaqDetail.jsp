@@ -134,6 +134,7 @@ float:right;
 	<input type="button" class="w-btn w-btn-indigo" value="목록" onclick="window.location.href='/faq/FaqForm'">
 	
 </div>
+</div>
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
