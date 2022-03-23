@@ -5,10 +5,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 
 <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
@@ -41,21 +37,27 @@
         <td>합계</td>
       </tr>
 
-      
+      <c:set var="sum" value="0" />
       <c:forEach var="basket_list" items="${basket_list }">
-	      <tr>
-	      	 <td class="td cart_info_td">
-	        	<input type="checkbox" class="cart_checkbox input_size_20" checked="checked">
-	        	<input type="hidden" class="total_price_input" value="${basket_list.product_price * basket_list.basket_count}"  >
-	        </td>
-	        <td>
-	        	<img src="${basket_list.product_img1 }" id="basket_img">
-	        </td>	       
-	        <td>${basket_list.product_name }</td>
-	        <td>${basket_list.product_price}</td>
-	        <td>${basket_list.basket_count }</td>
-	        <td>${basket_list.product_price * basket_list.basket_count }</td>
-	      </tr>
+      	
+			<tr>
+	      		<td class="td cart_info_td">
+	        		<input type="checkbox" class="cart_checkbox input_size_20" checked="checked">
+	        		<input type="hidden" class="product_idx_input" value="${basket_list.product_idx}" >
+	        		<input type="hidden" class="product_name_input" value="${basket_list.product_name}" >
+	        		<input type="hidden" class="product_price_input" value="${basket_list.product_price}" >
+	        		<input type="hidden" class="product_count_input" value="${basket_list.basket_count}" >	        		
+	        		<input type="hidden" class="total_price_input" value="${basket_list.product_price * basket_list.basket_count}"  >
+	        	</td>
+	        	<td>
+	        		<img src="${basket_list.product_img1 }" id="basket_img">
+	        	</td>	       
+		        <td>${basket_list.product_name }</td>
+		        <td>${basket_list.product_price}</td>
+		        <td>${basket_list.basket_count }</td>
+		        <td>${basket_list.product_price * basket_list.basket_count }</td>
+		    </tr>
+		    <c:set var="sum" value="${sum + (basket_list.product_price * basket_list.basket_count)}" />
 	   </c:forEach>
 
 
@@ -79,7 +81,7 @@
         
         <tr>
           <td colspan="5"  id="basket_btn_box">
-            <button type="button" onclick="location.href='/pay/${member_id}' " id="basket_btn">주문하기</button>
+            <button type="button" class="order_btn" id="basket_btn">주문하기</button>
             <input type="submit" formaction="/mypage_basket_delete" value="장바구니 비우기"  id="basket_btn"/>
           </td>
         </tr>
@@ -92,14 +94,49 @@
 	</form>
 	
 	<!-- 주문 form -->
-	<form action="/pay/${member_Id}" method="get" class="order_form">
-		<input type="hidden" name="orders[0].product_idx" value="${product_idx}">
-		<input type="hidden" name="orders[0].product_count" value="">
+	<form action="/pay/${member_id}" method="post" class="order_form">
+		
 	</form>
+	
+	<script>
+	/* 주문 페이지 이동 */	
+	$(".order_btn").on("click", function(){
+		
+		var form_contents ='';
+		var orderNumber = 0;
+		
+		$(".cart_info_td").each(function(index, element){
+			
+			if($(element).find(".cart_checkbox").is(":checked") === true){	//체크여부
+				
+				var product_idx = $(element).find(".product_idx_input").val();
+				var product_name = $(element).find(".product_name_input").val();
+				var product_price = $(element).find(".product_price_input").val();
+				var product_count = $(element).find(".product_count_input").val();
+				
+				var order_product_idx = "<input name='orderList[" + orderNumber + "].order_product_idx' type='hidden' value='" + product_idx + "'>";
+				form_contents += order_product_idx;
+				var order_product_name = "<input name='orderList[" + orderNumber + "].order_product_name' type='hidden' value='" + product_name + "'>";
+				form_contents += order_product_name;
+				var order_count = "<input name='orderList[" + orderNumber + "].order_count' type='hidden' value='" + product_count + "'>";
+				form_contents += order_count;
+				var order_price = "<input name='orderList[" + orderNumber + "].order_price' type='hidden' value='" + product_price + "'>";
+				form_contents += order_price;
+				
+				orderNumber += 1;
+				
+			}
+		});	
+	
+		$(".order_form").html(form_contents);
+		$(".order_form").submit();
+		
+	});
+	</script>
 	
 	</div>
 	</div>
-	</div>
+	
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 	

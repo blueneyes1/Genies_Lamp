@@ -1,5 +1,7 @@
 package com.study.springboot.service;
 
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,44 @@ public class OrderService {
 		
 		return result1;
 	}
+	
+
+	
+	public List<OrderDto> orders(List<OrderDto> orderList) {
+				
+		 List <OrderDto> result = new ArrayList<>();
+		 
+		 for(OrderDto odl : orderList ) {
+			 
+			 
+			 OrderDto dto = odl;
+			 dto.setOrder_product_idx(odl.getOrder_product_idx());
+			 dto.setOrder_product_name(odl.getOrder_product_name());
+			 dto.setOrder_count(odl.getOrder_count());
+			 dto.setOrder_price(odl.getOrder_price());
+			 
+			 result.add(dto);
+			 
+		 }
+		 
+		 
+		return result;
+		
+	}
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
