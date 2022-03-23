@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');  
+
 /* 초기화 */
 * {
   margin: 0;
   padding: 0;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 /* 플로팅버튼 */
 .toTopScroll {
@@ -94,6 +97,7 @@
 .footer {
   height: 250px;
   background-color: rgb(95, 59, 151);
+  font-size: 14px;
 }
 .footer div a {
   color: white;

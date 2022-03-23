@@ -12,7 +12,7 @@
 
 </head>
 
-지니의 램프 - Genie's Lamp
+
 
 <!-- 메인페이지 -->
 <div class="main">
@@ -27,21 +27,21 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/img/carousel/bed.jpg" class="d-block w-100" alt="..." width="600" height="400">
+      <img src="/img/carousel/bed.jpg" class="d-block w-100" alt="..." width="900" height="600">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="/img/carousel/lamp.jpg" class="d-block w-100" alt="..." width="600" height= "400">
+      <img src="/img/carousel/lamp.jpg" class="d-block w-100" alt="..." width="900" height= "600">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="/img/carousel/rail.jpg" class="d-block w-100" alt="..." width="600" height="400">
+      <img src="/img/carousel/rail.jpg" class="d-block w-100" alt="..." width="900" height="600">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Some representative placeholder content for the third slide.</p>
@@ -61,34 +61,35 @@
 	
 	
 	<!-- 이벤트배너 -->
-	<div class="eventbanner"><img src="/img/banner/service_banner.jpg" width="100%" height="10%"></div>
+	<div class="eventbanner"><img src="/img/banner/service_banner.jpg" width="100%" height="2%"></div>
 	
 	<!-- 베스트아이템 -->
 	<div class="betstitem">
 		
 		<!-- 메인아이템 -->
 		<div class="mainitem">
-		<div class="mainbest"><img src="/img/test/lamp1.jpg" width="300" height="200"></div>
+		<div class="mainbest"><img src="/upload/202222202530402.JPG" width="600" height="400"></div>
 
 		<!-- 서브아이템 -->
-		<div class="subbest"></div>
+		<div class="subbest">
 			<div class="subbest1">
-			<div class="sub1best"><img src="/img/test/lamp2.jpg" width="150" height="100"></div>
-			<div class="sub2best"><img src="/img/test/lamp3.jpg" width="150" height="100"></div>
+			<div class="sub1best"><img src="/upload/2022222115416879.JPG" width="300" height="200"></div>
+			<div class="sub2best"><img src="/upload/2022223101516860.JPG" width="300" height="200"></div>
 			</div>
 			<div class="subbest2">
-			<div class="sub1best"><img src="/img/test/lamp4.jpg" width="150" height="100"></div>
-			<div class="sub2best"><img src="/img/test/lamp4.jpg" width="150" height="100"></div>
+			<div class="sub1best"><img src="/upload/202222391113921.JPG" width="300" height="200"></div>
+			<div class="sub2best"><img src="/upload/wall4.jpg" width="300" height="200"></div>
 			</div>
 		</div>
 		</div>
+		
 	
 	
 	<!-- 빅배너 -->
 	<div class="bigbanner">	
-		<div><img src="/img/banner/kakaoevent.jpg" width="150" height="100"></div>
-		<div><img src="/img/banner/newopen.jpg" width="150" height="100"></div>
-		<div><img src="/img/banner/photoevent.jpg"width="150" height="100"></div>		
+		<div><img src="/img/banner/kakaoevent.jpg" width="400" height="200"></div>
+		<div><img src="/img/banner/newopen.jpg" width="400" height="200"></div>
+		<div><img src="/img/banner/photoevent.jpg"width="400" height="200"></div>		
 
 	</div>
 	<!-- 신제품 -->
@@ -99,66 +100,34 @@
 		<div class="wall"></div>
 	</div>
 
-	<%-- <!-- 게시판 -->
+	<!-- 게시판 -->
 	<div class="board">
-		<div class="noticeboard">
-			 <table class="NFForm">
-        <colgroup>
-        <col width="10%"/>
-        <col width="70%"/>
-        <col width="20%"/>
-        <tr>
-          <th scope="row">번호</th>
-          <th scope="row">제목</th>
-          <th scope="row">작성일</th>
-        </tr>
-        
-        
-      		<c:forEach var="dto" items="${ notice_list }" varStatus="status">
-	        <tr onclick="window.location.href='/notice/NoticeDetail?notice_idx=${dto.notice_idx}';"  style="cursor:pointer;">
-	          <td class="num">${ status.count  }</td>
-	          <td>${ dto.notice_title }</td>
-	          <td><fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.notice_date }" /></td>
-	        </tr>
-        	</c:forEach>
-       
-      </table>
-		
-		</div>
-		<div class="one2oneboard"></div>
-		
-		
-		
-		
-		<div class="faqboard">
-		 <table>
-		   <colgroup>
-        	<col width="20%"/>
-        	<col width="80%"/>
-        <tr>
-          <th>번호</th>
-          <th>제목</th>
-          
-        </tr>
-        
-        
-      		<c:forEach var="faq_dto" items="${ faq_list }" varStatus="status">
-	        <tr onclick="window.location.href='/faq/FaqDetail?faq_idx=${faq_dto.faq_idx}';"  style="cursor:pointer;">
-	          <td>${ status.count  }</td>
-	          <td>${ faq_dto.faq_title }</td>
-	         
-	        </tr>
-        	</c:forEach>
-       
-      </table>
-		</div>
-	</div>		
-		
-	<!-- 메인끝 -->	
-</div> --%>
-	
+	<div class="noticeboard"><h2 class="boardmov">공지사항</h2>
+	<div class="notice_link"><a href="notice/NoticeForm">전체공지보기</a></div>
+		<ul id="noticeslide">
+			<li><a href="notice/NoticeDetail?notice_idx=1">방역 배송 안내</a></li>
+			<li><a href="notice/NoticeDetail?notice_idx=2">지니의 램프 상품 댓글 안내</a></li>
+			<li><a href="notice/NoticeDetail?notice_idx=3">지니의 램프 origin 상품 안내</a></li>
+			<li><a href="notice/NoticeDetail?notice_idx=4">대리구매 이용 자제를 부탁드립니다</a></li>
+			<li><a href="notice/NoticeDetail?notice_idx=5">택배배송 정상화 지연 안내</a></li>
+		</ul>
 	</div>
 
+	<div class="faqboard"><h2 class="faqmov">자주묻는질문</h2>
+	<div class="faq_link" ><a href="faq/FaqForm">전체Faq보기</a></div>
+		<ul id="faqslide">
+			<li><a href="faq/FaqDetail?faq_idx=1">수령자/배송지 주소를 변경하고 싶어요.</a></li>
+			<li><a href="faq/FaqDetail?faq_idx=2">최저가 보상 제도는 어떤 제도인가요?</a></li>
+			<li><a href="faq/FaqDetail?faq_idx=3">ID/ 비밀번호가 기억나지 않아요 찾을수 있나요?</a></li>
+			<li><a href="faq/FaqDetail?faq_idx=4">아이디/비밀번호/회원정보 변경이 가능한가요?</a></li>
+			<li><a href="faq/FaqDetail?faq_idx=5">회원가입을 해야지만 주문할수 있나요?</a></li>
+		</ul>
+	</div>
+	
+	
+	</div>
+</div>
+</div>
 
 
 

@@ -1,10 +1,13 @@
- 
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');  
+  /* PC */
+@media screen and ( min-width: 960px ) {
    
     .box {
       display: flex;
       flex-flow: column;
       justify-content: center;
       align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
       font-size: 12px;
       margin-bottom: 30px;
     }
@@ -109,3 +112,358 @@
     width: 150px;
     height: 100px;
     }
+}
+
+/* 태블릿 */
+@media screen and ( min-width: 768px )
+              and ( max-width: 959px ) {
+ .box {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    .head_box {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    
+    .img_box {
+    display: flex;
+     justify-content: center;
+      align-items: center;
+    }
+    .img_box img {
+    width: 250px;
+    height: 250px;
+    }
+    .section {
+    margin-left: 50px;
+    }
+    
+    .product_detail {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    }
+    
+    .product_review {
+	 display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      margin-bottom: 30px;
+ }  
+    #order_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 90px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    #order_btn:hover {
+    background-color: rgb(132, 132, 227);
+    }
+    
+    .order_btn_box {
+      text-align: center;
+    }
+    .amount_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 25px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    .product_review_list {
+    margin-bottom: 10px;
+    border: 1px solid rgb(178, 178, 238);
+    }
+    
+    #review_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 900px;
+    height: 45px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    #review_btn:hover {
+    background-color: rgb(132, 132, 227);
+    }
+    
+    .review_btn_box {
+      text-align: center;
+    }
+    .product_detail {
+      height: 500px;
+    }
+    .product_delivery {
+      height: 500px;
+    }
+    .product_refund {
+      height: 500px;
+    }
+    .product_review_list {
+      height: 500px;
+    }
+    #review_table {
+    text-align: center;
+    }
+    .review_img_box {
+    text-align: center;
+    }
+    #review_img {
+    width: 150px;
+    height: 100px;
+    }              
+}
+
+/* 모바일 */               
+@media screen and ( max-width: 767px ) 
+              and ( orientation: portrait ) {
+ .box {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    .head_box {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    
+    .img_box {
+    display: flex;
+     justify-content: center;
+      align-items: center;
+    }
+    .img_box img {
+    width: 100px;
+    height: 100px;
+    }
+    .section {
+    margin-left: 50px;
+    }
+    .info {
+    width: 400px;
+    }
+    .product_detail {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    }
+    
+    .product_review {
+	 display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      margin-bottom: 30px;
+      width: 400px;
+ }  
+    #order_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 90px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    #order_btn:hover {
+    background-color: rgb(132, 132, 227);
+    }
+    
+    .order_btn_box {
+      text-align: center;
+    }
+    .amount_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 25px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    .product_review_list {
+    margin-bottom: 10px;
+    border: 1px solid rgb(178, 178, 238);
+    width: 400px;
+    }
+    
+    #review_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 300px;
+    height: 45px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    #review_btn:hover {
+    background-color: rgb(132, 132, 227);
+    }
+    
+    .review_btn_box {
+      text-align: center;
+      width: 400px;
+    }
+    .product_detail {
+      height: 500px;
+    }
+    .product_delivery {
+      height: 500px;
+    }
+    .product_refund {
+      height: 600px;
+    }
+    .product_review_list {
+      height: 500px;
+    }
+    #review_table {
+    text-align: center;
+    }
+    .review_img_box {
+    text-align: center;
+    }
+    #review_img {
+    width: 150px;
+    height: 100px;
+    }              
+              }
+              
+@media screen and (max-width: 767px) 
+              and (orientation: landscape) {
+ .box {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
+    .head_box {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    
+    .img_box {
+    display: flex;
+     justify-content: center;
+      align-items: center;
+    }
+    .img_box img {
+    width: 100px;
+    height: 100px;
+    }
+    .section {
+    margin-left: 50px;
+    }
+    .info {
+    width: 400px;
+    }
+    .product_detail {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    }
+    
+    .product_review {
+	 display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      margin-bottom: 30px;
+      width: 400px;
+ }  
+    #order_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 90px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    #order_btn:hover {
+    background-color: rgb(132, 132, 227);
+    }
+    
+    .order_btn_box {
+      text-align: center;
+    }
+    .amount_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 25px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    .product_review_list {
+    margin-bottom: 10px;
+    border: 1px solid rgb(178, 178, 238);
+    width: 400px;
+    }
+    
+    #review_btn {
+    background-color: rgb(178, 178, 238);
+    border: none;
+    width: 300px;
+    height: 45px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px
+    }
+    
+    #review_btn:hover {
+    background-color: rgb(132, 132, 227);
+    }
+    
+    .review_btn_box {
+      text-align: center;
+      width: 400px;
+    }
+    .product_detail {
+      height: 500px;
+    }
+    .product_delivery {
+      height: 500px;
+    }
+    .product_refund {
+      height: 600px;
+    }
+    .product_review_list {
+      height: 500px;
+    }
+    #review_table {
+    text-align: center;
+    }
+    .review_img_box {
+    text-align: center;
+    }
+    #review_img {
+    width: 150px;
+    height: 100px;
+    }              
+              }

@@ -1,22 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');  
+ /* PC */
+@media screen and ( min-width: 960px ) {
 .box {
       display: flex;
       flex-flow: column;
       justify-content: center;
       align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
       font-size: 12px;
+      
     }
 
-.head_box {
-	display: felx;
-	align-items: center;
-	text-align: right;
-	width: 1000px;
-}
 
-.head_box a {
-	text-decoration: none;
-	color: black;
-}
 
 .content_box {
   display: flex;
@@ -114,4 +109,351 @@
 .pagination > .active > a:visited {
     background-color: rgb(178, 178, 238);
     border: 1px solid rgb(178, 178, 238);
+}
+}
+
+/* 태블릿 */
+@media screen and ( min-width: 768px )
+              and ( max-width: 959px ) {
+.box {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 12px;
+      
+    }
+
+
+
+.content_box {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.img_txt_box {
+	border: 1px solid rgb(240, 240, 240);
+	margin: 10px;
+}
+
+#tag {
+	background-color: rgb(178, 178, 238);
+	border-radius: 3px;
+	padding: 3px;
+}
+
+.img {
+	position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s ease;
+}
+.img:hover .overlay {
+  opacity: 0.8;
+  background-color: rgb(178, 178, 238);
+}
+
+.txt {
+	text-align: center;
+}
+
+ #product_img {
+   width: 250px;
+   height: 250px;
+ }
+
+.pagination > li > a
+{
+ background-color: white;
+ color: rgb(228, 211, 241);
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > a:active,
+.pagination > li > span:focus,
+.pagination > li > span:hover,
+.pagination > li > span:active
+{
+    color: rgb(95, 59, 151);
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active
+{
+    color: white;
+    background-color: rgb(178, 178, 238);
+    border: solid 1px rgb(178, 178, 238);
+}
+
+.page-item > .active {
+	background-color: rgb(178, 178, 238);
+}
+
+.pagination > .active > a:hover
+{
+    background-color: rgb(178, 178, 238);
+    border: solid 1px rgb(178, 178, 238);
+}
+
+ .page-link:focus {
+	background-color: rgb(178, 178, 238);
+}
+
+.page-link:active {
+	background-color: rgb(178, 178, 238);
+}
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:visited {
+    background-color: rgb(178, 178, 238);
+    border: 1px solid rgb(178, 178, 238);
+}              
+              
+}
+
+/* 모바일 */               
+@media screen and ( max-width: 767px ) 
+              and ( orientation: portrait ) {
+              
+.box {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 12px;
+      
+    }
+
+
+
+.content_box {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.img_txt_box {
+	border: 1px solid rgb(240, 240, 240);
+	margin: 10px;
+}
+
+#tag {
+	background-color: rgb(178, 178, 238);
+	border-radius: 3px;
+	padding: 3px;
+}
+
+.img {
+	position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s ease;
+}
+.img:hover .overlay {
+  opacity: 0.8;
+  background-color: rgb(178, 178, 238);
+}
+
+.txt {
+	text-align: center;
+}
+
+ #product_img {
+   width: 100px;
+   height: 100px;
+ }
+
+.pagination > li > a
+{
+ background-color: white;
+ color: rgb(228, 211, 241);
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > a:active,
+.pagination > li > span:focus,
+.pagination > li > span:hover,
+.pagination > li > span:active
+{
+    color: rgb(95, 59, 151);
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active
+{
+    color: white;
+    background-color: rgb(178, 178, 238);
+    border: solid 1px rgb(178, 178, 238);
+}
+
+.page-item > .active {
+	background-color: rgb(178, 178, 238);
+}
+
+.pagination > .active > a:hover
+{
+    background-color: rgb(178, 178, 238);
+    border: solid 1px rgb(178, 178, 238);
+}
+
+ .page-link:focus {
+	background-color: rgb(178, 178, 238);
+}
+
+.page-link:active {
+	background-color: rgb(178, 178, 238);
+}
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:visited {
+    background-color: rgb(178, 178, 238);
+    border: 1px solid rgb(178, 178, 238);
+}              
+            
+}
+            
+            
+            
+@media screen and (max-width: 767px) 
+              and (orientation: landscape) {
+.box {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
+      font-size: 12px;
+      
+    }
+
+
+
+.content_box {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.img_txt_box {
+	border: 1px solid rgb(240, 240, 240);
+	margin: 10px;
+}
+
+#tag {
+	background-color: rgb(178, 178, 238);
+	border-radius: 3px;
+	padding: 3px;
+}
+
+.img {
+	position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 1s ease;
+}
+.img:hover .overlay {
+  opacity: 0.8;
+  background-color: rgb(178, 178, 238);
+}
+
+.txt {
+	text-align: center;
+}
+
+ #product_img {
+   width: 100px;
+   height: 100px;
+ }
+
+.pagination > li > a
+{
+ background-color: white;
+ color: rgb(228, 211, 241);
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > a:active,
+.pagination > li > span:focus,
+.pagination > li > span:hover,
+.pagination > li > span:active
+{
+    color: rgb(95, 59, 151);
+    background-color: #eee;
+    border-color: #ddd;
+}
+
+.pagination > .active
+{
+    color: white;
+    background-color: rgb(178, 178, 238);
+    border: solid 1px rgb(178, 178, 238);
+}
+
+.page-item > .active {
+	background-color: rgb(178, 178, 238);
+}
+
+.pagination > .active > a:hover
+{
+    background-color: rgb(178, 178, 238);
+    border: solid 1px rgb(178, 178, 238);
+}
+
+ .page-link:focus {
+	background-color: rgb(178, 178, 238);
+}
+
+.page-link:active {
+	background-color: rgb(178, 178, 238);
+}
+
+.pagination > .active > a,
+.pagination > .active > a:hover,
+.pagination > .active > a:visited {
+    background-color: rgb(178, 178, 238);
+    border: 1px solid rgb(178, 178, 238);
+}              
 }

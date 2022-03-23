@@ -1,36 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap'); 
+ 
+ /* PC */
+@media screen and ( min-width: 960px ) {
+ 
+.box {
+display: flex;
+flex-flow: row nowrap;
+align-items: center;
+justify-content: center;
+width: 100%;
+font-family: 'Nanum Gothic', sans-serif;
+margin-top: 30px;
+margin-bottom: 30px;
+font-size: 12px;
+ 	}
+ 	
+.menu_box {
+	width: 25%;
+}
 
+.section_box {
+	width: 55%;
+	text-align: center;
+}
+.blank_box {
+	width: 20%;
+}
 
-	.wrap {
-  	display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 50px;
-  	}
-  	
-    .box {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-    }
-   
-    #main_box {
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    #aside_box {
-      flex: 1 1 auto;
-      flex-direction: column;
-      margin-left: 150px;
-      
-    }
-    #section_box {
-      flex: 2 1 auto;
-      flex-direction: column;
-      text-align: center;
-    }
 
 	#btns {
 	background-color: rgb(178, 178, 238);
@@ -71,5 +67,213 @@
     #review_img {
     width:150px;
     height: 100px;
-    }
+    }}
   
+/* 태블릿 */
+@media screen and ( min-width: 768px )
+              and ( max-width: 959px ) {
+.box {
+display: flex;
+flex-flow: row nowrap;
+align-items: center;
+justify-content: center;
+width: 100%;
+font-family: 'Nanum Gothic', sans-serif;
+margin-top: 30px;
+margin-bottom: 30px;
+font-size: 12px;
+ 	}
+ 	
+.menu_box {
+	width: 25%;
+}
+
+.section_box {
+	width: 55%;
+	text-align: center;
+}
+.blank_box {
+	width: 20%;
+}
+
+
+	#btns {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 90px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	}
+	
+	a {
+	text-decoration: none;
+	}
+	
+	a:hover {
+	text-decoration: none;
+	}
+	
+	button:hover {
+	background-color: rgb(130, 130, 215);
+	}
+  
+  	.menu_btn {
+    margin: 10px;
+    font-size: 12px;
+  	text-align: center;
+ 	 }  
+
+  	.order_btn {
+  	 font-size: 12px;
+  	 text-align: center;
+ 	 }
+
+    table {
+      font-size: 12px;
+    }
+    
+    #review_img {
+    width:150px;
+    height: 100px;
+    }       
+}
+
+/* 모바일 */               
+@media screen and ( max-width: 767px ) 
+              and ( orientation: portrait ) {
+.box {
+display: flex;
+flex-flow: row nowrap;
+align-items: center;
+justify-content: center;
+width: 100%;
+font-family: 'Nanum Gothic', sans-serif;
+margin-top: 30px;
+margin-bottom: 30px;
+font-size: 12px;
+ 	}
+ 	
+.menu_box {
+	width: 25%;
+}
+
+.section_box {
+	width: 55%;
+	text-align: center;
+}
+.blank_box {
+	width: 20%;
+}
+
+
+	#btns {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 90px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	}
+	
+	a {
+	text-decoration: none;
+	}
+	
+	a:hover {
+	text-decoration: none;
+	}
+	
+	button:hover {
+	background-color: rgb(130, 130, 215);
+	}
+  
+  	.menu_btn {
+    margin: 10px;
+    font-size: 12px;
+  	text-align: center;
+ 	 }  
+
+  	.order_btn {
+  	 font-size: 12px;
+  	 text-align: center;
+ 	 }
+
+    table {
+      font-size: 12px;
+    }
+    
+    #review_img {
+    width:150px;
+    height: 100px;
+    } 
+}
+
+@media screen and (max-width: 767px) 
+and (orientation: landscape) {
+.box {
+display: flex;
+flex-flow: row nowrap;
+align-items: center;
+justify-content: center;
+width: 100%;
+font-family: 'Nanum Gothic', sans-serif;
+margin-top: 30px;
+margin-bottom: 30px;
+font-size: 12px;
+ 	}
+ 	
+.menu_box {
+	width: 25%;
+}
+
+.section_box {
+	width: 55%;
+	text-align: center;
+}
+.blank_box {
+	width: 20%;
+}
+
+
+	#btns {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 90px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	}
+	
+	a {
+	text-decoration: none;
+	}
+	
+	a:hover {
+	text-decoration: none;
+	}
+	
+	button:hover {
+	background-color: rgb(130, 130, 215);
+	}
+  
+  	.menu_btn {
+    margin: 10px;
+    font-size: 12px;
+  	text-align: center;
+ 	 }  
+
+  	.order_btn {
+  	 font-size: 12px;
+  	 text-align: center;
+ 	 }
+
+    table {
+      font-size: 12px;
+    }
+    
+    #review_img {
+    width:150px;
+    height: 100px;
+    }      
+}

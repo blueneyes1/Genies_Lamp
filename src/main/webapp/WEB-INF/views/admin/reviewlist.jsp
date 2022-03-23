@@ -21,9 +21,8 @@
 </head>
 <body>
 	
-	<div class="wrap">
-    <div class="box" id="main_box">
-      <div class="box" id="aside_box">
+	<div class="box">
+      <div class="menu_box">
         <div class="menu_btn">
           <button onclick="location.href='/admin/memberList' " id="btns">회원관리</button>
         </div>
@@ -46,8 +45,7 @@
         
       </div>
       
-      <div class="box" id="section_box">
-        <div class="member_list">
+        <div class="section_box">
 		<form method="post">
           <table class="table table-hover">
   
@@ -86,11 +84,9 @@
           </table>
          </form>
         </div>
-        
+        <div class="blank_box"></div>
       </div>
       
-    </div>
-</div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
 
