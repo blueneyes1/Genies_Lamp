@@ -313,7 +313,7 @@ font-size: 12px;
     }
     
     .password_change_box {
-    width: 300px;
+    width: 100px;
     height: 20px;
     text-align: center;
     background-color: rgb(213, 213, 218);
@@ -437,7 +437,7 @@ font-size: 12px;
     }
     
     .password_change_box {
-    width: 300px;
+    width: 100px;
     height: 20px;
     text-align: center;
     background-color: rgb(213, 213, 218);
