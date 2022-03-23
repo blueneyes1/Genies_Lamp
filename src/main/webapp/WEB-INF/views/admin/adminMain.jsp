@@ -10,9 +10,9 @@
 </head>
 
 	
-	<div class="wrap">
-    <div class="box" id="main_box">
-      <div class="box" id="aside_box">
+	<div class="box">
+    
+      <div class="menu_box" >
         <div class="menu_btn">
           <button onclick="location.href='/admin/memberList' ">회원관리</button>
         </div>
@@ -34,7 +34,7 @@
         </div>
         
       </div>
-      <div class="box" id="section_box">
+      <div class="section_box" >
         <div class="img">
           <img src="/img/Genie_lamp.png">
         </div>
@@ -43,5 +43,6 @@
         </div>
         
       </div>
+      <div class="blank_box"></div>
     </div>
 </div>

@@ -24,6 +24,7 @@
 	<div class="wrap">
     <div class="box" id="main_box">
       <div class="box" id="aside_box">
+      <div>
         <div class="menu_btn">
           <button onclick="location.href='/admin/memberList.jsp' " id="btns">회원관리</button>
         </div>
@@ -43,11 +44,12 @@
         <div class="menu_btn">
           <button onclick="location.href='/admin/board.jsp' " id="btns">게시판관리</button>
         </div>
-        
+        </div>
       </div>
       
       <div class="box" id="section_box">
         <div class="member_list">
+        <div>
 	
           <table class="table table-hover">
   
@@ -82,7 +84,7 @@
           </table>
          
         </div>
-        
+        </div>
       </div>
       
     </div>
