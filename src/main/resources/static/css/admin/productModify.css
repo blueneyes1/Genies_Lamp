@@ -14,6 +14,7 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size:12px;
  	}
  	
 .menu_box {
@@ -21,12 +22,12 @@ margin-bottom: 30px;
 }
 
 .section_box {
-	width: 60%;
+	width: 40%;
 	text-align: center;
 }
 
 .blank_box {
-	width: 10%;
+	width: 30%;
 }
 
 	#btns {
@@ -94,6 +95,7 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size:12px;
  	}
  	
 .menu_box {
@@ -101,12 +103,12 @@ margin-bottom: 30px;
 }
 
 .section_box {
-	width: 60%;
+	width: 40%;
 	text-align: center;
 }
 
 .blank_box {
-	width: 10%;
+	width: 30%;
 }
 
 	#btns {
@@ -161,7 +163,7 @@ margin-bottom: 30px;
 
     table {
       font-size: 12px;
-    }              
+    }        
 }
 
 /* 모바일 */               
@@ -176,6 +178,7 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size:12px;
  	}
  	
 .menu_box {
@@ -183,12 +186,12 @@ margin-bottom: 30px;
 }
 
 .section_box {
-	width: 60%;
+	width: 40%;
 	text-align: center;
 }
 
 .blank_box {
-	width: 10%;
+	width: 30%;
 }
 
 	#btns {
@@ -243,12 +246,12 @@ margin-bottom: 30px;
 
     table {
       font-size: 12px;
-    }              
+    } 
 }
 
 @media screen and (max-width: 767px) 
 and (orientation: landscape) {
- .box {
+.box {
 display: flex;
 flex-flow: row nowrap;
 align-items: center;
@@ -257,6 +260,7 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size:12px;
  	}
  	
 .menu_box {
@@ -264,12 +268,12 @@ margin-bottom: 30px;
 }
 
 .section_box {
-	width: 60%;
+	width: 40%;
 	text-align: center;
 }
 
 .blank_box {
-	width: 10%;
+	width: 30%;
 }
 
 	#btns {
@@ -324,5 +328,5 @@ margin-bottom: 30px;
 
     table {
       font-size: 12px;
-    }              
+    }   
 }

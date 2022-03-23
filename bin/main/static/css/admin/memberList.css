@@ -12,6 +12,7 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
@@ -19,8 +20,12 @@ margin-bottom: 30px;
 }
 
 .section_box {
-	width: 70%;
+	width: 60%;
 	text-align: center;
+}
+
+.blank_box {
+	width: 10%;
 }
 
 #btns {
@@ -87,6 +92,7 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
@@ -94,8 +100,12 @@ margin-bottom: 30px;
 }
 
 .section_box {
-	width: 70%;
+	width: 60%;
 	text-align: center;
+}
+
+.blank_box {
+	width: 10%;
 }
 
 #btns {
@@ -147,6 +157,7 @@ background-color: rgb(130, 130, 215);
    table {
      font-size: 12px;
    }
+   
               
 }
 
@@ -162,6 +173,7 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
@@ -169,8 +181,12 @@ margin-bottom: 30px;
 }
 
 .section_box {
-	width: 70%;
+	width: 60%;
 	text-align: center;
+}
+
+.blank_box {
+	width: 10%;
 }
 
 #btns {
@@ -235,6 +251,7 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
@@ -242,8 +259,12 @@ margin-bottom: 30px;
 }
 
 .section_box {
-	width: 70%;
+	width: 60%;
 	text-align: center;
+}
+
+.blank_box {
+	width: 10%;
 }
 
 #btns {
@@ -294,5 +315,5 @@ background-color: rgb(130, 130, 215);
 
    table {
      font-size: 12px;
-   }               
+   }        
 }

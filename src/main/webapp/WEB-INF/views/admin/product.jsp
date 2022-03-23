@@ -80,7 +80,7 @@
               <c:set var="dateVar" value="${ product_list.product_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
               </td>
-              <td><a href="/admin/productModify?product_idx=${product_list.product_idx }">제품 정보 수정/삭제</a></td>
+              <td><a href="/admin/productModify?product_idx=${product_list.product_idx }">수정/삭제</a></td>
             </tr>
             </c:forEach>
           </table>

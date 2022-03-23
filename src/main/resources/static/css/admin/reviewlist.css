@@ -12,18 +12,19 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
-	width: 30%;
+	width: 25%;
 }
 
 .section_box {
-	width: 60%;
+	width: 55%;
 	text-align: center;
 }
 .blank_box {
-	width: 10%;
+	width: 20%;
 }
 
 
@@ -80,18 +81,19 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
-	width: 30%;
+	width: 25%;
 }
 
 .section_box {
-	width: 60%;
+	width: 55%;
 	text-align: center;
 }
 .blank_box {
-	width: 10%;
+	width: 20%;
 }
 
 
@@ -134,7 +136,7 @@ margin-bottom: 30px;
     #review_img {
     width:150px;
     height: 100px;
-    }              
+    }       
 }
 
 /* 모바일 */               
@@ -149,18 +151,19 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
-	width: 30%;
+	width: 25%;
 }
 
 .section_box {
-	width: 60%;
+	width: 55%;
 	text-align: center;
 }
 .blank_box {
-	width: 10%;
+	width: 20%;
 }
 
 
@@ -203,7 +206,7 @@ margin-bottom: 30px;
     #review_img {
     width:150px;
     height: 100px;
-    }              
+    } 
 }
 
 @media screen and (max-width: 767px) 
@@ -217,18 +220,19 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
-	width: 30%;
+	width: 25%;
 }
 
 .section_box {
-	width: 60%;
+	width: 55%;
 	text-align: center;
 }
 .blank_box {
-	width: 10%;
+	width: 20%;
 }
 
 
@@ -271,5 +275,5 @@ margin-bottom: 30px;
     #review_img {
     width:150px;
     height: 100px;
-    }               
+    }      
 }

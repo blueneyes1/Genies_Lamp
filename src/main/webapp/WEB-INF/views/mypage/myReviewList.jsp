@@ -22,9 +22,8 @@
 </head>
 <body>
 	
-	<div class="wrap">
-	<div class="box" id="main_box">
-      <div class="box" id="aside_box">
+	<div class="box">
+	<div class="menu_box">
       
       <div class="menu_btn">
           <button onclick="location.href='/mypage/memberInfo' " id="btns">회원정보수정</button>
@@ -47,9 +46,8 @@
         </div>
         
       </div>
-      <div class="box" id="section_box">
-	<form method="post" >
-		<div class="review_box">
+      <div class="section_box">
+			<form method="post" >
 	
       <table class="table table-sm">
 
@@ -86,10 +84,11 @@
 
 
 
-    </div>
-	</form>
-	
+    
+			</form>
 	</div>
+	
+	<div class="blank_box">
 	</div>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

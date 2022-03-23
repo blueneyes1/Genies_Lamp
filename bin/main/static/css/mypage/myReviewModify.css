@@ -1,27 +1,33 @@
     
-    .box {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-      margin-bottom: 50px;
-    }
-   
-    #main_box {
-      display: flex;
-      flex-flow: row nowrap;
-    }
-    #aside_box {
-      flex: 1 1 auto;
-      flex-direction: column;
-      width: 300px;
-    }
-    #section_box {
-      flex: 2 1 auto;
-      flex-direction: column;
-      width: 1200px;
-    }
+   @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap'); 
+ 
+ /* PC */
+@media screen and ( min-width: 960px ) {
+ 
+.box {
+display: flex;
+flex-flow: row nowrap;
+align-items: center;
+justify-content: center;
+width: 100%;
+font-family: 'Nanum Gothic', sans-serif;
+margin-top: 30px;
+margin-bottom: 30px;
+font-size: 12px;
+ 	}
+ 	
+.menu_box {
+	width: 35%;
+}
+
+.section_box {
+	width: 35%;
+	text-align: center;
+}
+
+.blank_box {
+	width: 30%;
+}
     
     .menu_btn {
     margin: 10px;
@@ -70,4 +76,4 @@
     border-radius: 3px;
     font-size: 12px;
     }
-
+}
