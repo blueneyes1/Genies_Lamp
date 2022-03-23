@@ -26,12 +26,12 @@ public class payService {
 		return list;
 	}
 	
-	// 단품결제 액션 (LDG)
-	public int singlePay( String pay_number, String member_id, String pay_receiver, String pay_phone, String pay_address1, 
+	// 결제 액션 (LDG)
+	public int payAction( String pay_number, String member_id, String pay_receiver, String pay_phone, String pay_address1, 
 			String pay_address2, String pay_address3, String pay_message, String pay_cost, String pay_total
 			) {
 		
-		int result = payDao.singlePay( pay_number, member_id, pay_receiver, pay_phone, pay_address1, pay_address2, 
+		int result = payDao.payAction( pay_number, member_id, pay_receiver, pay_phone, pay_address1, pay_address2, 
 				pay_address3, pay_message, pay_cost, pay_total );
 		
 		return result;

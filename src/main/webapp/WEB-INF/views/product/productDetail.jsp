@@ -112,7 +112,7 @@
 	            <tr>
 	              <th scope="row" colspan="2" class="order_btn_box">
 	                <input type="submit" value="장바구니" formaction="/basketAdd" name="payment" id="order_btn"/>
-	                <input type="submit" value="구매하기" formaction="/singlePay" name="payment" id="order_btn"/>
+	                <input type="submit" value="구매하기" formaction="/singlePay_${member_id}" name="payment" id="order_btn"/>
 	    	      </th>
 	            </tr>
 	          </tbody>

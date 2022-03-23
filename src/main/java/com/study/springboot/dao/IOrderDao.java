@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.study.springboot.dto.OrderDto;
 import com.study.springboot.dto.OrderListDto;
+import com.study.springboot.dto.PayDto;
 
 
 @Mapper
@@ -20,5 +21,8 @@ public interface IOrderDao {
 	
 	// 멀티구매 - 리스트 (LDG)
 	public List<OrderDto> orders(List<OrderListDto> orderList);
+	
+	// 멀티구매 - 제품등록 (LDG)
+	public int multiOrders( OrderDto ord );
 	
 }

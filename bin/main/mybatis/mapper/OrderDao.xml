@@ -20,5 +20,13 @@
      	order_count, order_price ) VALUES ( genies_order_seq.nextval, #{param1}, #{param2},
      	#{param3}, #{param4}, #{param5} )
      </insert>
+     
+     <!-- 멀티구매 - 제품등록 ( LDG ) -->
+     <insert id="multiOrders">
+     	INSERT INTO genies_order( order_idx, order_pay_number, order_product_idx, order_product_name, 
+     	order_count, order_price ) VALUES ( genies_order_seq.nextval, #{order_pay_number}, #{order_product_idx},
+     	#{order_product_name}, #{order_count}, #{order_price} )
+     </insert>
+     
     
 </mapper>    

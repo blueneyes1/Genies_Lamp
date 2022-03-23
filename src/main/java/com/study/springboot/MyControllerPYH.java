@@ -712,9 +712,7 @@ public class MyControllerPYH {
 								HttpServletRequest request, Model model) {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
-		
-		System.out.println(member_id);
-		
+				
 		if(member_id==null) {	
 			model.addAttribute("mainPage", "mypage/myReviewModify.jsp");			
 			return "index";

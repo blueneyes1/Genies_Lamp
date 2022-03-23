@@ -94,46 +94,10 @@
 	</form>
 	
 	<!-- 주문 form -->
-	<form action="/pay/${member_id}" method="post" class="order_form">
+	<form action="/multiPay_${member_id}" method="post" class="order_form">
 		
 	</form>
-	
-	<script>
-	/* 주문 페이지 이동 */	
-	$(".order_btn").on("click", function(){
 		
-		var form_contents ='';
-		var orderNumber = 0;
-		
-		$(".cart_info_td").each(function(index, element){
-			
-			if($(element).find(".cart_checkbox").is(":checked") === true){	//체크여부
-				
-				var product_idx = $(element).find(".product_idx_input").val();
-				var product_name = $(element).find(".product_name_input").val();
-				var product_price = $(element).find(".product_price_input").val();
-				var product_count = $(element).find(".product_count_input").val();
-				
-				var order_product_idx = "<input name='orderList[" + orderNumber + "].order_product_idx' type='hidden' value='" + product_idx + "'>";
-				form_contents += order_product_idx;
-				var order_product_name = "<input name='orderList[" + orderNumber + "].order_product_name' type='hidden' value='" + product_name + "'>";
-				form_contents += order_product_name;
-				var order_count = "<input name='orderList[" + orderNumber + "].order_count' type='hidden' value='" + product_count + "'>";
-				form_contents += order_count;
-				var order_price = "<input name='orderList[" + orderNumber + "].order_price' type='hidden' value='" + product_price + "'>";
-				form_contents += order_price;
-				
-				orderNumber += 1;
-				
-			}
-		});	
-	
-		$(".order_form").html(form_contents);
-		$(".order_form").submit();
-		
-	});
-	</script>
-	
 	</div>
 	</div>
 	
@@ -192,4 +156,40 @@
 			
 		}
 	
+	</script>
+	
+	<script>
+	/* 주문 페이지 이동 */	
+	$(".order_btn").on("click", function(){
+		
+		var form_contents ='';
+		var orderNumber = 0;
+		
+		$(".cart_info_td").each(function(index, element){
+			
+			if($(element).find(".cart_checkbox").is(":checked") === true){	//체크여부
+				
+				var product_idx = $(element).find(".product_idx_input").val();
+				var product_name = $(element).find(".product_name_input").val();
+				var product_price = $(element).find(".product_price_input").val();
+				var product_count = $(element).find(".product_count_input").val();
+				
+				var order_product_idx = "<input name='orderList[" + orderNumber + "].order_product_idx' type='hidden' value='" + product_idx + "'>";
+				form_contents += order_product_idx;
+				var order_product_name = "<input name='orderList[" + orderNumber + "].order_product_name' type='hidden' value='" + product_name + "'>";
+				form_contents += order_product_name;
+				var order_count = "<input name='orderList[" + orderNumber + "].order_count' type='hidden' value='" + product_count + "'>";
+				form_contents += order_count;
+				var order_price = "<input name='orderList[" + orderNumber + "].order_price' type='hidden' value='" + product_price + "'>";
+				form_contents += order_price;
+				
+				orderNumber += 1;
+				
+			}
+		});	
+	
+		$(".order_form").html(form_contents);
+		$(".order_form").submit();
+		
+	});
 	</script>

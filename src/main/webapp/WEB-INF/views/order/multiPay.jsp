@@ -11,12 +11,13 @@
 	<title>결제정보</title>
 </head>
 
+
+
 <!-- 멀티 결제페이지 -->
 
 <div class="box">
-	<form action="/singlePayAction" method="post">
+	<form action="/multiPayAction" method="post" class="order_form">
 		<table>
-			
 			<tr>
 				<td>받는사람</td>
 				<td>
@@ -54,30 +55,23 @@
 		<br>
 		
 		<!-- 구매물품 리스트 -->
-		<tbody type="hidden" >
+		<table>
 			<c:set var="sum" value="0" />
 			<c:forEach items="${dto}" var="dto">
-				<td>
-					<input type="hidden" name="order_product_idx" value="${dto.order_product_idx}">
-				</td>
-				<td>
-					<input type="hidden" name="order_product_name" value="${dto.order_product_name}">
-				</td>
+			<tr>
 				<td class="goods_table_price_td">
-					<input type="hidden" name="order_price" value="${dto.order_price}">
-					<input type="hidden" name="order_count" value="${dto.order_count}">					
-				</td>
-				<c:set var="sum" value="${sum + (dto.order_price * dto.order_count)}" />
-			</c:forEach>	
-			
-		</tbody>
+					<input type="hidden" class="order_product_idx" value="${dto.order_product_idx}">
+					<input type="hidden" class="order_product_name" value="${dto.order_product_name}">
+					<input type="hidden" class="order_count" value="${dto.order_count}">	
+					<input type="hidden" class="order_price" value="${dto.order_price}">				
+				</td>				
+			</tr>
+			<c:set var="sum" value="${sum + (dto.order_price * dto.order_count)}" />
+			</c:forEach>			
+		</table>
 		
 		<div>
-			<table>
-				<td>
-									
-				</td>
-					        	        
+			<table>					        	        
 		        <tr>
 		        	<td>합계</td>
 		        	<td><span class="totalPrice_span"></span>원</td>
@@ -104,16 +98,12 @@
 		        </tr>
 			</table>
 		</div>
-		
 		<div class="imageBtn2">
-	     <input type="image" name="submit" value="submit" src="/img/member/btn_confirm.gif">
-	     <input type="image" name="historyback" onclick="history.back(-1)" src="/img/member/btn_cancel.gif" >
-	   </div>
-	
-		
+		     <input type="image" name="submit" class="order_btn"  value="submit" src="/img/member/btn_confirm.gif">
+		     <input type="image" name="historyback" onclick="history.back(-1)" src="/img/member/btn_cancel.gif" >
+		</div>			
 	</form>
 		
-	
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -140,12 +130,7 @@
 		var totalPrice = ${sum};				// 금액합계
 		var deliveryPrice = 0;			// 배송비
 		var finalTotalPrice = 0; 		// 결제금액( 금액합계 + 배송비 )	
-		
-		/* $(".goods_table_price_td").each(function(index, element){
-			// 총 가격
-			totalPrice += parseInt($(element).find(".individual_totalPrice_input").val());			
-		});	 */
-					
+									
 		/* 배송비 결정 */
 		if(totalPrice >= 50000){
 			deliveryPrice = 0;
@@ -165,8 +150,37 @@
 		// 결제금액(금액합계 + 배송비)
 		$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());		
 		
-	}
-	
+	};
+</script>
+
+<script>
+
+	/* 주문 페이지 이동 */	
+	$(".order_btn").on("click", function(){
+		
+		/* 상품정보 */
+		var form_content = ''; 
+		$(".goods_table_price_td").each(function(index, element){
+			var order_product_idx = $(element).find(".order_product_idx").val();
+			var order_product_name = $(element).find(".order_product_name").val();
+			var order_count = $(element).find(".order_count").val();
+			var order_price = $(element).find(".order_price").val();
+			
+			var order_product_idx_input = "<input name='orderList[" + index + "].order_product_idx' type='hidden' value='" + order_product_idx + "'>";
+			form_content += order_product_idx_input;
+			var order_product_name_input = "<input name='orderList[" + index + "].order_product_name' type='hidden' value='" + order_product_name + "'>";
+			form_content += order_product_name_input;
+			var order_count_input = "<input name='orderList[" + index + "].order_count' type='hidden' value='" + order_count + "'>";
+			form_content += order_count_input;
+			var order_price_input = "<input name='orderList[" + index + "].order_price' type='hidden' value='" + order_price + "'>";
+			form_content += order_price_input;
+		});	
+		$(".order_form").append(form_content);
+		
+		/* 서버 전송 */
+		$(".order_form").submit();	
+		
+	});
 </script>
 
 <script>
