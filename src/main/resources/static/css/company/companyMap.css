@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');  
+
 .wrap {
       display: flex;
       flex-flow: column;
       justify-content: center;
       align-items: center;
       font-size: 12px;
+      font-family: 'Nanum Gothic', sans-serif;
 			
     }
 

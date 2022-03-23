@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');  
+
 .box {
       display: flex;
       flex-flow: column;
       justify-content: center;
       align-items: center;
+      font-family: 'Nanum Gothic', sans-serif;
       font-size: 12px;
+      
     }
 
 .head_box {
