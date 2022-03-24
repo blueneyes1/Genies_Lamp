@@ -6,6 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>공지사항 상세</title>
 </head>
 
@@ -113,11 +114,11 @@ text-align: center;
 <form action="writeAction" method="post">
 
 	<table class="table table-sm"  style="margin-left: auto; margin-right: auto;">
-	<input type="hidden" name="notice_idx" value="${viewDto.notice_idx }"/>
+	<input type="hidden" name="notice_idx" value="${ viewDto.notice_idx }"/>
   <thead>
     <tr>
       <th scope="row">번호</th>
-       <td>${viewDto.notice_idx }</td>
+       <td>${ viewDto.notice_idx }</td>
      
     </tr>
   </thead>

@@ -112,7 +112,7 @@ th {
 			<tbody>
 			<tr>
 				<th scope="row">이름</th>
-				<td><input type="text" name="one2on_member_id" value="" size="78"></td>
+				<td>${ member_id }</td>
 			</tr>
 			<tr>
 				<th scope="row">제목</th>

@@ -15,7 +15,7 @@
 			
 			<tr>
 				<td>이름</td>
-				<td><input type="text" name="one2on_member_id" value="" size="50"></td>
+				<td><${ dto.one2one_member_id }></td>
 			</tr>
 			<tr>
 				<td>제목</td>
