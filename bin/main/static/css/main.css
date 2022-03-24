@@ -2,50 +2,91 @@
 @charset "UTF-8";
 
 
-
+body{
+width:100%;
+height:100%
+}
 
 .main{
+width:90%;
+height:100%;
 display:flex;
-width:100%;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-
+margin:5%;
+text-align:center;
 }	
 
-.service_banner{
-width:100%;
-height:1%;
+
+.carousel{
+width:80%;
+height:20%;
+margin:auto;
 }
 
+.eventbanner{
+margin-top:10%
 
+}
+.betstitem{
+margin:10%;
+}
 
 .mainitem{
+width:50%;
+height:100%;
 display:flex;
 flex-direction: row;		
-}
-
-
-
-.mainbest{
-
 
 }
 
 .subbest{
 display:flex;
 flex-direction:row;
-	
+
+}
+
+.newtext{
+margin-top:10%;
+margin-bottom:0;
 }
 
 .bigbanner{
 display:flex;
 flex-direction: row;	
+
 }
 
 .newitem{
 display:flex;
 flex-direction: row;		
+margin:60px;
+margin-top:0;
+}
+
+.railboard{
+display:flex;
+flex-direction: column;		
+margin:40px;	
+}
+
+.floarboard{
+display:flex;
+flex-direction: column;	
+margin:40px;
+}
+
+.standboard{
+display:flex;
+flex-direction: column;	
+margin:40px;
+}
+
+.wallboard{
+display:flex;
+flex-direction: column;	
+margin:40px;
 }
 
 .board{
@@ -53,6 +94,7 @@ display:flex;
 flex-direction: row;
 justify-content:center;
 align-items:center;
+margin:60px;
 }	
 .noticeboard{
 	margin:15px 30px 15px 15px;

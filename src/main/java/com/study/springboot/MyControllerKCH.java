@@ -29,9 +29,23 @@ private NoticeService NoticeService;
 @Autowired
 private FaqService FaqService;
 
-
-
-
+//----공지사항게시판----//
+/*
+ * @RequestMapping("/notice/NoticeForm") public String
+ * NoticeForm(HttpServletRequest request,Model model) {
+ * 
+ * model.addAttribute("mainPage", "NoticeForm.jsp");
+ * 
+ * List<NoticeDto> notice_list = NoticeService.notice_list();
+ * 
+ * model.addAttribute("notice_list", notice_list);
+ * 
+ * System.out.println( notice_list );
+ * 
+ * return "index"; //"listForm.jsp" 디스패치함.
+ * 
+ * }
+ */
 
 //----공지사항게시판----//
    

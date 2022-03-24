@@ -1,5 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $("#noticeboard").load("/notice/NoticeForm.jsp");
+
+});
+
+</script>
+
+
+
+
+
+
+
 
 
 <head>
@@ -26,22 +46,22 @@
     <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img src="/img/carousel/bed.jpg" class="d-block w-100" alt="..." width="900" height="600">
+    <div class="carousel-item active" data-bs-interval="1000">
+      <img src="/img/carousel/bed.jpg" class="d-block w-100" alt="..." width="20%" height="6%">
       <div class="carousel-caption d-none d-md-block">
         <h5>First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="/img/carousel/lamp.jpg" class="d-block w-100" alt="..." width="900" height= "600">
+      <img src="/img/carousel/lamp.jpg" class="d-block w-100" alt="..." width="20%" height="6%">
       <div class="carousel-caption d-none d-md-block">
         <h5>Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>
       </div>
     </div>
     <div class="carousel-item">
-      <img src="/img/carousel/rail.jpg" class="d-block w-100" alt="..." width="900" height="600">
+      <img src="/img/carousel/rail.jpg" class="d-block w-100" alt="..." width="20%" height="6%">
       <div class="carousel-caption d-none d-md-block">
         <h5>Third slide label</h5>
         <p>Some representative placeholder content for the third slide.</p>
@@ -61,10 +81,10 @@
 	
 	
 	<!-- 이벤트배너 -->
-	<div class="eventbanner"><img src="/img/banner/service_banner.jpg" width="100%" height="2%"></div>
+	<div class="eventbanner"><h3>이벤트</h3><img src="/img/banner/service_banner.jpg" width="100%" height="20%"></div>
 	
 	<!-- 베스트아이템 -->
-	<div class="betstitem">
+	<div class="betstitem"><h3>BEST</h3>
 		
 		<!-- 메인아이템 -->
 		<div class="mainitem">
@@ -82,52 +102,56 @@
 			</div>
 		</div>
 		</div>
+		</div>
 		
 	
 	
 	<!-- 빅배너 -->
+	<div class="customerevent"><h3>고객감사이벤트</h3></div>
 	<div class="bigbanner">	
 		<div><img src="/img/banner/kakaoevent.jpg" width="400" height="200"></div>
 		<div><img src="/img/banner/newopen.jpg" width="400" height="200"></div>
 		<div><img src="/img/banner/photoevent.jpg"width="400" height="200"></div>		
 
 	</div>
+
+	
 	<!-- 신제품 -->
+	<div class="newtext"><h3>NEW</h3></div>
 	<div class="newitem">
-		<div class="rail"></div>
-		<div class="floar"></div>
-		<div class="stand"></div>
-		<div class="wall"></div>
+			<div class="railboard">
+				<div class="rail1"><img src="/upload/20222239717289.jpg" width="300" height="200"></div>
+				<div class="rail1"><img src="/upload/20222239133209.jpg" width="300" height="200"></div>
+			</div>	
+			
+			<div class="floarboard">
+				<div class="floar"><img src="/upload/202222310948254.jpg" width="300" height="200"></div>
+				<div class="floar"><img src="/upload/202222395932480.jpg" width="300" height="200"></div>
+			</div>
+			
+			<div class="standboard">
+				<div class="stand"><img src="/upload/2022219273879.jpg" width="300" height="200"></div>
+				<div class="stand"><img src="/upload/20222237405914.jpg" width="300" height="200"></div>
+			</div>
+			
+			<div class="wallboard">
+				<div class="wall"><img src="/upload/202222395215752.jpg" width="300" height="200"></div>
+				<div class="wall"><img src="/upload/202222393915731.jpg" width="300" height="200"></div>
+			</div>
 	</div>
+
 
 	<!-- 게시판 -->
-	<div class="board">
-	<div class="noticeboard"><h2 class="boardmov">공지사항</h2>
-	<div class="notice_link"><a href="notice/NoticeForm">전체공지보기</a></div>
-		<ul id="noticeslide">
-			<li><a href="notice/NoticeDetail?notice_idx=1">방역 배송 안내</a></li>
-			<li><a href="notice/NoticeDetail?notice_idx=2">지니의 램프 상품 댓글 안내</a></li>
-			<li><a href="notice/NoticeDetail?notice_idx=3">지니의 램프 origin 상품 안내</a></li>
-			<li><a href="notice/NoticeDetail?notice_idx=4">대리구매 이용 자제를 부탁드립니다</a></li>
-			<li><a href="notice/NoticeDetail?notice_idx=5">택배배송 정상화 지연 안내</a></li>
-		</ul>
-	</div>
+<div class="board">
+	<div class="noticeboard" style="border: solid; width:600px; height:200px;"></div>
+	
+	<div class="faqboard" style="border: solid; width:600px; height:200px;"></div>
 
-	<div class="faqboard"><h2 class="faqmov">자주묻는질문</h2>
-	<div class="faq_link" ><a href="faq/FaqForm">전체Faq보기</a></div>
-		<ul id="faqslide">
-			<li><a href="faq/FaqDetail?faq_idx=1">수령자/배송지 주소를 변경하고 싶어요.</a></li>
-			<li><a href="faq/FaqDetail?faq_idx=2">최저가 보상 제도는 어떤 제도인가요?</a></li>
-			<li><a href="faq/FaqDetail?faq_idx=3">ID/ 비밀번호가 기억나지 않아요 찾을수 있나요?</a></li>
-			<li><a href="faq/FaqDetail?faq_idx=4">아이디/비밀번호/회원정보 변경이 가능한가요?</a></li>
-			<li><a href="faq/FaqDetail?faq_idx=5">회원가입을 해야지만 주문할수 있나요?</a></li>
-		</ul>
-	</div>
-	
-	
-	</div>
+
+
 </div>
 </div>
+
 
 
 
