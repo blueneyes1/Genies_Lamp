@@ -11,7 +11,7 @@
      <!-- 마이페이지 - 주문내역 (LDG) -->
      <select id="orderDetail" resultType="com.study.springboot.dto.OrderDto">
      	SELECT * FROM genies_pay, genies_order WHERE genies_pay.pay_member_id = #{ member_id } 
-     	AND genies_pay.pay_idx = genies_order.order_pay_idx
+     	AND genies_pay.pay_number = genies_order.order_pay_number
      </select>
      
      <!-- 단건구매 - 제품등록 (LDG) -->

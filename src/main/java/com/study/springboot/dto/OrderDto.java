@@ -2,6 +2,8 @@ package com.study.springboot.dto;
 
 
 
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -27,7 +29,7 @@ public class OrderDto {
 	private int pay_cost;
 	private int pay_total;
 	private int pay_delivery;
-	private int pay_date;
+	private Date pay_date;
 	
 	public OrderDto() {
 		
@@ -36,7 +38,7 @@ public class OrderDto {
 	public OrderDto(int order_idx, String order_pay_number, int order_product_idx, String order_product_name,
 			int order_count, int order_price, String order_review, int pay_idx, String pay_number, String pay_member_id,
 			String pay_receiver, String pay_phone, String pay_address1, String pay_address2, String pay_address3,
-			String pay_message, int pay_cost, int pay_total, int pay_delivery, int pay_date) {
+			String pay_message, int pay_cost, int pay_total, int pay_delivery, Date pay_date) {
 		super();
 		this.order_idx = order_idx;
 		this.order_pay_number = order_pay_number;
