@@ -221,20 +221,18 @@ public class MyControllerLDG {
 		String member_id = (String) request.getSession().getAttribute("member_id");
 
 		List<OrderDto> orderDetail = orderService.orderDetail(member_id);
-		int order_count = 0;
+		//int order_count = 0;
 
-		if (orderDetail.size() > 0) {
-			order_count = 1;
-		} else {
-			order_count = 0;
-		}
+		//if (orderDetail.size() > 0) {
+		//	order_count = 1;
+		//} else {
+		//	order_count = 0;
+		//}
 
-		model.addAttribute("order_count", order_count);
+		//model.addAttribute("order_count", order_count);
 		model.addAttribute("orderDetail", orderDetail);
 
-		// System.out.println(order_count);
-		// System.out.println(orderDetail);
-
+		
 		model.addAttribute("mainPage", "mypage/orderDetails.jsp");
 
 		return "index"; // "mypage/orderDetails.jsp" 디스패치됨.
