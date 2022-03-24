@@ -1,0 +1,35 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+}
+
+.price_box {
+	display: flex;
+	justify-content: right;
+	text-align: right;
+	border: 1px solid rgb(178, 178, 238);
+	font-size: 12px;
+}
+
+.btn_box {
+	text-align: center;
+	margin: 10px;
+}
+
+#pay_btn {
+	background-color: rgb(178, 178, 238);
+ border: none;
+ width: 90px;
+ height: 25px;
+ color: rgb(17, 17, 17);
+ border-radius: 3px;
+}
+
+.table {
+  font-size: 12px;
+}
+
+
