@@ -41,7 +41,7 @@
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/admin/board.jsp' " id="btns">게시판관리</button>
+          <button onclick="location.href='/admin/board' " id="btns">게시판관리</button>
         </div>
         </div>
       </div>
