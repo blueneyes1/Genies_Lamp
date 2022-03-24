@@ -25,15 +25,15 @@
       <div class="menu_box">
       <div>
         <div class="menu_btn">
-          <button onclick="location.href='/admin/memberList.jsp' " id="btns">회원관리</button>
+          <button onclick="location.href='/admin/memberList' " id="btns">회원관리</button>
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/admin/selectlist.jsp' " id="btns">주문관리</button>
+          <button onclick="location.href='/admin/selectlist' " id="btns">주문관리</button>
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/admin/product.jsp' " id="btns">상품관리</button>
+          <button onclick="location.href='/admin/product' " id="btns">상품관리</button>
         </div>
         
         <div class="menu_btn">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/admin/board.jsp' " id="btns">게시판관리</button>
+          <button onclick="location.href='/admin/board' " id="btns">게시판관리</button>
         </div>
         </div>
       </div>

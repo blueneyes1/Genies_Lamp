@@ -27,7 +27,7 @@
 	<div class="box">
       <div class="menu_box" >
         <div class="menu_btn">
-          <button onclick="location.href='/admin/member' ">회원관리</button>
+          <button onclick="location.href='/admin/memberList' ">회원관리</button>
         </div>
         
         <div class="menu_btn">
