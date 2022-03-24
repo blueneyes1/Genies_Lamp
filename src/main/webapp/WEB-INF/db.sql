@@ -199,8 +199,8 @@ create table genies_review_reply(
     review_reply_idx       number(20) primary key,
     review_reply_content   varchar2(1000),
     review_reply_date      date default sysdate,
-    review_reply_review_idx 		number(20)
-);
+    review_reply_review_idx 		number(20),
+	foreign key review_reply_review_idx references genies_product_review(review_idx);
 
 drop sequence genies_review_reply_seq;
 create sequence genies_review_reply_seq;
