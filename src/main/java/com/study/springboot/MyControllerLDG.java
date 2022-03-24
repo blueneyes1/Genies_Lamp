@@ -22,7 +22,7 @@ import com.study.springboot.dao.IPayNumber_seqDao;
 import com.study.springboot.dto.MemberDto;
 import com.study.springboot.dto.OrderDto;
 import com.study.springboot.dto.OrderListDto;
-import com.study.springboot.dto.PayDto;
+import com.study.springboot.service.BasketService;
 import com.study.springboot.service.MemberService;
 import com.study.springboot.service.OrderService;
 import com.study.springboot.service.payService;
@@ -38,6 +38,9 @@ public class MyControllerLDG {
 
 	@Autowired
 	payService payService;
+	
+	@Autowired
+	BasketService basketService;
 
 	@Autowired
 	IPayNumber_seqDao payNumber_seqDao;
@@ -386,5 +389,37 @@ public class MyControllerLDG {
 
 		return "index";
 	}
+	
+	@RequestMapping("/mypage_delete_basket")
+	public String delete_basket (@RequestParam("basket_idx") String basket_idx) {
+		
+		int result = basketService.delete_basket(basket_idx);
+		if(result == 1) {			
+			return "redirect:/mypage/basket";
+		}else {
+			return "redirect:/mypage/basket";
+			//return "<script>alert('장바구니 비우기에 실패했습니다.'); history.back(-1);</script>";
+		}
+		
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
