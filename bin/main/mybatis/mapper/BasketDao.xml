@@ -44,7 +44,7 @@
 	</delete>
 	
 	<!-- 장바구니 중복 체크 (LDG) -->
-	<select id="basketCheck" resultType="int" >
+	<select id="basketCheck" resultType="string" >
 		select * from GENIES_BASKET 
 		where basket_member_id = #{param1} and basket_product_idx = #{param2}
 	</select>

@@ -56,7 +56,7 @@ public class MyControllerPJW {
 	        }
 	    	
 	    	if(page != null) {
-	    		System.out.println("page"+page);
+	    	
 	    		model.addAttribute("page",page);
 	    		
 
@@ -221,8 +221,6 @@ return "index"; //index.jsp 디스패치
 									@RequestParam("one2one_reply_content") String one2one_reply_content,
 									HttpServletRequest request) 
 	{
-		System.out.println("one2one_reply_one2one_idx:"+one2one_reply_one2one_idx);
-		System.out.println("one2one_reply_content:"+one2one_reply_content);
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		int result = replydao.reply_write(one2one_reply_content, member_id, one2one_reply_one2one_idx);
@@ -244,8 +242,7 @@ return "index"; //index.jsp 디스패치
 									@RequestParam("one2one_reply_one2one_idx") String one2one_reply_one2one_idx,
 								HttpServletRequest request)
 	{
-		System.out.println("one2one_reply_idx"+ one2one_reply_idx );
-		System.out.println("one2one_reply_one2one_idx"	+one2one_reply_one2one_idx);
+		
 		int result = replydao.reply_deleteDto(one2one_reply_idx, one2one_reply_one2one_idx);
 		if( result == 1 ) {
 			System.out.println("답변삭제 성공!");

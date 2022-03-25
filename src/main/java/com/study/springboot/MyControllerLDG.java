@@ -375,7 +375,7 @@ public class MyControllerLDG {
 
 		// 주문번호 생성
 		String pay_number = "M" + dateOfPayNumber + seqOfPayNumber;
-		System.out.println(pay_number);
+		
 		int result = payService.payAction(pay_number, member_id, pay_receiver, pay_phone, pay_address1, pay_address2,
 				pay_address3, pay_message, pay_cost, pay_total);
 
@@ -386,11 +386,7 @@ public class MyControllerLDG {
 			return "<script>alert('서비스에러1 : 다시 시도해 주세요.'); history.back(-1);</script>";
 		}
 
-		// model.addAttribute("result", orderService.ods(odl.getOrderList(),
-		// pay_number));
-		
-		System.out.println("odl : " + odl);
-		
+			
 		int result1 = orderService.ods(odl.getOrderList(), pay_number);
 
 		if (result1 == 0) {
@@ -398,8 +394,6 @@ public class MyControllerLDG {
 			return "<script>alert('서비스에러2 : 다시 시도해 주세요.'); history.back(-1);</script>";
 
 		}
-
-		System.out.println(pay_number);
 
 		model.addAttribute("mainPage", "order/confrimOrder.jsp");
 

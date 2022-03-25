@@ -90,7 +90,6 @@ public class MyControllerPYH {
 	public String delivery(@RequestParam(value= "pay_delivery") String pay_delivery,
 							Model model) {
 		
-		System.out.println(pay_delivery);
 		
 		List<PayDto> list = payservice.delivery(pay_delivery);
 		model.addAttribute("list", list);
@@ -207,12 +206,12 @@ public class MyControllerPYH {
 							Model model) {
 		
 		
-		System.out.println("filename:" + file);
+		
 		
 		//업로드 파일 처리
 		String upload_url = fileUploadService.restore(file);
 		// "/upload/20210114121803123.jpg"
-		System.out.println( "upload_url:" + upload_url );
+		
 		
 		if( upload_url != null ) {
 			if( upload_url.length() > 0 ) {
@@ -329,7 +328,7 @@ public class MyControllerPYH {
 			page = "1";
 		}
 		
-		System.out.println("page:" + page);
+		
 		model.addAttribute("page", page);
 		
 		int num_page_no = Integer.parseInt( page ); //page번호 1,2,3,4
@@ -365,7 +364,7 @@ public class MyControllerPYH {
 			page = "1";
 		}
 		
-		System.out.println("page:" + page);
+		
 		model.addAttribute("page", page);
 		
 		int num_page_no = Integer.parseInt( page ); //page번호 1,2,3,4
@@ -401,7 +400,7 @@ public class MyControllerPYH {
 			page = "1";
 		}
 		
-		System.out.println("page:" + page);
+		
 		model.addAttribute("page", page);
 		
 		int num_page_no = Integer.parseInt( page ); //page번호 1,2,3,4
@@ -438,7 +437,7 @@ public class MyControllerPYH {
 			page = "1";
 		}
 		
-		System.out.println("page:" + page);
+		
 		model.addAttribute("page", page);
 		
 		int num_page_no = Integer.parseInt( page ); //page번호 1,2,3,4
@@ -473,13 +472,12 @@ public class MyControllerPYH {
 		List<ProductDto> list = productservice.viewProduct(product_idx);
 		model.addAttribute("list", list);
 		
-		System.out.println(product_idx);
+		
 		
 		model.addAttribute("product_idx" , product_idx);
 		
 		model.addAttribute("mainPage", "product/productDetail.jsp");
 		
-		String member_id = (String) request.getSession().getAttribute("member_id");
 		
 		// 리뷰 보기
 		List<Product_reviewDto> review_list = productservice.viewReview(product_idx);
@@ -517,7 +515,7 @@ public class MyControllerPYH {
 									Model model) {
 		
 		model.addAttribute("review_product_idx", review_product_idx);
-		System.out.println( review_product_idx);
+		
 	
 		return "/product/reviewActionForm";
 	}
@@ -534,12 +532,12 @@ public class MyControllerPYH {
 							Model model) {
 		
 		
-		System.out.println("filename:" + file);
+	
 		
 		//업로드 파일 처리
 		String upload_url = fileUploadService.restore(file);
 		// "/upload/20210114121803123.jpg"
-		System.out.println( "upload_url:" + upload_url );
+	
 		
 		if( upload_url != null ) {
 			if( upload_url.length() > 0 ) {
@@ -583,7 +581,6 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
-		System.out.println(member_id);
 		
 		
 		if(member_id==null) {	
@@ -632,7 +629,7 @@ public class MyControllerPYH {
 			return "/mypage/passwordChange";
 		}else {
 			model.addAttribute("dto", memberservice.viewPassword(member_id));
-			System.out.println(member_id);
+		
 	
 			model.addAttribute("mainPage", "mypage/passwordChange.jsp");			
 			return "/mypage/passwordChange";
@@ -664,8 +661,7 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
-		System.out.println(member_id);
-		
+			
 		if(member_id==null) {	
 			model.addAttribute("mainPage", "mypage/basket.jsp");			
 			return "index";
@@ -700,15 +696,13 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
-		System.out.println(member_id);
-		
+				
 		if(member_id==null) {	
 			model.addAttribute("mainPage", "mypage/myReviewList.jsp");			
 			return "index";
 		}else {
 			model.addAttribute("mypage_view_review", productservice.mypage_view_review(member_id));
-			System.out.println(member_id);
-	
+				
 			model.addAttribute("mainPage", "mypage/myReviewList.jsp");			
 			return "index";
 		}
@@ -726,8 +720,7 @@ public class MyControllerPYH {
 			return "index";
 		}else {
 			model.addAttribute("mypage_view_modify_review", productservice.mypage_view_modify_review(member_id, review_idx));
-			System.out.println(member_id);
-			
+						
 			model.addAttribute("mainPage", "mypage/myReviewModify.jsp");			
 			return "index";
 		}
