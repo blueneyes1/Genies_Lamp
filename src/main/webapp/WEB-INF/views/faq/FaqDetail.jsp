@@ -13,74 +13,26 @@
 .main{
 padding-bottom:20px;
 width:60%; 
-margin: 0 auto
+margin: 0 auto;
+
+font-size: 12px;
 }
 
 
-
-
-.w-btn {
-    position: relative;
-    border: none;
-    display: inline-block;
-    padding: 5px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-	margin:5px;
+#notice_btn {
+background-color: rgb(178, 178, 238);
+border: none;
+width: 90px;
+height: 25px;
+color: rgb(17, 17, 17);
+border-radius: 3px;
 }
 
-.w-btn-outline {
-    position: relative;
-    padding: 10px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-
-.w-btn-indigo {
-    background-color: rgb(178, 178, 238);
-    color: aliceblue;
-}
-
-.w-btn-indigo-outline {
-    border: 3px solid rgb(178, 178, 238);
-    color: rgb(178, 178, 238);
-}
-
-.w-btn-indigo-outline:hover {
-    color: rgb(178, 178, 238);
-    background: aliceblue;
-}
-.w-btn:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.w-btn-outline:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.w-btn:active {
-    transform: scale(1.5);
-}
-
-.w-btn-outline:active {
-    transform: scale(1.5);
-}
 .writebtn{
 float:right;
 
 }
+
 
 
 </style>
