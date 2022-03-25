@@ -33,7 +33,9 @@ font-size: 12px;
 	text-align: center;
 }
 
-
+#member_address1 {
+	width: 65px;
+}
 
 	#btns {
 	background-color: rgb(178, 178, 238);
@@ -145,7 +147,9 @@ font-size: 12px;
 	button:hover {
 	background-color: rgb(130, 130, 215);
 	}
-  
+  #member_address1 {
+	width: 65px;
+}
   	.menu_btn {
     margin: 10px;
     font-size: 12px;
@@ -196,7 +200,9 @@ font-size: 12px;
 }
 
 
-
+#member_address1 {
+	width: 65px;
+}
 	#btns {
 	background-color: rgb(178, 178, 238);
 	border: none;
@@ -275,7 +281,9 @@ font-size: 12px;
 	text-align: center;
 }
 
-
+#member_address1 {
+	width: 65px;
+}
 
 	#btns {
 	background-color: rgb(178, 178, 238);

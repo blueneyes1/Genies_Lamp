@@ -45,7 +45,10 @@
 		MEMBER_ID=#{param1}, 
 		MEMBER_NAME=#{param2},
 		MEMBER_PHONE=#{param3},
-		MEMBER_EMAIL=#{param4}
+		MEMBER_EMAIL=#{param4},
+		MEMBER_ADDRESS1=#{param5},
+		MEMBER_ADDRESS2=#{param6},
+		MEMBER_ADDRESS3=#{param7}
 		WHERE MEMBER_ID = #{param1}
 	</update>
 	
@@ -78,7 +81,9 @@
 		member_email=#{param3},
 		member_phone=#{param4},
 		member_address1=#{param5},
-		member_grade=#{param6}
+		member_address2=#{param6},
+		member_address3=#{param7},
+		member_grade=#{param8}
 		WHERE MEMBER_ID = #{param1}
 	</update>
 	

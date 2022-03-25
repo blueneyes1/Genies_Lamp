@@ -87,9 +87,11 @@ public class MemberService {
 	}
 	
 	// 마이페이지 회원정보 수정 (PYH)
-	public int memberUpdate(String member_id, String member_name, String member_phone, String member_email) {
+	public int memberUpdate(String member_id, String member_name, String member_phone, String member_email
+			,String member_address1,String member_address2,String member_address3) {
 		
-		int result = memberDao.memberUpdate(member_id, member_name, member_phone, member_email);
+		int result = memberDao.memberUpdate(member_id, member_name, member_phone, member_email, 
+											member_address1, member_address2, member_address3);
 		
 		return result;
 	}
@@ -134,9 +136,10 @@ public class MemberService {
 	
 	// 관리자페이지 회원정보 수정 (PYH)
 	public int admin_member_modify(String member_id, String member_name, String member_email, 
-			String member_phone, String member_address1, String member_grade) {
+			String member_phone, String member_address1,String member_address2,String member_address3, String member_grade) {
 		
-		int result = memberDao.admin_member_modify(member_id, member_name, member_email, member_phone, member_address1, member_grade);
+		int result = memberDao.admin_member_modify(member_id, member_name, member_email, member_phone,
+				member_address1, member_address2, member_address3, member_grade);
 		
 		return result;
 		
