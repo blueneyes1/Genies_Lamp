@@ -39,4 +39,35 @@ public class BasketService {
 		
 		return result;
 	}
+	
+	// 장바구니 단건 삭제 (LDG)
+	public int delete_basket ( String basket_idx ) {
+		
+		int result = basketDao.delete_basket(basket_idx);
+		
+		return result;
+		
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

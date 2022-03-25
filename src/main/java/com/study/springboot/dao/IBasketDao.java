@@ -20,5 +20,8 @@ public interface IBasketDao {
 	// 제품 상세 페이지에서 장바구니 추가 하기 (PYH)
 	public int basketAdd(String basket_member_id, String basket_product_idx, String basket_count, String basket_price);
 	
+	// 장바구니 단건 삭제 (LDG)
+	public int delete_basket ( String basket_idx );
+	
 
 }

@@ -42,6 +42,7 @@
 			<tr>
 	      		<td class="td cart_info_td">
 	        		<input type="checkbox" class="cart_checkbox input_size_20" checked="checked">
+	        		<input type="hidden" class="basket_idx_input" name="basket_idx" value="${basket_list.basket_idx}" >
 	        		<input type="hidden" class="product_idx_input" value="${basket_list.product_idx}" >
 	        		<input type="hidden" class="product_name_input" value="${basket_list.product_name}" >
 	        		<input type="hidden" class="product_price_input" value="${basket_list.product_price}" >

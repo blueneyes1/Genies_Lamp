@@ -38,6 +38,11 @@
 		#{param4})
 	</insert>
 	
+	<!-- 장바구니 단건 삭제 (LDG) -->	
+	<delete id="delete_basket">
+		delete from GENIES_BASKET where basket_idx=#{param1}
+	</delete>
+	
 </mapper>    
 
 
