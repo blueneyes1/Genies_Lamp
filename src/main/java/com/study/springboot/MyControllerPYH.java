@@ -771,7 +771,7 @@ public class MyControllerPYH {
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
 		int result = basketservice.basket_delete(member_id);
-		if(result == 1) {
+		if(result >= 1) {
 			
 			return "<script>alert('장바구니 비우기에 성공했습니다.'); location.href='/mypage/basket';</script>";
 		}else {

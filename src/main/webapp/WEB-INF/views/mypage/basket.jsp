@@ -34,6 +34,7 @@
         <td>판매가</td>
         <td>수량</td>
         <td>합계</td>
+        <td>삭제</td>
       </tr>
 
       <c:set var="sum" value="0" />
@@ -56,6 +57,9 @@
 		        <td>${basket_list.product_price}</td>
 		        <td>${basket_list.basket_count }</td>
 		        <td>${basket_list.product_price * basket_list.basket_count }</td>
+		        <td>
+		        	<button class="delete_btn" data-basket_idx="${basket_list.basket_idx}">삭제</button>
+		        </td>
 		    </tr>
 		    <c:set var="sum" value="${sum + (basket_list.product_price * basket_list.basket_count)}" />
 	   </c:forEach>
@@ -98,7 +102,10 @@
 		
 	</form>
 		
-
+	<!-- 삭제 form -->
+	<form action="/mypage_delete_basket" method="post" class="delete_form">
+		<input type="hidden" name="delete_basket_idx" class="delete_basket_idx">
+	</form>
 
 	
 
@@ -157,6 +164,7 @@
 			$(".finalTotalPrice_span").text(finalTotalPrice.toLocaleString());
 			
 		}
+			
 	
 	</script>
 	
@@ -194,4 +202,14 @@
 		$(".order_form").submit();
 		
 	});
+	
+	/* 장바구니 삭제 버튼 */
+	$(".delete_btn").on("click", function(e){
+		e.preventDefault();
+		const basket_idx = $(this).data("basket_idx");
+		$(".delete_basket_idx").val(basket_idx);
+		$(".delete_form").submit();
+	});
+		
+	
 	</script>
