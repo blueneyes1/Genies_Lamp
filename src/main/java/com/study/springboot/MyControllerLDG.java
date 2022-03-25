@@ -19,9 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.springboot.dao.IPayNumber_seqDao;
-import com.study.springboot.dto.FaqDto;
 import com.study.springboot.dto.MemberDto;
-import com.study.springboot.dto.NoticeDto;
 import com.study.springboot.dto.OrderDto;
 import com.study.springboot.dto.OrderListDto;
 import com.study.springboot.service.BasketService;
@@ -406,6 +404,9 @@ public class MyControllerLDG {
 		return "index";
 	}
 
+	
+	// 장바구니 단건 삭제
+
 	@RequestMapping("/mypage_delete_basket")
 	public String delete_basket(@RequestParam("basket_idx") String basket_idx) {
 
@@ -418,5 +419,6 @@ public class MyControllerLDG {
 		}
 
 	}
+	
 
 }

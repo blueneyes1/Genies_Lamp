@@ -10,7 +10,7 @@ public class PayDto {
 	private List<OrderDto> orders;		// 주문상품 정보
 	
 	private int pay_idx;
-	private int pay_number;			// 주문번호
+	private String pay_number;			// 주문번호
 	private String pay_member_id;
 	private String pay_receiver;		// 받는사람
 	private String pay_phone;
@@ -26,7 +26,7 @@ public class PayDto {
 		
 	}
 
-	public PayDto(List<OrderDto> orders, int pay_idx, int pay_number, String pay_member_id, String pay_receiver,
+	public PayDto(List<OrderDto> orders, int pay_idx, String pay_number, String pay_member_id, String pay_receiver,
 			String pay_phone, String pay_address1, String pay_address2, String pay_address3, String pay_message,
 			int pay_cost, int pay_total, int pay_delivery) {
 		super();
