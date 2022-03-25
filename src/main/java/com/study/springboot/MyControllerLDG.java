@@ -117,7 +117,8 @@ public class MyControllerLDG {
 			return "<script>alert('로그인 실패!'); history.back(-1);</script>";
 		}
 	}
-
+	
+	
 	// 아이디찾기 페이지
 	@RequestMapping("/idFind")
 	public String idFind(@RequestParam(value = "find_member_id", required = false) String find_member_id, Model model) {
@@ -241,17 +242,16 @@ public class MyControllerLDG {
 	public String orderDetails(HttpServletRequest request, Model model) {
 
 		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
+		}
 
 		List<OrderDto> orderDetail = orderService.orderDetail(member_id);
-		// int order_count = 0;
-
-		// if (orderDetail.size() > 0) {
-		// order_count = 1;
-		// } else {
-		// order_count = 0;
-		// }
-
-		// model.addAttribute("order_count", order_count);
+		
 		model.addAttribute("orderDetail", orderDetail);
 
 		model.addAttribute("mainPage", "mypage/orderDetails.jsp");
@@ -266,8 +266,15 @@ public class MyControllerLDG {
 			@RequestParam("product_name") String product_name, @RequestParam("product_price") String product_price,
 			@RequestParam("product_count") String product_count, HttpServletRequest request, Model model) {
 
-		// String member_id = (String) request.getSession().getAttribute("member_id");
-
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
+		}
+		
 		List<String> list = new ArrayList<String>();
 		ArrayList<String> dto = new ArrayList<>();
 
@@ -302,6 +309,12 @@ public class MyControllerLDG {
 		TransactionStatus status = transactionManager.getTransaction(definition);
 
 		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		// 로그인 체크
+		if(member_id == null) {
+			return "<script>alert('로그인이 필요한 서비스입니다.'); location.href='/login';</script>";
+			// login.jsp 로 리다이렉트 됨.
+		}
 
 		// 주문번호 Merge
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -342,6 +355,15 @@ public class MyControllerLDG {
 	// 결제 페이지
 	@RequestMapping("/multiPay_{member_id}")
 	public String multiPay(OrderListDto odl, HttpServletRequest request, Model model) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
+		}
 
 		model.addAttribute("dto", orderService.orders(odl.getOrderList()));
 
@@ -362,6 +384,13 @@ public class MyControllerLDG {
 		TransactionStatus status = transactionManager.getTransaction(definition);
 
 		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
+		}
 
 		// 주문번호 Merge
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
@@ -404,7 +433,17 @@ public class MyControllerLDG {
 	// 장바구니 단건 삭제
 
 	@RequestMapping("/mypage_delete_basket")
-	public String delete_basket(@RequestParam("basket_idx") String basket_idx) {
+	public String delete_basket(@RequestParam("basket_idx") String basket_idx, HttpServletRequest request,
+								Model model) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
+		}
 
 		int result = basketService.delete_basket(basket_idx);
 		if (result == 1) {

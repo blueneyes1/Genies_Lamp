@@ -34,7 +34,17 @@
     justify-content: center;
     text-align: center;
     align-items: center;
+    height: 500px;
     }
+    
+    .product_delivery {
+    height: 300px;
+    }
+    
+    .product_refund {
+    height: 500px;
+    }
+    
     
     .product_review {
 	 display: flex;
@@ -43,6 +53,7 @@
       align-items: center;
       font-size: 12px;
       margin-bottom: 30px;
+      height: 500px;
  }  
     #order_btn {
     background-color: rgb(178, 178, 238);
@@ -50,7 +61,7 @@
     width: 90px;
     height: 25px;
     color: rgb(17, 17, 17);
-    border-radius: 3px
+    border-radius: 3px;
     }
     
     #order_btn:hover {
