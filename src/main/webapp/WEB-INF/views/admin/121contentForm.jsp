@@ -34,68 +34,14 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.writebtn{
-float: right;
-
-}
-
-.w-btn {
-    position: relative;
+#one_btn {
+background-color: rgb(178, 178, 238);
     border: none;
-    display: inline-block;
-    padding: 5px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-	margin:5px;
-}
-
-.w-btn-outline {
-    position: relative;
-    padding: 10px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-
-.w-btn-indigo {
-    background-color: rgb(178, 178, 238);
-    color: aliceblue;
-}
-
-.w-btn-indigo-outline {
-    border: 3px solid rgb(178, 178, 238);
-    color: rgb(178, 178, 238);
-}
-
-.w-btn-indigo-outline:hover {
-    color: rgb(178, 178, 238);
-    background: aliceblue;
-}
-.w-btn:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.w-btn-outline:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.w-btn:active {
-    transform: scale(1.5);
-}
-
-.w-btn-outline:active {
-    transform: scale(1.5);
+    width: 100px;
+    height: 25px;
+    color: rgb(17, 17, 17);
+    border-radius: 3px;
+    font-size: 12px;
 }
 
 
@@ -153,7 +99,7 @@ float: right;
 					
 					<label>댓글</label><textarea rows="1" cols="50" name="one2one_reply_content"></textarea><br>
 					<label>아이디</label><input type="text" name="one2one_reply_member_id" value="${ member_id }"><br>
-					<button type="submit" class="w-btn w-btn-indigo">답글달기</button>
+					<button type="submit" id="one_btn">답글달기</button>
 				</td>
 				
 			</c:if>
@@ -185,7 +131,7 @@ float: right;
 					<c:set var="dateVar" value="${ reply_dto.one2one_reply_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
 				</td>
-				<td><a href="/admin/deleteReplyAction?one2one_reply_idx=${ reply_dto.one2one_reply_idx }&one2one_reply_one2one_idx=${ reply_dto.one2one_reply_one2one_idx }"><button class="w-btn w-btn-indigo">삭제</button></a></td>
+				<td><a href="/admin/deleteReplyAction?one2one_reply_idx=${ reply_dto.one2one_reply_idx }&one2one_reply_one2one_idx=${ reply_dto.one2one_reply_one2one_idx }"><button id="one_btn">삭제</button></a></td>
 			</tr>
 		</c:forEach>
 	</table>
