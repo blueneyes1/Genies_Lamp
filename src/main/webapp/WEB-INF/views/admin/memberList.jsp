@@ -68,7 +68,7 @@
               <td>${list.member_name }</td>
               <td>${list.member_email }</td>
               <td>${list.member_phone }</td>
-              <td>${list.member_address1 }</td>
+              <td>${list.member_address2 }</td>
               <td>${list.member_grade }</td>
               <td>
               <c:set var="dateVar" value="${list.member_join_date }" />

@@ -23,5 +23,8 @@ public interface IBasketDao {
 	// 장바구니 단건 삭제 (LDG)
 	public int delete_basket ( String basket_idx );
 	
+	// 장바구니 중복확인 (LDG)	
+	public int basketCheck ( String basket_member_id, String basket_product_idx );
+	
 
 }

@@ -111,7 +111,7 @@
           </table>
         
        
-        </div>
+     
       
         <div class="mypage_btn_box">
         

@@ -40,7 +40,7 @@
                         <td>${dto.pay_member_id}</td>
                         <td>${dto.pay_receiver}</td>
                         <td>${dto.pay_phone}</td>
-                        <td>${dto.pay_address}</td>
+                        <td>${dto.pay_address2}</td>
                         <td>${dto.pay_total}</td>
               </tr>
               </c:forEach>

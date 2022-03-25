@@ -390,6 +390,7 @@ public class MyControllerLDG {
 		return "index";
 	}
 	
+	// 장바구니 단건 삭제
 	@RequestMapping("/mypage_delete_basket")
 	public String delete_basket (@RequestParam("basket_idx") String basket_idx) {
 		
@@ -402,6 +403,7 @@ public class MyControllerLDG {
 		}
 		
 	}
+	
 
 }
 
