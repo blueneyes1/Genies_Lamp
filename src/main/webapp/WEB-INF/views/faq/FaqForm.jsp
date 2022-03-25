@@ -11,75 +11,30 @@
 	<title>Faq</title>
 	<style>
 
-.menu{width:800px; margin: 0 auto}
+.menu{width:800px; 
+margin: 0 auto;
+
+font-size: 12px;
+}
 
 .contanier-fluid{
 margin:auto;
 }
 
-
-.w-btn {
-    position: relative;
-    border: none;
-    display: inline-block;
-    padding: 5px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-	margin:5px;
+#notice_btn {
+background-color: rgb(178, 178, 238);
+border: none;
+width: 90px;
+height: 25px;
+color: rgb(17, 17, 17);
+border-radius: 3px;
 }
 
-.w-btn-outline {
-    position: relative;
-    padding: 10px 30px;
-    border-radius: 15px;
-    font-family: "paybooc-Light", sans-serif;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    font-weight: 600;
-    transition: 0.25s;
-}
-
-.w-btn-indigo {
-    background-color: rgb(178, 178, 238);
-    color: aliceblue;
-}
-
-.w-btn-indigo-outline {
-    border: 3px solid rgb(178, 178, 238);
-    color: rgb(178, 178, 238);
-}
-
-.w-btn-indigo-outline:hover {
-    color: rgb(178, 178, 238);
-    background: aliceblue;
-}
-.w-btn:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.w-btn-outline:hover {
-    letter-spacing: 2px;
-    transform: scale(1.2);
-    cursor: pointer;
-}
-
-.w-btn:active {
-    transform: scale(1.5);
-}
-
-.w-btn-outline:active {
-    transform: scale(1.5);
-}
 .writebtn{
 float:right;
 
 }
+
 
 
 .topline{
@@ -175,54 +130,35 @@ text-align: center;
    </tbody>
 </table>
 
-<%--    <div class="NFtable"  style="width:100%; height:100%">
-     <iframe name="faqList" src="/faq/FaqFormTable?Page=${ page }"
-             frameborder="0" border="0" cellspacing="0" 
-           style="border-style: none; width: 100%; height: 100%;"></iframe> <!-- scrolling="no"  -->
-	
-   
-     <div class="writebtn">
-       <c:if test="${ member_grade eq 'A' }">
-	     <button onclick="location.href='/faq/FaqWrite'" class="w-btn w-btn-indigo">작성</button>
-	  </c:if>
-	</div>
 
-  </div> --%>
 
   <div class="contanier-fluid">
   	<div class="row">
   	<nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
-		<a class="page-link" href="/faq/FaqForm?page=${page-1}" target="faqList">Previous</a>
+		<a class="page-link" href="/faq/FaqForm?page=${page-1}">Previous</a>
       </li>    
-	    <li class="page-item active" >
-	    	<a class="page-link" href="/faq/FaqForm?page=1" target="faqList">1</a>
+	      <li class="page-item <c:if test="${ page == 1 }">active</c:if>">
+	    	<a class="page-link" href="/faq/FaqForm?page=1">1</a>
 	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=2" target="faqList">2</a>
+	   <li class="page-item <c:if test="${ page == 2 }">active</c:if>">
+	    	<a class="page-link" href="/faq/FaqForm?page=2">2</a>
 	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=3" target="faqList">3</a>
+	     <li class="page-item <c:if test="${ page == 3 }">active</c:if>">
+	    	<a class="page-link" href="/faq/FaqForm?page=3">3</a>
 	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=4" target="faqList">4</a>
+	   <li class="page-item <c:if test="${ page == 4 }">active</c:if>">
+	    	<a class="page-link" href="/faq/FaqForm?page=4">4</a>
 	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=5" target="faqList" value="5">5</a>
+	   <li class="page-item <c:if test="${ page == 5 }">active</c:if>">
+	    	<a class="page-link" href="/faq/FaqForm?page=5">5</a>
 	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=${page+1}" target="faqList"  ono>Next</a>
+	    <li class="page-item <c:if test="${ page == 5 }">disabled</c:if>">
+	    	<a class="page-link" href="/faq/FaqForm?page=${page+1}">Next</a>
 	    </li>
       </ul>
-      <script>
-        $('ul.pagination li').click(function(){
-
-            $('ul.pagination li').attr({"class":"page-item"});
-            $(this).addClass("active");  
-             
-        });
-      </script>
+    
     </nav>
   </div>
  </div>
