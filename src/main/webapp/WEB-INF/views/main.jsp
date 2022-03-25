@@ -13,7 +13,7 @@
 <!-- 메인페이지 -->
 <div class="main">
 	
-	<!-- 캐러샐 --><!-- 사진크기 조절 -->
+	<!-- 캐러샐 -->
 
 <div class="container1">
 
@@ -71,14 +71,14 @@
 
 	
 	<!-- 베스트아이템 -->
-	<div class="besttitem">
+	<div class="bestitem">
 	<p class="texttitle">BEST</p>
 	<p class="subtitle">지니의 베스트 상품들을 소개합니다</p>
 		
 		<!-- 메인아이템 -->
 		<div class="mainitem">
 		<div class="mainbest">
-					<a href="product/productDetail?product_idx=45"><img src="/upload/202222202530402.JPG" width="600" height="400"></a>
+				<a href="product/productDetail?product_idx=45"><img src="/upload/202222202530402.JPG" width="600" height="400"></a>
 		</div>
 
 		<!-- 서브아이템 -->
@@ -106,6 +106,7 @@
 		</div>
 		</div>
 		</div>
+			</div>
 	
 	<!-- 신제품 -->
 
@@ -205,7 +206,7 @@
 	</div>
 	</div>
 	</div>
-	</div>
+
 
 
 	 
