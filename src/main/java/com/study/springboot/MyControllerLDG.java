@@ -433,11 +433,11 @@ public class MyControllerLDG {
 	// 장바구니 단건 삭제
 
 	@RequestMapping("/mypage_delete_basket")
-	public String delete_basket(@RequestParam("basket_idx") String basket_idx, HttpServletRequest request,
+	public String delete_basket(@RequestParam("delete_basket_idx") String basket_idx, HttpServletRequest request,
 								Model model) {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
-		
+						
 		// 로그인 체크
 		if(member_id == null) {
 			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
@@ -446,11 +446,13 @@ public class MyControllerLDG {
 		}
 
 		int result = basketService.delete_basket(basket_idx);
+		
 		if (result == 1) {
+			model.addAttribute("msg", "삭제 되었습니다.");
 			return "redirect:/mypage/basket";
 		} else {
+			model.addAttribute("msg", "장바구니 비우기에 실패했습니다.");
 			return "redirect:/mypage/basket";
-			// return "<script>alert('장바구니 비우기에 실패했습니다.'); history.back(-1);</script>";
 		}
 
 	}
