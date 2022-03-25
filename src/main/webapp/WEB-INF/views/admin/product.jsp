@@ -23,9 +23,7 @@
   </script>
 </head>
 <body>
-	
-	<div class="box">
-      <div class="menu_box" >
+	<div class="menu_box" >
         <div class="menu_btn">
           <button onclick="location.href='/admin/memberList' ">회원관리</button>
         </div>
@@ -45,8 +43,10 @@
         <div class="menu_btn">
           <button onclick="location.href='/admin/board' ">게시판관리</button>
         </div>
+        </div>
+	<div class="box">
+      
         
-      </div>
         <div class="section_box">
 		
           <table class="table table-hover">

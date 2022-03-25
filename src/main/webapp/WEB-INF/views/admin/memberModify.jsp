@@ -20,9 +20,7 @@
  
 </head>
 <body>
-
-<div class="box">
-      <div class="menu_box" >
+<div class="menu_box" >
         <div class="menu_btn">
           <button onclick="location.href='/admin/memberList' " id="btns">회원관리</button>
         </div>
@@ -44,6 +42,8 @@
         </div>
         
       </div>
+<div class="box">
+      
       
       <div class="section_box" >
       <form method="post">

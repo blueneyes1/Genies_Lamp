@@ -17,16 +17,21 @@ font-size:12px;
  	}
  	
 .menu_box {
-	width: 20%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 70%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 10%;
 }
  	
 .menu_btn {
@@ -161,18 +166,22 @@ font-size:12px;
  	}
  	
 .menu_box {
-	width: 15%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 75%;
+	justify-content: center;
 	text-align: center;
 }
-
-.balnk_box {
-	width: 10%;
-}
-
  	
 .menu_btn {
 margin: 10px;
@@ -192,6 +201,9 @@ border-radius: 3px;
 button:hover {
 background-color: rgb(130, 130, 215);
  }
+	#product_btn {
+	font-size: 10px;
+	}
 	
 	#product_img {
 	width: 150px;
@@ -240,6 +252,49 @@ background-color: rgb(130, 130, 215);
     padding-left: 10px;
     background-color: rgb(178, 178, 238);
     border-radius: 3px;
+    }
+    
+   .product_num {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_type {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_name {
+   width: 100px;
+   font-size: 10px;
+   }
+   .product_brand {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_color {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_price {
+   font-size: 10px;
+   }
+   .product_count {
+   width: 70px;
+   font-size: 10px;
+   }
+   .product_img {
+   font-size: 10px;
+   }
+    .product_content {
+    width: 150px;
+    font-size: 10px;
+    }
+    .product_input_date {
+    width: 100px;
+    font-size: 10px;
+    }
+    .product_modify {
+    width: 100px;
+    font-size: 10px;
     }}
 
 /* 모바일 */               
@@ -258,18 +313,22 @@ font-size:12px;
  	}
  	
 .menu_box {
-	width: 15%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 75%;
+	justify-content: center;
 	text-align: center;
 }
-
-.balnk_box {
-	width: 10%;
-}
-
  	
 .menu_btn {
 margin: 10px;
@@ -289,6 +348,9 @@ border-radius: 3px;
 button:hover {
 background-color: rgb(130, 130, 215);
  }
+	#product_btn {
+	font-size: 10px;
+	}
 	
 	#product_img {
 	width: 150px;
@@ -337,6 +399,49 @@ background-color: rgb(130, 130, 215);
     padding-left: 10px;
     background-color: rgb(178, 178, 238);
     border-radius: 3px;
+    }
+    
+   .product_num {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_type {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_name {
+   width: 100px;
+   font-size: 10px;
+   }
+   .product_brand {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_color {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_price {
+   font-size: 10px;
+   }
+   .product_count {
+   width: 70px;
+   font-size: 10px;
+   }
+   .product_img {
+   font-size: 10px;
+   }
+    .product_content {
+    width: 150px;
+    font-size: 10px;
+    }
+    .product_input_date {
+    width: 100px;
+    font-size: 10px;
+    }
+    .product_modify {
+    width: 100px;
+    font-size: 10px;
     }}
 
 @media screen and (max-width: 767px) 
@@ -354,18 +459,22 @@ font-size:12px;
  	}
  	
 .menu_box {
-	width: 15%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 75%;
+	justify-content: center;
 	text-align: center;
 }
-
-.balnk_box {
-	width: 10%;
-}
-
  	
 .menu_btn {
 margin: 10px;
@@ -385,6 +494,9 @@ border-radius: 3px;
 button:hover {
 background-color: rgb(130, 130, 215);
  }
+	#product_btn {
+	font-size: 10px;
+	}
 	
 	#product_img {
 	width: 150px;
@@ -433,5 +545,48 @@ background-color: rgb(130, 130, 215);
     padding-left: 10px;
     background-color: rgb(178, 178, 238);
     border-radius: 3px;
+    }
+    
+   .product_num {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_type {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_name {
+   width: 100px;
+   font-size: 10px;
+   }
+   .product_brand {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_color {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_price {
+   font-size: 10px;
+   }
+   .product_count {
+   width: 70px;
+   font-size: 10px;
+   }
+   .product_img {
+   font-size: 10px;
+   }
+    .product_content {
+    width: 150px;
+    font-size: 10px;
+    }
+    .product_input_date {
+    width: 100px;
+    font-size: 10px;
+    }
+    .product_modify {
+    width: 100px;
+    font-size: 10px;
     }
 }

@@ -16,16 +16,21 @@ font-size: 12px;
  	}
  	
 .menu_box {
-	width: 30%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 40%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 30%;
 }
 
 
@@ -92,16 +97,21 @@ font-size: 12px;
  	}
  	
 .menu_box {
-	width: 30%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 40%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 30%;
 }
 
 
@@ -149,7 +159,7 @@ font-size: 12px;
 
     table {
       font-size: 12px;
-    }    
+    }
 }
 
 /* 모바일 */               
@@ -168,16 +178,21 @@ font-size: 12px;
  	}
  	
 .menu_box {
-	width: 30%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 40%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 30%;
 }
 
 
@@ -225,7 +240,7 @@ font-size: 12px;
 
     table {
       font-size: 12px;
-    }  
+    }
 }
 
 @media screen and (max-width: 767px) 
@@ -243,16 +258,21 @@ font-size: 12px;
  	}
  	
 .menu_box {
-	width: 30%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 40%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 30%;
 }
 
 
@@ -300,5 +320,5 @@ font-size: 12px;
 
     table {
       font-size: 12px;
-    }  
+    }
 }

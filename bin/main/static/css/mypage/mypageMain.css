@@ -20,7 +20,7 @@ font-size: 12px;
   z-index: 1;
   overflow: hidden;
   top: 35%;
-  right: 80%;
+  right: 85%;
   bottom: 35%;
   background-color: transparent;
   margin: 0;
@@ -68,20 +68,27 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
-	width: 35%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 35%;
+	justify-content: center;
 	text-align: center;
 }
 
-.blank_box {
-	width: 30%;
-}
  	
 .menu_btn {
 margin: 10px;
@@ -116,20 +123,27 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
-	width: 35%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 35%;
+	justify-content: center;
 	text-align: center;
 }
 
-.blank_box {
-	width: 30%;
-}
  	
 .menu_btn {
 margin: 10px;
@@ -164,20 +178,27 @@ width: 100%;
 font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
+font-size: 12px;
  	}
  	
 .menu_box {
-	width: 35%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 35%;
+	justify-content: center;
 	text-align: center;
 }
 
-.blank_box {
-	width: 30%;
-}
  	
 .menu_btn {
 margin: 10px;

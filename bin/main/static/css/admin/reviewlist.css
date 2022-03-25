@@ -13,18 +13,25 @@ font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
 font-size: 12px;
+height: 300px;
  	}
  	
 .menu_box {
-	width: 25%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 55%;
+	justify-content: center;
 	text-align: center;
-}
-.blank_box {
-	width: 20%;
 }
 
 
@@ -82,157 +89,25 @@ font-family: 'Nanum Gothic', sans-serif;
 margin-top: 30px;
 margin-bottom: 30px;
 font-size: 12px;
+height: 300px;
  	}
  	
 .menu_box {
-	width: 25%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 55%;
+	justify-content: center;
 	text-align: center;
-}
-.blank_box {
-	width: 20%;
-}
-
-
-	#btns {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 90px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	}
-	
-	a {
-	text-decoration: none;
-	}
-	
-	a:hover {
-	text-decoration: none;
-	}
-	
-	button:hover {
-	background-color: rgb(130, 130, 215);
-	}
-  
-  	.menu_btn {
-    margin: 10px;
-    font-size: 12px;
-  	text-align: center;
- 	 }  
-
-  	.order_btn {
-  	 font-size: 12px;
-  	 text-align: center;
- 	 }
-
-    table {
-      font-size: 12px;
-    }
-    
-    #review_img {
-    width:150px;
-    height: 100px;
-    }       
-}
-
-/* 모바일 */               
-@media screen and ( max-width: 767px ) 
-              and ( orientation: portrait ) {
-.box {
-display: flex;
-flex-flow: row nowrap;
-align-items: center;
-justify-content: center;
-width: 100%;
-font-family: 'Nanum Gothic', sans-serif;
-margin-top: 30px;
-margin-bottom: 30px;
-font-size: 12px;
- 	}
- 	
-.menu_box {
-	width: 25%;
-}
-
-.section_box {
-	width: 55%;
-	text-align: center;
-}
-.blank_box {
-	width: 20%;
-}
-
-
-	#btns {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 90px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	}
-	
-	a {
-	text-decoration: none;
-	}
-	
-	a:hover {
-	text-decoration: none;
-	}
-	
-	button:hover {
-	background-color: rgb(130, 130, 215);
-	}
-  
-  	.menu_btn {
-    margin: 10px;
-    font-size: 12px;
-  	text-align: center;
- 	 }  
-
-  	.order_btn {
-  	 font-size: 12px;
-  	 text-align: center;
- 	 }
-
-    table {
-      font-size: 12px;
-    }
-    
-    #review_img {
-    width:150px;
-    height: 100px;
-    } 
-}
-
-@media screen and (max-width: 767px) 
-and (orientation: landscape) {
-.box {
-display: flex;
-flex-flow: row nowrap;
-align-items: center;
-justify-content: center;
-width: 100%;
-font-family: 'Nanum Gothic', sans-serif;
-margin-top: 30px;
-margin-bottom: 30px;
-font-size: 12px;
- 	}
- 	
-.menu_box {
-	width: 25%;
-}
-
-.section_box {
-	width: 55%;
-	text-align: center;
-}
-.blank_box {
-	width: 20%;
 }
 
 
@@ -276,4 +151,157 @@ font-size: 12px;
     width:150px;
     height: 100px;
     }      
+}
+
+/* 모바일 */               
+@media screen and ( max-width: 767px ) 
+              and ( orientation: portrait ) {
+.box {
+display: flex;
+flex-flow: row nowrap;
+align-items: center;
+justify-content: center;
+width: 100%;
+font-family: 'Nanum Gothic', sans-serif;
+margin-top: 30px;
+margin-bottom: 30px;
+font-size: 12px;
+height: 300px;
+ 	}
+ 	
+.menu_box {
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.section_box {
+	justify-content: center;
+	text-align: center;
+}
+
+
+	#btns {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 90px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	}
+	
+	a {
+	text-decoration: none;
+	}
+	
+	a:hover {
+	text-decoration: none;
+	}
+	
+	button:hover {
+	background-color: rgb(130, 130, 215);
+	}
+  
+  	.menu_btn {
+    margin: 10px;
+    font-size: 12px;
+  	text-align: center;
+ 	 }  
+
+  	.order_btn {
+  	 font-size: 12px;
+  	 text-align: center;
+ 	 }
+
+    table {
+      font-size: 12px;
+    }
+    
+    #review_img {
+    width:150px;
+    height: 100px;
+    }
+}
+
+@media screen and (max-width: 767px) 
+and (orientation: landscape) {
+.box {
+display: flex;
+flex-flow: row nowrap;
+align-items: center;
+justify-content: center;
+width: 100%;
+font-family: 'Nanum Gothic', sans-serif;
+margin-top: 30px;
+margin-bottom: 30px;
+font-size: 12px;
+height: 300px;
+ 	}
+ 	
+.menu_box {
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.section_box {
+	justify-content: center;
+	text-align: center;
+}
+
+
+	#btns {
+	background-color: rgb(178, 178, 238);
+	border: none;
+	width: 90px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	}
+	
+	a {
+	text-decoration: none;
+	}
+	
+	a:hover {
+	text-decoration: none;
+	}
+	
+	button:hover {
+	background-color: rgb(130, 130, 215);
+	}
+  
+  	.menu_btn {
+    margin: 10px;
+    font-size: 12px;
+  	text-align: center;
+ 	 }  
+
+  	.order_btn {
+  	 font-size: 12px;
+  	 text-align: center;
+ 	 }
+
+    table {
+      font-size: 12px;
+    }
+    
+    #review_img {
+    width:150px;
+    height: 100px;
+    }
 }

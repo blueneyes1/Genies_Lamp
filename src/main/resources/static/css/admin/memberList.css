@@ -16,16 +16,21 @@ font-size: 12px;
  	}
  	
 .menu_box {
-	width: 20%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 60%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 10%;
 }
 
 #btns {
@@ -82,8 +87,7 @@ background-color: rgb(130, 130, 215);
 /* 태블릿 */
 @media screen and ( min-width: 768px )
               and ( max-width: 959px ) {
-              
-.box {
+ .box {
 display: flex;
 flex-flow: row nowrap;
 align-items: center;
@@ -96,16 +100,21 @@ font-size: 12px;
  	}
  	
 .menu_box {
-	width: 20%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 60%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 10%;
 }
 
 #btns {
@@ -157,7 +166,6 @@ background-color: rgb(130, 130, 215);
    table {
      font-size: 12px;
    }
-   
               
 }
 
@@ -177,16 +185,21 @@ font-size: 12px;
  	}
  	
 .menu_box {
-	width: 20%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 60%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 10%;
 }
 
 #btns {
@@ -255,16 +268,21 @@ font-size: 12px;
  	}
  	
 .menu_box {
-	width: 20%;
+	position: fixed;
+  z-index: 1;
+  overflow: hidden;
+  top: 35%;
+  right: 85%;
+  bottom: 35%;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
 }
 
 .section_box {
-	width: 60%;
+	justify-content: center;
 	text-align: center;
-}
-
-.blank_box {
-	width: 10%;
 }
 
 #btns {
@@ -315,5 +333,5 @@ background-color: rgb(130, 130, 215);
 
    table {
      font-size: 12px;
-   }        
+   }
 }
