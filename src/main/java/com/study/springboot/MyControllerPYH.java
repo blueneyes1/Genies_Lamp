@@ -133,10 +133,13 @@ public class MyControllerPYH {
 							  @RequestParam("member_email") String member_email,
 							  @RequestParam("member_phone") String member_phone, 
 							  @RequestParam("member_address1") String member_address1, 
+							  @RequestParam("member_address2") String member_address2, 
+							  @RequestParam("member_address3") String member_address3, 
 							  @RequestParam("member_grade") String member_grade
 							  ) {
 		
-		int result = memberservice.admin_member_modify(member_id, member_name, member_email, member_phone, member_address1, member_grade);
+		int result = memberservice.admin_member_modify(member_id, member_name, member_email, member_phone,
+				member_address1, member_address2, member_address3, member_grade);
 		if(result == 1) {
 			
 			return "<script>alert('회원정보수정에 성공했습니다.'); location.href='/admin/memberList';</script>";
@@ -603,9 +606,13 @@ public class MyControllerPYH {
 	public String memberUpdate(@RequestParam("member_id") String member_id, 
 							  @RequestParam("member_name") String member_name,
 							  @RequestParam("member_phone") String member_phone, 
-							  @RequestParam("member_email") String member_email) {
+							  @RequestParam("member_email") String member_email,
+							  @RequestParam("member_address1") String member_address1,
+							  @RequestParam("member_address2") String member_address2,
+							  @RequestParam("member_address3") String member_address3) {
 		
-		int result = memberservice.memberUpdate(member_id, member_name, member_phone, member_email);
+		int result = memberservice.memberUpdate(member_id, member_name, member_phone, member_email,
+												member_address1, member_address2, member_address3);
 		if(result == 1) {
 			
 			return "<script>alert('회원정보수정에 성공했습니다.'); location.href='/mypage/memberInfo';</script>";

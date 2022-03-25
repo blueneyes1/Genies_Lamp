@@ -31,7 +31,8 @@ public interface IMemberDao {
 	public MemberDto viewMember(String member_id);
 	
 	// 마이페이지 회원정보 수정 (PYH)
-	public int memberUpdate(String member_id, String member_name, String member_phone, String member_email);
+	public int memberUpdate(String member_id, String member_name, String member_phone, String member_email
+							,String member_address1,String member_address2,String member_address3);
 	
 	// 마이페이지 비밀번호 보기 (PYH)
 	public MemberDto viewPassword(String member_id);
@@ -47,7 +48,7 @@ public interface IMemberDao {
 	
 	// 관리자페이지 회원 정보 수정 (PYH)
 	public int admin_member_modify(String member_id, String member_name, String member_email, 
-							String member_phone, String member_address1, String member_grade);
+							String member_phone, String member_address1,String member_address2,String member_address3, String member_grade);
 	
 	// 관리자페이지 회원 정보 삭제 (PYH)
 	public int admin_member_delete(String member_id);

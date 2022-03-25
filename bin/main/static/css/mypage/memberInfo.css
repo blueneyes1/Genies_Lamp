@@ -118,6 +118,10 @@ table {
 	background-color: rgb(213, 213, 218);
 }
 
+#member_address1 {
+	width: 100px;
+}
+
     #mypage_btn {
       width: 500px;
       height: 40px;
@@ -162,6 +166,9 @@ font-size: 12px;
 	text-align: center;
 }
 
+#member_address1 {
+	width: 100px;
+}
     .menu_btn {
     margin: 10px;
   	text-align: center;
@@ -292,6 +299,9 @@ font-size: 12px;
 	text-align: center;
 }
 
+#member_address1 {
+	width: 100px;
+}
     .menu_btn {
     margin: 10px;
   	text-align: center;
@@ -416,6 +426,9 @@ font-size: 12px;
   cursor: pointer;
 }
 
+#member_address1 {
+	width: 100px;
+}
 .section_box {
 	justify-content: center;
 	text-align: center;
