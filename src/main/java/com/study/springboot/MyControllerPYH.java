@@ -71,6 +71,15 @@ public class MyControllerPYH {
 	@RequestMapping("/admin/adminMain")
 	public String adminMain(HttpServletRequest request,Model model) {
 		
+		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
+		
 		model.addAttribute("mainPage", "admin/adminMain.jsp");
 		
 		return "index";
@@ -80,6 +89,14 @@ public class MyControllerPYH {
 	@RequestMapping("/admin/selectlist")
 	public String selectlist(HttpServletRequest request,Model model) {
 		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
+		
 		model.addAttribute("mainPage", "admin/selectlist.jsp");
 		
 			return "index";
@@ -88,8 +105,15 @@ public class MyControllerPYH {
 	// 관리자페이지 - 주문관리 페이지
 	@RequestMapping("/admin/orderlist")
 	public String delivery(@RequestParam(value= "pay_delivery") String pay_delivery,
-							Model model) {
+							HttpServletRequest request, Model model) {
 		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
 		
 		List<PayDto> list = payservice.delivery(pay_delivery);
 		model.addAttribute("list", list);
@@ -101,6 +125,14 @@ public class MyControllerPYH {
 	// 관리자 페이지 - 멤버 리스트 페이지
 	@RequestMapping("admin/memberList")
 	public String memberList(HttpServletRequest request,Model model) {
+		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
 		
 		List<MemberDto> list = memberservice.list();
 		model.addAttribute("list", list);
@@ -115,6 +147,14 @@ public class MyControllerPYH {
 	@RequestMapping("/admin/memberModify")
 	public String memberModify(@RequestParam(value= "member_id") String member_id,
 								HttpServletRequest request,Model model) {
+		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
 		
 		MemberDto admin_member_dto = memberservice.admin_view_member(member_id);
 		model.addAttribute("admin_member_dto", admin_member_dto);
@@ -165,6 +205,14 @@ public class MyControllerPYH {
 	@RequestMapping("admin/product")
 	public String product(HttpServletRequest request,Model model) {
 		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
+		
 		List<ProductDto> product_list = productservice.product_list();
 		model.addAttribute("product_list", product_list);
 		
@@ -175,7 +223,15 @@ public class MyControllerPYH {
 //------------------------------------------------------------------------------------------------------------------------
 	// 관리자 페이지 - 상품 등록 페이지
 	@RequestMapping("/admin/productAddForm")
-	public String productAdd(Model model) {
+	public String productAdd(HttpServletRequest request, Model model) {
+		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
 		
 		return "/admin/productAddForm";
 	}
@@ -243,6 +299,14 @@ public class MyControllerPYH {
 	public String productModify(@RequestParam(value= "product_idx") String product_idx,
 								HttpServletRequest request,Model model) {
 		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
+		
 		ProductDto admin_view_product_dto = productservice.admin_view_product(product_idx);
 		model.addAttribute("admin_view_product_dto", admin_view_product_dto);
 		
@@ -294,6 +358,14 @@ public class MyControllerPYH {
 	// 관리자 페이지 - 상품평 관리 페이지
 	@RequestMapping("/admin/reviewlist")
 	public String product_review(HttpServletRequest request,Model model) {
+		
+		String member_grade = (String) request.getSession().getAttribute("member_grade");
+		
+		// 관리자 등급 확인
+		if(member_grade == null || member_grade != "A" ) {
+			model.addAttribute("msg", "접근권한이 없습니다.");
+			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
+		}
 		
 		List<Product_reviewDto> admin_view_review = productservice.admin_view_review();
 		model.addAttribute("admin_view_review", admin_view_review);
@@ -512,7 +584,16 @@ public class MyControllerPYH {
 	// 리뷰 작성 페이지
 	@RequestMapping("/product/reviewActionForm")
 	public String reviewActionForm(@RequestParam("review_product_idx") String review_product_idx,
-									Model model) {
+									HttpServletRequest request, Model model) {
+		
+		String member_id = (String) request.getSession().getAttribute("member_id");
+		
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
+		}
 		
 		model.addAttribute("review_product_idx", review_product_idx);
 		
@@ -567,6 +648,13 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
+		}
+		
 		model.addAttribute("member_id", member_id);
 		
 		model.addAttribute("mainPage", "mypage/mypageMain.jsp");
@@ -581,11 +669,11 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
-		
-		
-		if(member_id==null) {	
-			model.addAttribute("mainPage", "mypage/memberInfo.jsp");			
-			return "index";
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
 		}else {
 			model.addAttribute("dto", memberservice.viewMember(member_id));
 			System.out.println(member_id);
@@ -661,10 +749,11 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
-			
-		if(member_id==null) {	
-			model.addAttribute("mainPage", "mypage/basket.jsp");			
-			return "index";
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
 		}else {
 			model.addAttribute("basket_list", basketservice.viewBasket(member_id));
 	
@@ -696,10 +785,11 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
-				
-		if(member_id==null) {	
-			model.addAttribute("mainPage", "mypage/myReviewList.jsp");			
-			return "index";
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
 		}else {
 			model.addAttribute("mypage_view_review", productservice.mypage_view_review(member_id));
 				
@@ -714,10 +804,12 @@ public class MyControllerPYH {
 								HttpServletRequest request, Model model) {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
-				
-		if(member_id==null) {	
-			model.addAttribute("mainPage", "mypage/myReviewModify.jsp");			
-			return "index";
+		
+		// 로그인 체크
+		if(member_id == null) {
+			model.addAttribute("msg", "로그인 후 이용 가능한 서비스입니다.");
+			model.addAttribute("url", "/login");
+			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
 		}else {
 			model.addAttribute("mypage_view_modify_review", productservice.mypage_view_modify_review(member_id, review_idx));
 						
