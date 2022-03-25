@@ -14,7 +14,10 @@
 <div class="main">
 	
 	<!-- 캐러샐 --><!-- 사진크기 조절 -->
+
 <div class="container1">
+
+
 	<div class="carousel">
 		<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -24,21 +27,27 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="1000">
+
       <img src="/img/carousel/light2.jpg" class="d-block w-100" alt="..." >
+
       <div class="carousel-caption d-none d-md-block">
         <h5>세상을 빚추는 빛</h5>
         <p>세상을 빛추는 빛처럼 당신을 비추어 보세요</p>
       </div>
     </div>
     <div class="carousel-item">
+
       <img src="/img/carousel/bed.jpg" class="d-block w-100" alt="..."  >
+
       <div class="carousel-caption d-none d-md-block">
         <h5>어둠을 밝히는 빛</h5>
         <p>어두운 공간까지 감각적이고 세련되게 밝혀 드립니다.</p>
       </div>
     </div>
     <div class="carousel-item">
+
       <img src="/img/carousel/light7.jpg" class="d-block w-100" alt="..." >
+
       <div class="carousel-caption d-none d-md-block">
         <h5>마음을 보이는 빛</h5>
         <p>나만의 공간이 가장 아름답게 드러나도록 보여 보세요</p>
@@ -57,11 +66,12 @@
 	</div>
 	</div>
 
+
 	
 
 	
 	<!-- 베스트아이템 -->
-	<div class="betstitem">
+	<div class="besttitem">
 	<p class="texttitle">BEST</p>
 	<p class="subtitle">지니의 베스트 상품들을 소개합니다</p>
 		
@@ -90,17 +100,21 @@
 			<div class="sub2best">
 			
 			</div>
-			</div>
+
+	
+	
 		</div>
 		</div>
 		</div>
 	
 	<!-- 신제품 -->
+
 	<div class="newtext">
 	
 	<p class="texttitle">NEW</p>
 	<p class="subtitle">새로운 상품들을 만나보세요</p>
 	</div>
+
 	<div class="newitem">
 			<div class="railboard">
 				<div class="rail1"><img src="/upload/20222239717289.jpg" width="300" height="200"></div>
@@ -131,6 +145,7 @@
 			</div>
 	</div>
 	
+
 
 
 	
@@ -189,11 +204,15 @@
 	
 	</div>
 	</div>
-	
+	</div>
+	</div>
+
+
 	 
-	 
-	 
-</div>
+
+
+
+
 
 
 

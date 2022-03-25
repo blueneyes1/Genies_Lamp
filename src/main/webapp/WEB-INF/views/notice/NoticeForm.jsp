@@ -136,8 +136,6 @@ text-align: center;
 	 <button onclick="location.href='/notice/NoticeWrite'" id="notice_btn">작성</button>
 	</c:if>
 	</div>
- 
-
 
  
 <div class="contanier-fluid">
@@ -145,6 +143,7 @@ text-align: center;
    <nav aria-label="Page navigation example">
      <ul class="pagination">
        <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
+
 	     <a class="page-link" href="/notice/NoticeForm?page=${page-1}" >Previous</a>
 	   </li>
 	   <li class="page-item <c:if test="${ page == 1 }">active</c:if>">
@@ -164,6 +163,7 @@ text-align: center;
 	    </li>
 	    <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
 	    	<a class="page-link" href="/notice/NoticeForm?page=${page+1}" >Next</a>
+
 	    </li>
       </ul>
   

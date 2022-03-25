@@ -156,14 +156,15 @@ text-align: center;
 	    </li>
 	    <li class="page-item <c:if test="${ page == 5 }">disabled</c:if>">
 	    	<a class="page-link" href="/faq/FaqForm?page=${page+1}">Next</a>
+
 	    </li>
       </ul>
     
     </nav>
   </div>
  </div>
-
 </div>
+
 	
 
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
