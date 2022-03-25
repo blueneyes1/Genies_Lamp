@@ -29,7 +29,7 @@
         </div>
         
         <div class="menu_btn">
-          <button onclick="location.href='/' " id="btns">주문내역</button>
+          <button onclick="location.href='/mypage/orderDetails' " id="btns">주문내역</button>
         </div>
 
         <div class="menu_btn">
@@ -41,7 +41,7 @@
         </div>
 
         <div class="menu_btn">
-          <button onclick="location.href='/' " id="btns">1:1문의</button>
+          <button onclick="location.href='/mypage/121listForm' " id="btns">1:1문의</button>
         </div>
         
       </div>
