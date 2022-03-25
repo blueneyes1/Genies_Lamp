@@ -17,18 +17,17 @@ font-size:12px;
  	}
  	
 .menu_box {
-	width: 15%;
+	width: 20%;
 }
 
 .section_box {
-	width: 75%;
+	width: 70%;
 	text-align: center;
 }
 
-.balnk_box {
+.blank_box {
 	width: 10%;
 }
-
  	
 .menu_btn {
 margin: 10px;
@@ -48,6 +47,9 @@ border-radius: 3px;
 button:hover {
 background-color: rgb(130, 130, 215);
  }
+	#product_btn {
+	font-size: 10px;
+	}
 	
 	#product_img {
 	width: 150px;
@@ -96,6 +98,49 @@ background-color: rgb(130, 130, 215);
     padding-left: 10px;
     background-color: rgb(178, 178, 238);
     border-radius: 3px;
+    }
+    
+   .product_num {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_type {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_name {
+   width: 100px;
+   font-size: 10px;
+   }
+   .product_brand {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_color {
+   width: 50px;
+   font-size: 10px;
+   }
+   .product_price {
+   font-size: 10px;
+   }
+   .product_count {
+   width: 70px;
+   font-size: 10px;
+   }
+   .product_img {
+   font-size: 10px;
+   }
+    .product_content {
+    width: 150px;
+    font-size: 10px;
+    }
+    .product_input_date {
+    width: 100px;
+    font-size: 10px;
+    }
+    .product_modify {
+    width: 100px;
+    font-size: 10px;
     }
     
     }

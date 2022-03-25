@@ -51,17 +51,17 @@
 		
           <table class="table table-hover">
             <tr>
-              <td>상품 번호</td>
-              <td>상품 타입</td>
-              <td>상품 이름</td>
-              <td>상품 브랜드</td>
-              <td>상품 색상</td>
-              <td>상품 가격</td>
-              <td>상품 수</td>
-              <td>상품 이미지</td>
-              <td>상품 설명</td>
-              <td>상품 등록 날짜</td>
-              <td>상품 정보 수정/삭제</td>
+              <td class="product_num">상품 번호</td>
+              <td class="product_type">상품 타입</td>
+              <td class="product_name">상품 이름</td>
+              <td class="product_brand">상품　브랜드</td>
+              <td class="product_color">상품 색상</td>
+              <td class="product_price">상품 가격</td>
+              <td class="product_count">상품 수</td>
+              <td class="product_img">상품 이미지</td>
+              <td class="product_content">상품 설명</td>
+              <td class="product_input_date">상품 등록 날짜</td>
+              <td class="product_modify">수정/삭제</td>
               
             </tr>
 
@@ -69,13 +69,13 @@
             <tr>
               <td>${product_list.product_idx }</td>
               <td>${product_list.product_type }</td>
-              <td>${product_list.product_name }</td>
+              <td class="product_name">${product_list.product_name }</td>
               <td>${product_list.product_brand }</td>
               <td>${product_list.product_color }</td>
               <td>${product_list.product_price }</td>
               <td>${product_list.product_count }</td>
               <td><img src="${product_list.product_img1 }" id="product_img"/></td>
-              <td>${product_list.product_content }</td>
+              <td class="product_content">${product_list.product_content }</td>
               <td>
               <c:set var="dateVar" value="${ product_list.product_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
