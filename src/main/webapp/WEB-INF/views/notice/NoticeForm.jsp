@@ -8,6 +8,7 @@
 
 <style>
 
+ 
 .contanier-fluid{
 margin:auto;
 text-align: center;
@@ -96,6 +97,31 @@ text-align: center;
     border: 1px solid rgb(178, 178, 238);
 }
 
+.body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 200px; /* footer의 높이 */
+}
+
+.footer {
+    width: 100%;
+    height: 200px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+/* footer 하단 고정 [E] */
+
 
 	</style>
 	<!-- 부트스트랩 -->
@@ -108,6 +134,8 @@ text-align: center;
 
   
   <!-- 메인 -->
+<div class="body-wrapper">
+<div class="body-content">
 <div class="menu">
 <div class="NFtable">
      <table class="table table-sm">
@@ -171,17 +199,19 @@ text-align: center;
   </div>
  </div>
  </div>
- 
- 
+ </div>
+ </div>
+ <div class="footer"></div>
+  </div>
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
   	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-  
-  
 
-  </div>
+
+
+
 
 
   

@@ -118,31 +118,35 @@
 
 	<div class="newitem">
 			<div class="railboard">
-				<div class="rail1"><img src="/upload/20222239717289.jpg" width="300" height="200"></div>
+				<div class="rail1"></div>
+					<a href="product/productDetail?product_idx=47"><img src="/upload/20222239717289.jpg" width="300" height="200"></a>
 				
-				
-				<div class="rail1"><img src="/upload/20222239133209.jpg" width="300" height="200"></div>
+				<div class="rail1"></div>
+					<a href="product/productDetail?product_idx=48"><img src="/upload/20222239133209.jpg" width="300" height="200"></a>
 			</div>	
 			
 			<div class="floarboard">
-				<div class="floar"><img src="/upload/202222310948254.jpg" width="300" height="200"></div>
+				<div class="floar"></div>
+					<a href="product/productDetail?product_idx=53"><img src="/upload/202222310948254.jpg" width="300" height="200"></a>
 				
-				
-				<div class="floar"><img src="/upload/202222395932480.jpg" width="300" height="200"></div>
+				<div class="floar"></div>
+					<a href="product/productDetail?product_idx=51"><img src="/upload/202222395932480.jpg" width="300" height="200"></a>
 			</div>
 			
 			<div class="standboard">
-				<div class="stand"><img src="/upload/2022219273879.jpg" width="300" height="200"></div>
+				<div class="stand"></div>
+					<a href="product/productDetail?product_idx=42"><img src="/upload/20222220135853.jpg" width="300" height="200"></a>
 				
-				
-				<div class="stand"><img src="/upload/20222237405914.jpg" width="300" height="200"></div>
+				<div class="stand"></div>
+					<a href="product/productDetail?product_idx=43"><img src="/upload/2022222093558.jpg" width="300" height="200"></a>
 			</div>
 			
 			<div class="wallboard">
-				<div class="wall"><img src="/upload/202222395215752.jpg" width="300" height="200"></div>
+				<div class="wall"></div>
+					<a href="product/productDetail?product_idx=60"><img src="/upload/202222395215752.jpg" width="300" height="200"></a>
 				
-				
-				<div class="wall"><img src="/upload/202222393915731.jpg" width="300" height="200"></div>
+				<div class="wall"></div>
+					<a href="product/productDetail?product_idx=58"><img src="/upload/202222393915731.jpg" width="300" height="200"></a>
 			</div>
 	</div>
 	
