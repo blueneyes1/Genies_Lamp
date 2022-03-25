@@ -46,7 +46,7 @@
 				
 			</div>
 		</div> 
-     </c:forEach> 
+      </c:forEach>
      
     </div>
     <div class="page_box">
@@ -77,6 +77,7 @@
 		    </li>
 		  </ul>
 </nav>
+
     </div>
   </div>
   
