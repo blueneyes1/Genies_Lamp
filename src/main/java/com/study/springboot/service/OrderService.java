@@ -57,11 +57,11 @@ public class OrderService {
 	}
 
 	// 멀티구매 - 제품등록 (LDG)
-	public int ods(OrderListDto odl, String pay_number) {
+	public int ods(List<OrderDto> orderList, String pay_number) {
 
 		List<OrderDto> ords = new ArrayList<>();
 
-		for (OrderDto ord : odl.getOrderList() ) {
+		for (OrderDto ord : orderList ) {
 
 			OrderDto dto = ord;
 			dto.setOrder_product_idx(ord.getOrder_product_idx());
@@ -74,7 +74,7 @@ public class OrderService {
 		}
 
 		String order_pay_number = pay_number;		
-		for(OrderDto ord : odl.getOrderList()) {
+		for(OrderDto ord : orderList) {
 			
 			ord.setOrder_pay_number(order_pay_number);
 						

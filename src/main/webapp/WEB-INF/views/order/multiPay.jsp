@@ -103,7 +103,7 @@
 		</div>
 		<div class="btn_box">
 		
-	    <input type="submit" name="submit" value="확인" id="pay_btn"/>
+	    <input type="submit" name="submit" class="order_btn" value="확인" id="pay_btn"/>
 	     <input type="button" name="historyback" onclick="history.back(-1)" value="취소" id="pay_btn"/>
 	     </div>	
 	</form>

@@ -388,8 +388,10 @@ public class MyControllerLDG {
 
 		// model.addAttribute("result", orderService.ods(odl.getOrderList(),
 		// pay_number));
-
-		int result1 = orderService.ods(odl, pay_number);
+		
+		System.out.println("odl : " + odl);
+		
+		int result1 = orderService.ods(odl.getOrderList(), pay_number);
 
 		if (result1 == 0) {
 			transactionManager.rollback(status);
