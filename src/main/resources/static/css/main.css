@@ -2,13 +2,8 @@
 @charset "UTF-8";
 
 
-body{
-width:100%;
-height:100%
-}
-
 .main{
-width:90%;
+max-width:100%;
 height:100%;
 display:flex;
 flex-direction:column;
@@ -16,30 +11,56 @@ justify-content:center;
 align-items:center;
 margin:5%;
 text-align:center;
-}	
+}
+<!--max걸고-->
 
 
 .carousel{
-width:80%;
+width:100%;
 height:20%;
 margin:auto;
 }
 
 .eventbanner{
+width:100%;
 margin-top:10%
 
 }
 .betstitem{
+width:100%;
 margin:10%;
 }
 
 .mainitem{
-width:50%;
+width:100%;
 height:100%;
 display:flex;
 flex-direction: row;		
-
 }
+
+.mainbest{
+width:100%;
+height:100%;	
+}
+
+.subbest{
+	width:100%;
+	height:100%
+}
+
+.subbest1{
+	width:50%;
+	height:50%
+}
+
+.subbest2{
+	width:50%;
+	height:50%
+}
+
+
+
+
 
 .subbest{
 display:flex;
@@ -55,7 +76,8 @@ margin-bottom:0;
 .bigbanner{
 display:flex;
 flex-direction: row;	
-
+width:90%;
+height:100%;
 }
 
 .newitem{
