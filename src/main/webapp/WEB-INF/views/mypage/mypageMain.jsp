@@ -56,7 +56,6 @@
         
         
       </div>
-      <div class="blank_box"></div>
     </div>
 
 

@@ -23,9 +23,7 @@
   </script>
 </head>
 <body>
- 	
- 	<div class="box">
-      <div class="menu_box">
+ 	<div class="menu_box">
         <div class="menu_btn">
           <button onclick="location.href='/mypage/memberInfo' " id="btns">회원정보수정</button>
         </div>
@@ -47,6 +45,9 @@
         </div>
         
       </div>
+      
+ 	<div class="box">
+      
       <div class="section_box">
         <div class="mypage_head_text">
 
@@ -123,7 +124,6 @@
         
       </div>
       
-      <div class="blank_box"></div>
     </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

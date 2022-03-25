@@ -20,10 +20,7 @@
 	
 </head>
 
-
-
-	<div class="box">
-      <div class="menu_box">
+<div class="menu_box">
         <div class="menu_btn">
           <button onclick="location.href='/mypage/memberInfo' " id="btns">회원정보수정</button>
         </div>
@@ -45,6 +42,9 @@
         </div>
         
       </div>
+
+	<div class="box">
+      
 
 	<!-- 주문내역 페이지 -->
 	
@@ -105,7 +105,6 @@
 		</table>
 		
 	</div>
-	<div class="blank_box"></div>
 	</div>
 	
 	
