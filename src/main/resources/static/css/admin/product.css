@@ -61,20 +61,7 @@ background-color: rgb(130, 130, 215);
 	height: 150px;
 	}
 
-	button {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 100px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	font-size: 12px;
-	}
 
-	button:hover {
-	background-color: rgb(130, 130, 215);
-	}
-  
   	.menu_btn {
     margin: 10px;
     font-size: 12px;
@@ -210,20 +197,7 @@ background-color: rgb(130, 130, 215);
 	height: 150px;
 	}
 
-	button {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 100px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	font-size: 12px;
-	}
 
-	button:hover {
-	background-color: rgb(130, 130, 215);
-	}
-  
   	.menu_btn {
     margin: 10px;
     font-size: 12px;
@@ -357,20 +331,7 @@ background-color: rgb(130, 130, 215);
 	height: 150px;
 	}
 
-	button {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 100px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	font-size: 12px;
-	}
 
-	button:hover {
-	background-color: rgb(130, 130, 215);
-	}
-  
   	.menu_btn {
     margin: 10px;
     font-size: 12px;
@@ -503,20 +464,7 @@ background-color: rgb(130, 130, 215);
 	height: 150px;
 	}
 
-	button {
-	background-color: rgb(178, 178, 238);
-	border: none;
-	width: 100px;
-	height: 25px;
-	color: rgb(17, 17, 17);
-	border-radius: 3px;
-	font-size: 12px;
-	}
 
-	button:hover {
-	background-color: rgb(130, 130, 215);
-	}
-  
   	.menu_btn {
     margin: 10px;
     font-size: 12px;
