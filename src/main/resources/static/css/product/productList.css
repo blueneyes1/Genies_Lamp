@@ -104,6 +104,10 @@
 	background-color: rgb(178, 178, 238);
 }
 
+.pagination > .active > a {
+	background-color: rgb(178, 178, 238);
+}
+
 .pagination > .active > a,
 .pagination > .active > a:hover,
 .pagination > .active > a:visited {
