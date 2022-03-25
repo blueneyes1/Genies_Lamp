@@ -26,6 +26,7 @@
             <thead>
               <tr>	
               <input type="hidden" name="pay_delivery" value="${pay_delivery}" />
+                        <td>주문 번호</td>
                         <td>고객 ID</td>
                         <td>고객 성명</td>
                         <td>고객 전화번호</td>
@@ -37,6 +38,8 @@
              
              <c:forEach var="dto" items="${list}">
               <tr>
+              
+                        <td>${dto.pay_number}</td>
                         <td>${dto.pay_member_id}</td>
                         <td>${dto.pay_receiver}</td>
                         <td>${dto.pay_phone}</td>

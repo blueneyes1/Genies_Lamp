@@ -46,7 +46,7 @@
 				
 			</div>
 		</div> 
-     </c:forEach> 
+      </c:forEach>
      
     </div>
     <div class="page_box">
@@ -54,29 +54,30 @@
   			<ul class="pagination">
 		    
 		    <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
-		    	<a class="page-link" href="/product/productList01?page=${page-1}">Previous</a>
+		    	<a class="page-link" href="/product/productList01?page=${page-1}&product_type=${product_type}">Previous</a>
 		    </li>
 		    
 		    <li class="page-item <c:if test="${ page == 1 }">active</c:if>">
-		    	<a class="page-link" href="/product/productList01?page=1">1</a>
+		    	<a class="page-link" href="/product/productList01?page=1&product_type=${product_type}">1</a>
 		    </li>
 		    <li class="page-item <c:if test="${ page == 2 }">active</c:if>">
-		    	<a class="page-link" href="/product/productList01?page=2">2</a>
+		    	<a class="page-link" href="/product/productList01?page=2&product_type=${product_type}">2</a>
 		    </li>
 		    <li class="page-item <c:if test="${ page == 3 }">active</c:if>">
-		    	<a class="page-link" href="/product/productList01?page=3">3</a>
+		    	<a class="page-link" href="/product/productList01?page=3&product_type=${product_type}">3</a>
 		    </li>
 		    <li class="page-item <c:if test="${ page == 4 }">active</c:if>">
-		    	<a class="page-link" href="/product/productList01?page=4">4</a>
+		    	<a class="page-link" href="/product/productList01?page=4&product_type=${product_type}">4</a>
 		    </li>
 		    <li class="page-item <c:if test="${ page == 5 }">active</c:if>">
-		    	<a class="page-link" href="/product/productList01?page=5">5</a>
+		    	<a class="page-link" href="/product/productList01?page=5&product_type=${product_type}">5</a>
 		    </li>
 		    <li class="page-item <c:if test="${ page == 5 }">disabled</c:if>">
-		    	<a class="page-link" href="/product/productList01?page=${page+1}">Next</a>
+		    	<a class="page-link" href="/product/productList01?page=${page+1}&product_type=${product_type}">Next</a>
 		    </li>
 		  </ul>
 </nav>
+
     </div>
   </div>
   

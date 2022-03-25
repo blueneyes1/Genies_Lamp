@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.study.springboot.dao.INoticeDao;
 import com.study.springboot.dto.FaqDto;
 import com.study.springboot.dto.NoticeDto;
-
 import com.study.springboot.service.FaqService;
 import com.study.springboot.service.NoticeService;
 
@@ -29,7 +27,9 @@ private NoticeService NoticeService;
 @Autowired
 private FaqService FaqService;
 
+
 //----공지사항게시판----//
+
 /*
  * @RequestMapping("/notice/NoticeForm") public String
  * NoticeForm(HttpServletRequest request,Model model) {
@@ -47,39 +47,82 @@ private FaqService FaqService;
  * }
  */
 
+// 메인 페이지
+@RequestMapping("/main")
+public String main(
+					Model model) {
+
+	List<NoticeDto> notice_list = NoticeService.notice_list();
+	List<FaqDto> faq_list = FaqService.faq_list();
+	
+	
+	model.addAttribute("notice_list", notice_list);
+	model.addAttribute("faq_list", faq_list);
+	model.addAttribute("mainPage", "main.jsp");
+
+	return "index"; // "index.jsp" 디스패치함.
+}
+
 //----공지사항게시판----//
    
-    @RequestMapping("/notice/NoticeForm")
-    public String NoticeForm(@RequestParam(value="page", required=false)String page,
-    						HttpServletRequest request, Model model) {
-        if(page == null) {
+@RequestMapping("/notice/NoticeForm")
+public String NoticeForm(@RequestParam(value="page", required=false)String page,
+						HttpServletRequest request, Model model) {
+	
+    if(page == null || page.equals("")) {
 
-        	page = "1";
-        }
-    	
-    	if(page != null) {
-    		System.out.println("page"+page);
-    		model.addAttribute("page",page);
-    		
-
-    		int num_page_no = Integer.parseInt(page);	//page 번호
-    		int num_page_size = 5;									//페이지당 보이는 row 개수
-    		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 페이지 시작번호
-    		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 페이지 끝번호
-
-    	
-    	
-    	List<NoticeDto> notice_list = NoticeService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
-    	 model.addAttribute("notice_list", notice_list);
- 
-
-
-    	  model.addAttribute("mainPage", "notice/NoticeForm.jsp");
-    	}
-    	
-    	
-    		    return "index"; //index.jsp 디스패치 
+    	page = "1";
     }
+	
+	if(page != null) {
+		model.addAttribute("page",page);
+		
+
+		int num_page_no = Integer.parseInt(page);	//page 번호
+		int num_page_size = 5;									//페이지당 보이는 row 개수
+		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 페이지 시작번호
+		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 페이지 끝번호
+	
+  	    List<NoticeDto> notice_list = NoticeService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
+ 	    model.addAttribute("notice_list", notice_list);
+
+	    model.addAttribute("mainPage", "notice/NoticeForm.jsp");
+    }
+  
+    return "index"; //index.jsp 디스패치 
+}
+    
+@RequestMapping("/notice/NoticeFormTable")
+public String NoticeFormTable(@RequestParam(value="page", required=false)String page,
+						HttpServletRequest request, Model model) {
+
+	System.out.println("page"+page);
+    if(page == null || page.equals("")) {
+
+    	page = "1";
+    }
+	
+	if(page != null) {
+		model.addAttribute("page",page);
+		
+
+		int num_page_no = Integer.parseInt(page);	//page 번호
+		int num_page_size = 5;									//페이지당 보이는 row 개수
+		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 페이지 시작번호
+		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 페이지 끝번호
+
+	System.out.println("startRowNum"+Integer.toString(startRowNum));
+	System.out.println("endRowNum"+Integer.toString(endRowNum));
+	
+	 	 List<NoticeDto> notice_list = NoticeService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
+		 model.addAttribute("notice_list", notice_list);
+	
+    }
+
+	model.addAttribute("mainPage", "notice/NoticeFormTable.jsp");
+    return "/notice/NoticeFormTable"; //index.jsp 디스패치
+
+}
 
     
 //----공지사항 게시판 상세----//
@@ -89,6 +132,12 @@ public String NoticeDetail(@RequestParam("notice_idx") String notice_idx,
                             HttpServletRequest request, 
                             Model model){
     System.out.println( "notice_idx:" + notice_idx );
+    
+    if(notice_idx == "") {
+
+    	notice_idx = "1";
+    }
+	
     
     NoticeDto notice_dto = NoticeService.notice_content( notice_idx );
     
@@ -198,34 +247,59 @@ public String updateAction( @RequestParam("notice_idx") String notice_idx,
 }
 	//----Faq게시판----//
 
-    @RequestMapping("/faq/FaqForm")
-    public String FaqForm(@RequestParam(value="page", required=false)String page,
-    									HttpServletRequest request, Model model) {
-       
-    	
-    	if(page == null) {
-        	page = "1";
-        }
-    	
-    	if(page != null) {
-    		System.out.println("page"+page);
-    		model.addAttribute("page",page);
-    		
-
-    		int num_page_no = Integer.parseInt(page);	//page 번호
-    		int num_page_size = 5;									//페이지당 보이는 row 개수
-    		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 페이지 시작번호
-    		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 페이지 끝번호
-
-    	
-    	
-    	List<FaqDto> faq_list = FaqService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
-    	 model.addAttribute("faq_list", faq_list);
-    	}
-
-    	  model.addAttribute("mainPage", "faq/FaqForm.jsp");
-    	  return "index";//FaqForm 으로 디스패치됨
+@RequestMapping("/faq/FaqForm")
+public String FaqForm(@RequestParam(value="page", required=false)String page,
+									HttpServletRequest request, Model model) {
+   
+	
+	if(page == null) {
+    	page = "1";
     }
+	
+	if(page != null) {
+		System.out.println("page"+page);
+		model.addAttribute("page",page);
+
+		int num_page_no = Integer.parseInt(page);	//page 번호
+		int num_page_size = 5;									//페이지당 보이는 row 개수
+		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 페이지 시작번호
+		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 페이지 끝번호
+
+	
+	
+	List<FaqDto> faq_list = FaqService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
+	 model.addAttribute("faq_list", faq_list);
+	}
+
+	  model.addAttribute("mainPage", "faq/FaqForm.jsp");
+	  return "index";//FaqForm 으로 디스패치됨
+}
+
+@RequestMapping("/faq/FaqFormTable")
+public String FaqFormTable(@RequestParam(value="page", required=false)String page,
+									HttpServletRequest request, Model model) {
+   
+	if(page == null) {
+    	page = "1";
+    }
+	
+	if(page != null) {
+		System.out.println("pageTavle"+page);
+		model.addAttribute("page",page);
+		
+
+		int num_page_no = Integer.parseInt(page);	//page 번호
+		int num_page_size = 5;									//페이지당 보이는 row 개수
+		int startRowNum = (num_page_no - 1) * num_page_size + 1;//1,6,11 페이지 시작번호
+		int endRowNum = (num_page_no * num_page_size);			//5, 10, 15 페이지 끝번호
+	
+	   List<FaqDto> faq_list = FaqService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
+	   model.addAttribute("faq_list", faq_list);
+	}
+
+	  model.addAttribute("mainPage", "faq/FaqFormTable.jsp");
+	  return "/faq/FaqFormTable";//FaqForm 으로 디스패치됨
+}
 
     
 //----공지사항 게시판 상세----//

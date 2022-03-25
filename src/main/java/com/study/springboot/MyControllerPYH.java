@@ -337,7 +337,7 @@ public class MyControllerPYH {
 		// row 1~5 까지...
 		List<ProductDto> product_listPage = productservice.product_listPage(product_type ,String.valueOf(startRowNum), String.valueOf(endRowNum));
 		model.addAttribute("product_listPage", product_listPage);
-		
+		model.addAttribute("product_type", product_type);
 		
 		model.addAttribute("mainPage", "product/productList01.jsp");
 		
@@ -373,7 +373,7 @@ public class MyControllerPYH {
 		// row 1~5 까지...
 		List<ProductDto> product_listPage = productservice.product_listPage(product_type , String.valueOf(startRowNum), String.valueOf(endRowNum));
 		model.addAttribute("product_listPage", product_listPage);
-		
+		model.addAttribute("product_type", product_type);
 		
 		model.addAttribute("mainPage", "product/productList02.jsp");
 		
@@ -409,7 +409,7 @@ public class MyControllerPYH {
 		// row 1~5 까지...
 		List<ProductDto> product_listPage = productservice.product_listPage(product_type , String.valueOf(startRowNum), String.valueOf(endRowNum));
 		model.addAttribute("product_listPage", product_listPage);
-		
+		model.addAttribute("product_type", product_type);
 		
 		model.addAttribute("mainPage", "product/productList03.jsp");
 		
@@ -446,7 +446,7 @@ public class MyControllerPYH {
 		// row 1~5 까지...
 		List<ProductDto> product_listPage = productservice.product_listPage(product_type , String.valueOf(startRowNum), String.valueOf(endRowNum));
 		model.addAttribute("product_listPage", product_listPage);
-		
+		model.addAttribute("product_type", product_type);
 		
 		model.addAttribute("mainPage", "product/productList04.jsp");
 		

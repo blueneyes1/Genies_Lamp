@@ -19,8 +19,7 @@
 </head>
 <body>
  	
- 	<div class="box">
-      <div class="menu_box">
+ 	<div class="menu_box">
         <div class="menu_btn">
           <button onclick="location.href='/mypage/memberInfo' " id="btns">회원정보수정</button>
         </div>
@@ -42,6 +41,9 @@
         </div>
         
       </div>
+ 	
+ 	<div class="box">
+      
       <div class="section_box">
 		
 		<div class="section_img">

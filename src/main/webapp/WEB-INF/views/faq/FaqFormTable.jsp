@@ -4,11 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Faq</title>
 	<style>
 
 .menu{width:800px; margin: 0 auto}
@@ -142,98 +137,35 @@ text-align: center;
     border: 1px solid rgb(178, 178, 238);
 }
 
+
 	</style>
 	<!-- 부트스트랩 -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	 <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-	
-</head>
-<body>
 
-<div class="menu">
-
-    <table class="table table-sm"">
-  <thead>
-    <tr>
-      <th scope="col">번호</th>
-      <th scope="col">제목</th>
-    
- 
-    </tr>
-  </thead>
-  <tbody>
-  <tr>
-  
+ <table class="table table-sm"">
+   <thead>
+     <tr>
+       <th scope="col" style="width:20%;">번호</th>
+       <th scope="col" style="width:80%;">제목</th>
+     </tr>
+   </thead>
+   <tbody>
      <c:forEach var="faq_dto" items="${ faq_list }" varStatus="status">
-	        <tr onclick="window.location.href='/faq/FaqDetail?faq_idx=${faq_dto.faq_idx}';"  style="cursor:pointer;">
-         <td >${ status.count  }</td>
-	      <td >${ faq_dto.faq_title }</td>
-	          </tr>
-        	</c:forEach>
+			<tr onclick="window.parent.location.href='/faq/FaqDetail?faq_idx=${faq_dto.faq_idx}';"
+				style="cursor: pointer;">
+				<td>${ status.count  }</td>
+				<td>${ faq_dto.faq_title }</td>
+			</tr>
+		</c:forEach>
    </tbody>
-</table>
-
-<%--    <div class="NFtable"  style="width:100%; height:100%">
-     <iframe name="faqList" src="/faq/FaqFormTable?Page=${ page }"
-             frameborder="0" border="0" cellspacing="0" 
-           style="border-style: none; width: 100%; height: 100%;"></iframe> <!-- scrolling="no"  -->
-	
-   
-     <div class="writebtn">
-       <c:if test="${ member_grade eq 'A' }">
-	     <button onclick="location.href='/faq/FaqWrite'" class="w-btn w-btn-indigo">작성</button>
-	  </c:if>
-	</div>
-
-  </div> --%>
-
-  <div class="contanier-fluid">
-  	<div class="row">
-  	<nav aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
-		<a class="page-link" href="/faq/FaqForm?page=${page-1}" target="faqList">Previous</a>
-      </li>    
-	    <li class="page-item active" >
-	    	<a class="page-link" href="/faq/FaqForm?page=1" target="faqList">1</a>
-	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=2" target="faqList">2</a>
-	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=3" target="faqList">3</a>
-	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=4" target="faqList">4</a>
-	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=5" target="faqList" value="5">5</a>
-	    </li>
-	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqForm?page=${page+1}" target="faqList"  ono>Next</a>
-	    </li>
-      </ul>
-      <script>
-        $('ul.pagination li').click(function(){
-
-            $('ul.pagination li').attr({"class":"page-item"});
-            $(this).addClass("active");  
-             
-        });
-      </script>
-    </nav>
-  </div>
- </div>
-
-</div>
-	
-
-  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  
+ </table>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+ 
 
 	
 

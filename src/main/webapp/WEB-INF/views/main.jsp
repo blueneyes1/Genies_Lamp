@@ -4,35 +4,11 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
-<script>
-
-$(document).ready(function(){
-
-    $("#noticeboard").load("/notice/NoticeForm.jsp");
-
-});
-
-</script>
-
-
-
-
-
-
-
-
-
 <head>
 	 <!-- Bootstrap CSS -->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-	
-	
-	<title>지니의 램프 - Genie's Lamp</title>
-
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <title>지니의 램프 - Genie's Lamp</title>
 </head>
-
-
 
 <!-- 메인페이지 -->
 <div class="main">
@@ -109,9 +85,9 @@ $(document).ready(function(){
 	<!-- 빅배너 -->
 	<div class="customerevent"><h3>고객감사이벤트</h3></div>
 	<div class="bigbanner">	
-		<div><img src="/img/banner/kakaoevent.jpg" width="400" height="200"></div>
-		<div><img src="/img/banner/newopen.jpg" width="400" height="200"></div>
-		<div><img src="/img/banner/photoevent.jpg"width="400" height="200"></div>		
+		<div><img src="/img/banner/kakaoevent.jpg" width="100%" height="100%"></div>
+		<div><img src="/img/banner/newopen.jpg" width="100%" height="100%"></div>
+		<div><img src="/img/banner/photoevent.jpg"width="100%" height="100%"></div>		
 
 	</div>
 
@@ -142,14 +118,62 @@ $(document).ready(function(){
 
 
 	<!-- 게시판 -->
-<div class="board">
-	<div class="noticeboard" style="border: solid; width:600px; height:200px;"></div>
+<!--  div class="board">
+	<div class="noticeboard" style="border: solid; width:600px; height:200px;" -->
+	<!--  iframe src="/notice/NoticeForm"> </iframe-->
 	
-	<div class="faqboard" style="border: solid; width:600px; height:200px;"></div>
-
-
-
-</div>
+	 
+	 
+<%-- 	 
+	<div class="board" style="width:90%"> 
+	  <div class="noticeboard" style="width:48%; height:200px;" >
+	    <h2><a href="<c:url value='/notice/NoticeForm"'/>">공지사항 </a></h2>
+	     <iframe src="/notice/NoticeFormTable"" 
+	             frameborder="0" border="0" cellspacing="0" scrolling="no" 
+	              style="border-style:none; width:100%; height:125px;"></iframe>
+	     
+	  </div>
+	   <div class="noticeboard" style="width:48%; height:200px;" >
+	    <h2><a href="<c:url value='/faq/FaqForm"'/>">FAQ </a></h2>
+	     <iframe src="/faq/FaqFormTable"" 
+	             frameborder="0" border="0" cellspacing="0" " scrolling="no" 
+	             style="border-style:none; width:100%; height:125px;"></iframe>
+	     
+	  </div> --%>
+	
+	
+	<div class="board2">
+	<div class="noticeboard">
+	<c:forEach var="notice_list" items="${notice_list }" begin="1" end="5">
+	<input type="hidden" name="notice_idx" value="${ notice_list.notice_idx }">
+	<table>
+	
+	<tr>
+	<td><a href="/notice/NoticeDetail?notice_idx=${notice_list.notice_idx }">${notice_list.notice_title }</a></td>
+	
+	</tr>
+	</table>
+	</c:forEach>
+		
+	</div>
+	<div class="faqboard">
+		<c:forEach var="faq_list" items="${faq_list }" begin="1" end="5">
+		<input type="hidden" name="faq_idx" value="${ faq_list.faq_idx }">
+	<table>
+	
+	<tr>
+	<td><a href="/faq/FaqDetail?faq_idx=${faq_list.faq_idx }">${faq_list.faq_title }</a></td>
+	
+	</tr>
+	</table>
+	</c:forEach>
+	
+	</div>
+	</div>
+	
+	 
+	 
+	 
 </div>
 
 
