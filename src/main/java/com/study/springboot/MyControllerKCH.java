@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.study.springboot.dao.INoticeDao;
 import com.study.springboot.dto.FaqDto;
 import com.study.springboot.dto.NoticeDto;
-
 import com.study.springboot.service.FaqService;
 import com.study.springboot.service.NoticeService;
 
@@ -29,7 +27,9 @@ private NoticeService NoticeService;
 @Autowired
 private FaqService FaqService;
 
+
 //----공지사항게시판----//
+
 /*
  * @RequestMapping("/notice/NoticeForm") public String
  * NoticeForm(HttpServletRequest request,Model model) {
@@ -46,6 +46,22 @@ private FaqService FaqService;
  * 
  * }
  */
+
+// 메인 페이지
+@RequestMapping("/main")
+public String main(
+					Model model) {
+
+	List<NoticeDto> notice_list = NoticeService.notice_list();
+	List<FaqDto> faq_list = FaqService.faq_list();
+	
+	
+	model.addAttribute("notice_list", notice_list);
+	model.addAttribute("faq_list", faq_list);
+	model.addAttribute("mainPage", "main.jsp");
+
+	return "index"; // "index.jsp" 디스패치함.
+}
 
 //----공지사항게시판----//
    

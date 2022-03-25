@@ -154,7 +154,7 @@ text-align: center;
 
 <div class="menu">
 
-    <!--  table class="table table-sm"">
+    <table class="table table-sm"">
   <thead>
     <tr>
       <th scope="col">번호</th>
@@ -173,9 +173,9 @@ text-align: center;
 	          </tr>
         	</c:forEach>
    </tbody>
-</table-->
+</table>
 
-   <div class="NFtable"  style="width:100%; height:100%">
+<%--    <div class="NFtable"  style="width:100%; height:100%">
      <iframe name="faqList" src="/faq/FaqFormTable?Page=${ page }"
              frameborder="0" border="0" cellspacing="0" 
            style="border-style: none; width: 100%; height: 100%;"></iframe> <!-- scrolling="no"  -->
@@ -187,32 +187,32 @@ text-align: center;
 	  </c:if>
 	</div>
 
-  </div>
+  </div> --%>
 
   <div class="contanier-fluid">
   	<div class="row">
   	<nav aria-label="Page navigation example">
     <ul class="pagination">
       <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
-		<a class="page-link" href="/faq/FaqFormTable?page=${page-1}" target="faqList">Previous</a>
+		<a class="page-link" href="/faq/FaqForm?page=${page-1}" target="faqList">Previous</a>
       </li>    
 	    <li class="page-item active" >
-	    	<a class="page-link" href="/faq/FaqFormTable?page=1" target="faqList">1</a>
+	    	<a class="page-link" href="/faq/FaqForm?page=1" target="faqList">1</a>
 	    </li>
 	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqFormTable?page=2" target="faqList">2</a>
+	    	<a class="page-link" href="/faq/FaqForm?page=2" target="faqList">2</a>
 	    </li>
 	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqFormTable?page=3" target="faqList">3</a>
+	    	<a class="page-link" href="/faq/FaqForm?page=3" target="faqList">3</a>
 	    </li>
 	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqFormTable?page=4" target="faqList">4</a>
+	    	<a class="page-link" href="/faq/FaqForm?page=4" target="faqList">4</a>
 	    </li>
 	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqFormTable?page=5" target="faqList" value="5">5</a>
+	    	<a class="page-link" href="/faq/FaqForm?page=5" target="faqList" value="5">5</a>
 	    </li>
 	    <li class="page-item">
-	    	<a class="page-link" href="/faq/FaqFormTable?page=${page+1}" target="faqList"  ono>Next</a>
+	    	<a class="page-link" href="/faq/FaqForm?page=${page+1}" target="faqList"  ono>Next</a>
 	    </li>
       </ul>
       <script>

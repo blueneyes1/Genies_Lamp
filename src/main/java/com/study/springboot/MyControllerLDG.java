@@ -19,11 +19,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.springboot.dao.IPayNumber_seqDao;
+import com.study.springboot.dto.FaqDto;
 import com.study.springboot.dto.MemberDto;
+import com.study.springboot.dto.NoticeDto;
 import com.study.springboot.dto.OrderDto;
 import com.study.springboot.dto.OrderListDto;
 import com.study.springboot.service.BasketService;
+import com.study.springboot.service.FaqService;
 import com.study.springboot.service.MemberService;
+import com.study.springboot.service.NoticeService;
 import com.study.springboot.service.OrderService;
 import com.study.springboot.service.payService;
 
@@ -38,12 +42,18 @@ public class MyControllerLDG {
 
 	@Autowired
 	payService payService;
-	
+
 	@Autowired
 	BasketService basketService;
 
 	@Autowired
 	IPayNumber_seqDao payNumber_seqDao;
+
+	@Autowired
+	NoticeService noticeservice;
+
+	@Autowired
+	FaqService faqservice;
 
 	/* 트랜잭션 매니저 초기화1 */
 	@Autowired
@@ -58,14 +68,25 @@ public class MyControllerLDG {
 		return "redirect:main";
 	}
 
-	// 메인 페이지
-	@RequestMapping("/main")
-	public String main(Model model) {
-
-		model.addAttribute("mainPage", "main.jsp");
-
-		return "index"; // "index.jsp" 디스패치함.
-	}
+	/*
+	 * // 메인 페이지
+	 * 
+	 * @RequestMapping("/main") public String main(Model model) {
+	 * 
+	 * 
+	 * List<NoticeDto> notice_list = noticeservice.notice_list(); List<FaqDto>
+	 * faq_list = faqservice.faq_list();
+	 * 
+	 * 
+	 * 
+	 * 
+	 * model.addAttribute("notice_list", notice_list);
+	 * model.addAttribute("faq_list", faq_list);
+	 * 
+	 * model.addAttribute("mainPage", "main.jsp");
+	 * 
+	 * return "index"; // "index.jsp" 디스패치함. }
+	 */
 
 	// 로그인 페이지
 	@RequestMapping("/login")
@@ -224,18 +245,17 @@ public class MyControllerLDG {
 		String member_id = (String) request.getSession().getAttribute("member_id");
 
 		List<OrderDto> orderDetail = orderService.orderDetail(member_id);
-		//int order_count = 0;
+		// int order_count = 0;
 
-		//if (orderDetail.size() > 0) {
-		//	order_count = 1;
-		//} else {
-		//	order_count = 0;
-		//}
+		// if (orderDetail.size() > 0) {
+		// order_count = 1;
+		// } else {
+		// order_count = 0;
+		// }
 
-		//model.addAttribute("order_count", order_count);
+		// model.addAttribute("order_count", order_count);
 		model.addAttribute("orderDetail", orderDetail);
 
-		
 		model.addAttribute("mainPage", "mypage/orderDetails.jsp");
 
 		return "index"; // "mypage/orderDetails.jsp" 디스패치됨.
@@ -307,7 +327,7 @@ public class MyControllerLDG {
 			transactionManager.rollback(status);
 			return "<script>alert('서비스에러1 : 다시 시도해 주세요.'); history.back(-1);</script>";
 		}
-		
+
 		int result1 = orderService.singleOrder(pay_number, order_product_idx, order_product_name, order_count,
 				order_price);
 		if (result1 == 0) {
@@ -335,14 +355,10 @@ public class MyControllerLDG {
 	// 다중구매 액션
 	@RequestMapping("/multiPayAction")
 	public String multiPayAction(@RequestParam("pay_receiver") String pay_receiver,
-									@RequestParam("pay_phone") String pay_phone,
-									@RequestParam("pay_address1") String pay_address1,
-									@RequestParam("pay_address2") String pay_address2,
-									@RequestParam("pay_address3") String pay_address3,
-									@RequestParam("pay_message") String pay_message,
-									@RequestParam("pay_cost") String pay_cost,
-									@RequestParam("pay_total") String pay_total,
-									OrderListDto odl, HttpServletRequest request, Model model) {
+			@RequestParam("pay_phone") String pay_phone, @RequestParam("pay_address1") String pay_address1,
+			@RequestParam("pay_address2") String pay_address2, @RequestParam("pay_address3") String pay_address3,
+			@RequestParam("pay_message") String pay_message, @RequestParam("pay_cost") String pay_cost,
+			@RequestParam("pay_total") String pay_total, OrderListDto odl, HttpServletRequest request, Model model) {
 
 		// 트랜잭션 매니저 초기화
 		TransactionStatus status = transactionManager.getTransaction(definition);
@@ -371,55 +387,36 @@ public class MyControllerLDG {
 			transactionManager.rollback(status);
 			return "<script>alert('서비스에러1 : 다시 시도해 주세요.'); history.back(-1);</script>";
 		}
-		
-		// model.addAttribute("result", orderService.ods(odl.getOrderList(), pay_number));
-		
-		
-		int result1 = orderService.ods( odl, pay_number);
-		
+
+		// model.addAttribute("result", orderService.ods(odl.getOrderList(),
+		// pay_number));
+
+		int result1 = orderService.ods(odl, pay_number);
+
 		if (result1 == 0) {
 			transactionManager.rollback(status);
 			return "<script>alert('서비스에러2 : 다시 시도해 주세요.'); history.back(-1);</script>";
 
 		}
-		
+
 		System.out.println(pay_number);
 
 		model.addAttribute("mainPage", "order/confrimOrder.jsp");
 
 		return "index";
 	}
-	
+
 	@RequestMapping("/mypage_delete_basket")
-	public String delete_basket (@RequestParam("basket_idx") String basket_idx) {
-		
+	public String delete_basket(@RequestParam("basket_idx") String basket_idx) {
+
 		int result = basketService.delete_basket(basket_idx);
-		if(result == 1) {			
+		if (result == 1) {
 			return "redirect:/mypage/basket";
-		}else {
+		} else {
 			return "redirect:/mypage/basket";
-			//return "<script>alert('장바구니 비우기에 실패했습니다.'); history.back(-1);</script>";
+			// return "<script>alert('장바구니 비우기에 실패했습니다.'); history.back(-1);</script>";
 		}
-		
+
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

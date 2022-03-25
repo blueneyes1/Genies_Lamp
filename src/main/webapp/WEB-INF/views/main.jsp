@@ -124,7 +124,7 @@
 	
 	 
 	 
-	 
+<%-- 	 
 	<div class="board" style="width:90%"> 
 	  <div class="noticeboard" style="width:48%; height:200px;" >
 	    <h2><a href="<c:url value='/notice/NoticeForm"'/>">공지사항 </a></h2>
@@ -139,10 +139,38 @@
 	             frameborder="0" border="0" cellspacing="0" " scrolling="no" 
 	             style="border-style:none; width:100%; height:125px;"></iframe>
 	     
-	  </div>
+	  </div> --%>
+	
+	
+	<div class="board2">
+	<div class="noticeboard">
+	<c:forEach var="notice_list" items="${notice_list }" begin="1" end="5">
+	<input type="hidden" name="notice_idx" value="${ notice_list.notice_idx }">
+	<table>
+	
+	<tr>
+	<td><a href="/notice/NoticeDetail?notice_idx=${notice_list.notice_idx }">${notice_list.notice_title }</a></td>
+	
+	</tr>
+	</table>
+	</c:forEach>
+		
+	</div>
+	<div class="faqboard">
+		<c:forEach var="faq_list" items="${faq_list }" begin="1" end="5">
+		<input type="hidden" name="faq_idx" value="${ faq_list.faq_idx }">
+	<table>
+	
+	<tr>
+	<td><a href="/faq/FaqDetail?faq_idx=${faq_list.faq_idx }">${faq_list.faq_title }</a></td>
+	
+	</tr>
+	</table>
+	</c:forEach>
 	
 	</div>
-	 
+	</div>
+	
 	 
 	 
 	 
