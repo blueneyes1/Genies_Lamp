@@ -145,10 +145,11 @@
 	<div class="board2">
 	<div class="noticeboard">
 	<c:forEach var="notice_list" items="${notice_list }" begin="1" end="5">
+	<input type="hidden" name="notice_idx" value="${ notice_list.notice_idx }">
 	<table>
 	
 	<tr>
-	<td><a href="/notice/noticeForm?notice_idx="${notice_list.notice_idx }">${notice_list.notice_title }</a></td>
+	<td><a href="/notice/NoticeDetail?notice_idx=${notice_list.notice_idx }">${notice_list.notice_title }</a></td>
 	
 	</tr>
 	</table>
@@ -157,10 +158,11 @@
 	</div>
 	<div class="faqboard">
 		<c:forEach var="faq_list" items="${faq_list }" begin="1" end="5">
+		<input type="hidden" name="faq_idx" value="${ faq_list.faq_idx }">
 	<table>
 	
 	<tr>
-	<td><a href="/faq/faqForm?notice_title="${faq_list.faq_title }">${faq_list.faq_title }</a></td>
+	<td><a href="/faq/FaqDetail?faq_idx=${faq_list.faq_idx }">${faq_list.faq_title }</a></td>
 	
 	</tr>
 	</table>
