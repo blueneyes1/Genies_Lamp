@@ -26,8 +26,7 @@ public class ProductService {
 		
 		List<ProductDto> product_list = productDao.product_list();
 		
-		System.out.println(productDao);
-		
+			
 		return product_list;
 	}
 	
@@ -44,8 +43,7 @@ public class ProductService {
 		
 		List<ProductDto> list = productDao.viewProduct(product_idx);
 		
-		System.out.println(productDao);
-		
+				
 		return list;
 	}
 	

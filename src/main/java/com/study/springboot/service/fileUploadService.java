@@ -24,12 +24,12 @@ public class fileUploadService {
 		//C:\Users\Gi7A-00\Documents\sprintboot\ex13_FileUploadWithParam\src\main\resources\static\ upload
 		try {
 			String savepath = ResourceUtils.getFile("classpath:static/upload/").toPath().toString();
-			System.out.println("savepath:" + savepath);
+			
 			
 			savepath = savepath.replace("\\", "/");
-			System.out.println("savepath2 : " + savepath);
+			
 			savepath = savepath.replace("/bin/main/static", "/src/main/resources/static");
-			System.out.println("savepath3 : " + savepath);
+			
 			//C:/Users/i7D/Documents/springboot/ex13_FileUploadWithParam/src/main/resources/static/upload
 			SAVE_PATH = savepath;
 			PREFIX_URL = savepath;
@@ -44,10 +44,10 @@ public class fileUploadService {
 			//"20210114121803123.jpg"
 			savefileName = genSaveFileName(extName);
 			
-			System.out.println("originFilename : " + originFilename);
-			System.out.println("extensionName : " + extName);
-			System.out.println("size : " + size);
-			System.out.println("saveFileName : " + savefileName);
+			//System.out.println("originFilename : " + originFilename);
+			//System.out.println("extensionName : " + extName);
+			//System.out.println("size : " + size);
+			//System.out.println("saveFileName : " + savefileName);
 			
 			writeFile(multipartFile, savefileName);
 			url = PREFIX_URL + "/" + savefileName;
@@ -80,7 +80,7 @@ public class fileUploadService {
 		
 	// 파일을 실제로 write 하는 메서드
 	private void writeFile(MultipartFile multipartFile, String saveFileName) throws IOException{
-		System.out.println("savefile:" + SAVE_PATH + "/" + saveFileName );
+		//System.out.println("savefile:" + SAVE_PATH + "/" + saveFileName );
 		
 		//C:/Users/i7D/Documents/springboot/ex13_FileUploadWithParam/src/main/resources/static/upload/20210114121803123.jpg
 		byte[] data = multipartFile.getBytes();

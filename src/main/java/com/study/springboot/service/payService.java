@@ -18,8 +18,7 @@ public class payService {
 	// 관리자 페이지 - 주문관리 (PYH)
 	public List<PayDto> delivery(String pay_delivery) {
 		
-		System.out.println(payDao);
-		 
+				 
 		 List<PayDto> list = payDao.delivery(pay_delivery);
 		 
 		
