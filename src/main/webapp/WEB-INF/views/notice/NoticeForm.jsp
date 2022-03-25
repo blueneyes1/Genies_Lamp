@@ -109,23 +109,21 @@ text-align: center;
 
   
   <!-- 메인 -->
-
-
-  <div class="menu">
+<div class="menu">
 <div class="NFtable">
      <table class="table table-sm"">
   <thead>
     <tr>
-      <th scope="col">번호</th>
-      <th scope="col">제목</th>
-      <th scope="col">작성일</th>
+      <th scope="col" style="width=20%;">번호</th>
+      <th scope="col" style="width=50%;">제목</th>
+      <th scope="col" style="width=30%;">작성일</th>
  
     </tr>
   </thead>
   <tbody>
       <c:forEach var="dto" items="${ notice_list }" varStatus="status">
 	  <tr onclick="window.location.href='/notice/NoticeDetail?notice_idx=${dto.notice_idx}';"  style="cursor:pointer;">
-      <td class="num">${ status.count  }</td>
+      <td class="num" >${ status.count  }</td>
 	  <td>${ dto.notice_title }</td>
 	  <td><fmt:formatDate pattern="yyyy-MM-dd" value="${ dto.notice_date }" /></td>
 	</tr>
@@ -141,36 +139,55 @@ text-align: center;
 	</div>
  	<div>
 
- </div> 	
+<%--    <div class="NFtable"  style="width:100%; height:100%">
+	   <iframe name="noticeList"  src="/notice/NoticeFormTable"
+	           frameborder="0" border="0" cellspacing="0" scrolling="yes" 
+	           style="border-style: none; width: 100%; height: 100%;"></iframe>
+	   
+	   
+	   <div class="writebtn">
+	     <c:if test="${ member_grade eq 'A' }">
+	       <button onclick="location.href='/notice/NoticeWrite'" class="w-btn w-btn-indigo">작성</button>
+	     </c:if>
+	   </div>
+   </div> --%>
+ 
 <div class="contanier-fluid">
-  	<div class="row">
-  	<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
-		    	<a class="page-link" href="/notice/NoticeForm?page=${page-1}">Previous</a>
-		    </li>
-		    
-		    <li class="page-item <c:if test="${ page == 1 }">active</c:if>">
-		    	<a class="page-link" href="/notice/NoticeForm?page=1">1</a>
-		    </li>
-		    <li class="page-item <c:if test="${ page == 2 }">active</c:if>">
-		    	<a class="page-link" href="/notice/NoticeForm?page=2">2</a>
-		    </li>
-		    <li class="page-item <c:if test="${ page == 3 }">active</c:if>">
-		    	<a class="page-link" href="/notice/NoticeForm?page=3">3</a>
-		    </li>
-		    <li class="page-item <c:if test="${ page == 4 }">active</c:if>">
-		    	<a class="page-link" href="/notice/NoticeForm?page=4">4</a>
-		    </li>
-		    <li class="page-item <c:if test="${ page == 5 }">active</c:if>">
-		    	<a class="page-link" href="/notice/NoticeForm?page=5">5</a>
-		    </li>
-		    <li class="page-item <c:if test="${ page == 5 }">disabled</c:if>">
-		    	<a class="page-link" href="/notice/NoticeForm?page=${page+1}">Next</a>
-		    </li>
-  </ul>
-</nav>
-  	</div>
+  <div class="row">
+   <nav aria-label="Page navigation example">
+     <ul class="pagination">
+       <li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
+	     <a class="page-link" href="/notice/NoticeForm?page=${page-1}" target="noticeList">Previous</a>
+	   </li>
+	    <li class="page-item active">
+	    	<a class="page-link" href="/notice/NoticeForm?page=1" target="noticeList">1</a>
+	    </li>
+	    <li class="page-item ">
+	    	<a class="page-link" href="/notice/NoticeForm?page=2" target="noticeList">2</a>
+	    </li>
+	    <li class="page-item ">
+	    	<a class="page-link" href="/notice/NoticeForm?page=3" target="noticeList">3</a>
+	    </li>
+	    <li class="page-item ">
+	    	<a class="page-link" href="/notice/NoticeForm?page=4" target="noticeList">4</a>
+	    </li>
+	    <li class="page-item ">
+	    	<a class="page-link" href="/notice/NoticeForm?page=5" target="noticeList">5</a>
+	    </li>
+	    <li class="page-item ">
+	    	<a class="page-link" href="/notice/NoticeForm?page=${page+1}"  target="noticeList">Next</a>
+	    </li>
+      </ul>
+      <script>
+        $('ul.pagination li').click(function(){
+            $('ul.pagination li').attr({"class":"page-item"});
+            $(this).addClass("active");  
+             
+        });
+      </script>
+     </nav>
+  </div>
+ </div>
  </div>
  
  
