@@ -15,6 +15,14 @@
 
 <style>
 <!--전체 메인 -->
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+
 .main{
 padding-bottom:20px;
 
@@ -45,6 +53,23 @@ font-size: 12px;
 float:right;
 
 }
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 150px; /* footer의 높이 */
+}
+
+footer {
+    width: 100%;
+    height: 150px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
 
 
 </style>
@@ -56,6 +81,9 @@ float:right;
 
 
 <body>
+<div class="body-wrapper">
+	<div class="body-content">
+
 <div class="main">
 
 
@@ -101,7 +129,7 @@ float:right;
 	<a href="/notice/deleteAction?notice_idx=${viewDto.notice_idx }"><input type="button" id="notice_btn" value="삭제"></a>
 </div>
 </div>
-
+</div>
 
 
 

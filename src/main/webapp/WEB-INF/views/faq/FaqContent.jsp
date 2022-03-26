@@ -9,6 +9,14 @@
 
 <title>FAQ 상세</title>
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
+
 .main{
 padding-bottom:20px;
 
@@ -38,6 +46,24 @@ float:right;
 
 }
 
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 250px; /* footer의 높이 */
+}
+
+footer {
+    width: 100%;
+    height: 250px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+
 
 
 </style>
@@ -46,14 +72,11 @@ float:right;
 	 <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 	
-
-
-
-</head>
 <body>
 
-</head>
-<body>
+<div class="body-wrapper">
+<div class="body-content">
+
 <div class="main">
 <form action="faqupdateAction" method="post">
  <table class="table table-sm"  style="margin-left: auto; margin-right: auto;">
@@ -84,13 +107,15 @@ float:right;
 
 
 <div class="writebtn">
-	<button type="submit" class="w-btn w-btn-indigo">수정</button>
+	<button type="submit" id="notice_btn">수정</button>
 		</form>
 
-	<button type="button" class="w-btn w-btn-indigo" onclick="window.location.href='/faq/FaqForm'">목록</button>
-	<a href="/faq/faqdeleteAction?faq_idx=${viewDto.faq_idx }"><button type="button" class="w-btn w-btn-indigo">삭제</button></a>
+	<button type="button" id="notice_btn" onclick="window.location.href='/faq/FaqForm'">목록</button>
+	<a href="/faq/faqdeleteAction?faq_idx=${viewDto.faq_idx }"><button type="button" id="notice_btn">삭제</button></a>
 </div>
 </div>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>

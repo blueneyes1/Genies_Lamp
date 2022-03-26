@@ -9,6 +9,13 @@
 <title>Faq</title>
 </head>
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
 .main{
 padding-bottom:20px;
 font-size: 12px;
@@ -53,9 +60,29 @@ top: 50%;
 text-align: center;
 
 }
+
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 150px; /* footer의 높이 */
+}
+
+footer {
+    width: 100%;
+    height: 150px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
 </style>
 
 <body>
+<div class="body-wrapper">
+	<div class="body-content">
 <div class="main">
 <form action="faqwriteAction" method="post">
 
@@ -92,10 +119,10 @@ text-align: center;
 	
 <div class="writebtn">
 	
-	<button type="submit" class="w-btn w-btn-indigo">작성</button>
+	<button type="submit" id="notice_btn">작성</button>
 		</form>
 
-	<button type="button" class="w-btn w-btn-indigo"  onclick="window.location.href='/faq/FaqForm'">목록</button>
+	<button type="button" id="notice_btn"  onclick="window.location.href='/faq/FaqForm'">목록</button>
 </div>
 </div>
 

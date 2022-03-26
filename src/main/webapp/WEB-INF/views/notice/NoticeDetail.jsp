@@ -2,12 +2,20 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
 <meta charset="UTF-8">
 
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+ 
+
+
+
+
+
 .main{
 padding-bottom:20px;
 font-size: 12px;
@@ -30,7 +38,23 @@ border-radius: 3px;
 float:right;
 
 }
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
 
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 250px; /* footer의 높이 */
+}
+
+footer {
+    width: 100%;
+    height: 250px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
 
 </style>
 
@@ -42,7 +66,8 @@ float:right;
 	
 
 <body>
-
+<div class="body-wrapper">
+<div class="body-content">
 
 <div class="main">
 
@@ -93,7 +118,8 @@ float:right;
 </div>
 
 </div>
-
+</div>
+</div>
  <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 	

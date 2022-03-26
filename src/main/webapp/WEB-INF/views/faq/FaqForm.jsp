@@ -4,12 +4,15 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Faq</title>
-	<style>
+<meta charset="UTF-8">
+<title>Faq</title>
+<style>
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
 .menu{width:800px; 
 margin: 0 auto;
@@ -97,6 +100,25 @@ text-align: center;
     border: 1px solid rgb(178, 178, 238);
 }
 
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 150px; /* footer의 높이 */
+}
+
+footer {
+    width: 100%;
+    height: 150px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+
+
 	</style>
 	<!-- 부트스트랩 -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
@@ -106,6 +128,9 @@ text-align: center;
 	
 </head>
 <body>
+
+<div class="body-wrapper">
+	<div class="body-content">
 
 <div class="menu">
 
@@ -129,7 +154,12 @@ text-align: center;
         	</c:forEach>
    </tbody>
 </table>
-
+			 <div class="writebtn">
+     <c:if test="${ member_grade eq 'A' }">
+	 <button onclick="location.href='/faq/FaqWrite'" id="notice_btn">작성</button>
+	</c:if>
+	</div>
+			
 
 
   <div class="contanier-fluid">
@@ -164,7 +194,7 @@ text-align: center;
   </div>
  </div>
 </div>
-
+</div>
 	
 
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

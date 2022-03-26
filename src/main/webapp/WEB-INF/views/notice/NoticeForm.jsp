@@ -7,7 +7,11 @@
 	<meta charset="UTF-8">
 
 <style>
-
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
  
 .contanier-fluid{
 margin:auto;
@@ -97,11 +101,7 @@ text-align: center;
     border: 1px solid rgb(178, 178, 238);
 }
 
-.body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-}
+
 
 .body-wrapper {
     min-height: 100%;
@@ -110,17 +110,18 @@ text-align: center;
 
 .body-content {
     margin-top: 100px;
-    padding-bottom: 200px; /* footer의 높이 */
+    padding-bottom: 250px; /* footer의 높이 */
 }
 
-.footer {
+footer {
     width: 100%;
-    height: 200px; /* footer의 높이 */
+    height: 250px; /* footer의 높이 */
     position: absolute;  
     bottom: 0;
     left: 0;
 }
-/* footer 하단 고정 [E] */
+
+
 
 
 	</style>
@@ -128,7 +129,8 @@ text-align: center;
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 	 <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-	
+	<title></title>
+
 </head>
 <body>
 
@@ -201,8 +203,9 @@ text-align: center;
  </div>
  </div>
  </div>
- <div class="footer"></div>
-  </div>
+
+</div>
+
   	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

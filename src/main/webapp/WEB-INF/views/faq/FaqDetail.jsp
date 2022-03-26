@@ -2,14 +2,23 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
+
 <meta charset="UTF-8">
 <title>FAQ 상세</title>
 </head>
 
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+ 
+
+
+
+
+
 .main{
 padding-bottom:20px;
 width:60%; 
@@ -30,7 +39,24 @@ border-radius: 3px;
 
 .writebtn{
 float:right;
+}
 
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 250px; /* footer의 높이 */
+}
+
+footer {
+    width: 100%;
+    height: 250px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
 }
 
 
@@ -46,6 +72,9 @@ float:right;
 
 
 <body>
+
+<div class="body-wrapper">
+<div class="body-content">
 
 <div class="main">
 
@@ -80,14 +109,15 @@ float:right;
 <input type="hidden" name="faq_idx" value="${ faq_dto.faq_idx }" >
 	<c:if test="${ member_grade eq 'A' }">
 	<a href="/faq/FaqContent?faq_idx=${ faq_dto.faq_idx }">
-		<button class="w-btn w-btn-indigo"  >수정</button>
+		<button id="notice_btn"  >수정</button>
 	</a></c:if>
 
-	<input type="button" class="w-btn w-btn-indigo" value="목록" onclick="window.location.href='/faq/FaqForm'">
+	<input type="button" id="notice_btn" value="목록" onclick="window.location.href='/faq/FaqForm'">
 	
 </div>
 </div>
-
+</div>
+</div>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

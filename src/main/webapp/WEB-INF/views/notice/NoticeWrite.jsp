@@ -2,9 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
+
 <meta charset="UTF-8">
 
 <title>공지사항 상세</title>
@@ -13,6 +11,14 @@
 
 
 <style>
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
 .main{
 padding-bottom:20px;
 font-size: 12px;
@@ -53,15 +59,37 @@ position:relative;
 position: absolute;
 top: 50%;
 text-align: center;
-
 }
+
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 250px; /* footer의 높이 */
+}
+
+footer {
+    width: 100%;
+    height: 250px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+
 </style>
 
 
 <body>
+<div class="body-wrapper">
+	<div class="body-content">
+
  <div class="main">
 
 <div class="tablesize">
+
 <form action="writeAction" method="post">
 
 	<table class="table table-sm"  style="margin-left: auto; margin-right: auto;">
@@ -97,12 +125,12 @@ text-align: center;
 <div class="writebtn">
 	
 	<button type="submit" id="notice_btn">작성</button>
-		</form>
+	</form>
 
 	<button type="button" id="notice_btn" onclick="window.location.href='/notice/NoticeForm'">목록</button>
 </div>
 </div>
-
-
-</body>
-</html>
+</div>
+</div>
+</div>
+</div>
