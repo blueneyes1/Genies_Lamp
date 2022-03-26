@@ -7,24 +7,29 @@
 <!-- SQL 끝에 ; 세미콜론을 넣지 마세요! -->
 
 <mapper namespace="com.study.springboot.dao.IMemberDao">
-
+	
+	<!-- 로그인액션 (LDG) -->
 	<select id="login" resultType="com.study.springboot.dto.MemberDto">
 		SELECT member_id, member_grade FROM genies_member WHERE member_id = #{param1} AND member_pw = #{param2}
 	</select>
 	
+	<!-- 아이디 찾기 (LDG) -->
 	<select id="idFind" resultType="com.study.springboot.dto.MemberDto">
 		SELECT * FROM genies_member WHERE member_name = #{ param1 } AND member_email = #{ param2 }
 	</select>
 	
+	<!-- 비밀번호 찾기 (LDG) -->
 	<select id="passwordFind" resultType="com.study.springboot.dto.MemberDto">
 		SELECT * FROM genies_member WHERE member_id = #{ param1 } AND member_name = #{ param2 } 
 		AND member_pw_question = #{ param3 } AND member_pw_answer = #{ param4 }
 	</select>
 	
+	<!-- 아이디 중복 확인 (LDG) -->
 	<select id="idCheck" resultType="_int">
 		SELECT COUNT(*) FROM genies_member WHERE member_id = #{param1}
 	</select>     
 	
+	<!-- 회원가입 (LDG) -->
 	<insert id="join">
 		INSERT INTO genies_member( member_idx, member_id, member_pw, member_name, member_email,
 		member_email_receive, member_pw_question, member_pw_answer, member_phone, member_address1, member_address2, 

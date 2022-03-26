@@ -60,23 +60,23 @@
 			<tr>
 				<td>받는사람</td>
 				<td>
-					<input type ="text" name="pay_receiver" >
+					<input type ="text" name="pay_receiver" required >
 				</td>
 			</tr>
 			
 			<tr>
 				<td>전화번호</td>
 				<td>
-					<input type="text" name="pay_phone">
+					<input type="text" name="pay_phone" required>
 				</td>
 			</tr>
 			
 			<tr>
 				<td>주소</td>
 	            <td>
-	            	<input type="text" style="margin-bottom:10px;" name="pay_address1" id="pay_address1" placeholder="우편번호">
-	            	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-	            	<input type="text" style="margin-bottom:10px;" class="inputStyle1" name="pay_address2" id="pay_address2" placeholder="주소"><br>
+	            	<input type="text" style="margin-bottom:10px;" name="pay_address1" id="pay_address1" placeholder="우편번호" required>
+	            	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" required><br>
+	            	<input type="text" style="margin-bottom:10px;" class="inputStyle1" name="pay_address2" id="pay_address2" placeholder="주소" required><br>
 	            	<input type="text" class="inputStyle1" name="pay_address3" id="pay_address3" placeholder="상세주소">
 	            	<input type="hidden" class="inputStyle1" id="sample6_extraAddress" placeholder="참고항목">
 	            </td>
@@ -85,7 +85,7 @@
 	        <tr>
 	        	<td>배송메세지</td>
 	        	<td>
-	        		<input type="text" name="pay_message" >
+	        		<input type="text" name="pay_message"  required>
 	        	</td>
 	        </tr>
 	        	        

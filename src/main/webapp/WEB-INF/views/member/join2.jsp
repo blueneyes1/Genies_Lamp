@@ -125,7 +125,7 @@
 			<tr>
 				<td>비밀번호</td>
 		        <td>
-		        	<input type="password" name="member_pw" id="member_pw" required>
+		        	<input type="password" name="member_pw" id="member_pw" >
 					<span id="small_txt">영문/숫자/특수문자조합으로 8~16자리. 첫글자는 영문자로 사용</span>
 		        </td>
 			</tr>
@@ -135,7 +135,7 @@
 		    </tr>
 		    <tr>
 		        <td>이름</td>
-		        <td><input type="text" name="member_name" id="member_name" required></td>
+		        <td><input type="text" name="member_name" id="member_name" ></td>
 		    </tr>
 		    <tr>
 		        <td>이메일</td>
