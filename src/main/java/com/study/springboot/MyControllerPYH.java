@@ -73,9 +73,8 @@ public class MyControllerPYH {
 		
 		
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
-		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A")) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
@@ -92,7 +91,7 @@ public class MyControllerPYH {
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
 		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A") ) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
@@ -110,7 +109,7 @@ public class MyControllerPYH {
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
 		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A") ) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
@@ -129,7 +128,7 @@ public class MyControllerPYH {
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
 		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A") ) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
@@ -151,7 +150,7 @@ public class MyControllerPYH {
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
 		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A") ) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
@@ -208,7 +207,7 @@ public class MyControllerPYH {
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
 		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A") ) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
@@ -228,7 +227,7 @@ public class MyControllerPYH {
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
 		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A") ) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
@@ -302,7 +301,7 @@ public class MyControllerPYH {
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
 		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A") ) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
@@ -362,7 +361,7 @@ public class MyControllerPYH {
 		String member_grade = (String) request.getSession().getAttribute("member_grade");
 		
 		// 관리자 등급 확인
-		if(member_grade == null || member_grade != "A" ) {
+		if(member_grade == null || !member_grade.equals("A") ) {
 			model.addAttribute("msg", "접근권한이 없습니다.");
 			return "/check/gradeCheck";			// check/gradeCheck.jsp 로 디스패치 됨.
 		}
