@@ -28,32 +28,32 @@
         <form action="/uploadOk" method="post" enctype="multipart/form-data">
           <table class="table table-hover">
             <tr>
-              <th>제품타입</th>
+              <th>상품타입</th>
               <td><input type="text" name="product_type"></td>
             </tr>
 
             <tr>
-              <th>제품명</th>
+              <th>상품명</th>
               <td><input type="text" name="product_name"></td>
             </tr>
 
             <tr>
-              <th>제품브랜드명</th>
+              <th>상품브랜드명</th>
               <td><input type="text" name="product_brand"></td>
             </tr>
 
             <tr>
-              <th>제품 색상</th>
+              <th>상품 색상</th>
               <td><input type="text" name="product_color"></td>
             </tr>
 
             <tr>
-              <th>제품 가격</th>
+              <th>상품 가격</th>
               <td><input type="text" name="product_price"></td>
             </tr>
 
             <tr>
-              <th>제품 수</th>
+              <th>상품 수</th>
               <td><input type="text" name="product_count"></td>
             </tr>
 
@@ -63,14 +63,14 @@
             </tr>
             
             <tr>
-              <th>제품 설명</th>
+              <th>상품 설명</th>
               <td><input type="text" name="product_content"></td>
             </tr>
 
             <tr>
 
               <td colspan="2" id="product_add_btn_box">
-                <input type="submit" value="제품 등록" id="product_btns">
+                <input type="submit" value="상품 등록" id="product_btns">
                 <button onclick="self.close();" id="product_btns">닫기</button>
               </td>
             </tr>
