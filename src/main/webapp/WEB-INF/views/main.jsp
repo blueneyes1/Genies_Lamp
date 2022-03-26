@@ -169,10 +169,44 @@
 
 	<!-- 리뷰 보드 -->
 	<div class="reviewboard">
-	<div class="review">
+		<p class="texttitle">상품리뷰</p>
+		<p class="subtitle">실제 구매하신분들의 의견을 말해드립니다</p>
+		</div>
+	
+	<div class="reiviewboard2">
+		<div class="tableboard1">
+	
+      <table class="table1" >
+  		<c:forEach var="admin_view_review" items="${admin_view_review }">
+      
+              
+   
+             	 <td>
+              	<img src="${admin_view_review.review_img }" id="review_img">
+              	</td>
+              
+              
+          
+              	<td>${admin_view_review.review_title }</td>
+              
+         
+             	 <td>${admin_view_review.review_member_id }</td>
+              
+              
+       
+                  <td>
+              		<c:set var="dateVar" value="${admin_view_review.review_date }" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
+              	 </td>
+                  
+       
+		       </c:forEach>
+
+          </table>
+		</div>
 		
-	</div>
-	</div>
+		
+</div>
 
 
 	<!--  공지사항 FAQ 보드 -->
@@ -182,7 +216,7 @@
 	<p class="subtitle">지니의 중요사항을 알려드립니다.</p></div>
 	<div class="board2">
 	
-	<div class="noticeboard"><h4>공지사항</h4>
+	<div class="noticeboard"><div class="texttitle2">공지사항</div>
 	<c:forEach var="notice_list" items="${notice_list }" begin="1" end="5">
 	<input type="hidden" name="notice_idx" value="${ notice_list.notice_idx }">
 	<table class="table table-sm">
@@ -195,7 +229,7 @@
 	</c:forEach>
 		
 	</div>
-	<div class="faqboard"><h4>FAQ</h4>
+	<div class="faqboard"><div class="texttitle2">FAQ</div>
 		<c:forEach var="faq_list" items="${faq_list }" begin="1" end="5">
 		<input type="hidden" name="faq_idx" value="${ faq_list.faq_idx }">
 	<table class="table table-sm">
