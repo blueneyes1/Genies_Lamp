@@ -302,7 +302,7 @@ public String FaqFormTable(@RequestParam(value="page", required=false)String pag
 }
 
     
-//----공지사항 게시판 상세----//
+//----FAQ 게시판 상세----//
 
 @RequestMapping("/faq/FaqDetail")
 public String FaqDetail(@RequestParam("faq_idx") String faq_idx,
@@ -337,7 +337,7 @@ public String FaqWrite (@RequestParam(value="faq_idx", required=false, defaultVa
 	return "index";
 }
 
-//----공지작성액션----//
+//----FAQ작성액션----//
 
 
 @RequestMapping(value="/faq/faqwriteAction", method = RequestMethod.POST)
@@ -361,7 +361,7 @@ public String faqwriteAction(	@RequestParam(value="faq_idx", required=false, def
 			return "<script>alert('FAQ등록에 실패했습니다.'); history.back(-1);</script>";
 		}
 }
-//----공지 수정 불러오기----//
+//----FAQ 수정 불러오기----//
 
 
 @RequestMapping("/faq/FaqContent")
