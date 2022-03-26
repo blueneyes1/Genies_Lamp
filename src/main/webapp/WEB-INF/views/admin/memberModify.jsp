@@ -51,31 +51,31 @@
           <table class="table table-hover">
   
             <tr>
-              <th>멤버 아이디</th>
+              <th>회원 아이디</th>
               <td>
                 <input type="text" value="${admin_member_dto.member_id}" name="member_id" readonly >
               </td>
             </tr>	
             <tr>
-              <th>멤버 성명</th>
+              <th>회원 성명</th>
               <td>
                 <input type="text" value="${admin_member_dto.member_name}" name="member_name">
               </td>
             </tr>
             <tr>
-              <th>멤버 이메일</th>
+              <th>회원 이메일</th>
               <td>
                 <input type="text" value="${admin_member_dto.member_email}" name="member_email">
               </td>
             </tr>
             <tr>
-              <th>멤버 전화번호</th>
+              <th>회원 전화번호</th>
               <td>
                 <input type="text" value="${admin_member_dto.member_phone}" name="member_phone">
               </td>
             </tr>
             <tr>
-              <th>멤버 주소</th>
+              <th>회원 주소</th>
               <td>
                 <input type="text" style="margin-bottom:10px;" name="member_address1" id="member_address1" value="${admin_member_dto.member_address1}">
             	<input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기" id="find_address_btn"><br>
@@ -85,13 +85,13 @@
               </td>
             </tr>
             <tr>
-              <th>멤버 등급</th>
+              <th>회원 등급</th>
               <td>
                 <input type="text" value="${admin_member_dto.member_grade}" name="member_grade">
               </td>
             </tr>
             <tr>
-              <th>멤버 가입날짜</th>
+              <th>회원 가입날짜</th>
               <td>
                 <fmt:formatDate value="${admin_member_dto.member_join_date}" pattern="yyyy-MM-dd" />
               </td>
