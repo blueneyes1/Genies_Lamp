@@ -32,7 +32,7 @@
       
       <tr>
           <th>작성자</th>
-          <td><input type="text" name="review_member_id" /></td>
+          <td><input type="text" name="review_member_id" readonly value="${member_id}" /></td>
         </tr>
         
         <tr>
