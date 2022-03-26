@@ -125,8 +125,6 @@ footer {
 	<button type="button" id="notice_btn"  onclick="window.location.href='/faq/FaqForm'">목록</button>
 </div>
 </div>
+</div>
 
 
-
-</body>
-</html>
