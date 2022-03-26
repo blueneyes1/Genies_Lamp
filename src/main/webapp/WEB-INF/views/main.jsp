@@ -177,7 +177,7 @@
 		<div class="tableboard1" >
 	
       <table class="table1" >
-  		<c:forEach var="admin_view_review" items="${admin_view_review }">
+  		<c:forEach var="admin_view_review" items="${admin_view_review }" begin="0" end="0">
              
               	<tr>
               	<td><img src="${admin_view_review.review_img }" id="review_img" ></td>
@@ -204,8 +204,95 @@
           </table>
 		</div>
 		
+			<div class="tableboard1" >
 	
+      <table class="table1" >
+  		<c:forEach var="admin_view_review" items="${admin_view_review }" begin="1" end="1">
+             
+              	<tr>
+              	<td><img src="${admin_view_review.review_img }" id="review_img" ></td>
+              	</tr>
+              
+              	<tr>
+              	<td>${admin_view_review.review_title }</td>
+             	</tr>
+              
+             	<tr>
+             	 <td>${admin_view_review.review_member_id }</td>
+             </tr>
+              
+             <tr>
+                  <td>
+              		<c:set var="dateVar" value="${admin_view_review.review_date }" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
+              	 </td>
+          	</tr>
+          
+       
+		       </c:forEach>
+
+          </table>
 		</div>
+		<div class="tableboard1" >
+	
+      <table class="table1" >
+  		<c:forEach var="admin_view_review" items="${admin_view_review }" begin="2" end="2">
+             
+              	<tr>
+              	<td><img src="${admin_view_review.review_img }" id="review_img" ></td>
+              	</tr>
+              
+              	<tr>
+              	<td>${admin_view_review.review_title }</td>
+             	</tr>
+              
+             	<tr>
+             	 <td>${admin_view_review.review_member_id }</td>
+             </tr>
+              
+             <tr>
+                  <td>
+              		<c:set var="dateVar" value="${admin_view_review.review_date }" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
+              	 </td>
+          	</tr>
+          
+       
+		       </c:forEach>
+
+          </table>
+		</div>
+		<div class="tableboard1" >
+	
+      <table class="table1" >
+  		<c:forEach var="admin_view_review" items="${admin_view_review }" begin="3" end="3">
+             
+              	<tr>
+              	<td><img src="${admin_view_review.review_img }" id="review_img" ></td>
+              	</tr>
+              
+              	<tr>
+              	<td>${admin_view_review.review_title }</td>
+             	</tr>
+              
+             	<tr>
+             	 <td>${admin_view_review.review_member_id }</td>
+             </tr>
+              
+             <tr>
+                  <td>
+              		<c:set var="dateVar" value="${admin_view_review.review_date }" />
+					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
+              	 </td>
+          	</tr>
+          
+       
+		       </c:forEach>
+
+          </table>
+		</div>
+	</div>
+	
 		
 		
 
