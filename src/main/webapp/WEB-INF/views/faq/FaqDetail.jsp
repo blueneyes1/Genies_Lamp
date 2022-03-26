@@ -14,11 +14,6 @@ body {
     height: 100%;
 }
  
-
-
-
-
-
 .main{
 padding-bottom:20px;
 width:60%; 
@@ -58,8 +53,6 @@ footer {
     bottom: 0;
     left: 0;
 }
-
-
 
 </style>
 
