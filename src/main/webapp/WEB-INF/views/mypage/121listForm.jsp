@@ -4,12 +4,17 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
  
-<!DOCTYPE html>
-<html>
-<head>
+
 	<meta charset="UTF-8">
 	<title>1대1문의</title>
 	<style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+
 
 .contanier-fluid{
 margin:auto;
@@ -102,6 +107,24 @@ background-color: rgb(178, 178, 238);
     font-size: 12px;
 }
 
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 250px;
+}
+
+footer {
+    width: 100%;
+    height: 250px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+
 
 	</style>
 	<!-- 부트스트랩 -->
@@ -114,6 +137,9 @@ background-color: rgb(178, 178, 238);
 <body>
 	
   <!-- 메인 -->
+  <div class="body-wrapper">
+<div class="body-content">
+  
 	<div class="main">
   <div class="menu">
 	<div class="NFtable">
@@ -164,7 +190,8 @@ background-color: rgb(178, 178, 238);
 
 </div>
 </div>
-</body>
+</div>
+</div>
 
 
 

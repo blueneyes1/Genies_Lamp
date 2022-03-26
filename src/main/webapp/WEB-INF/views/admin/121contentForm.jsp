@@ -13,6 +13,13 @@
 	<title>문의내용</title>
 	
 <style>
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
 .main{
 padding-bottom:20px;
 }
@@ -44,11 +51,33 @@ background-color: rgb(178, 178, 238);
     font-size: 12px;
 }
 
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 250px;
+}
+
+footer {
+    width: 100%;
+    height: 250px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+
 
 	</style>
 	
 </head>
 <body>
+
+<div class="body-wrapper">
+<div class="body-content">
+
 <div class="main">
 	<div class="maintable">
 	<div class="updatetable">
@@ -138,8 +167,10 @@ background-color: rgb(178, 178, 238);
 	</div>
 
 </div>
-	</body>
-	</html>
+</div>
+</div>
+
+
 
 
 

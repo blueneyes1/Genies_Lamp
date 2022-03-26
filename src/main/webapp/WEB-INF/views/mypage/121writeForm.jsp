@@ -10,6 +10,11 @@
 
 
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
 .main{
 padding-bottom:20px;
@@ -45,6 +50,25 @@ th {
     vertical-align: top;
 
   }
+  
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 250px;
+}
+
+footer {
+    width: 100%;
+    height: 250px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+  
 </style>
 <!-- 부트스트랩 -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
@@ -53,7 +77,8 @@ th {
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 </head>
 <body>
-	
+	  <div class="body-wrapper">
+<div class="body-content">
 
 	 <div class="main">
 
@@ -76,9 +101,11 @@ th {
 		</tbody>
 		</table>
 		<div class="writebtn">
-			<button type="submit" class="w-btn w-btn-indigo">작성</button>
-			<button type="button" class="w-btn w-btn-indigo"  onclick="window.location.href='/mypage/121listForm'">목록</button>
+			<button type="submit" id="one_btn">작성</button>
+			<button type="button" id="one_btn"  onclick="window.location.href='/mypage/121listForm'">목록</button>
 		</div>
 	</form>
+	</div>
+	</div>
 	</div>
 	</div>

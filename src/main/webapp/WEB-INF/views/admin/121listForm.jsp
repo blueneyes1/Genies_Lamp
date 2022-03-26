@@ -3,8 +3,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,6 +18,11 @@
 
 </head>
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
 .contanier-fluid{
 margin:auto;
@@ -107,6 +110,24 @@ text-align: center;
 }
 
 
+.body-wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+.body-content {
+    margin-top: 100px;
+    padding-bottom: 250px;
+}
+
+footer {
+    width: 100%;
+    height: 250px; /* footer의 높이 */
+    position: absolute;  
+    bottom: 0;
+    left: 0;
+}
+
 	</style>
 	<!-- 부트스트랩 -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" 
@@ -120,7 +141,8 @@ text-align: center;
 <body>
 	
   <!-- 메인 -->
-
+  <div class="body-wrapper">
+<div class="body-content">
   <div class="menu">
 	<div class="NFtable">
       <table class="table table-sm"">
@@ -188,6 +210,8 @@ text-align: center;
   	</div>
  </div>
 	
+</div>
+</div>
 </div>
 </div>
 
