@@ -550,7 +550,7 @@ public class MyControllerPYH {
 		model.addAttribute("mainPage", "product/productDetail.jsp");
 		
 		
-		// 리뷰 보기
+		// 상품평 보기
 		List<Product_reviewDto> review_list = productservice.viewReview(product_idx);
 		model.addAttribute("review_list", review_list);
 		
@@ -559,7 +559,7 @@ public class MyControllerPYH {
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------------
-	// 제품 상세 페이지 - 장바구니 추가 - 수정 (LDG)
+	// 상품 상세 페이지 - 장바구니 추가 - 수정 (LDG)
 	@RequestMapping("/basketAdd")
 	@ResponseBody
 	public String basketAdd(@RequestParam("product_idx") String product_idx,
@@ -572,15 +572,15 @@ public class MyControllerPYH {
 		
 		int result = basketservice.basketAdd(member_id, product_idx, product_count, product_price);
 		if(result == 1) {			
-			return "<script>alert('제품을 장바구니에 넣었습니다.'); location.href='/mypage/basket';</script>";
+			return "<script>alert('상품을 장바구니에 넣었습니다.'); location.href='/mypage/basket';</script>";
 		}else if(result == 2) {
-			return "<script>alert('동일한 제품이 이미 등록되어 있습니다.'); history.back(-1);</script>";
+			return "<script>alert('동일한 상품이 이미 등록되어 있습니다.'); history.back(-1);</script>";
 		}else {
-			return "<script>alert('제품을 장바구니에 넣기 실패했습니다.'); history.back(-1);</script>";
+			return "<script>alert('상품을 장바구니에 넣기 실패했습니다.'); history.back(-1);</script>";
 		}
 	}
 //-------------------------------------------------------------------------------------------------------------------------	
-	// 리뷰 작성 페이지
+	// 상품평 작성 페이지
 	@RequestMapping("/product/reviewActionForm")
 	public String reviewActionForm(@RequestParam("review_product_idx") String review_product_idx,
 									HttpServletRequest request, Model model) {
@@ -600,7 +600,7 @@ public class MyControllerPYH {
 		return "/product/reviewActionForm";
 	}
 //-------------------------------------------------------------------------------------------------------------------------	
-	// 리뷰 작성
+	// 상품평 작성
 	@RequestMapping(value="/reviewAction", method = RequestMethod.POST)
 	@ResponseBody
 	public String reviewAction( @RequestParam(value="review_product_idx", required=false, defaultValue="") String review_product_idx,
@@ -635,9 +635,9 @@ public class MyControllerPYH {
 		
 		if(result == 1) {
 			
-			return "<script>alert('리뷰 등록에 성공했습니다.'); window.close(); </script>";
+			return "<script>alert('상품평 등록에 성공했습니다.'); window.close(); </script>";
 		}else {
-			return "<script>alert('리뷰 등록에 실패했습니다.'); history.back(-1);</script>";
+			return "<script>alert('상품평 등록에 실패했습니다.'); history.back(-1);</script>";
 		}
 	}
 //--------------------------------------------------------------------------------------------------------------------------
@@ -797,7 +797,7 @@ public class MyControllerPYH {
 		}
 	}
 //-----------------------------------------------------------------------------------------------------------------------
-	// 마이페이지 - 내가 작성한 상품평 페이지 - 리뷰 수정/삭제 페이지
+	// 마이페이지 - 내가 작성한 상품평 페이지 - 상품평 수정/삭제 페이지
 	@RequestMapping("/mypage/myReviewModify")
 	public String myReviewModify(@RequestParam("review_idx") String review_idx,
 								HttpServletRequest request, Model model) {

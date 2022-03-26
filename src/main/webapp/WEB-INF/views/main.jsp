@@ -216,7 +216,7 @@
 	<p class="subtitle">지니의 중요사항을 알려드립니다.</p></div>
 	<div class="board2">
 	
-	<div class="noticeboard"><div class="texttitle2">공지사항</div>
+	<div class="noticeboard"><h4>공지사항</h4>
 	<c:forEach var="notice_list" items="${notice_list }" begin="1" end="5">
 	<input type="hidden" name="notice_idx" value="${ notice_list.notice_idx }">
 	<table class="table table-sm">
@@ -229,7 +229,7 @@
 	</c:forEach>
 		
 	</div>
-	<div class="faqboard"><div class="texttitle2">FAQ</div>
+	<div class="faqboard"><h4>FAQ</h4>
 		<c:forEach var="faq_list" items="${faq_list }" begin="1" end="5">
 		<input type="hidden" name="faq_idx" value="${ faq_list.faq_idx }">
 	<table class="table table-sm">
