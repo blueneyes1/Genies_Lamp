@@ -6,14 +6,16 @@ import org.apache.ibatis.annotations.Mapper;
 
 import com.study.springboot.dto.OrderDto;
 import com.study.springboot.dto.OrderListDto;
-import com.study.springboot.dto.PayDto;
 
 
 @Mapper
 public interface IOrderDao {
 	
 	// 주문내역 (LDG)
-	public List<OrderDto> orderDetail(String member_id);
+	public List<OrderDto> orderDetail();
+	
+	// 제품 리스트 페이지 (LDG)
+	public List<OrderDto> order_listPage(String member_id, String startRowNum, String endRowNum);
 	
 	// 단건구매 - 제품등록 (LDG)
 	public int singleOrder( String pay_number, String order_product_idx, String order_product_name, 

@@ -8,8 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.study.springboot.dao.IOrderDao;
 import com.study.springboot.dto.OrderDto;
-import com.study.springboot.dto.OrderListDto;
-import com.study.springboot.dto.PayDto;
 
 @Component
 public class OrderService {
@@ -18,12 +16,20 @@ public class OrderService {
 	IOrderDao orderDao;
 
 	// 마이페이지 - 주문내역 (LDG)
-	public List<OrderDto> orderDetail(String member_id) {
+	public List<OrderDto> orderDetail() {
 
-		List<OrderDto> orderDetail = orderDao.orderDetail(member_id);
+		List<OrderDto> orderDetail = orderDao.orderDetail();
 
 		return orderDetail;
 
+	}
+	
+	// 마이페이지 - 주문내역 페이징 (LDG)
+	public List<OrderDto> order_listPage(String member_id, String startRowNum, String endRowNum) {
+		
+		List<OrderDto> order_listPage = orderDao.order_listPage(member_id , startRowNum, endRowNum);
+		
+		return order_listPage;
 	}
 
 	// 단건구매 - 구매제품등록 (LDG)

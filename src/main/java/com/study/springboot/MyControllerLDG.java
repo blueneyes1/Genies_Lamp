@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.study.springboot.dao.IPayNumber_seqDao;
 import com.study.springboot.dto.MemberDto;
+import com.study.springboot.dto.NoticeDto;
 import com.study.springboot.dto.OrderDto;
 import com.study.springboot.dto.OrderListDto;
 import com.study.springboot.service.BasketService;
@@ -239,7 +240,8 @@ public class MyControllerLDG {
 
 	// 마이페이지 - 주문내역
 	@RequestMapping("/mypage/orderDetails")
-	public String orderDetails(HttpServletRequest request, Model model) {
+	public String orderDetails(@RequestParam(value="page", required=false)String page,
+								HttpServletRequest request, Model model) {
 
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
@@ -249,12 +251,28 @@ public class MyControllerLDG {
 			model.addAttribute("url", "/login");
 			return "/check/loginCheck";				// check/loginCheck.jsp 로 디스패치 됨.
 		}
-
-		List<OrderDto> orderDetail = orderService.orderDetail(member_id);
 		
-		model.addAttribute("orderDetail", orderDetail);
+		if(page == null || page.equals("")) {
 
-		model.addAttribute("mainPage", "mypage/orderDetails.jsp");
+	    	page = "1";
+	    }
+		
+		if(page != null) {
+			
+			model.addAttribute("page",page);
+			
+			int num_page_no = Integer.parseInt(page);	//page 번호
+			int num_page_size = 5;										//페이지당 보이는 row 개수
+			int startRowNum = (num_page_no - 1) * num_page_size + 1;	//1,6,11 페이지 시작번호
+			int endRowNum = (num_page_no * num_page_size);				//5, 10, 15 페이지 끝번호
+		
+	  	    //List<NoticeDto> notice_list = NoticeService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
+	  	    List<OrderDto> order_listPage = orderService.order_listPage(member_id, String.valueOf(startRowNum), String.valueOf(endRowNum));
+		
+			model.addAttribute("orderDetail", order_listPage);
+	
+			model.addAttribute("mainPage", "mypage/orderDetails.jsp");
+		}
 
 		return "index"; // "mypage/orderDetails.jsp" 디스패치됨.
 

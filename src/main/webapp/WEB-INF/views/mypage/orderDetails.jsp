@@ -90,7 +90,7 @@
 									<input type="button" value="리뷰쓰기" id="review_btn" onclick="showPopup();">
 								</c:if>
 								<c:if test="${dto.order_review eq 'Y' }">
-									<input type="button" value="리뷰보기" onclick="location.href='/mypage/myReviewList'">
+									<input type="button" value="리뷰보기" id="review_btn" onclick="location.href='/mypage/myReviewList'">
 								</c:if>
 							</c:if>
 						</td>
@@ -102,10 +102,58 @@
 					</tr>
 				</c:if>
 			</c:forEach>
+			
+						
 		</table>
 		
-	</div>
-	</div>
+		<div class="page_box">
+		      <nav aria-label="Page navigation example" >
+		  			<ul class="pagination">
+					  	<!-- 이전 버튼 -->
+						
+	           			<li class="page-item <c:if test="${ page == 1 }">disabled</c:if>">
+	           				<a class="page-link" href="/mypage/orderDetails?page=${page-1}">Previous</a>
+	           			</li>
+					    
+					    <!-- 페이지 번호 -->
+	              		<%-- <c:forEach begin="${page}" end="${page + 4}" var="num">
+	              			<li class="page-item ${page == num ? 'active':''}">
+	              				<a class="page-link" href="/mypage/orderDetails?page=${page}">${page}</a>
+	              			</li>	
+	              		</c:forEach> --%>
+	              		
+	              		<li class="page-item <c:if test="${ page == 1 }">active</c:if>">
+					    	<a class="page-link" href="/mypage/orderDetails?page=1">1</a>
+					    </li>
+					    <li class="page-item <c:if test="${ page == 2 }">active</c:if>">
+					    	<a class="page-link" href="/mypage/orderDetails?page=2">2</a>
+					    </li>
+					    <li class="page-item <c:if test="${ page == 3 }">active</c:if>">
+					    	<a class="page-link" href="/mypage/orderDetails?page=3">3</a>
+					    </li>
+					    <li class="page-item <c:if test="${ page == 4 }">active</c:if>">
+					    	<a class="page-link" href="/mypage/orderDetails?page=4">4</a>
+					    </li>
+					    <li class="page-item <c:if test="${ page == 5 }">active</c:if>">
+					    	<a class="page-link" href="/mypage/orderDetails?page=5">5</a>
+					    </li>
+					    
+					    <!-- 다음 버튼 -->				    
+					    <li class="page-item <c:if test="${ page == 5 }">disabled</c:if>">
+					    	<a class="page-link" href="/mypage/orderDetails?page=${page+1}">Next</a>
+					    </li>				
+				 	</ul>
+			</nav>	
+		</div>			
+				
+		
+		</div>	
+	
+		</div>
+		
+			
+
+		
 	
 	
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -118,5 +166,7 @@ function showPopup() {
   	var product_idx = $('#order_product_idx').val();
   	window.open("/product/reviewActionForm?review_product_idx=" + product_idx, "a", "width=700, height=700, left=100, top=50");
   	}
+  	
+
 
 </script>

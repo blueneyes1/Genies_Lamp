@@ -14,6 +14,20 @@
      	AND genies_pay.pay_number = genies_order.order_pay_number
      </select>
      
+     <!-- 마이페이지 - 주문내역 페이징 (LDG) -->
+    <select id="order_listPage" resultType="com.study.springboot.dto.OrderDto">
+		SELECT * FROM
+	    (
+	        SELECT 
+	            ROWNUM AS RNUM, genies_pay.* , genies_order.*
+	        FROM
+	            genies_pay, genies_order
+            where genies_pay.pay_member_id = #{ param1 } 
+     	AND genies_pay.pay_number = genies_order.order_pay_number
+	    )
+		WHERE RNUM BETWEEN #{param2} AND #{param3}
+	</select>
+     
      <!-- 단건구매 - 제품등록 (LDG) -->
      <insert id="singleOrder">
      	INSERT INTO genies_order( order_idx, order_pay_number, order_product_idx, order_product_name, 
