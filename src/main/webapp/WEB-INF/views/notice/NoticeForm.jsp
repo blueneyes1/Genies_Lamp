@@ -146,8 +146,7 @@ footer {
       <th scope="col" style="width=20%;">번호</th>
       <th scope="col" style="width=50%;">제목</th>
       <th scope="col" style="width=30%;">작성일</th>
- 
-    </tr>
+     </tr>
   </thead>
   <tbody>
       <c:forEach var="dto" items="${ notice_list }" varStatus="status">
@@ -159,14 +158,12 @@ footer {
        	</c:forEach>
    </tbody>
 </table>
-
        
      <div class="writebtn">
      <c:if test="${ member_grade eq 'A' }">
 	 <button onclick="location.href='/notice/NoticeWrite'" id="notice_btn">작성</button>
 	</c:if>
 	</div>
-
  
 <div class="contanier-fluid">
   <div class="row">
@@ -196,8 +193,7 @@ footer {
 
 	    </li>
       </ul>
-  
-     </nav>
+       </nav>
   </div>
  </div>
  </div>

@@ -68,10 +68,7 @@ footer {
 <body>
 <div class="body-wrapper">
 <div class="body-content">
-
 <div class="main">
-
-
 
 <div class="tablesize">
 	<table class="table table-sm"  style="margin-left: auto; margin-right: auto;">

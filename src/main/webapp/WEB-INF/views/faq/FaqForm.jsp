@@ -131,7 +131,6 @@ footer {
 
 <div class="body-wrapper">
 	<div class="body-content">
-
 <div class="menu">
 
     <table class="table table-sm"">
@@ -139,9 +138,7 @@ footer {
     <tr>
       <th scope="col">번호</th>
       <th scope="col">제목</th>
-    
- 
-    </tr>
+        </tr>
   </thead>
   <tbody>
   <tr>
@@ -159,10 +156,7 @@ footer {
 	 <button onclick="location.href='/faq/FaqWrite'" id="notice_btn">작성</button>
 	</c:if>
 	</div>
-			
-
-
-  <div class="contanier-fluid">
+		  <div class="contanier-fluid">
   	<div class="row">
   	<nav aria-label="Page navigation example">
     <ul class="pagination">
@@ -186,10 +180,8 @@ footer {
 	    </li>
 	    <li class="page-item <c:if test="${ page == 5 }">disabled</c:if>">
 	    	<a class="page-link" href="/faq/FaqForm?page=${page+1}">Next</a>
-
 	    </li>
       </ul>
-    
     </nav>
   </div>
  </div>

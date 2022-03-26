@@ -101,8 +101,7 @@ footer {
 </table>
 
 </div>
-	
-	
+
 
 
 <div class="writebtn">
