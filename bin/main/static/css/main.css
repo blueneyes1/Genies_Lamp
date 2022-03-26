@@ -6,24 +6,36 @@ margin:0;
 padding:0;
 
 }
-
+a{
+	text-decoration : none;
+	text-decoration-line: none;
+	text-decoration-color:none;
+}
 a:link { 
 	color: black; 
 	text-decoration: none;
+	text-decoration-color:none;
 	}
 
 a:visited { 
 	color: black; 
 	text-decoration: none;
+	text-decoration-color:none;
 }
 
 a:hover { 
-	color: black; 
+	color: black  !important; 
+	text-decoration: none  !important;
+	text-decoration-color:none  !important;
+}
+a:active{
 	text-decoration: none;
-	}
+	text-decoration-color:none;
+}
 
-	
-
+table{
+	font-size:10px;
+}
 
 .main{
 max-width:100%;

@@ -4,6 +4,9 @@
  /* PC */
 @media screen and ( min-width: 960px ) {
  
+
+ 
+ 
 .box {
 display: flex;
 flex-flow: row nowrap;
