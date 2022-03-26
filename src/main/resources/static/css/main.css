@@ -187,14 +187,12 @@ margin:40px;
 
 .reviewboard2{
 display:flex;
-flex-direction:row;	
+/* width : 100%; */
+flex-direction :row;	
+justify-content: space-between;
+/* justify-content: space-around; */
 }
 
-.tableboard1{
-display:flex;
-flex-direction:row;	
-
-}
 
 .table1{
 	border-spacing: 10px;

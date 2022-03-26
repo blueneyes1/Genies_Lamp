@@ -17,6 +17,7 @@ import com.study.springboot.dto.NoticeDto;
 import com.study.springboot.dto.Product_reviewDto;
 import com.study.springboot.service.FaqService;
 import com.study.springboot.service.NoticeService;
+import com.study.springboot.service.ProductReviewService;
 import com.study.springboot.service.ProductService;
 
 
@@ -31,6 +32,11 @@ private FaqService FaqService;
 
 @Autowired
 ProductService productservice;
+
+@Autowired
+ProductReviewService producReviewService;
+
+
 //----공지사항게시판----//
 
 /*
@@ -57,11 +63,11 @@ public String main(
 
 	List<NoticeDto> notice_list = NoticeService.notice_list();
 	List<FaqDto> faq_list = FaqService.faq_list();
-	List<Product_reviewDto> admin_view_review = productservice.admin_view_review();
+	List<Product_reviewDto> main_review = producReviewService.main_review();
 	
 	model.addAttribute("notice_list", notice_list);
 	model.addAttribute("faq_list", faq_list);
-	model.addAttribute("admin_view_review", admin_view_review);
+	model.addAttribute("main_review", main_review);
 	model.addAttribute("mainPage", "main.jsp");
 
 	return "index"; // "index.jsp" 디스패치함.

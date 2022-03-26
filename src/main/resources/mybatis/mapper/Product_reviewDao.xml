@@ -63,6 +63,13 @@
 		delete from GENIES_PRODUCT_REVIEW where review_member_id= #{param1} and review_product_idx = #{param2}
 	</delete>
 	
+	<!-- 메인페이지 - 최신 리뷰 4 (LDG) -->	
+	<select id="main_review" resultType="com.study.springboot.dto.Product_reviewDto">
+		<![CDATA[ 
+			select * from GENIES_PRODUCT_REVIEW where rownum <= 4 order by review_idx desc
+		]]>
+	</select>
+	
 </mapper>    
 
 

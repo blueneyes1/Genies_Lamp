@@ -32,4 +32,8 @@ public interface IProduct_reviewDao {
 	
 	// 마이 페이지 - 내가 작성한 리뷰 페이지 - 리뷰 삭제 (PYH)
 	public int mypage_review_delete(String review_member_id , String review_product_idx);
+	
+	// 메인 페이지 최신 리뷰 4 (LDG)
+	public List<Product_reviewDto> main_review();
+	
 }
