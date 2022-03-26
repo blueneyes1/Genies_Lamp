@@ -121,7 +121,7 @@ public class MyControllerPYH {
 		return "/admin/orderlist";
 	}
 //------------------------------------------------------------------------------------------------------------------------
-	// 관리자 페이지 - 멤버 리스트 페이지
+	// 관리자 페이지 - 회원 리스트 페이지
 	@RequestMapping("admin/memberList")
 	public String memberList(HttpServletRequest request,Model model) {
 		
@@ -142,7 +142,7 @@ public class MyControllerPYH {
 	}
 	
 //------------------------------------------------------------------------------------------------------------------------
-	// 관리자 페이지 - 멤버 수정/삭제 페이지
+	// 관리자 페이지 - 회원 수정/삭제 페이지
 	@RequestMapping("/admin/memberModify")
 	public String memberModify(@RequestParam(value= "member_id") String member_id,
 								HttpServletRequest request,Model model) {

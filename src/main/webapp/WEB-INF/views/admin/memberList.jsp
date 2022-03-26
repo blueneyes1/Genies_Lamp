@@ -52,14 +52,14 @@
           <table class="table table-hover">
   
             <tr>
-              <th>멤버 아이디</th>
-              <th>멤버 성명</th>
-              <th>멤버 이메일</th>
-              <th>멤버 전화번호</th>
-              <th>멤버 주소</th>
-              <th>멤버 등급</th>
-              <th>멤버 가입날짜</th>
-              <th>멤버 수정/삭제하기</th>
+              <th>회원 아이디</th>
+              <th>회원 성명</th>
+              <th>회원 이메일</th>
+              <th>회원 전화번호</th>
+              <th>회원 주소</th>
+              <th>회원 등급</th>
+              <th>회원 가입날짜</th>
+              <th>회원 수정/삭제하기</th>
             </tr>
 		
 		<c:forEach var="list" items="${list }" >
