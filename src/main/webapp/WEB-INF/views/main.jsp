@@ -173,40 +173,42 @@
 		<p class="subtitle">실제 구매하신분들의 의견을 말해드립니다</p>
 		</div>
 	
-	<div class="reiviewboard2">
-		<div class="tableboard1">
+	<div class="reviewboard2">
+		<div class="tableboard1" >
 	
       <table class="table1" >
   		<c:forEach var="admin_view_review" items="${admin_view_review }">
-      
+             
+              	<tr>
+              	<td><img src="${admin_view_review.review_img }" id="review_img" ></td>
+              	</tr>
               
-   
-             	 <td>
-              	<img src="${admin_view_review.review_img }" id="review_img">
-              	</td>
-              
-              
-          
+              	<tr>
               	<td>${admin_view_review.review_title }</td>
+             	</tr>
               
-         
+             	<tr>
              	 <td>${admin_view_review.review_member_id }</td>
+             </tr>
               
-              
-       
+             <tr>
                   <td>
               		<c:set var="dateVar" value="${admin_view_review.review_date }" />
 					<fmt:formatDate value="${dateVar}" pattern="yyyy-MM-dd" />
               	 </td>
-                  
+          	</tr>
+          
        
 		       </c:forEach>
 
           </table>
 		</div>
 		
+	
+		</div>
 		
-</div>
+		
+
 
 
 	<!--  공지사항 FAQ 보드 -->
