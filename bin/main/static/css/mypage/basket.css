@@ -46,7 +46,18 @@
   #basket_img {
   width: 150px;
   height: 150px;
-  }}
+  }
+  .delete_btn {
+  background-color: rgb(178, 178, 238);
+	border: none;
+	width: 40px;
+	height: 25px;
+	color: rgb(17, 17, 17);
+	border-radius: 3px;
+	margin: 5px;
+  }
+  
+  }
   
   /* 태블릿 */
 @media screen and ( min-width: 768px )
