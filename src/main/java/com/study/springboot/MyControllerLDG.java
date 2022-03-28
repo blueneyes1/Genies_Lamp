@@ -266,9 +266,9 @@ public class MyControllerLDG {
 			int startRowNum = (num_page_no - 1) * num_page_size + 1;	//1,6,11 페이지 시작번호
 			int endRowNum = (num_page_no * num_page_size);				//5, 10, 15 페이지 끝번호
 		
-	  	    //List<NoticeDto> notice_list = NoticeService.listPage(String.valueOf(startRowNum), String.valueOf(endRowNum));
 	  	    List<OrderDto> order_listPage = orderService.order_listPage(member_id, String.valueOf(startRowNum), String.valueOf(endRowNum));
-		
+	  	  
+	  	    
 			model.addAttribute("orderDetail", order_listPage);
 	
 			model.addAttribute("mainPage", "mypage/orderDetails.jsp");
