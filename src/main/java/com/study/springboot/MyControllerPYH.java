@@ -569,6 +569,11 @@ public class MyControllerPYH {
 		
 		String member_id = (String) request.getSession().getAttribute("member_id");
 		
+		// 로그인 체크
+		if(member_id == null) {
+			return "<script>alert('로그인이 필요한 서비스입니다.'); location.href='/login';</script>";
+		}
+		
 		
 		int result = basketservice.basketAdd(member_id, product_idx, product_count, product_price);
 		if(result == 1) {			

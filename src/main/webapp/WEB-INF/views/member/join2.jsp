@@ -13,97 +13,49 @@
 <link rel="stylesheet" href="/css/member/join2.css">
 
 <script>
-	function checkValue() {
-		if(!document.userInfo.member_id.value) { // empty: null, 길이 0
-			alert( "아이디를 입력해주세요" );
-			document.getElementById( 'member_id' ).focus();
-			return false; // submit전송이안됨
-		}
-		if(!document.userInfo.member_id.value == 'no') { // empty: null, 길이 0
-			alert( "아이디 중복확인을 해주세요" );
-			document.getElementById( 'member_id' ).focus();
-			return false; // submit전송이안됨
-		}
-		if(!document.userInfo.member_pw.value) {
-			alert( "비밀번호를 입력해주세요" );
-			document.getElementById( 'member_pw' ).focus();
-			return false; // submit전송이안됨
-		}
-		if( ! (document.userInfo.member_pw.value == document.userInfo.member_pw_check.value) ) {
-			alert( "비밀번호가 일치하지 않습니다. 다시 입력해주세요" );
-			document.getElementById('member_pw').focus();
-			return false; //submit전송이 안됨
-		}
-    	if(!document.userInfo.member_name.value) { 
-			alert("이름을 입력해주세요");
-			document.getElementById('member_name').focus();
-			return false; //submit전송이 안됨
-		}
-    	if(!document.userInfo.member_email.value) {
-			alert("이메일을 입력해주세요");
-			document.getElementById('member_email').focus();
-			return false; 
-		}
-    	if(!document.userInfo.member_phone.value) {
-			alert("전화번호를 입력해주세요");
-			document.getElementById('member_phone').focus();
-			return false; 
-		}
-    	if(!document.userInfo.member_adrress1.value) {
-			alert("우편번호를 입력해주세요");
-			document.getElementById('member_adrress1').focus();
-			return false; 
-		}
-    	if(!document.userInfo.member_adrress2.value) {
-			alert("주소를 입력해주세요");
-			document.getElementById('member_adrress2').focus();
-			return false; 
-		}
-    	if(!document.userInfo.member_adrress3.value) {
-			alert("상세주소를 입력해주세요");
-			document.getElementById('member_adrress3').focus();
-			return false; 
-		}
-    	
-    	return true; //submit전송됨.
-	}
+
+//ajax으로 서버와 통신한다.
+// ajax : page 리로딩없이 서버와 통신한다.
+// ajax 용도 : 화면 갱신(reload,redirect)가 없이
+//            부분화면 갱신(통신)을 js에서 한다.
+//           예)네이버 - 실시간검색어, 실시간날씨
+function idCheck() {
+	var member_id = $( '#member_id' ).val();
 	
-	// ajax으로 서버와 통신한다.
-	// ajax : page 리로딩없이 서버와 통신한다.
-	// ajax 용도 : 화면 갱신(reload,redirect)가 없이
-	//            부분화면 갱신(통신)을 js에서 한다.
-	//           예)네이버 - 실시간검색어, 실시간날씨
-	function idCheck() {
-		var member_id = $( '#member_id' ).val();
-		if(!member_id){
-			alert("아이디를 입력하세요.");
-			return false;
-		}
-		// 아이디와 유효성 검사(1보다 같거나 크면 중복 / 0 이면 중복안됨)
-		$.ajax( {
-			url: 'http://localhost:8090/member/idCheckAjax?member_id=' + member_id,
-			type: 'get',
-			success: function(data) {
-				console.log('통신 성공, data:' + data);
-				
-				var data_num = Number( data );
-				if( data_num >= 1 ) {
-					// 아이디가 중복됨.
-					alert("아이디가 중복됩니다.");
-					$('#member_id_check').val("no");
-				}else{
-					// 아이디가 중복 안됨. 사용가능.
-					alert("아이디가 사용가능합니다.");
-					$('#member_id_check').val("yes");
-				}
-			},
-			error: function(){
-    			console.log('통신 실패');
-    		}
-		}
-		);
+	if(!member_id){
+		alert("아이디를 입력하세요.");
+		return false;
 	}
+	// 아이디와 유효성 검사(1보다 같거나 크면 중복 / 0 이면 중복안됨)
+	$.ajax( {
+		url: '/member/idCheckAjax?member_id=' + member_id,
+		type: 'get',
+		success: function(data) {
+			console.log('통신 성공, data:' + data);
+			
+			var data_num = Number( data );
+			if( data_num >= 1 ) {
+				// 아이디가 중복됨.
+				alert("아이디가 중복됩니다.");
+				$('#member_id_check').val("no");
+				document.getElementById( 'member_id' ).focus();
+				return false;
+			}else{
+				// 아이디가 중복 안됨. 사용가능.
+				alert("아이디가 사용가능합니다.");
+				$('#member_id_check').val("yes");
+				document.getElementById( 'member_pw' ).focus();
+				return false;
+			}
+		},
+		error: function(){
+			console.log('통신 실패');
+		}
+	}
+	);
 	
+}
+
 </script>
 
 <!-- 회원가입 -->
@@ -116,7 +68,7 @@
 			<tr>
 				<td>아이디</td>
 				<td>
-					<input type="text" name="member_id" id="member_id" required>
+					<input type="text" name="member_id" id="member_id" >
 					<button onclick="idCheck();" id="id_confirm_btn">중복확인</button>
 		            <span id="small_txt">(영문 소문자, 숫자로 4~16자)</span>
 		            <input type="hidden" name="member_id_check" id="member_id_check" value="no">
@@ -196,12 +148,69 @@
 </div>
 
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-
 	<!-- 다음 우편번호 서비스 API -->
     <!-- http://postcode.map.daum.net/guide -->
+    
+<script>
+
+
+function checkValue() {
+	if(!document.userInfo.member_id.value) { // empty: null, 길이 0
+		alert( "아이디를 입력해주세요" );
+		document.getElementById( 'member_id' ).focus();
+		return false; // submit전송이안됨
+	}
+	if(!document.userInfo.member_id.value == 'no') { // empty: null, 길이 0
+		alert( "아이디 중복확인을 해주세요" );
+		document.getElementById( 'member_id' ).focus();
+		return false; // submit전송이안됨
+	}
+	if(!document.userInfo.member_pw.value) {
+		alert( "비밀번호를 입력해주세요" );
+		document.getElementById( 'member_pw' ).focus();
+		return false; // submit전송이안됨
+	}
+	if( ! (document.userInfo.member_pw.value == document.userInfo.member_pw_check.value) ) {
+		alert( "비밀번호가 일치하지 않습니다. 다시 입력해주세요" );
+		document.getElementById('member_pw').focus();
+		return false; //submit전송이 안됨
+	}
+	if(!document.userInfo.member_name.value) { 
+		alert("이름을 입력해주세요");
+		document.getElementById('member_name').focus();
+		return false; //submit전송이 안됨
+	}
+	if(!document.userInfo.member_email.value) {
+		alert("이메일을 입력해주세요");
+		document.getElementById('member_email').focus();
+		return false; 
+	}
+	if(!document.userInfo.member_phone.value) {
+		alert("전화번호를 입력해주세요");
+		document.getElementById('member_phone').focus();
+		return false; 
+	}
+	if(!document.userInfo.member_adrress1.value) {
+		alert("우편번호를 입력해주세요");
+		document.getElementById('member_adrress1').focus();
+		return false; 
+	}
+	if(!document.userInfo.member_adrress2.value) {
+		alert("주소를 입력해주세요");
+		document.getElementById('member_adrress2').focus();
+		return false; 
+	}
+	if(!document.userInfo.member_adrress3.value) {
+		alert("상세주소를 입력해주세요");
+		document.getElementById('member_adrress3').focus();
+		return false; 
+	}
+	
+	return true; //submit전송됨.
+}
+		
+
+</script>
 	
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
