@@ -20,6 +20,9 @@
  
 </head>
 <body>
+
+
+
 	<div class="menu_box">
         <div class="menu_btn">
           <button onclick="location.href='/admin/memberList' " id="btns">회원관리</button>

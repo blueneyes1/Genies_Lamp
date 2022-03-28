@@ -3,6 +3,7 @@
  /* PC */
 @media screen and ( min-width: 960px ) {
  
+
 .box {
 display: flex;
 flex-flow: row nowrap;
@@ -74,7 +75,8 @@ height: 300px;
     #review_img {
     width:150px;
     height: 100px;
-    }}
+    }
+
   
 /* 태블릿 */
 @media screen and ( min-width: 768px )
